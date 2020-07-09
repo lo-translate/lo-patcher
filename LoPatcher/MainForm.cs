@@ -6,6 +6,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -15,29 +16,120 @@ namespace LoPatcher
     {
         private string selectedFile;
         private string defaultSelectedFileText;
+        private Thread patchThread;
+
+        private delegate void SetStatusTextDelegate(string text, Color color);
+        private delegate void EnableFormDelegate(bool enable);
+        private delegate void ResetFormDelegate(bool enable);
 
         public MainForm()
         {
             InitializeComponent();
 
             defaultSelectedFileText = labelSelectedFile.Text;
+
+            SetStatusText("");
         }
 
-        private void Reset()
+        private void ChooseInputFile(string file)
         {
+            selectedFile = file;
+            labelSelectedFile.Text = GetShorterDirectory(selectedFile);
+            buttonPatch.Enabled = true;
+
+            SetStatusText("");
+        }
+
+        private void ResetForm(bool includeStatus)
+        {
+            if (labelSelectedFile.InvokeRequired)
+            {
+                labelSelectedFile.Invoke(new ResetFormDelegate(ResetForm), new object[] { includeStatus });
+                return;
+            }
+
             selectedFile = string.Empty;
             labelSelectedFile.Text = defaultSelectedFileText;
             buttonPatch.Enabled = false;
+            
+            if (includeStatus)
+            {
+                SetStatusText("");
+            }
         }
 
-        private void buttonChooseBundle_Click(object sender, EventArgs e)
+        private void SetStatusText(string text)
         {
-            if (dialogChooseBundle.ShowDialog() == DialogResult.OK)
+            SetStatusText(text, SystemColors.WindowText);
+        }
+
+        private void SetStatusText(string text, Color textColor)
+        {
+            if (labelStatus.InvokeRequired)
             {
-                selectedFile = dialogChooseBundle.FileName;
-                labelSelectedFile.Text = GetShorterDirectory(selectedFile);
-                buttonPatch.Enabled = true;
+                labelStatus.Invoke(new SetStatusTextDelegate(SetStatusText), new object[] { text, textColor });
+                return;
             }
+
+            labelStatus.ForeColor = textColor;
+            labelStatus.Text = text;
+        }
+
+        private void EnableForm(bool enable)
+        {
+            if (buttonChooseBundle.InvokeRequired)
+            {
+                buttonChooseBundle.Invoke(new EnableFormDelegate(EnableForm), new object[] { enable });
+                return;
+            }
+
+            Enabled = enable;
+        }
+
+        private void DoPatch()
+        {
+            EnableForm(false);
+
+            using var classData = new MemoryStream(Properties.Resources.classdata);
+            var patcher = new BundlePatch.BundlePatcher(classData);
+            var outputFile = dialogChooseOutput.FileName;
+            var result = patcher.Patch(selectedFile, outputFile);
+            if (result.Success)
+            {
+                SetStatusText($"File patched, saved to {GetShorterDirectory(outputFile)}", Color.Green);
+                ResetForm(false);
+            }
+            else
+            {
+                SetStatusText($"Failed to patch file: {result.Status}", Color.Red);
+            }
+
+            EnableForm(true);
+        }
+
+        private void ButtonChooseBundle_Click(object sender, EventArgs e)
+        {
+            if (dialogChooseInput.ShowDialog() == DialogResult.OK)
+            {
+                ChooseInputFile(dialogChooseInput.FileName);
+            }
+        }
+
+        private void ButtonPatch_Click(object sender, EventArgs e)
+        {
+            if (dialogChooseOutput.ShowDialog() != DialogResult.OK)
+            {
+                return;
+            }
+
+            if (patchThread != null && patchThread.IsAlive)
+            {
+                MessageBox.Show("Patch already running", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            patchThread = new Thread(new ThreadStart(DoPatch)) { IsBackground = true };
+            patchThread.Start();
         }
 
         /// <summary>

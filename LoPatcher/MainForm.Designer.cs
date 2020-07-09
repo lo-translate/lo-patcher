@@ -28,35 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dialogChooseBundle = new System.Windows.Forms.OpenFileDialog();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dialogChooseInput = new System.Windows.Forms.OpenFileDialog();
+            this.groupBoxBundleFile = new System.Windows.Forms.GroupBox();
             this.labelSelectedFile = new System.Windows.Forms.Label();
             this.buttonChooseBundle = new System.Windows.Forms.Button();
             this.buttonPatch = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.groupBoxLanguageData = new System.Windows.Forms.GroupBox();
+            this.buttonLanguageUpdate = new System.Windows.Forms.Button();
+            this.labelLanguageVersion = new System.Windows.Forms.Label();
+            this.dialogChooseOutput = new System.Windows.Forms.SaveFileDialog();
+            this.labelStatus = new System.Windows.Forms.Label();
+            this.groupBoxBundleFile.SuspendLayout();
+            this.groupBoxLanguageData.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dialogChooseBundle
+            // dialogChooseInput
             // 
-            this.dialogChooseBundle.FileName = "__data";
-            this.dialogChooseBundle.Filter = "__data files|__data*|All files|*.*";
+            this.dialogChooseInput.FileName = "__data";
+            this.dialogChooseInput.Filter = "__data files|__data*|All files|*.*";
             // 
-            // groupBox1
+            // groupBoxBundleFile
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.groupBoxBundleFile.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.labelSelectedFile);
-            this.groupBox1.Controls.Add(this.buttonChooseBundle);
-            this.groupBox1.Location = new System.Drawing.Point(13, 13);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(379, 57);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Bundle file";
+            this.groupBoxBundleFile.Controls.Add(this.labelSelectedFile);
+            this.groupBoxBundleFile.Controls.Add(this.buttonChooseBundle);
+            this.groupBoxBundleFile.Location = new System.Drawing.Point(13, 13);
+            this.groupBoxBundleFile.Name = "groupBoxBundleFile";
+            this.groupBoxBundleFile.Size = new System.Drawing.Size(379, 57);
+            this.groupBoxBundleFile.TabIndex = 0;
+            this.groupBoxBundleFile.TabStop = false;
+            this.groupBoxBundleFile.Text = "Bundle file";
             // 
             // labelSelectedFile
             // 
@@ -78,7 +80,7 @@
             this.buttonChooseBundle.TabIndex = 0;
             this.buttonChooseBundle.Text = "Browse...";
             this.buttonChooseBundle.UseVisualStyleBackColor = true;
-            this.buttonChooseBundle.Click += new System.EventHandler(this.buttonChooseBundle_Click);
+            this.buttonChooseBundle.Click += new System.EventHandler(this.ButtonChooseBundle_Click);
             // 
             // buttonPatch
             // 
@@ -90,69 +92,86 @@
             this.buttonPatch.TabIndex = 1;
             this.buttonPatch.Text = "Start Patching";
             this.buttonPatch.UseVisualStyleBackColor = true;
+            this.buttonPatch.Click += new System.EventHandler(this.ButtonPatch_Click);
             // 
-            // groupBox2
+            // groupBoxLanguageData
             // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.groupBoxLanguageData.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.button3);
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Enabled = false;
-            this.groupBox2.Location = new System.Drawing.Point(13, 81);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(379, 57);
-            this.groupBox2.TabIndex = 2;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Language data";
+            this.groupBoxLanguageData.Controls.Add(this.buttonLanguageUpdate);
+            this.groupBoxLanguageData.Controls.Add(this.labelLanguageVersion);
+            this.groupBoxLanguageData.Enabled = false;
+            this.groupBoxLanguageData.Location = new System.Drawing.Point(13, 81);
+            this.groupBoxLanguageData.Name = "groupBoxLanguageData";
+            this.groupBoxLanguageData.Size = new System.Drawing.Size(379, 57);
+            this.groupBoxLanguageData.TabIndex = 2;
+            this.groupBoxLanguageData.TabStop = false;
+            this.groupBoxLanguageData.Text = "Language data";
             // 
-            // button3
+            // buttonLanguageUpdate
             // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.Location = new System.Drawing.Point(249, 20);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(119, 25);
-            this.button3.TabIndex = 1;
-            this.button3.Text = "Check for update";
-            this.button3.UseVisualStyleBackColor = true;
+            this.buttonLanguageUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonLanguageUpdate.Location = new System.Drawing.Point(249, 20);
+            this.buttonLanguageUpdate.Name = "buttonLanguageUpdate";
+            this.buttonLanguageUpdate.Size = new System.Drawing.Size(119, 25);
+            this.buttonLanguageUpdate.TabIndex = 1;
+            this.buttonLanguageUpdate.Text = "Check for update";
+            this.buttonLanguageUpdate.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // labelLanguageVersion
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(11, 25);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(139, 15);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Last updated: 2020-04-05";
+            this.labelLanguageVersion.AutoSize = true;
+            this.labelLanguageVersion.Location = new System.Drawing.Point(11, 25);
+            this.labelLanguageVersion.Name = "labelLanguageVersion";
+            this.labelLanguageVersion.Size = new System.Drawing.Size(139, 15);
+            this.labelLanguageVersion.TabIndex = 0;
+            this.labelLanguageVersion.Text = "Last updated: 2020-04-05";
+            // 
+            // labelStatus
+            // 
+            this.labelStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelStatus.AutoEllipsis = true;
+            this.labelStatus.Location = new System.Drawing.Point(13, 146);
+            this.labelStatus.Name = "labelStatus";
+            this.labelStatus.Size = new System.Drawing.Size(271, 32);
+            this.labelStatus.TabIndex = 3;
+            this.labelStatus.Text = "Status text";
+            this.labelStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(404, 186);
-            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.labelStatus);
+            this.Controls.Add(this.groupBoxLanguageData);
             this.Controls.Add(this.buttonPatch);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.groupBoxBundleFile);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.Text = "Lo Patcher";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.groupBoxBundleFile.ResumeLayout(false);
+            this.groupBoxLanguageData.ResumeLayout(false);
+            this.groupBoxLanguageData.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.OpenFileDialog dialogChooseBundle;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.OpenFileDialog dialogChooseInput;
         private System.Windows.Forms.Label labelSelectedFile;
         private System.Windows.Forms.Button buttonChooseBundle;
         private System.Windows.Forms.Button buttonPatch;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.GroupBox groupBoxLanguageData;
+        private System.Windows.Forms.Button buttonLanguageUpdate;
+        private System.Windows.Forms.Label labelLanguageVersion;
+        private System.Windows.Forms.SaveFileDialog dialogChooseOutput;
+        private System.Windows.Forms.Label labelStatus;
+        private System.Windows.Forms.GroupBox groupBoxBundleFile;
     }
 }
 
