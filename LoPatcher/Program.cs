@@ -17,7 +17,9 @@ namespace LoPatcher
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+
+            using var form = new MainForm();
+            Application.Run(form);
         }
     }
 }
