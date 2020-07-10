@@ -69,5 +69,42 @@ namespace LoPatcher.Properties {
                 return ((byte[])(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Patch already running.
+        /// </summary>
+        internal static string ErrorModalAlreadyRunning {
+            get {
+                return ResourceManager.GetString("ErrorModalAlreadyRunning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error.
+        /// </summary>
+        internal static string ErrorModalTitle {
+            get {
+                return ResourceManager.GetString("ErrorModalTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed to parse translations, patch will not function..
+        /// </summary>
+        internal static string ErrorModalTranslationParse {
+            get {
+                return ResourceManager.GetString("ErrorModalTranslationParse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] translations {
+            get {
+                object obj = ResourceManager.GetObject("translations", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }

@@ -121,4 +121,16 @@
   <data name="classdata" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\classdata.tpk;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="ErrorModalAlreadyRunning" xml:space="preserve">
+    <value>Patch already running</value>
+  </data>
+  <data name="ErrorModalTitle" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="ErrorModalTranslationParse" xml:space="preserve">
+    <value>Failed to parse translations, patch will not function.</value>
+  </data>
+  <data name="translations" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\translations.po;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>
