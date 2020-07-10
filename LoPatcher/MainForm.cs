@@ -91,7 +91,8 @@ namespace LoPatcher
             EnableForm(false);
 
             using var classData = new MemoryStream(Properties.Resources.classdata);
-            var patcher = new BundlePatch.BundlePatcher(classData);
+            var assetPatchers = new List<IAssetPatcher>();
+            var patcher = new BundlePatch.BundlePatcher(classData, assetPatchers);
             var outputFile = dialogChooseOutput.FileName;
             var result = patcher.Patch(selectedFile, outputFile);
             if (result.Success)

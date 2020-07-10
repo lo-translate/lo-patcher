@@ -9,12 +9,13 @@ namespace LoPatcher.BundlePatch
 {
     public class BundlePatcher
     {
-        private readonly List<IAssetPatcher> assetPatchers = new List<IAssetPatcher>();
+        private readonly List<IAssetPatcher> assetPatchers;
         private readonly Stream classDataStream;
 
-        public BundlePatcher(Stream classDataStream)
+        public BundlePatcher(Stream classDataStream, List<IAssetPatcher> assetPatchers)
         {
             this.classDataStream = classDataStream ?? throw new ArgumentNullException(nameof(classDataStream));
+            this.assetPatchers = assetPatchers ?? throw new ArgumentNullException(nameof(assetPatchers));
         }
 
         /// <summary>
@@ -52,7 +53,7 @@ namespace LoPatcher.BundlePatch
                 manager.UpdateDependencies();
                 manager.LoadClassDatabaseFromPackage(assetsFile.file.typeTree.unityVersion);
 
-                var replacers = new List<AssetsReplacer>();
+                var assetReplacers = new List<AssetsReplacer>();
 
                 // Check each asset in the bundle to see if we know how to handle
                 foreach (var info in assetsFile.table.assetFileInfo)
@@ -73,19 +74,19 @@ namespace LoPatcher.BundlePatch
                             continue;
                         }
 
-                        var replacer = patcher.Patch(manager, assetsFile, info);
-                        if (replacer == null)
+                        var assetReplacer = patcher.Patch(manager, assetsFile, info);
+                        if (assetReplacer == null)
                         {
                             // TODO Throw in patcher.Patch instead?
                             throw new PatchFailedException($"Failed to patch \"{assetName}\" in \"{inputFile}\"");
                         }
 
-                        replacers.Add(replacer);
+                        assetReplacers.Add(assetReplacer);
                     }
                 }
 
                 // If we didn't find any replacers there was nothing in this file for us to patch
-                if (replacers.Count < 1)
+                if (assetReplacers.Count < 1)
                 {
                     // Close the stream so the temporary file can be deleted
                     bundle.stream.Close();
@@ -96,7 +97,10 @@ namespace LoPatcher.BundlePatch
                 using var outputStream = File.OpenWrite(outputFile);
                 using var writer = new AssetsFileWriter(outputStream);
                 uint fileId = 0; // ?
-                var bundleReplacer = new BundleReplacerFromAssets(assetsFile.name, assetsFile.name, assetsFile.file, replacers, fileId);
+                var bundleReplacer = new BundleReplacerFromAssets(
+                    assetsFile.name, assetsFile.name, assetsFile.file, assetReplacers, fileId
+                );
+
                 bundle.file.Write(writer, new List<BundleReplacer>() { bundleReplacer });
                 writer.Flush();
 
@@ -125,7 +129,11 @@ namespace LoPatcher.BundlePatch
         /// <param name="bundle">The bundle to unpack</param>
         /// <param name="unpackedFile">The unpacked bundle file</param>
         /// <returns></returns>
-        private static BundleFileInstance UnpackBundle(AssetsManager manager, BundleFileInstance bundle, string unpackedFile)
+        private static BundleFileInstance UnpackBundle(
+            AssetsManager manager,
+            BundleFileInstance bundle,
+            string unpackedFile
+        )
         {
             using var unpackedStream = File.OpenWrite(unpackedFile);
             using var reader = new AssetsFileReader(bundle.stream);
