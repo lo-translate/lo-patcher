@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Karambolo.PO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,8 +16,10 @@ namespace LoPatcher
     public partial class MainForm : Form
     {
         private string selectedFile;
-        private string defaultSelectedFileText;
+        private readonly string defaultSelectedFileText;
         private Thread patchThread;
+        private POCatalog languageCatalog;
+        private int originalLanguageCatalogSize;
 
         private delegate void SetStatusTextDelegate(string text, Color color);
         private delegate void EnableFormDelegate(bool enable);
@@ -29,6 +32,40 @@ namespace LoPatcher
             defaultSelectedFileText = labelSelectedFile.Text;
 
             SetStatusText("");
+
+            if (File.Exists("translations.po"))
+            {
+                using var stream = File.OpenRead("translations.po");
+                LoadTranslations(stream);
+            }
+            else
+            {
+                using var stream = new MemoryStream(Properties.Resources.translations);
+                LoadTranslations(stream);
+            }
+        }
+
+        private void LoadTranslations(Stream stream)
+        {
+            var parser = new POParser(new POParserSettings());
+            var result = parser.Parse(stream, Encoding.UTF8);
+
+            if (result.Success)
+            {
+                languageCatalog = result.Catalog;
+                labelLanguageVersion.Text = GetTranslationVersion(languageCatalog);
+                originalLanguageCatalogSize = languageCatalog.Count;
+            }
+            else
+            {
+                originalLanguageCatalogSize = 0;
+                MessageBox.Show(
+                    Properties.Resources.ErrorModalTranslationParse,
+                    Properties.Resources.ErrorModalTitle,
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+            }
         }
 
         private void ChooseInputFile(string file)
@@ -51,7 +88,8 @@ namespace LoPatcher
             selectedFile = string.Empty;
             labelSelectedFile.Text = defaultSelectedFileText;
             buttonPatch.Enabled = false;
-            
+            buttonSaveMissingTranslations.Enabled = languageCatalog.Count != originalLanguageCatalogSize;
+
             if (includeStatus)
             {
                 SetStatusText("");
@@ -141,6 +179,31 @@ namespace LoPatcher
 
             patchThread = new Thread(new ThreadStart(DoPatch)) { IsBackground = true };
             patchThread.Start();
+        }
+
+        private void ButtonSaveMissingTranslations_Click(object sender, EventArgs e)
+        {
+            if (dialogChooseLanguageOutput.ShowDialog() == DialogResult.OK)
+            {
+                var generator = new POGenerator(new POGeneratorSettings());
+
+                using var stream = File.Open(dialogChooseLanguageOutput.FileName, FileMode.OpenOrCreate);
+                using var writer = new StreamWriter(stream, Encoding.UTF8);
+                generator.Generate(writer, languageCatalog);
+            }
+        }
+
+        private static string GetTranslationVersion(POCatalog catalog)
+        {
+            var versionHeader = catalog.Headers.FirstOrDefault(
+                h => h.Key.Equals("Project-Id-Version", StringComparison.Ordinal)
+            );
+            if (versionHeader.Value != null)
+            {
+                return versionHeader.Value;
+            }
+
+            return "Unknown";
         }
 
         /// <summary>
