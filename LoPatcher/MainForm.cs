@@ -1,4 +1,5 @@
 ﻿using Karambolo.PO;
+using LoPatcher.BundlePatch.AssetPatch;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -129,7 +130,7 @@ namespace LoPatcher
             EnableForm(false);
 
             using var classData = new MemoryStream(Properties.Resources.classdata);
-            var assetPatchers = new List<IAssetPatcher>();
+            var assetPatchers = new List<IAssetPatcher>() { new LocalizationPatchPatcher(languageCatalog) };
             var patcher = new BundlePatch.BundlePatcher(classData, assetPatchers);
             var outputFile = dialogChoosePatchOutput.FileName;
             var result = patcher.Patch(selectedFile, outputFile);
