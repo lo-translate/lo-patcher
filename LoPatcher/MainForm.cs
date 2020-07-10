@@ -116,6 +116,11 @@ namespace LoPatcher
             }
         }
 
+        private void LabelSelectedFile_Click(object sender, EventArgs e)
+        {
+            ButtonChooseBundle_Click(sender, e);
+        }
+
         private void ButtonPatch_Click(object sender, EventArgs e)
         {
             if (dialogChoosePatchOutput.ShowDialog() != DialogResult.OK)
