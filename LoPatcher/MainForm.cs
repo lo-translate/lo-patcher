@@ -93,7 +93,7 @@ namespace LoPatcher
             using var classData = new MemoryStream(Properties.Resources.classdata);
             var assetPatchers = new List<IAssetPatcher>();
             var patcher = new BundlePatch.BundlePatcher(classData, assetPatchers);
-            var outputFile = dialogChooseOutput.FileName;
+            var outputFile = dialogChoosePatchOutput.FileName;
             var result = patcher.Patch(selectedFile, outputFile);
             if (result.Success)
             {
@@ -118,14 +118,19 @@ namespace LoPatcher
 
         private void ButtonPatch_Click(object sender, EventArgs e)
         {
-            if (dialogChooseOutput.ShowDialog() != DialogResult.OK)
+            if (dialogChoosePatchOutput.ShowDialog() != DialogResult.OK)
             {
                 return;
             }
 
             if (patchThread != null && patchThread.IsAlive)
             {
-                MessageBox.Show("Patch already running", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(
+                    Properties.Resources.ErrorModalAlreadyRunning,
+                    Properties.Resources.ErrorModalTitle,
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
                 return;
             }
 
