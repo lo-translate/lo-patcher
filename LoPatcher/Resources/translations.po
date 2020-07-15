@@ -3,13 +3,13 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: en\n"
-"Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
-"PO-Revision-Date: 2020-07-09 18:43-0400\n"
-"POT-Creation-Date: 2020-06-25 15:34GMT -5\n"
-"Project-Id-Version: 20200709\n"
-"Last-Translator: \n"
 "Language-Team: \n"
+"Last-Translator: \n"
 "MIME-Version: 1.0\n"
+"Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
+"PO-Revision-Date: 2020-07-15 13:26-0400\n"
+"POT-Creation-Date: 2020-06-25 15:34GMT -5\n"
+"Project-Id-Version: 20200715\n"
 "X-Generator: Poedit 2.4\n"
 
 #: CAB-b380b9531d9a6ef6521c8a2cebe71fd0-LocalizationPatch:30
@@ -6161,4 +6161,390 @@ msgstr ""
 #  Korean Text: 조건에 부합하는 시설이 없습니다.
 #: CAB-b380b9531d9a6ef6521c8a2cebe71fd0-LocalizationPatch:1000051
 msgid "조건에 부합하는 시설이 없습니다."
+msgstr ""
+
+#: CAB-b380b9531d9a6ef6521c8a2cebe71fd0-LocalizationPatch:1003
+msgid "強化ポイント未所持の戦闘員を非表示"
+msgstr "Hide Unenhanceable"
+
+#: CAB-b380b9531d9a6ef6521c8a2cebe71fd0-LocalizationPatch:1215
+msgid "Twitterアカウントと連携されていません。"
+msgstr "Twitter not connected"
+
+#: CAB-b380b9531d9a6ef6521c8a2cebe71fd0-LocalizationPatch:1216
+msgid "Twitter 連携されました。"
+msgstr "Twitter-linked"
+
+#: CAB-b380b9531d9a6ef6521c8a2cebe71fd0-LocalizationPatch:1217
+msgid "アカウント連携に失敗しました。"
+msgstr "Account linking failed."
+
+#: CAB-b380b9531d9a6ef6521c8a2cebe71fd0-LocalizationPatch:1351
+msgid "Twitterアカウントと連携しました。"
+msgstr "Your Twitter account has been linked."
+
+#  Korean Text: 애플 계정 연동 되었습니다.
+#: CAB-b380b9531d9a6ef6521c8a2cebe71fd0-LocalizationPatch:1411
+msgid "Appleアカウントと連携しました。"
+msgstr ""
+
+#  Korean Text: 애플 연결되지 않음
+#: CAB-b380b9531d9a6ef6521c8a2cebe71fd0-LocalizationPatch:1412
+msgid "Appleアカウントに連携されていません。"
+msgstr ""
+
+#  Korean Text: 애플 연동됨
+#: CAB-b380b9531d9a6ef6521c8a2cebe71fd0-LocalizationPatch:1413
+msgid "Appleアカウントと連携されました。"
+msgstr ""
+
+#  Korean Text: 시설 설치
+#: CAB-b380b9531d9a6ef6521c8a2cebe71fd0-LocalizationPatch:1000052
+msgid "시설 설치"
+msgstr ""
+
+#  Korean Text: 특수 임무
+#: CAB-b380b9531d9a6ef6521c8a2cebe71fd0-LocalizationPatch:1000053
+msgid "특수 임무"
+msgstr ""
+
+#  Korean Text: 바다에 잠긴 행방불명된 화물을 찾아야 합니다.
+#: CAB-b380b9531d9a6ef6521c8a2cebe71fd0-LocalizationPatch:1000054
+msgid "바다에 잠긴 행방불명된 화물을 찾아야 합니다."
+msgstr ""
+
+#  Korean Text: 재활용\n순서 보기
+#: CAB-b380b9531d9a6ef6521c8a2cebe71fd0-LocalizationPatch:1000055
+msgid "재활용\\n순서 보기"
+msgstr ""
+
+#  Korean Text: {0} 회차
+#: CAB-b380b9531d9a6ef6521c8a2cebe71fd0-LocalizationPatch:1000056
+msgid "{0} 회차"
+msgstr ""
+
+#  Korean Text: 건진 고철은 이 기계로 재활용 할 수 있을걸세~!
+#: CAB-b380b9531d9a6ef6521c8a2cebe71fd0-LocalizationPatch:1000057
+msgid "건진 고철은 이 기계로 재활용 할 수 있을걸세~!"
+msgstr ""
+
+#  Korean Text: 추적 ID 칩을 사용해 해당 ID의 화물을 찾을 수 있습니다.
+#: CAB-b380b9531d9a6ef6521c8a2cebe71fd0-LocalizationPatch:1000058
+msgid "추적 ID 칩을 사용해 해당 ID의 화물을 찾을 수 있습니다."
+msgstr ""
+
+#: CAB-b380b9531d9a6ef6521c8a2cebe71fd0-LocalizationPatch:1000059
+msgid "탐색"
+msgstr "Explore"
+
+#  Korean Text: 일괄 탐색
+#: CAB-b380b9531d9a6ef6521c8a2cebe71fd0-LocalizationPatch:1000060
+msgid "일괄 탐색"
+msgstr ""
+
+#  Korean Text: 회수 완료
+#: CAB-b380b9531d9a6ef6521c8a2cebe71fd0-LocalizationPatch:1000061
+msgid "회수 완료"
+msgstr ""
+
+#  Korean Text: 가라 앚은 화물 A~F
+#: CAB-b380b9531d9a6ef6521c8a2cebe71fd0-LocalizationPatch:1000062
+msgid "가라 앚은 화물 A~F"
+msgstr ""
+
+#  Korean Text: 화물용 ID 칩
+#: CAB-b380b9531d9a6ef6521c8a2cebe71fd0-LocalizationPatch:1000063
+msgid "화물용 ID 칩"
+msgstr ""
+
+#  Korean Text: 이거슨 우측 상단 툴팁이다.
+#: CAB-b380b9531d9a6ef6521c8a2cebe71fd0-LocalizationPatch:1000064
+msgid "이거슨 우측 상단 툴팁이다."
+msgstr ""
+
+#  Korean Text: 이거슨 우측 하단 툴팁이다.
+#: CAB-b380b9531d9a6ef6521c8a2cebe71fd0-LocalizationPatch:1000065
+msgid "이거슨 우측 하단 툴팁이다."
+msgstr ""
+
+#  Korean Text: 재활용 리스트
+#: CAB-b380b9531d9a6ef6521c8a2cebe71fd0-LocalizationPatch:1000066
+msgid "재활용 리스트"
+msgstr ""
+
+#  Korean Text: 재활용
+#: CAB-b380b9531d9a6ef6521c8a2cebe71fd0-LocalizationPatch:1000067
+msgid "재활용"
+msgstr ""
+
+#  Korean Text: 매회 순차적
+#: CAB-b380b9531d9a6ef6521c8a2cebe71fd0-LocalizationPatch:1000068
+msgid "매회 순차적"
+msgstr ""
+
+#  Korean Text: 작동중
+#: CAB-b380b9531d9a6ef6521c8a2cebe71fd0-LocalizationPatch:1000069
+msgid "작동중"
+msgstr ""
+
+#  Korean Text: 임무 종료까지 [c][ffcc00]{0}[-][/c]일 남음
+#: CAB-b380b9531d9a6ef6521c8a2cebe71fd0-LocalizationPatch:1000070
+msgid "임무 종료까지 [c][ffcc00]{0}[-][/c]일 남음"
+msgstr ""
+
+#  Korean Text: 임무 [c][ffcc00]종료 임박![-][/c]
+#: CAB-b380b9531d9a6ef6521c8a2cebe71fd0-LocalizationPatch:1000071
+msgid "임무 [c][ffcc00]종료 임박![-][/c]"
+msgstr ""
+
+#  Korean Text: 이벤트 기간 :  [c][ffcc00]{0}[-][/c]
+#: CAB-b380b9531d9a6ef6521c8a2cebe71fd0-LocalizationPatch:1000072
+msgid "이벤트 기간 :  [c][ffcc00]{0}[-][/c]"
+msgstr ""
+
+#  Korean Text: 행방 불명\n화물 목록
+#: CAB-b380b9531d9a6ef6521c8a2cebe71fd0-LocalizationPatch:1000073
+msgid "행방 불명\\n화물 목록"
+msgstr ""
+
+#  Korean Text: 화물 {0}를 획득하였습니다.\n고철 {1}개를 추가로 얻었습니다.
+#: CAB-b380b9531d9a6ef6521c8a2cebe71fd0-LocalizationPatch:1000074
+msgid "화물 {0}를 획득하였습니다.\\n고철 {1}개를 추가로 얻었습니다."
+msgstr ""
+
+#  Korean Text: 이벤트 기간 : {0}
+#: CAB-b380b9531d9a6ef6521c8a2cebe71fd0-LocalizationPatch:1000075
+msgid "이벤트 기간 : {0}"
+msgstr ""
+
+#  Korean Text: 특수 임무 설명
+#: CAB-b380b9531d9a6ef6521c8a2cebe71fd0-LocalizationPatch:1000076
+msgid "특수 임무 설명"
+msgstr ""
+
+#  Korean Text: 최고 레벨 달성
+#: CAB-b380b9531d9a6ef6521c8a2cebe71fd0-LocalizationPatch:1000077
+msgid "최고 레벨 달성"
+msgstr ""
+
+#  Korean Text: 편집 취소
+#: CAB-b380b9531d9a6ef6521c8a2cebe71fd0-LocalizationPatch:1000078
+msgid "편집 취소"
+msgstr ""
+
+#  Korean Text: 추적 ID 칩이 부족 합니다.
+#: CAB-b380b9531d9a6ef6521c8a2cebe71fd0-LocalizationPatch:1000079
+msgid "추적 ID 칩이 부족 합니다."
+msgstr ""
+
+#  Korean Text: 총 소모 재료
+#: CAB-b380b9531d9a6ef6521c8a2cebe71fd0-LocalizationPatch:1000080
+msgid "총 소모 재료"
+msgstr ""
+
+#  Korean Text: 보유 재료
+#: CAB-b380b9531d9a6ef6521c8a2cebe71fd0-LocalizationPatch:1000081
+msgid "보유 재료"
+msgstr ""
+
+#  Korean Text: 시설 부품 제작
+#: CAB-b380b9531d9a6ef6521c8a2cebe71fd0-LocalizationPatch:1000082
+msgid "시설 부품 제작"
+msgstr ""
+
+#  Korean Text: 재료 부족
+#: CAB-b380b9531d9a6ef6521c8a2cebe71fd0-LocalizationPatch:1000083
+msgid "재료 부족"
+msgstr ""
+
+#  Korean Text: 업그레이드 시작
+#: CAB-b380b9531d9a6ef6521c8a2cebe71fd0-LocalizationPatch:1000084
+msgid "업그레이드 시작"
+msgstr ""
+
+#: CAB-b380b9531d9a6ef6521c8a2cebe71fd0-LocalizationPatch:1000085
+msgid "획득 방법"
+msgstr "Acquisition method"
+
+#  Korean Text: - 동시에 여러 시설의 업그레이드를 진행 할 수 없습니다.
+#: CAB-b380b9531d9a6ef6521c8a2cebe71fd0-LocalizationPatch:1000086
+msgid "- 동시에 여러 시설의 업그레이드를 진행 할 수 없습니다."
+msgstr ""
+
+#: CAB-b380b9531d9a6ef6521c8a2cebe71fd0-LocalizationPatch:1000087
+msgid "사용 가능한 부품이 없습니다."
+msgstr "Not enough Parts."
+
+#  Korean Text: 필요 사령관 레벨 : {0}
+#: CAB-b380b9531d9a6ef6521c8a2cebe71fd0-LocalizationPatch:1000088
+msgid "필요 사령관 레벨 : {0}"
+msgstr ""
+
+#  Korean Text: LV {0}
+#: CAB-b380b9531d9a6ef6521c8a2cebe71fd0-LocalizationPatch:1000089
+msgid "LV {0}"
+msgstr ""
+
+#  Korean Text: 기지 공간 해제
+#: CAB-b380b9531d9a6ef6521c8a2cebe71fd0-LocalizationPatch:1000090
+msgid "기지 공간 해제"
+msgstr ""
+
+#  Korean Text: 잠긴 슬롯을 해제 하시겠습니까?
+#: CAB-b380b9531d9a6ef6521c8a2cebe71fd0-LocalizationPatch:1000091
+msgid "잠긴 슬롯을 해제 하시겠습니까?"
+msgstr ""
+
+#  Korean Text: 기지 공간 1칸 확장 X 1\n(보유 : {0})
+#: CAB-b380b9531d9a6ef6521c8a2cebe71fd0-LocalizationPatch:1000092
+msgid "기지 공간 1칸 확장 X 1\\n(보유 : {0})"
+msgstr ""
+
+#  Korean Text: 기지 슬롯 해제
+#: CAB-b380b9531d9a6ef6521c8a2cebe71fd0-LocalizationPatch:1000093
+msgid "기지 슬롯 해제"
+msgstr ""
+
+#  Korean Text: [c][FFCB00FF]{0}[-][/c] 시설 업그레이드를 완료 했습니다.
+#: CAB-b380b9531d9a6ef6521c8a2cebe71fd0-LocalizationPatch:1000094
+msgid "[c][FFCB00FF]{0}[-][/c] 시설 업그레이드를 완료 했습니다."
+msgstr ""
+
+#  Korean Text: 최대 레벨에 도달한 시설입니다.
+#: CAB-b380b9531d9a6ef6521c8a2cebe71fd0-LocalizationPatch:1000095
+msgid "최대 레벨에 도달한 시설입니다."
+msgstr ""
+
+#  Korean Text: 완료된 보상이 있습니다.\n보상을 획득해 주십시요.
+#: CAB-b380b9531d9a6ef6521c8a2cebe71fd0-LocalizationPatch:1000096
+msgid "완료된 보상이 있습니다.\\n보상을 획득해 주십시요."
+msgstr ""
+
+#  Korean Text: 시설 작동이 중단됩니다.\n진행하시겠습니까?
+#: CAB-b380b9531d9a6ef6521c8a2cebe71fd0-LocalizationPatch:1000097
+msgid "시설 작동이 중단됩니다.\\n진행하시겠습니까?"
+msgstr ""
+
+#  Korean Text: {0}을(를) {1}개 획득을 하였습니다.
+#: CAB-b380b9531d9a6ef6521c8a2cebe71fd0-LocalizationPatch:1000098
+msgid "{0}을(를) {1}개 획득을 하였습니다."
+msgstr ""
+
+#  Korean Text: [c][FFCB00FF]{0}[-][/c]이 업그레이드 중입니다.\n동시에 여러 시설을 업그레이드 할 수 없습니다.
+#: CAB-b380b9531d9a6ef6521c8a2cebe71fd0-LocalizationPatch:1000099
+msgid ""
+"[c][FFCB00FF]{0}[-][/c]이 업그레이드 중입니다.\\n동시에 여러 시설을 업그레이"
+"드 할 수 없습니다."
+msgstr ""
+
+#  Korean Text: 건설 필요 조건을 만족하지 못했습니다.\n\n[c][ff0000]필요 사령관 레벨 : {0}[c]
+#: CAB-b380b9531d9a6ef6521c8a2cebe71fd0-LocalizationPatch:1000100
+msgid ""
+"건설 필요 조건을 만족하지 못했습니다.\\n\\n[c][ff0000]필요 사령관 레벨 : {0}"
+"[c]"
+msgstr ""
+
+#  Korean Text: 필요한 자재가 부족하여 제작이 불가능합니다.
+#: CAB-b380b9531d9a6ef6521c8a2cebe71fd0-LocalizationPatch:1000101
+msgid "필요한 자재가 부족하여 제작이 불가능합니다."
+msgstr ""
+
+#  Korean Text: 업그레이드 중인 시설은 보관할 수 없습니다.
+#: CAB-b380b9531d9a6ef6521c8a2cebe71fd0-LocalizationPatch:1000102
+msgid "업그레이드 중인 시설은 보관할 수 없습니다."
+msgstr ""
+
+#  Korean Text: 해당 시설에 선물을 줄 전투원이 없습니다.
+#: CAB-b380b9531d9a6ef6521c8a2cebe71fd0-LocalizationPatch:1000103
+msgid "해당 시설에 선물을 줄 전투원이 없습니다."
+msgstr ""
+
+#  Korean Text: [c][FFBA29FF]{0}[-][/c]의 업그레이드를 즉시 완료합니다.\n[c][FFBA29FF]수상한 연산회로[-][/c] 1개가 소모됩니다.
+#: CAB-b380b9531d9a6ef6521c8a2cebe71fd0-LocalizationPatch:1000104
+msgid ""
+"[c][FFBA29FF]{0}[-][/c]의 업그레이드를 즉시 완료합니다.\\n[c][FFBA29FF]수상한 "
+"연산회로[-][/c] 1개가 소모됩니다."
+msgstr ""
+
+#  Korean Text: 중 하나의 아이템을 제작
+#: CAB-b380b9531d9a6ef6521c8a2cebe71fd0-LocalizationPatch:1000105
+msgid "중 하나의 아이템을 제작"
+msgstr ""
+
+#  Korean Text: 중 하나의 전투원을 생산
+#: CAB-b380b9531d9a6ef6521c8a2cebe71fd0-LocalizationPatch:1000106
+msgid "중 하나의 전투원을 생산"
+msgstr ""
+
+#  Korean Text: 초록색 공간을 선택해서 새 시설을 설치합니다.\n기존 시설을 선택하여 위치를 변경하거나 보관합니다.
+#: CAB-b380b9531d9a6ef6521c8a2cebe71fd0-LocalizationPatch:1000107
+msgid ""
+"초록색 공간을 선택해서 새 시설을 설치합니다.\\n기존 시설을 선택하여 위치를 변"
+"경하거나 보관합니다."
+msgstr ""
+
+#  Korean Text: 원하는 위치를 선택하여 위치를 변경합니다.\n하단부 버튼을 터치하여 선택중인 시설을 보관합니다.
+#: CAB-b380b9531d9a6ef6521c8a2cebe71fd0-LocalizationPatch:1000108
+msgid ""
+"원하는 위치를 선택하여 위치를 변경합니다.\\n하단부 버튼을 터치하여 선택중인 시"
+"설을 보관합니다."
+msgstr ""
+
+#  Korean Text: 제조 중인 설비 부품이 없습니다.
+#: CAB-b380b9531d9a6ef6521c8a2cebe71fd0-LocalizationPatch:1000109
+msgid "제조 중인 설비 부품이 없습니다."
+msgstr ""
+
+#  Korean Text: 수령 가능한 설비 부품이 없습니다.
+#: CAB-b380b9531d9a6ef6521c8a2cebe71fd0-LocalizationPatch:1000110
+msgid "수령 가능한 설비 부품이 없습니다."
+msgstr ""
+
+#  Korean Text: [c][FFCB00FF]필요 레벨 : [-][/c]Lv {0} 이상
+#: CAB-b380b9531d9a6ef6521c8a2cebe71fd0-LocalizationPatch:1000111
+msgid "[c][FFCB00FF]필요 레벨 : [-][/c]Lv {0} 이상"
+msgstr ""
+
+#  Korean Text: [c][FFCB00FF]전투원 조건 : [-][/c]{0}
+#: CAB-b380b9531d9a6ef6521c8a2cebe71fd0-LocalizationPatch:1000112
+msgid "[c][FFCB00FF]전투원 조건 : [-][/c]{0}"
+msgstr ""
+
+#  Korean Text: {0} 이상
+#: CAB-b380b9531d9a6ef6521c8a2cebe71fd0-LocalizationPatch:1000113
+msgid "{0} 이상"
+msgstr ""
+
+#  Korean Text: 지금 변경하면 시설 작동이 취소 됩니다.\n변경 하시겠습니까?
+#: CAB-b380b9531d9a6ef6521c8a2cebe71fd0-LocalizationPatch:1000114
+msgid "지금 변경하면 시설 작동이 취소 됩니다.\\n변경 하시겠습니까?"
+msgstr ""
+
+#: CAB-b380b9531d9a6ef6521c8a2cebe71fd0-LocalizationPatch:1000115
+msgid "변경"
+msgstr "Change"
+
+#  Korean Text: [c][FFCB00FF]제외 전투원 : [-][/c]{0}
+#: CAB-b380b9531d9a6ef6521c8a2cebe71fd0-LocalizationPatch:1000116
+msgid "[c][FFCB00FF]제외 전투원 : [-][/c]{0}"
+msgstr ""
+
+#  Korean Text: 중복 캐릭터를 시설에 등록할 수 없습니다.
+#: CAB-b380b9531d9a6ef6521c8a2cebe71fd0-LocalizationPatch:1000117
+msgid "중복 캐릭터를 시설에 등록할 수 없습니다."
+msgstr ""
+
+#  Korean Text: 배치 가능한 전투원 수가 가득 찼습니다.
+#: CAB-b380b9531d9a6ef6521c8a2cebe71fd0-LocalizationPatch:1000118
+msgid "배치 가능한 전투원 수가 가득 찼습니다."
+msgstr ""
+
+#  Korean Text: 시설 배치 중인 스쿼드 대원은 편집할 수 없습니다.
+#: CAB-b380b9531d9a6ef6521c8a2cebe71fd0-LocalizationPatch:1000119
+msgid "시설 배치 중인 스쿼드 대원은 편집할 수 없습니다."
+msgstr ""
+
+#  Korean Text: 장비 분해실
+#: CAB-b380b9531d9a6ef6521c8a2cebe71fd0-LocalizationPatch:1000120
+msgid "장비 분해실"
 msgstr ""
