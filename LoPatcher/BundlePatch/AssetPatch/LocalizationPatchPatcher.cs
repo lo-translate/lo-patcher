@@ -2,10 +2,7 @@
 using AssetsTools.NET.Extra;
 using Karambolo.PO;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Globalization;
-using System.IO;
 using System.Text.RegularExpressions;
 
 namespace LoPatcher.BundlePatch.AssetPatch
@@ -69,9 +66,9 @@ namespace LoPatcher.BundlePatch.AssetPatch
 
         private string ReplaceTextInTsv(string script)
         {
-            var lines = Regex.Split(script, "\t\r\n").ToList();
+            var lines = Regex.Split(script, "\t\r\n");
 
-            for (var i = 0; i < lines.Count; i++)
+            for (var i = 0; i < lines.Length; i++)
             {
                 var parts = Regex.Split(lines[i], "\t");
                 if (parts.Length < 3)
