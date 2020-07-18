@@ -1,6 +1,7 @@
 ﻿using LoTextExtractor.Lo.Generated;
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
@@ -75,6 +76,7 @@ namespace LoTextExtractor
                 );
             }
 
+            // Loop through the dictionaries in TableManager and process each of them
             foreach (var field in japaneseRoot._TableManager.GetType().GetFields())
             {
                 if (field.Name == "_Table_Forbidden")
@@ -113,48 +115,85 @@ namespace LoTextExtractor
                     continue;
                 }
 
+                if (property.ToString().StartsWith("System.Collections.Generic.List`1[System.String]"))
+                {
+                    var japanesePropInstance = property.GetValue(japaneseObject) as IList;
+                    var koreanPropInstance = property.GetValue(japaneseObject) as IList;
+
+                    var stringIndex = 0;
+
+                    foreach (var japaneseArrayText in japanesePropInstance)
+                    {
+                        var koreanArrayText = koreanPropInstance[stringIndex++];
+                        
+                        ProcessText((string)japaneseArrayText, (string)koreanArrayText, "", $"{reference}.{property.Name}[{stringIndex}]");
+                    }
+
+                    continue;
+                }
+
                 if (property.PropertyType.Name != "String")
                 {
                     continue;
                 }
 
                 var japaneseText = (string)property.GetValue(japaneseObject, null);
-                if (string.IsNullOrWhiteSpace(japaneseText))
-                {
-                    continue;
-                }
-
-                // Make sure we contain non-ASCII text
-                if (System.Text.RegularExpressions.Regex.Match(japaneseText, "^[\x00-\x7F]+$").Success)
-                {
-                    //Debug.WriteLine($"Japanese text ASCII: {japaneseText}");
-                    continue;
-                }
 
                 var koreanText = koreanObject == null
                     ? ""
                     : (string)koreanObject.GetType().GetProperty(property.Name).GetValue(koreanObject, null);
 
-                var englishText = translationFinder.FindTranslation(koreanText, japaneseText);
-
-                // Skip text the Japanese translators ignored under the assumption it isn't used
-                if (koreanText == japaneseText)
+                if (japaneseText == null && koreanText == null) 
                 {
-                    Debug.WriteLine($"Japanese text matches Korean text: {japaneseText}");
+                    if (property.Name != "SkinUnlockItem")
+                    {
+                        Console.WriteLine($"Failed to obtain text from property {property.Name}");
+                    }
+                    continue;
                 }
+
+                var englishText = translationFinder.FindTranslation(koreanText, japaneseText);
 
                 if (property.Name == "Char_Name")
                 {
                     var officialTranslation = (string)japaneseObject.GetType().GetProperty("Char_Name_EngDisp").GetValue(japaneseObject, null);
-                    if (!string.IsNullOrEmpty(englishText))
+                    if (!string.IsNullOrEmpty(englishText) && !officialTranslation.Equals(englishText, System.StringComparison.Ordinal))
                     {
-                        Debug.WriteLine($"Duplicate translation: {officialTranslation} != {englishText}");
+                        Debug.WriteLine($"Duplicate translation: '{officialTranslation}' != '{englishText}'");
                     }
                     englishText = officialTranslation;
                 }
 
-                catalogManager.AddToCatalog(japaneseText, koreanText, englishText, $"{reference}.{property.Name}", 0);
+                ProcessText(japaneseText, koreanText, englishText, $"{reference}.{property.Name}");
             }
+
+        }
+
+        private void ProcessText(string japaneseText, string koreanText, string englishText, string reference)
+        {
+            if (string.IsNullOrWhiteSpace(japaneseText))
+            {
+                return;
+            }
+
+            // Make sure we contain non-ASCII text
+            if (System.Text.RegularExpressions.Regex.Match(japaneseText, "^[\x00-\x7F]+$").Success)
+            {
+                //Debug.WriteLine($"Japanese text ASCII: {japaneseText}");
+                return;
+            }
+
+            if (koreanText == japaneseText)
+            {
+                Debug.WriteLine($"Japanese text matches Korean text: {japaneseText}");
+            }
+
+            if (string.IsNullOrEmpty(englishText))
+            {
+                englishText = translationFinder.FindTranslation(koreanText, japaneseText);
+            }
+
+            catalogManager.AddToCatalog(japaneseText, koreanText, englishText, $"{reference}", 0);
         }
     }
 }
