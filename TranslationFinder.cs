@@ -65,14 +65,16 @@ namespace LoTextExtractor
 
                     if (knownText.ContainsKey(japaneseText))
                     {
-                        if (translation != knownText[japaneseText])
+                        if (!translation.Equals(knownText[japaneseText], System.StringComparison.Ordinal))
                         {
-                            Debug.WriteLine($"Duplicate translation: {knownText[japaneseText]} != {translation}");
+                            Debug.WriteLine($"Duplicate translation: '{translation}' != '{knownText[japaneseText]}'");
                         }
-                        continue;
+
+                        // We intentionally don't prevent the translation from being overwritten under the assumption
+                        // the translation file contains the most up to date translations.
                     }
 
-                    knownText.Add(japaneseText, translation);
+                    knownText[japaneseText] = translation;
                 }
             }
         }
@@ -99,9 +101,9 @@ namespace LoTextExtractor
             {
                 if (knownText.ContainsKey(translation.Korean))
                 {
-                    if (knownText[translation.Korean] != translation.English)
+                    if (!translation.English.Equals(knownText[translation.Korean], System.StringComparison.Ordinal))
                     {
-                        Debug.WriteLine($"Duplicate translation: {knownText[translation.Korean]} != {translation.English}");
+                        Debug.WriteLine($"Duplicate translation: '{knownText[translation.Korean]}' != '{translation.English}'");
                     }
                     continue;
                 }
