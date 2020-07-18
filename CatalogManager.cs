@@ -13,6 +13,11 @@ namespace LoTextExtractor
             this.catalog = catalog ?? throw new ArgumentNullException(nameof(catalog));
         }
 
+        public int GetCatalogCount()
+        {
+            return catalog.Count;
+        }
+
         public void AddToCatalog(string japaneseText, string koreanText, string englishText, string sourceComment, int sourceLine)
         {
             var key = new POKey(japaneseText);

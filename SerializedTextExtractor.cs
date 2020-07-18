@@ -79,6 +79,8 @@ namespace LoTextExtractor
             // Loop through the dictionaries in TableManager and process each of them
             foreach (var field in japaneseRoot._TableManager.GetType().GetFields())
             {
+                var knownStrings = catalogManager.GetCatalogCount();
+
                 if (field.Name == "_Table_Forbidden")
                 {
                     continue;
@@ -99,6 +101,12 @@ namespace LoTextExtractor
                         koreanFieldInstance[kvp.Key],
                         $"LastOnTable._TableManager.{field.Name}[{kvp.Key}]"
                     );
+                }
+
+                var newKnownStrings = catalogManager.GetCatalogCount();
+                if (newKnownStrings > knownStrings)
+                {
+                    Console.WriteLine($"Extracted {(newKnownStrings - knownStrings).ToString("N0")} strings from LastOnTable._TableManager.{field.Name}");
                 }
             }
 
