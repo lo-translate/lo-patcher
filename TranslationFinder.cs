@@ -119,7 +119,7 @@ namespace LoTextExtractor
 
             foreach (var translation in lines)
             {
-                knownRegex.Add(new Regex(translation.Korean), translation.English);
+                knownRegex.Add(new Regex($"^\\s+?{translation.Korean}\\s+?$"), translation.English);
             }
         }
     }
