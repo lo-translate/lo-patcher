@@ -9,12 +9,14 @@ using System.IO;
 using System.Reflection;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace LoExtractText
 {
     internal class Program
     {
         private static Dictionary<string, string> knownText = new Dictionary<string, string>();
+        private static Dictionary<Regex, string> knownRegex = new Dictionary<Regex, string>();
         private static POCatalog catalog;
 
         private static int Main(string[] args)
@@ -45,6 +47,8 @@ namespace LoExtractText
             LoadKnownTextFromCsv("Resources/skilltool-known-skills.csv", knownText);
             LoadKnownTextFromCsv("Resources/skilltool-skill-trans.csv", knownText);
             LoadKnownTextFromCsv("Resources/skilltool-strings.csv", knownText);
+
+            LoadKnownRegexFromTsv("Resources/binfilepatcher-regex.tsv", knownRegex);
 
             if (File.Exists("Resources/data.bin.po"))
             {
@@ -129,6 +133,17 @@ namespace LoExtractText
                 }
 
                 knownText.Add(translation.Korean, translation.English);
+            }
+        }
+
+        private static void LoadKnownRegexFromTsv(string input, Dictionary<Regex, string> knownRegex)
+        {
+            var engine = new FileHelperEngine<Translation.TsvTranslation>();
+            var lines = engine.ReadFile(input);
+
+            foreach (var translation in lines)
+            {
+                knownRegex.Add(new Regex(translation.Korean), translation.English);
             }
         }
 
@@ -237,7 +252,25 @@ namespace LoExtractText
                 {
                     enText = knownText[jpText];
                 }
+                else
+                {
+                    foreach (var regexKvp in knownRegex)
+                    {
+                        var match = regexKvp.Key.Match(koText);
+                        if (match.Success)
+                        {
+                            var replaced = regexKvp.Value.Replace("`", match.Groups[1].Value);
+                            
+                            // Make sure we replaced something
+                            if (replaced != match.Groups[1].Value)
+                            {
+                                enText = replaced;
+                            }
+                        }
+                    }
+                }
 
+                // The comment we save the Korean text in can't contain new lines
                 koText = koText.Replace("\r", "\\r").Replace("\n", "\\n");
 
                 if (property.Name == "Char_Name")

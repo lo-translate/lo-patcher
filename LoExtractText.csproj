@@ -18,6 +18,9 @@
     <None Update="Resources\binfilepatcher-library.tsv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="Resources\binfilepatcher-regex.tsv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="Resources\data.bin-template.po">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

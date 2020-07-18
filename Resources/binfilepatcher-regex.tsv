@@ -1,0 +1,326 @@
+(\d+) 라운드 이내에 클리어	Clear within ` rounds
+전투 불능 캐릭터 (\d+)명 이하로 클리어	Cleared with ` or fewer units incapacitated
+바이오로이드를 (\d+)기 이상 편성해 클리어	Clear while sending ` or more Bioroids
+바이오로이드를 (\d+)기 이하로 편성해 클리어	Clear while sending ` or fewer Bioroids
+로봇을 (\d+)기 이상 편성해 클리어	Clear while sending ` or more robots
+로봇을 (\d+)기 이하로 편성해 클리어	Clear while sending ` or fewer robots
+경장형을 (\d+)기 이상 편성해 클리어	Clear while sending ` or more light units
+경장형을 (\d+)기 이하로 편성해 클리어	Clear while sending ` or fewer light units
+중장형을 (\d+)기 이상 편성해 클리어	Clear while sending ` or more heavy units
+중장형을 (\d+)기 이하로 편성해 클리어	Clear while sending ` or fewer heavy units
+기동형을 (\d+)기 이상 편성해 클리어	Clear while sending ` or more flying units
+기동형을 (\d+)기 이하로 편성해 클리어	Clear while sending ` or fewer flying units
+피격 횟수 (\d+)번 이하로 클리어	Clear taking fewer than ` hits
+그리폰의 전탄 방출로 (\d+)기 이상의 적을 처치 후 클리어	Clear after eliminating ` more enemies with Griffon's Bomb Strike
+(\d+)기 이상의 적을 동시에 처치한 상태로 클리어	Clear after killing ` enemies simultaneously
+스쿼드를 (\d+)번 이상 교체하고 클리어	Clear after changing squads more than ` times
+부품 (\d+)개가 들어있습니다\.	Contains ` Parts.
+영양 (\d+)개가 들어있습니다\.	Contains ` Nutrients.
+전력 (\d+)개가 들어있습니다\.	Contains ` Power.
+부품 (\d+)개를 지급합니다\.	Given ` Parts.
+영양 (\d+)개를 지급합니다\.	Given ` Nutrients.
+전력 (\d+)개를 지급합니다\.	Given ` Power.
+부품 (\d+)개를 획득합니다\.	Obtain ` Parts.
+영양 (\d+)개를 획득합니다\.	Obtain ` Nutrients.
+전력 (\d+)개를 획득합니다\.	Obtain ` Power.
+부품 자원이 (\d+) 증가합니다\.	Parts increased by `.
+영양 자원이 (\d+) 증가합니다\.	Nutrients increased by `.
+전력 자원이 (\d+) 증가합니다\.	Power increased by `.
+부품 (\d+) 지급	Get ` Parts
+영양 (\d+) 지급	Get ` Nutrients
+전력 (\d+) 지급	Get ` Power
+자원 (\d+) 지급	Get ` of all resources
+부품 (\d+) 컨테이너	Container of ` Parts
+영양 (\d+) 컨테이너	Container of ` Nutrients
+전력 (\d+) 컨테이너	Container of ` Power
+부품 (\d+)개	` Parts
+영양 (\d+)개	` Nutrients
+전력 (\d+)개	` Power
+자원 (\d+\+?\d*)개	` of all resources
+모든 자원이 (\d+\+?\d*)개 들어있습니다\.	Contains ` of all resources.
+모든 자원을 (\d+)개 지급합니다\.	Given ` of all resources.
+일반 모듈 (\d+\+?\d*)개	` Basic Modules
+일반 모듈 (\d+)개가 들어있습니다\.	Contains ` Basic Modules
+일반 모듈 (\d+)개 박스	Box of ` Basic Modules
+연구 등에 사용되는 표준 모듈 (\d+)개가 들어있는 박스입니다\.	A box containing ` standard modules that can be used for research, etc.
+일반 로봇 부품 (\d+)개 박스	Box of ` Basic Robot Parts
+양산형 파츠/무장 파츠/부스터 파츠/합금 장갑판/연산 제어 파츠가 (\d+)개씩 들어있습니다.	Contains: Mass-Production Parts/Weapon Parts/Booster Parts/Alloy Armor Plates/CPU Parts (` of each)
+고급 모듈 (\d+\+?\d*)개	` Advanced Modules
+고급 모듈 (\d+\+?\d*)개 \(한정 세일\)	` Advanced Modules (Limited Sale)
+고급 모듈 (\d+)개가 들어있습니다\.	Contains ` Advanced Modules
+특수 모듈 (\d+\+?\d*)개	` Special Modules
+특수 모듈 (\d+)개가 들어있습니다\.	Contains ` Special Modules
+전투 장비 코어 (\d+)개	` Battle Gear Cores
+각 모듈이 (\d+\/\d+\/\d+)개씩 들어있는 팩입니다\.	Pack of ` Modules.
+각 모듈이 (\d+\/\d+\/\d+)개씩 들어있는 박스입니다\.	Box of ` Modules.
+각 모듈이 (\d+\/\d+\/\d+)개씩 들어있는 컨테이너입니다\.	Container of ` Modules.
+시작형 파츠가 (\d+)개 들어있습니다\.	Contains ` starter parts
+초합급 장갑판이 (\d+)개 들어있습니다\.	Contains ` super-alloy armor plates.
+고출력 부스터 파츠가 (\d+)개 들어있습니다\.	Contains ` high-power booster parts.
+중무장 파츠가 (\d+)개 들어있습니다\.	Contains ` heavy weapon parts.
+고밀도 연산 제어 파츠가 (\d+)개 들어있습니다\.	Contains ` high-density CPU parts
+참치캔 (\d+\+?\d*)개	` Tuna Cans
+참치캔을 (\d+)개 획득합니다\.	Obtain ` Tuna Cans.
+참치캔 (\d+\+?\d*)개를 획득합니다\.	Obtain ` Tuna Cans.
+참치캔 (\d+)개를 지급합니다\.	Given ` Tuna Cans.
+모든 일반 로봇 부품이 (\d+)개씩 들어있습니다\.	Contains ` of all basic robot parts.
+모든 고급 로봇 부품이 (\d+)개씩 들어있습니다\.	Contains ` of all advanced robot parts.
+합성 롤리팝이 (\d+)개 들어있습니다\.	Contains ` Synthetic Lollipops.
+가공 초콜릿이 (\d+)개 들어있습니다\.	Contains ` Processed Chocolates.
+수제 케이크가 (\d+)개 들어있습니다\.	Contains ` Handmade Cakes.
+수제 케이크 (\d+)개	` Handmade Cakes
+전투 일지가 (\d+)권 들어있습니다\.	Contains ` Battle Logs.
+수상한 연산 회로 (\d+\+?\d*)개	` Strange Circuits
+수상한 연산 회로 (\d+)개를 획득합니다\.	Obtain ` Strange Circuits.
+수상한 연산 회로 (\d+)개를 지급합니다.	Given ` Strange Circuits.
+전투 모듈 초기화 (\d+\+?\d*)개	` Battle Module Resets
+전투 모듈 초기화 (\d+)개를 획득합니다\.	Obtain ` Battle Module Resets.
+전투 모듈 초기화 (\d+)개를 지급합니다\.	Given ` Battle Module Resets.
+수복 나노머신 (\d+\+?\d*)개	` Quick-Fix Nanomachines
+수복 나노머신 (\d+)개를 획득합니다\.	Obtain ` Quick-Fix Nanomachines.
+수복 나노머신 (\d+)개를 지급합니다\.	Given ` Quick-Fix Nanomachines.
+급속 완성 회로 (\d+\+?\d*)개	` Quick-Complete Circuits
+급속 완성 회로 (\d+\+?\d*)개 \(한정 세일\)	` Quick-Complete Circuits (Limited Sale)
+급속 완성 회로 (\d+)개를 획득합니다\.	Obtain ` Quick-Complete Circuits.
+급속 완성 회로 (\d+)개를 지급합니다\.	Given ` Quick-Complete Circuits.
+장비 코어 (\d+\+?\d*)개	` Machine Cores
+장비 코어 (\d+\+?\d*)개 \(한정 세일\)	` Machine Cores (Limited Sale)
+장비 코어 (\d+)개를 획득합니다\.	Obtain ` Machine Cores.
+장비 코어 (\d+)개를 지급합니다\.	Given ` Machine Cores.
+유전자 씨앗 (\d+\+?\d*)개	` Gene Seeds
+유전자 씨앗 (\d+\+?\d*)개 \(한정 세일\)	` Gene Seeds (Limited Sale)
+유전자 씨앗 (\d+)개를 획득합니다\.	Obtain ` Gene Seeds.
+유전자 씨앗 (\d+)개를 지급합니다\.	Given ` Gene Seeds.
+AI 코어 (\d+\+?\d*)개	` AI Cores
+AI 코어 (\d+)개 팩	Pack of ` AI Cores
+AI 코어 (\d+)개를 획득합니다\.	Obtain ` AI Cores.
+AI 코어 (\d+)개를 지급합니다\.	Given ` AI Cores.
+링크 해제기 (\d+\+?\d*)개	` Link Breakers
+링크 해제기 (\d+)개를 획득합니다\.	Obtain ` Link Breakers.
+링크 해제기 (\d+)개를 지급합니다\.	Given ` Link Breakers.
+(\D+)랭크 제작 대상 없을 때, 나오는 캐릭터 (무작위)	Character appearing when there is no `-Rank unit produced (random)
+11연 가챠 (\d+)등급 확률	11-Year Lottery `-Rank Chance
+수복비용시간보정비율 (\D+)	Recovery Cost Correction Ratio `
+경장공격기 모듈 (\D\D)	Light Attacker Core `
+경장공격기 모듈 (\D\D)을 지급합니다	Given Light Attacker Module `
+경장보호기 모듈 (\D\D)	Light Defender Module `
+경장보호기 모듈 (\D\D)을 지급합니다	Given Light Defender Module `
+경장지원기 모듈 (\D\D)	Light Support Module `
+경장지원기 모듈 (\D\D)을 지급합니다	Given Light Support Module `
+기동공격기 모듈 (\D\D)	Flying Attacker Module `
+기동공격기 모듈 (\D\D)을 지급합니다	Given Flying Attacker Module `
+기동보호기 모듈 (\D\D)	Flying Defender Module `
+기동보호기 모듈 (\D\D)을 지급합니다	Given Flying Defender Module `
+기동지원기 모듈 (\D\D)	Flying Support Module `
+기동지원기 모듈 (\D\D)을 지급합니다	Given Flying Support Module `
+중장공격기 모듈 (\D\D)	Heavy Attacker Module `
+중장공격기 모듈 (\D\D)을 지급합니다	Given Heavy Attacker Module `
+중장보호기 모듈 (\D\D)	Heavy Defender Module `
+중장보호기 모듈 (\D\D)을 지급합니다	Given Heavy Defender Module `
+중장지원기 모듈 (\D\D)	Heavy Support Module `
+중장지원기 모듈 (\D\D)을 지급합니다	Given Heavy Support Module `
+삼안 VIP 티켓 (\d+)장	` Saman VIP Tickets
+오리진 더스트 (\d+)개	` Origin Dusts
+오리진 더스트 (\d+)개를 지급합니다\.	Given ` Origin Dusts
+고급 오리진 더스트 (\d+)개	` Advanced Origin Dusts
+고급 오리진 더스트 (\d+)개를 지급합니다\.	Given ` Advanced Origin Dusts
+특수 오리진 더스트 (\d+)개	` Special Origin Dusts
+특수 오리진 더스트 (\d+)개를 지급합니다\.	Given ` Special Origin Dusts
+오리진 더스트가 (\d+)개 들어있습니다\.	Contains ` Origin Dusts
+고급 오리진 더스트가 (\d+)개 들어있습니다\.	Contains ` Advanced Origin Dusts
+특수 오리진 더스트가 (\d+)개 들어있습니다\.	Contains ` Special Origin Dusts
+교환소에서 사용할 수 있는 특수 티켓 (\d+)장입니다\.	` Special Tickets that can be used at the Exchange.
+출력 강화 회로 (\D\D)	Output Enhancement Circuit `
+연산 강화 회로 (\D\D)	CPU Enhancement Circuit `
+내 충격 회로 (\D\D)	Anti-Impact Enhancement Circuit `
+반응 강화 회로 (\D\D)	Reaction Enhancement Circuit `
+분석 회로 (\D\D)	Analysis Circuit `
+회로 내구 강화 (\D\D)	Durability Enhancement Circuit `
+백신 처리 (\D\D)	Vaccine Treatment `
+효과 저항 / 해로운 효과 해제 Lv\.(\d+)	Effect Resistance / Remove Harmful Effects Lv.`
+회로 최적화 (\D\D)	Optimization Circuit `
+표준형 전투 시스템 (\D\D)	Standard Combat System `
+능력치 증가 Lv\.(\d+)	Increased Capabilities Lv.`
+돌격형 전투 시스템 (\D\D)	Rushing Combat System `
+공격력 / 받는 피해 증가 Lv\.(\d+)	Increase Attack Power / Damage Received Lv.`
+방어형 전투 시스템 (\D\D)	Defensive Combat System `
+방어 능력 증가 Lv\.(\d+)	Increase Defense Ability Lv.`
+대응형 전투 시스템 (\D\D)	Reactive Combat System `
+반격 Lv\.(\d+)	Counterattack Lv.`
+강습형 전투 시스템 (\D\D)	Assault Combat System
+공격력 증가 / 사거리 감소 Lv\.(\d+)	Increase Damage / Reduce Range Lv.`
+정밀형 전투 시스템 (\D\D)	Precision Combat System `
+공격력 증가 / 적중\+\{0\} / 행동력 감소 Lv\.(\d+)	Increase Damage / Accuracy +{0} / Reduce Action Speed Lv.`
+대 기동 전투 시스템 (\D\D)	Anti-Air Combat System `
+대 기동 공격 Lv\.(\d+)	Anti-Air Attack Lv.`
+대 경장 전투 시스템 (\D\D)	Anti-Light Combat System `
+대 경장 공격 Lv\.(\d+)	Anti-Light Attack Lv.`
+대 중장 전투 시스템 (\D\D)	Anti-Heavy Combat System `
+대 중장 공격 Lv\.(\d+)	Anti-Heavy Attack Lv.`
+고속 학습 시스템 (\D\D)	Fast-Learning System `
+경험치 증가 Lv\.(\d+)	EXP Gain Lv.`
+보조 에너지 팩 (\D\D)	Auxiliary Energy Pack `
+AP 증가 Lv\.(\d+)	Increase AP Lv.`
+관측 장비 (\D\D)	Observation Equipment `
+적중 / 사거리 증가 Lv\.(\d+)	Increase Accuracy / Range Lv.`
+공간 장갑 (\D\D)	Space Armor `
+HP\+\{0\} / 일정 횟수 받는 피해 감소 Lv\.(\d+)	HP +{0} / Reduced damage received for a fixed number of attacks Lv.`
+보조 부스터 유닛 (\D\D)	Auxiliary Booster `
+회피\+\{0\} / 회피 감소 해제 Lv\.(\d+)	Evasion +{0} / Remove evasion reduction Lv.`
+초정밀 조준기 (\D\D)	Precision Sights `
+대 장갑 장비 (\D\D)	Anti-Armor Equipment `
+치명타\+\{0\} / 방어 관통 Lv\.(\d+)	Crit Chance / Defense Penetration Lv.`
+에너지 전환기 (\D\D)	Energy Diverter `
+방어막 적용 시, 공격력 / 행동력 전환 Lv\.(\d+)	When used with a shield, Attack / Action Speed Change Lv.`
+방어 역장 (\D\D)	Defensive Force Field `
+방어막 Lv\.(\d+)	Shield Lv.`
+소형 정찰 드론 (\D\D)	Small Recon Drone `
+중화기용 조준기 (\D\D)	Heavy Weapon Sights `
+적중\+\{0\} / 치명타\+\{1\} / 피해 감소 무시 Lv\.(\d+)	Accuracy +{0} / Crit Chance +{1} / Ignore damage reduction Lv.`
+망원 조준장치 (\D\D)	Telescoping Sights `
+후열인 경우, 공격력 / 적중 / 치명타 증가 Lv\.(\d+)	Increase Attack / Accuracy / Crit Chance in back row Lv.`
+전투 자극제 (\D\D)	Combat Stimulant `
+행동력 증가 / 전투 속행 Lv\.(\d+)	Increased Action Speed / Continue Combat Lv.`
+더미 홀로그램 (\D\D)	Dummy Hologram `
+회피\+\{0\} / 피해 최소화 Lv\.(\d+)	Evasion +{0} / Minimize Damage Lv.`
+돌격형 전투 OS : 공격력 / 받는 피해 증가 Lv\.(\d+)	Rushing Combat OS: Increase Attack / Damage Received Lv.`
+표준형 전투 OS : 능력치 증가 Lv\.(\d+)	Standard Combat OS: Increased Stats Lv.`
+대응형 전투 OS : 공격 당할 시, 반격 Lv\.(\d+)	Responsive Combat OS: Counter Attack Lv.`
+대응형 OS : (\d+)% 확률로 반격 \(\{0\}% 위력\)	Corresponding OS: `% chance to counterattack ({0}% Power)
+방어형 전투 OS : 방어력 증가 \/ 받는 피해 감소 Lv\.(\d+)	Defensive Combat OS: Increase Defense / Reduce Damage Received Lv.`
+강습형 전투 OS : 공격력 증가 \/ 사거리 감소 Lv\.(\d+)	Assault Combat OS: Increased Attack / Reduced Range Lv.`
+정밀형 전투 OS : 공격력 \/ 적중 증가 \/ 행동력 감소 \/ 적중 감소 해제 Lv\.(\d+)	Precision Combat OS: Attack / Accuracy Increase / Decrease Action Speed / Remove Accuracy Reduction Lv.`
+대 기동 전투 OS : 기동형 공격 시, 피해 증가 Lv\.(\d+)	Anti-Air Battle OS: Increases damage against Flying types Lv.`
+대 경장 전투 OS : 경장형 공격 시, 피해 증가 Lv\.(\d+)	Anti-Light Battle OS: Increase damage against Light types Lv.`
+대 중장 전투 OS : 중장형 공격 시, 피해 증가 Lv\.(\d+)	Anti-Heavy Battle OS: Increase damage against Heavy types Lv.`
+고속 학습 OS : 획득 경험치 증가 Lv\.(\d+)	Fast Learning OS: Increase Earned Experience Lv.`
+보조 에너지 팩 : AP 증가 Lv\.(\d+)	Secondary Energy Pack: Increase AP Lv.`
+관측 장비 : 사거리 / 적중 증가 Lv\.(\d+)	Observation Equipment: Increase Range / Accuracy Lv.`
+공간 장갑 : 받는 피해 감소 Lv\.(\d+)	Space Armor: Reduced Damage Lv.`
+공간 장갑 : 받는 피해 \{0\}% 감소 \((\d+)회\)	Space Armor: Reduces damage taken by (0)% (` time)
+보조 부스터 : 회피 감소 해제 Lv\.(\d+)	Auxiliary Booster: Remove Evasion Reduction Lv.`
+보조 부스터 : 회피 감소 해제 \((\d+)% 확률\)	Auxiliary Booster: Remove Evasion Reduction (`% chance)
+초정밀 조준기 : 적중 감소 해제 Lv\.(\d+)	Precision Sights: Remove Accuracy Reduction Lv.`
+초정밀 조준기 : 적중 감소 해제 \((\d+)% 확률\)	Precision Sights: Remove Accuracy Reduction (`% probability)
+대 장갑 장비 : 방어 관통 Lv\.(\d+)	Anti-Armor Equipment: Defense Penetration Lv.`
+방어막 중화 : 방어막 / 피해 감소 무효 Lv\.(\d+)	Shield Neutralizer: Ignore Shield / Damage Reduction Lv.`
+방어막 중화 : 방어막/피해 감소 무시 \((\d+)% 확률\)	Shield Neutralizer: Ignores Shield / Damage Reduction (`% chance)
+방어 역장 : 방어막 Lv\.(\d+)	Force Field: Shield Lv.`
+전투 자극제 : 행동력 증가 / 전투 속행 Lv\.(\d+)	Combat Stimulant: Increased Action Speed / Continue Combat Lv.`
+더미 홀로그램 : 회피 증가 / 피해 감소 Lv\.(\d+)	Dummy Hologram: Increase Evasion / Reduce Damage Lv.`
+더미 홀로그램 : 피해 최소화 \((\d+)회\)	Dummy Hologram: Minimize Damage (` time)
+대 테러 외장 아머 : 속성 저항 증가 Lv\.(\d+)	Counter-terrorism Armor Plating: Increase Element Resistance Lv.`
+열화 우라늄탄 : 방어 관통 Lv\.(\d+)	Depleted Uranium Rounds: Defense Penetration Lv.`
+LM탄 : 대 경장 공격 Lv\.(\d+)	LM Ammo: Anti-Light Attack Lv.`
+AMRAAM 포드 : 대 기동 공격 Lv\.(\d+)	AMRAAM Pod: Anti-Air Attack Lv.`
+특수 코팅 라이플탄 : 방어 관통 Lv\.(\d+)	Special Rifle Ammo Coating: Defense Penetration Lv.`
+용살자의 징표 : 효과 발동률 증가 Lv\.(\d+)	Mark of the Dragonslayer: Increased Effectiveness Lv.`
+자원 재활용 (\D{1,4})	Resource Recycling `
+부품/영양/전력 자동 회복 수치 (\d+)% 증가	Increase auto-production of Parts/Nutrients/Power by `%
+수복실 개량 (\D{1,4})	Recovery Room Improvement `
+수복 소모 자원 (\d+)% 감소	Recovery resource consumption reduced by `%
+정밀 분해 시설 (\D{1,4})	Precision Disassembly Facility `
+분해 시 획득 자원 (\d+)% 증가	Recover `% more resources when disassembling.
+시뮬레이팅 시스템 (\D{1,4})	Simulation System `
+운송 드론 (\D{1,4})	Transportation Drone `
+자원 탐색 시 획득 자원 (\d+)% 증가	`% increase in acquired resources when Exploring.
+탐사 구역 분석실 (\D{1,4})	Exploration Area Analysis Facility `
+자원 탐색 시 물품 발견 확률 \+(\d+)%	+`% chance of finding items when Exploring.
+일일 훈련 스테이지 (\d+)회 클리어	Clear ` Daily Training stages
+전투원 모듈을 (\d+,?\d*,?\d*)회 분해	Disassemble units ` times
+장비를 (\d+,?\d*,?\d*)회 분해	Disassemble equipment ` times
+바이오로이드를 (\d+,?\d*,?\d*)기 획득	Get ` Bioroids
+바이오로이드를 (\d+,?\d*,?\d*)회 제작	Build ` Bioroids
+장비를 (\d+,?\d*,?\d*)회 제작	Build equipment ` times
+로봇 전투원 (\d+,?\d*,?\d*)회 제작	Build ` AGS units.
+자원 탐색 (\d+,?\d*,?\d*)회 완료	Complete ` explorations
+바이오로이드 도감 (\d+)종 등록	Register ` Bioroids in the scrapbook
+HP 강화 Lv\.(\d+) 달성	Achieved Lv.` in HP Enhancement
+공격력 강화 Lv\.(\d+) 달성	Achieved Lv.` in Attack Enhancement
+방어력 강화 Lv\.(\d+) 달성	Achieved Lv.` in Defense Enhancement
+명중률 강화 Lv\.(\d+) 달성	Achieved Lv.` in Accuracy Enhancement
+회피율 강화 Lv\.(\d+) 달성	Achieved Lv.` in Evasion Enhancement
+치명타 강화 Lv\.(\d+) 달성	Achieved Lv.` in Critical Chance Enhancement
+철충 섬멸 (\D{1,4})	Iron Parasite Extermination `
+철충을 (\d+,?\d*,?\d*)기 처치	Eliminate ` Iron Parasites
+지역 확보 (\D{1,4})	Secure Area `
+일반 스테이지 (\d+,?\d*,?\d*)회 클리어	Clear ` normal stages
+메인 스테이지 (\d+,?\d*,?\d*)회 클리어	Clear ` main stages
+미탐사 구역 확보 (\D{1,4})	Secure Unexplored Area `
+사이드 스테이지 (\d+,?\d*,?\d*)회 클리어	Clear ` side stages
+상시 훈련 (\D{1,4})	Diligent Training `
+일일 훈련 스테이지 (\d+)회 클리어	Clear 1 daily training stages
+기억속의 전장 (\D{1,4})	Battlefield Memories `
+외전 스테이지 (\d+,?\d*,?\d*)회 클리어	Clear ` sub-story stages
+후퇴도 전술 (\D{1,4})	Retreat is a valid strategy `
+스테이지 (\d+,?\d*,?\d*)회 실패	Fail ` stages
+일류 사령관 (\D{1,4})	First-rate Commander `
+스테이지 미션 (\d+,?\d*,?\d*)개 달성	Clear ` mission stages
+(\d+-\d+) 스테이지 클리어	Clear stage `
+일격에 (\d+,?\d*,?\d*) 이상의 피해를 줌	Deal ` or more damage in one hit
+숨겨둔 이야기 (\D{1,4})	Hidden Story `
+이야기를 (\d+,?\d*,?\d*)회 완료	Complete ` stories
+단련의 성과 (\D{1,4})	The fruit of one's labors `
+전투원 스킬 10 레벨 달성 (\d+)회	Earned 10 Unit levels, ` times
+전투원 Lv\.100 달성 (\d+)회	Achieved Unit Lv.100, ` times
+장비가 강렬한 빛을 내며… (\D{1,4})	Make the equipment shine so brightly that… `
+장비를 (\d+,?\d*,?\d*)회 강화	Enhance equipment ` times
+신입 사령관 (\D{1,4})	New Commander `
+지휘 숙련도 Lv\.(\d+) 달성	Achieved Commander level `
+자원 탐색 (\d+)회 완료	Completed ` explorations
+일어나세요 용사여 (\D{1,4})	Rise and Shine `
+전투원 (\d+,?\d*,?\d*)회 수복	Recapture ` lost Units
+전투원에 코어 링크 (\d+)회 장착	Install Core Links to Units ` times
+부품 수집가 (\D{1,4})	Parts Collector
+부품 (\d+,\d+) 이상 획득	Obtain ` Parts
+아포칼립스 대비책 (\D{1,4})	Disaster Preparedness `
+영양 (\d+,\d+) 이상 획득	Obtain ` Nutrients
+전기를 아껴씁시다 (\D{1,4})	Power Saver `
+전력 (\d+,\d+) 이상 획득	Obtain ` Power
+부품 (\d+) 이상 사용	Use over ` Parts
+영양 (\d+) 이상 사용	Use over ` Nutrients
+전력 (\d+) 이상 사용	Use over ` Power
+부품을 (\d+)이상 사용	Use over ` Parts
+영양을 (\d+)이상 사용	Use over ` Nutrients
+전력을 (\d+)이상 사용	Use over ` Power
+\(연구\) 자원 재활용 Lv(\d+)_부품 소모	(Research) Resource Recycling Lv`_Parts Usage
+\(연구\) 자원 재활용 Lv(\d+)_영양 소모	(Research) Resource Recycling Lv`_Nutrients Usage
+\(연구\) 자원 재활용 Lv(\d+)_전력 소모	(Research) Resource Recycling Lv`_Power Usage
+\(연구\) 수복실 개량 Lv(\d+)_전투원 수복	(Research) Recovery Room Upgrade Lv`_Unit Recovery
+전투원을 (\d+,?\d*,?\d*)회 이상 수복	Recover units ` times or more
+\(연구\) 정밀 분해 Lv(\d+)_전투원 분해	(Research) Precision Disassembly Lv`_Unit Disassembly
+전투원 모듈을 (\d+,?\d*,?\d*)회 이상 분해	Disassemble units ` times or more
+\(연구\) 정밀 분해 Lv(\d+)_장비 분해	(Research) Precision Disassembly Lv`_Equipment Disassembly
+장비 모듈을 (\d+,?\d*,?\d*)회 이상 분해	Disassemble equipment ` times or more
+\(연구\) 시뮬레이팅 Lv(\d+)_적 처치	(Research) Simulation Lv` Enemy Elimination
+적 (\d+,?\d*,?\d*)기 이상 처치	Eliminate ` or more enemies
+\(연구\) 시뮬레이팅 Lv(\d+)_스테이지 클리어	(Research) Simulation Lv`_Stage Clear
+\(연구\) 운송 드론 Lv(\d+)_탐사 완료	(Research) Transport Drone Lv`_Exploration Completed
+\(연구\) 탐사 구역 Lv(\d+)_지휘 숙련도 달성	(Research) Area Exploration Lv`_Attain Commander Level
+지휘 숙련도 Lv\.(\d+) 이상 달성	Attain Commander Lv.` or higher
+\(연구\) 시뮬레이팅 Lv(\d+)_보스 처치	(Research) Simulation Lv`_Boss Elimination
+보스 타입 적 (\d+,?\d*,?\d*)기 이상 처치	Eliminate ` or more Boss enemies
+스쿼드 교체 수 (\d+)번 이하로 클리어	Clear while replacing your squad no more than ` times
+로봇을 (\d+,?\d*,?\d*)회 제작	Build ` AGS
+로봇을 (\d+,?\d*,?\d*)기 이상 획득	Obtain ` Robots or more
+S등급 바이오로이드 (\d+,?\d*,?\d*)기 제작	Build ` S-Class Bioroids
+중장형 전투원을 (\d+,?\d*,?\d*) 종류 이상 보유	Own at least ` types of heavy units
+\(연구\) 정밀 레이더_파견 (\d+)회 완료	(Research) Precision Radar_` Explorations Completed
+부품\/영양\/전력이 (\d+,?\d*,?\d*) 증가합니다\.	Parts/Nutrients/Power increased by `
+바이오로이드 제작에 필요한 유전자 씨앗 (\d+)개 입니다\.	` Gene Seed(s), needed to build Bioroids.
+전투 장비 제작에 필요한 장비 코어 (\d+)개 입니다\.	` Battle Gear Core(s), needed to build equipment.
+로봇 제작에 필요한 메인 AI 코어 (\d+)개 입니다\.	` AI Core(s), need to build robots.
+제작 중인 전투원 또는 장비를 즉시 제작 완료할 수 있는 회로 (\d+)개 입니다\.	` Quick-Complete Circuit(s), needed to instantly complete a unit or gear build.
+즉시 수복과 응급 수복에 필요한 나노머신 (\d+)개 입니다\.	` Quick-Fix Nanomachine(s), need to instantly recover a unit, or to perform emergency recovery.
+코어 링크 해제에 필요한 해제기 (\d+)개 입니다\.	` Link Breaker(s), need to break Core Links.
+전투원 강화 초기화에 필요한 장비 (\d+)개 입니다\.	` Battle Module Resets, needed to reset unit enhancements.
+어떤 연구도 순식간에 완료하지만, 사용 후 폭발하는 회로 (\d+)개 입니다\.	` Strange Circuit(s), will instantly complete any research but is destroyed after use.
+다양한 물품을 구매할 수 있는 화폐 (\d+)개 입니다\. 청약철회는 구매일로부터 7일 이내에 가능합니다\. 단, 아이템을 사용했을 경우 청약철회는 불가능 합니다	Six units of currency to purchase various items. You can refund this within 7 days of the purchase date. However, you can no longer refund it if used.
+아쿠아 모듈 : 공격력 / 치명타 / 적중 / 회피 / 행동력 증가 Lv\.(\d+)	Aqua Module: Increase Attack / Crit Chance / Accuracy / Evasion / Action Speed Lv.`
+전황 분석 OS : 공격력 / 치명타 / 적중 / 회피 / 행동력 증가 Lv\.(\d+)	Battlefield Analysis OS: Increase Attack / Crit Chance / Accuracy / Evasion / Action Speed Lv.`
+선 크림 : 공격력 / 방어력 / 적중 / 회피 / 행동력 증가 Lv\.(\d+)	Sunscreen: Increase Attack / Defense / Accuracy / Evasion / Action Speed Lv.`
+고기동 메뉴버 : 회피 증가 상태인 경우, 받는 피해 감소 Lv\.(\d+)	High-Speed Maneuvers: Decreases damage taken when evasion is increased Lv.`
+냉각 팩 : 공격 시, AP 증가 Lv\.(\d+)	Cooling Pack: Increase AP when attacking Lv.`
+출력 제한 해제 : 공격력 / 행동력 증가 / 지속 고정 피해 Lv\.(\d+)	Release Output Limit: Increase Attack / Action Speed / Take Continuous Damage Lv.`
+전투 기록 : 공격 시, 경험치 증가 Lv\.(\d+)	Combat Logs: Increases EXP when attacked Lv.`
+에너지 전환기 : 방어막 해제 / 공격력 / 행동력 증가 Lv\.(\d+)	Energy Diverter: Disable Shield / Increase Attack / Action Speed Lv.`
