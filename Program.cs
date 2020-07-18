@@ -3,7 +3,7 @@ using System;
 using System.IO;
 using System.Text;
 
-namespace LoExtractText
+namespace LoTextExtractor
 {
     internal class Program
     {
@@ -11,7 +11,7 @@ namespace LoExtractText
         {
             if (args.Length < 3)
             {
-                Console.WriteLine("Usage: LoExtractText <data.bin[.dat]> <data_ko.bin[.dat]> <LocalizationPatch.tsv[.dat]>");
+                Console.WriteLine("Usage: LoTextExtractor <data.bin[.dat]> <data_ko.bin[.dat]> <LocalizationPatch.tsv[.dat]>");
                 return 1;
             }
 

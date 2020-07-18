@@ -6,7 +6,7 @@ using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace LoExtractText
+namespace LoTextExtractor
 {
     public class TranslationFinder
     {

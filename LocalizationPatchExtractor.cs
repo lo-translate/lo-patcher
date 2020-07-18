@@ -3,7 +3,7 @@ using System;
 using System.Diagnostics;
 using System.IO;
 
-namespace LoExtractText
+namespace LoTextExtractor
 {
     internal class LocalizationPatchExtractor
     {

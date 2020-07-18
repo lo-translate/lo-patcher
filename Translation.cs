@@ -1,6 +1,6 @@
 ﻿using FileHelpers;
 
-namespace LoExtractText
+namespace LoTextExtractor
 {
 #pragma warning disable CS0649 // Field is never assigned to
     internal class Translation

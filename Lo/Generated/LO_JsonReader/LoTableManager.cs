@@ -1,6 +1,6 @@
 using System;
 
-namespace LoExtractText.Lo.Generated.LO_JsonReader
+namespace LoTextExtractor.Lo.Generated.LO_JsonReader
 {
     [Serializable]
     public class LoTableManager

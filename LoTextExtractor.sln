@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30309.148
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoExtractText", "LoExtractText.csproj", "{28359D30-34E2-43C1-9807-AB23049FDD80}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoTextExtractor", "LoTextExtractor.csproj", "{28359D30-34E2-43C1-9807-AB23049FDD80}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

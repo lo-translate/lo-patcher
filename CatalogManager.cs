@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace LoExtractText
+namespace LoTextExtractor
 {
     internal class CatalogManager
     {

@@ -1,6 +1,6 @@
 using System;
 
-namespace LoExtractText.Lo.Generated
+namespace LoTextExtractor.Lo.Generated
 {
     [Serializable]
     public class Table_PCEnchant_ReinforValue

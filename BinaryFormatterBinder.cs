@@ -1,4 +1,4 @@
-﻿using LoExtractText.Lo.Generated;
+﻿using LoTextExtractor.Lo.Generated;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.Serialization;
 
-namespace LoExtractText
+namespace LoTextExtractor
 {
     internal sealed class BinaryFormatterBinder : SerializationBinder
     {

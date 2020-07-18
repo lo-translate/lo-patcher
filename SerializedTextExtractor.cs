@@ -1,4 +1,4 @@
-﻿using LoExtractText.Lo.Generated;
+﻿using LoTextExtractor.Lo.Generated;
 using System;
 using System.Collections;
 using System.Diagnostics;
@@ -6,7 +6,7 @@ using System.IO;
 using System.Reflection;
 using System.Runtime.Serialization.Formatters.Binary;
 
-namespace LoExtractText
+namespace LoTextExtractor
 {
     internal class SerializedTextExtractor
     {
