@@ -3,6 +3,7 @@ using AssetsTools.NET.Extra;
 using LoPatcher.BundlePatch.AssetPatch;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 
 namespace LoPatcher.BundlePatch
@@ -117,7 +118,14 @@ namespace LoPatcher.BundlePatch
             {
                 if (File.Exists(temporaryFile))
                 {
-                    File.Delete(temporaryFile);
+                    try
+                    {
+                        File.Delete(temporaryFile);
+                    }
+                    catch (Exception e) when (e is IOException)
+                    {
+                        Debug.WriteLine("Failed to delete temporary file");
+                    }
                 }
             }
         }
