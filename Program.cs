@@ -45,6 +45,7 @@ namespace LoExtractText
             var catalogManager = new CatalogManager(result.Catalog);
 
             new SerializedTextExtractor(translationFinder, catalogManager).ExtractToCatalog(args[0], args[1]);
+            new LocalizationPatchExtractor(translationFinder, catalogManager).ExtractToCatalog(args[2]);
 
             var generator = new POGenerator(new POGeneratorSettings());
             using var outStream = File.Open("LoText.po", FileMode.OpenOrCreate);
