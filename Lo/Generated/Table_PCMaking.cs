@@ -23,5 +23,5 @@ namespace LoExtractText.Lo.Generated
         public Int32 BTBonus { get; set; }
         public double MakingBonusBL { get; set; }
         public Int32 BLBonus { get; set; }
-     }
+    }
 }

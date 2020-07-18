@@ -31,5 +31,5 @@ namespace LoExtractText.Lo.Generated
         public string PCModelID { get; set; }
         public string PCInvenIconID { get; set; }
         public string Collection_Reward { get; set; }
-     }
+    }
 }

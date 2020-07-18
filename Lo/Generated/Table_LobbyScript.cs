@@ -29,5 +29,5 @@ namespace LoExtractText.Lo.Generated
         public System.Collections.Generic.List<System.String> LobbyScriptSp2 { get; set; }
         public System.Collections.Generic.List<System.String> LobbyScriptSp2FaceName { get; set; }
         public System.Collections.Generic.List<System.String> LobbyScriptSp2VoiceName { get; set; }
-     }
+    }
 }

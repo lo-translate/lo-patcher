@@ -70,5 +70,5 @@ namespace LoExtractText.Lo.Generated
         public System.Collections.Generic.List<System.String> BuffEffectTriggerValue_Sub { get; set; }
         public Int32 BuffEffectTriggerBuffAttrType { get; set; }
         public Int32 BuffEffectOverlapMax { get; set; }
-     }
+    }
 }

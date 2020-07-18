@@ -7,5 +7,5 @@ namespace LoExtractText.Lo.Generated
     {
         public string Key { get; set; }
         public double StatUpValue { get; set; }
-     }
+    }
 }

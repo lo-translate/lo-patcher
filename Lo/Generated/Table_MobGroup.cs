@@ -31,5 +31,5 @@ namespace LoExtractText.Lo.Generated
         public Int32 mobGroupDifficulty { get; set; }
         public Int32 mobGroupPattern { get; set; }
         public Int32 mobGroupRewardUse { get; set; }
-     }
+    }
 }

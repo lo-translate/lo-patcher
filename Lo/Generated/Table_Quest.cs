@@ -20,5 +20,5 @@ namespace LoExtractText.Lo.Generated
         public string QuestReward { get; set; }
         public string QuestIcon { get; set; }
         public string Event_Key { get; set; }
-     }
+    }
 }

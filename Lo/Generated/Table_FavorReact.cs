@@ -10,5 +10,5 @@ namespace LoExtractText.Lo.Generated
         public string FavorEventValue { get; set; }
         public string FavorValue { get; set; }
         public string FavorEffect { get; set; }
-     }
+    }
 }

@@ -13,5 +13,5 @@ namespace LoExtractText.Lo.Generated
         public string FullLink_Bonus_Type3 { get; set; }
         public string FullLink_Bonus_Type4 { get; set; }
         public string FullLink_Bonus_Type5 { get; set; }
-     }
+    }
 }

@@ -14,5 +14,5 @@ namespace LoExtractText.Lo.Generated
         public double APPLYPercentage { get; set; }
         public double EVADEPercentage { get; set; }
         public double CRIPercentage { get; set; }
-     }
+    }
 }

@@ -10,5 +10,5 @@ namespace LoExtractText.Lo.Generated
         public Int32 CutIn_Condition { get; set; }
         public string CutIn_Condition_Value { get; set; }
         public string CutIn_Img { get; set; }
-     }
+    }
 }

@@ -19,5 +19,5 @@ namespace LoExtractText.Lo.Generated
         public string IceResist { get; set; }
         public string EletronicResist { get; set; }
         public double TurnSpeed { get; set; }
-     }
+    }
 }

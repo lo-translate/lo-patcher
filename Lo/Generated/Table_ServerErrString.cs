@@ -9,5 +9,5 @@ namespace LoExtractText.Lo.Generated
         public string Pos { get; set; }
         public string Msg { get; set; }
         public string Info { get; set; }
-     }
+    }
 }

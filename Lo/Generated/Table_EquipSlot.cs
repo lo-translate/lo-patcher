@@ -25,5 +25,5 @@ namespace LoExtractText.Lo.Generated
         public System.Collections.Generic.List<System.Int32> Slot08SubType { get; set; }
         public Int32 Slot09Type { get; set; }
         public System.Collections.Generic.List<System.Int32> Slot09SubType { get; set; }
-     }
+    }
 }

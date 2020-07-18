@@ -14,5 +14,5 @@ namespace LoExtractText.Lo.Generated
         public Int32 ReqMetal { get; set; }
         public Int32 ReqNutrient { get; set; }
         public Int32 ReqPower { get; set; }
-     }
+    }
 }

@@ -13,5 +13,5 @@ namespace LoExtractText.Lo.Generated
         public System.Collections.Generic.List<System.String> Squad_Member { get; set; }
         public System.Collections.Generic.List<System.String> Squad_CompleteReward { get; set; }
         public Int32 Req_Squad_Member { get; set; }
-     }
+    }
 }

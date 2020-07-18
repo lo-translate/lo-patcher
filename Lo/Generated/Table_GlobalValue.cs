@@ -10,5 +10,5 @@ namespace LoExtractText.Lo.Generated
         public Int32 Type { get; set; }
         public double Value { get; set; }
         public System.Collections.Generic.List<System.String> ValueStr { get; set; }
-     }
+    }
 }

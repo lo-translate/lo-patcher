@@ -50,5 +50,5 @@ namespace LoExtractText.Lo.Generated
         public string Stage_Rec_Power2 { get; set; }
         public string Stage_Rec_Power3 { get; set; }
         public string Stage_Rec_Power4 { get; set; }
-     }
+    }
 }

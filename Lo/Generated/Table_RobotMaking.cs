@@ -16,5 +16,5 @@ namespace LoExtractText.Lo.Generated
         public System.Collections.Generic.List<System.Int32> NeedItemCount { get; set; }
         public Int32 NeedAICore { get; set; }
         public System.Collections.Generic.List<System.String> ReqResearch { get; set; }
-     }
+    }
 }

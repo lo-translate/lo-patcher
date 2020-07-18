@@ -36,5 +36,5 @@ namespace LoExtractText.Lo.Generated
         public System.Collections.Generic.List<System.String> StoryFile_Next { get; set; }
         public string StoryName { get; set; }
         public string StoryDesc { get; set; }
-     }
+    }
 }

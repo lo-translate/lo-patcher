@@ -10,5 +10,5 @@ namespace LoExtractText.Lo.Generated
         public Int32 Level { get; set; }
         public Int32 Exp { get; set; }
         public Int32 NeedExp { get; set; }
-     }
+    }
 }

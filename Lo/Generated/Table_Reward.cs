@@ -34,5 +34,5 @@ namespace LoExtractText.Lo.Generated
         public System.Collections.Generic.List<System.String> ItemRate { get; set; }
         public System.Collections.Generic.List<System.String> CharIndexString { get; set; }
         public System.Collections.Generic.List<System.String> CharRate { get; set; }
-     }
+    }
 }

@@ -6,5 +6,5 @@ namespace LoExtractText.Lo.Generated
     public class NUM_OUTPUTTYPE
     {
         public Int32 value__;
-     }
+    }
 }

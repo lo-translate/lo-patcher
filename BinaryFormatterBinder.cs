@@ -8,7 +8,7 @@ using System.Runtime.Serialization;
 
 namespace LoExtractText
 {
-    sealed class BinaryFormatterBinder : SerializationBinder
+    internal sealed class BinaryFormatterBinder : SerializationBinder
     {
         private readonly Assembly assembly;
 
@@ -33,7 +33,7 @@ namespace LoExtractText
                         updatedTypeName = type.FullName;
                         continue;
                     }
-                    
+
                     updatedTypeName = updatedTypeName.Replace(type.Name, type.FullName);
                 }
             }
@@ -191,7 +191,6 @@ namespace LoExtractText
             else if (name == "Table_CoreLinkBonus") { return KeyValuePair.Create("", new Table_CoreLinkBonus()).GetType(); }
             else if (name == "Table_MapStageEW") { return KeyValuePair.Create("", new Table_MapStageEW()).GetType(); }
             else if (name == "Table_EWRewardDay") { return KeyValuePair.Create("", new Table_EWRewardDay()).GetType(); }
-
             else if (name == "Table_BuffEffect_Client+BuffDesc") { return KeyValuePair.Create("", new Table_BuffEffect_Client.BuffDesc()).GetType(); }
 
             throw new InvalidOperationException($"Unknown table {name}");
@@ -303,7 +302,6 @@ namespace LoExtractText
             else if (name == "Table_CoreLinkBonus") { return new Dictionary<string, Table_CoreLinkBonus>().GetType(); }
             else if (name == "Table_MapStageEW") { return new Dictionary<string, Table_MapStageEW>().GetType(); }
             else if (name == "Table_EWRewardDay") { return new Dictionary<string, Table_EWRewardDay>().GetType(); }
-
             else if (name == "Table_BuffEffect_Client+BuffDesc") { return new Dictionary<string, Table_BuffEffect_Client.BuffDesc>().GetType(); }
 
             throw new InvalidOperationException($"Unknown table {name}");

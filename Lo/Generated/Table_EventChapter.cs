@@ -15,5 +15,5 @@ namespace LoExtractText.Lo.Generated
         public string StartCutsceneIndex { get; set; }
         public Int32 Apply_Event { get; set; }
         public string Event_Key { get; set; }
-     }
+    }
 }

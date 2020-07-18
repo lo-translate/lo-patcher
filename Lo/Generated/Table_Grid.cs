@@ -18,5 +18,5 @@ namespace LoExtractText.Lo.Generated
         public string Pos8 { get; set; }
         public string Pos9 { get; set; }
         public Int32 StandardPoint { get; set; }
-     }
+    }
 }

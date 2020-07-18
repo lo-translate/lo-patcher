@@ -12,5 +12,5 @@ namespace LoExtractText.Lo.Generated
         public Int32 NutrientCost { get; set; }
         public Int32 PowerCost { get; set; }
         public Int32 TimeCost { get; set; }
-     }
+    }
 }

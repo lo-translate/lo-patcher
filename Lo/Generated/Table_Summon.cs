@@ -25,5 +25,5 @@ namespace LoExtractText.Lo.Generated
         public string AIKeyString { get; set; }
         public Int32 LifeCycleRound { get; set; }
         public Int32 IsShelter { get; set; }
-     }
+    }
 }

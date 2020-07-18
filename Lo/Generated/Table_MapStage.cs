@@ -96,5 +96,5 @@ namespace LoExtractText.Lo.Generated
         public System.Collections.Generic.List<System.String> MidCutsceneIndex { get; set; }
         public System.Collections.Generic.List<System.Int32> MidCutsceneWave { get; set; }
         public System.Collections.Generic.List<System.Int32> MidCutsceneTiming { get; set; }
-     }
+    }
 }

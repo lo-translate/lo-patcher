@@ -11,5 +11,5 @@ namespace LoExtractText.Lo.Generated
         public string MissionTriggerValue { get; set; }
         public Int32 MissionObjectType { get; set; }
         public string MissionObjectValue { get; set; }
-     }
+    }
 }

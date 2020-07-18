@@ -47,5 +47,5 @@ namespace LoExtractText.Lo.Generated
         public Int32 SkillActiveType10 { get; set; }
         public Int32 SkillActiveValue10 { get; set; }
         public Int32 SkillDefaultLevel10 { get; set; }
-     }
+    }
 }

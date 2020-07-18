@@ -11,5 +11,5 @@ namespace LoExtractText.Lo.Generated
         public string CoreLink_Bonus_String { get; set; }
         public Int32 CoreLink_Bonus_DescOutput { get; set; }
         public Int32 CoreLink_Percentage_Output { get; set; }
-     }
+    }
 }

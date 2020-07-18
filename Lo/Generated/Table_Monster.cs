@@ -25,5 +25,5 @@ namespace LoExtractText.Lo.Generated
         public string AIKeyString { get; set; }
         public Int32 Req_InfoAccLevel { get; set; }
         public string Mob_Info { get; set; }
-     }
+    }
 }

@@ -10,7 +10,6 @@ namespace LoExtractText.Lo.Generated
         [Serializable]
         public class BuffDesc
         {
-
         }
-     }
+    }
 }

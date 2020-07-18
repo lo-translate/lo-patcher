@@ -29,5 +29,5 @@ namespace LoExtractText.Lo.Generated
         public System.Collections.Generic.List<System.String> DefaultDeck4 { get; set; }
         public System.Collections.Generic.List<System.String> DefaultDeck5 { get; set; }
         public string DefaultMasterPC { get; set; }
-     }
+    }
 }

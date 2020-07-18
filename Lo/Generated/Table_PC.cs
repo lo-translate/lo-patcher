@@ -41,5 +41,5 @@ namespace LoExtractText.Lo.Generated
         public string PC2DModelID_Damage { get; set; }
         public string Skin_LobbyScript { get; set; }
         public Int32 Is_CoreUnit { get; set; }
-     }
+    }
 }

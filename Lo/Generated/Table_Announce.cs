@@ -11,5 +11,5 @@ namespace LoExtractText.Lo.Generated
         public string Announce_Title { get; set; }
         public string Announce_Desc { get; set; }
         public Int32 Announce_Show { get; set; }
-     }
+    }
 }

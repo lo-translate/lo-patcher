@@ -5,5 +5,5 @@ namespace LoExtractText.Lo.Generated
     [Serializable]
     public class Table_FixedSquadMember
     {
-     }
+    }
 }

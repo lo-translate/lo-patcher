@@ -9,5 +9,5 @@ namespace LoExtractText.Lo.Generated
         public Int32 EquipMakingPercentage { get; set; }
         public Int32 EquipMakingTime { get; set; }
         public string EquipDescription { get; set; }
-     }
+    }
 }

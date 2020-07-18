@@ -23,5 +23,5 @@ namespace LoExtractText.Lo.Generated
         public System.Collections.Generic.List<System.String> NeedItemKeyString { get; set; }
         public System.Collections.Generic.List<System.Int32> NeedItemCount { get; set; }
         public Int32 Research_Time { get; set; }
-     }
+    }
 }

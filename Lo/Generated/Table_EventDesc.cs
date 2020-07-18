@@ -13,5 +13,5 @@ namespace LoExtractText.Lo.Generated
         public string Event_Img { get; set; }
         public Int32 Event_QuickLink { get; set; }
         public Int32 Event_Activation { get; set; }
-     }
+    }
 }

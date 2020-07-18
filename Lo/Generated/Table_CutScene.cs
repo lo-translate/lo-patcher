@@ -8,5 +8,5 @@ namespace LoExtractText.Lo.Generated
         public string Key { get; set; }
         public string FileName { get; set; }
         public string BGMFileName { get; set; }
-     }
+    }
 }

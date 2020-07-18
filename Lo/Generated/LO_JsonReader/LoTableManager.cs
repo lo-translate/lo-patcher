@@ -78,5 +78,5 @@ namespace LoExtractText.Lo.Generated.LO_JsonReader
         public System.Collections.Generic.Dictionary<System.String, Table_CoreLinkBonus> _Table_CoreLinkBonus;
         public System.Collections.Generic.Dictionary<System.String, Table_MapStageEW> _Table_MapStageEW;
         public System.Collections.Generic.Dictionary<System.String, Table_EWRewardDay> _Table_EWRewardDay;
-     }
+    }
 }

@@ -49,5 +49,5 @@ namespace LoExtractText.Lo.Generated
         public double EnchantUpgRate { get; set; }
         public Int32 Enchant_Exclusive { get; set; }
         public string ItemDesc_Detail { get; set; }
-     }
+    }
 }

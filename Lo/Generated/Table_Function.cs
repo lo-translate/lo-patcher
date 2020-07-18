@@ -27,5 +27,5 @@ namespace LoExtractText.Lo.Generated
         public string FuncParam5 { get; set; }
         public string FuncSubParam5 { get; set; }
         public string FuncRate5 { get; set; }
-     }
+    }
 }

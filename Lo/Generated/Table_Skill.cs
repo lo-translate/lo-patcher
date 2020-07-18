@@ -31,5 +31,5 @@ namespace LoExtractText.Lo.Generated
         public string SimpleDescChange_Wait { get; set; }
         public string DescChange_Wait { get; set; }
         public string Matching_Skill_FormChange { get; set; }
-     }
+    }
 }

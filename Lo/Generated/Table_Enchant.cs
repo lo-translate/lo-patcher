@@ -17,5 +17,5 @@ namespace LoExtractText.Lo.Generated
         public Int32 RequireUpgrade09 { get; set; }
         public Int32 RequireUpgrade10 { get; set; }
         public Int32 OfferUpgradeValue { get; set; }
-     }
+    }
 }

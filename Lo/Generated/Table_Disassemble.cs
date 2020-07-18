@@ -13,5 +13,5 @@ namespace LoExtractText.Lo.Generated
         public Int32 PowerObtain { get; set; }
         public System.Collections.Generic.List<System.String> GiveItemKeyString { get; set; }
         public System.Collections.Generic.List<System.Int32> GiveItemCount { get; set; }
-     }
+    }
 }

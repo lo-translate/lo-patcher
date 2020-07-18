@@ -12,5 +12,5 @@ namespace LoExtractText.Lo.Generated
         public string GachaRewardItemKeyString { get; set; }
         public Int32 GachaRewardItemCount { get; set; }
         public Int32 Gacha_Grade { get; set; }
-     }
+    }
 }

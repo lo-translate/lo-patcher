@@ -19,5 +19,5 @@ namespace LoExtractText.Lo.Generated
         public Int32 GuideUi_Index { get; set; }
         public string GuideUi_PC_Key { get; set; }
         public Int32 IsChoiceMode { get; set; }
-     }
+    }
 }

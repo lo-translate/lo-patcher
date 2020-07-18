@@ -13,5 +13,5 @@ namespace LoExtractText.Lo.Generated
         public Int32 Is_SkinItem { get; set; }
         public Int32 Is_CharItem { get; set; }
         public Int32 Is_RB { get; set; }
-     }
+    }
 }

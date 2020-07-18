@@ -27,5 +27,5 @@ namespace LoExtractText.Lo.Generated
         public Int32 GuardPierce { get; set; }
         public string Use_BuffStack { get; set; }
         public Int32 Stack_Consume { get; set; }
-     }
+    }
 }

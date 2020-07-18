@@ -14,5 +14,5 @@ namespace LoExtractText.Lo.Generated
         public string ChapterString { get; set; }
         public string Event_Category { get; set; }
         public Int32 Chapter_IDX { get; set; }
-     }
+    }
 }

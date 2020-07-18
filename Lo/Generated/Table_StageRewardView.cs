@@ -9,5 +9,5 @@ namespace LoExtractText.Lo.Generated
         public string Stage_Key { get; set; }
         public System.Collections.Generic.List<System.String> Reward_Char { get; set; }
         public System.Collections.Generic.List<System.String> Reward_Item { get; set; }
-     }
+    }
 }

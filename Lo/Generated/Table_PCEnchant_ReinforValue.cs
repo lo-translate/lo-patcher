@@ -7,5 +7,5 @@ namespace LoExtractText.Lo.Generated
     {
         public string Key { get; set; }
         public Int32 GiveReinforceValue { get; set; }
-     }
+    }
 }
