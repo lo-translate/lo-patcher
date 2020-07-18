@@ -55,6 +55,10 @@ namespace LoTextExtractor
             var generator = new POGenerator(new POGeneratorSettings());
             using var outStream = File.Open(outputFile, FileMode.OpenOrCreate);
             using var writer = new StreamWriter(outStream, Encoding.UTF8);
+
+            result.Catalog.Headers["PO-Revision-Date"] = string.Format("{0:yyyy-MM-dd HH:mmzz00}", DateTime.Now);
+            result.Catalog.Headers["Project-Id-Version"] = string.Format("{0:yyyyMMdd}", DateTime.Now);
+
             generator.Generate(writer, result.Catalog);
 
             return 0;
