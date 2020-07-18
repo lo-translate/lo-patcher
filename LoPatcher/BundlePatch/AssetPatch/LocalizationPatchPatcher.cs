@@ -13,52 +13,10 @@ namespace LoPatcher.BundlePatch.AssetPatch
     public class LocalizationPatchPatcher : IAssetPatcher
     {
         private readonly POCatalog languageCatalog;
-        private readonly Dictionary<string, string> koreanToEnglishDictionary = new Dictionary<string, string>();
 
         public LocalizationPatchPatcher(POCatalog languageCatalog)
         {
             this.languageCatalog = languageCatalog ?? throw new ArgumentNullException(nameof(languageCatalog));
-
-            if (File.Exists("library.txt"))
-            {
-                LoadKoreanToJapaneseFromTsv("library.txt");
-            }
-
-            if (File.Exists("library.csv"))
-            {
-                LoadKoreanToJapaneseFromTsv("library.csv");
-            }
-        }
-
-        private void LoadKoreanToJapaneseFromTsv(string filename)
-        {
-            foreach (var line in File.ReadLines(filename))
-            {
-                var parts = Regex.Split(line, "\t");
-                if (parts.Length != 2)
-                {
-                    throw new PatchFailedException(
-                        $"Failed to parse KOR->JPN TSV, found {parts.Length} columns, expected 2"
-                    );
-                }
-
-                var koreanText = parts[0].Replace("`n", "\n", StringComparison.Ordinal);
-                var englishText = parts[1].Replace("`n", "\n", StringComparison.Ordinal);
-
-                if (koreanToEnglishDictionary.ContainsKey(koreanText))
-                {
-                    if (!koreanToEnglishDictionary[koreanText].Equals(englishText, StringComparison.Ordinal))
-                    {
-                        Trace.WriteLine("Duplicate Korean text with different translation");
-                        Trace.WriteLine($" - {koreanText}");
-                        Trace.WriteLine($" - {englishText}");
-                        Trace.WriteLine($" - {koreanToEnglishDictionary[koreanText]}");
-                    }
-                    continue;
-                }
-
-                koreanToEnglishDictionary[koreanText] = englishText;
-            }
         }
 
         public bool CanPatch(string type, string assetName)
@@ -94,7 +52,7 @@ namespace LoPatcher.BundlePatch.AssetPatch
                 return null;
             }
 
-            var replacedScript = ReplaceTextInTsv(script.AsString(), assetsFile.name);
+            var replacedScript = ReplaceTextInTsv(script.AsString());
             if (replacedScript.Equals(script.AsString(), StringComparison.Ordinal))
             {
                 return null;
@@ -109,11 +67,11 @@ namespace LoPatcher.BundlePatch.AssetPatch
             );
         }
 
-        private string ReplaceTextInTsv(string script, string name)
+        private string ReplaceTextInTsv(string script)
         {
-            var lines = Regex.Split(script, "\t\r\n");
+            var lines = Regex.Split(script, "\t\r\n").ToList();
 
-            for (var i = 0; i < lines.Length; i++)
+            for (var i = 0; i < lines.Count; i++)
             {
                 var parts = Regex.Split(lines[i], "\t");
                 if (parts.Length < 3)
@@ -130,8 +88,6 @@ namespace LoPatcher.BundlePatch.AssetPatch
                 }
 
                 // The string ID is 0, Korean is 1, Japanese is 2
-                var code = parts[0];
-                var koreanText = parts[1];
                 var japaneseText = parts[2];
 
                 var key = new POKey(japaneseText);
@@ -144,44 +100,6 @@ namespace LoPatcher.BundlePatch.AssetPatch
                     var normalizedJapaneseText = Regex.Replace(japaneseText, @"\r\n|\n\r|\n|\r", "\r\n");
                     key = new POKey(normalizedJapaneseText);
                     translation = languageCatalog.GetTranslation(key);
-                }
-
-                if (translation == null)
-                {
-                    var newKey = new POKey(japaneseText);
-                    var codeAsInt = int.Parse(code, NumberStyles.Integer, CultureInfo.CreateSpecificCulture("en-US"));
-
-                    var sourceReference = new POSourceReference[]
-                    {
-                        new POSourceReference($"{name}-LocalizationPatch", codeAsInt)
-                    };
-
-                    var newEntry = new POSingularEntry(newKey)
-                    {
-                        Comments = new List<POComment>
-                        {
-                            new POReferenceComment { References = sourceReference },
-                        },
-                    };
-
-                    languageCatalog.Add(newEntry);
-
-                    if (!koreanToEnglishDictionary.ContainsKey(koreanText))
-                    {
-                        var cleanKoreanText = koreanText.Replace("\r", "\\r", StringComparison.Ordinal)
-                            .Replace("\n", "\\n", StringComparison.Ordinal)
-                            .Replace("\t", "\\t", StringComparison.Ordinal);
-
-                        newEntry.Comments.Add(new POTranslatorComment()
-                        {
-                            Text = $"Korean Text: {cleanKoreanText}"
-                        });
-                        newEntry.Translation = "";
-                        continue;
-                    }
-
-                    translation = koreanToEnglishDictionary[koreanText];
-                    newEntry.Translation = translation;
                 }
 
                 if (string.IsNullOrEmpty(translation))

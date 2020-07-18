@@ -34,7 +34,6 @@
             this.buttonChooseBundle = new System.Windows.Forms.Button();
             this.buttonPatch = new System.Windows.Forms.Button();
             this.groupBoxLanguageData = new System.Windows.Forms.GroupBox();
-            this.buttonSaveMissingTranslations = new System.Windows.Forms.Button();
             this.labelLanguageVersion = new System.Windows.Forms.Label();
             this.buttonLanguageUpdate = new System.Windows.Forms.Button();
             this.labelLanguageVersionLabel = new System.Windows.Forms.Label();
@@ -102,7 +101,6 @@
             // 
             this.groupBoxLanguageData.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBoxLanguageData.Controls.Add(this.buttonSaveMissingTranslations);
             this.groupBoxLanguageData.Controls.Add(this.labelLanguageVersion);
             this.groupBoxLanguageData.Controls.Add(this.buttonLanguageUpdate);
             this.groupBoxLanguageData.Controls.Add(this.labelLanguageVersionLabel);
@@ -112,17 +110,6 @@
             this.groupBoxLanguageData.TabIndex = 2;
             this.groupBoxLanguageData.TabStop = false;
             this.groupBoxLanguageData.Text = "Language data";
-            // 
-            // buttonSaveMissingTranslations
-            // 
-            this.buttonSaveMissingTranslations.Enabled = false;
-            this.buttonSaveMissingTranslations.Location = new System.Drawing.Point(198, 20);
-            this.buttonSaveMissingTranslations.Name = "buttonSaveMissingTranslations";
-            this.buttonSaveMissingTranslations.Size = new System.Drawing.Size(120, 25);
-            this.buttonSaveMissingTranslations.TabIndex = 3;
-            this.buttonSaveMissingTranslations.Text = "Save Missing Text";
-            this.buttonSaveMissingTranslations.UseVisualStyleBackColor = true;
-            this.buttonSaveMissingTranslations.Click += new System.EventHandler(this.ButtonSaveMissingTranslations_Click);
             // 
             // labelLanguageVersion
             // 
@@ -209,7 +196,6 @@
         private System.Windows.Forms.Label labelStatus;
         private System.Windows.Forms.GroupBox groupBoxBundleFile;
         private System.Windows.Forms.Label labelLanguageVersion;
-        private System.Windows.Forms.Button buttonSaveMissingTranslations;
         private System.Windows.Forms.SaveFileDialog dialogChooseLanguageOutput;
     }
 }

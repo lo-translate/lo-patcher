@@ -19,8 +19,7 @@ namespace LoPatcher
         private string selectedFile;
         private readonly string defaultSelectedFileText;
         private Thread patchThread;
-        private POCatalog languageCatalog;
-        private int originalLanguageCatalogSize;
+        private POCatalog catalog;
 
         private delegate void SetStatusTextDelegate(string text, Color color);
         private delegate void EnableFormDelegate(bool enable);
@@ -34,38 +33,36 @@ namespace LoPatcher
 
             SetStatusText("");
 
-            if (File.Exists("translations.po"))
+            if (File.Exists("LoTranslation.po"))
             {
-                using var stream = File.OpenRead("translations.po");
-                LoadTranslations(stream);
+                using var stream = File.OpenRead("LoTranslation.po");
+                catalog = LoadTranslations(stream);
             }
             else
             {
-                using var stream = new MemoryStream(Properties.Resources.translations);
-                LoadTranslations(stream);
+                using var stream = new MemoryStream(Properties.Resources.LoTranslation);
+                catalog = LoadTranslations(stream);
             }
         }
 
-        private void LoadTranslations(Stream stream)
+        private static POCatalog LoadTranslations(Stream stream)
         {
             var parser = new POParser(new POParserSettings());
             var result = parser.Parse(stream, Encoding.UTF8);
 
             if (result.Success)
             {
-                languageCatalog = result.Catalog;
-                labelLanguageVersion.Text = GetTranslationVersion(languageCatalog);
-                originalLanguageCatalogSize = languageCatalog.Count;
+                return result.Catalog;
             }
             else
             {
-                originalLanguageCatalogSize = 0;
                 MessageBox.Show(
                     Properties.Resources.ErrorModalTranslationParse,
                     Properties.Resources.ErrorModalTitle,
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error
                 );
+                return null;
             }
         }
 
@@ -89,7 +86,7 @@ namespace LoPatcher
             selectedFile = string.Empty;
             labelSelectedFile.Text = defaultSelectedFileText;
             buttonPatch.Enabled = false;
-            buttonSaveMissingTranslations.Enabled = languageCatalog.Count != originalLanguageCatalogSize;
+            labelLanguageVersion.Text = GetTranslationVersion(catalog).ToString();
 
             if (includeStatus)
             {
@@ -182,29 +179,17 @@ namespace LoPatcher
             patchThread.Start();
         }
 
-        private void ButtonSaveMissingTranslations_Click(object sender, EventArgs e)
-        {
-            if (dialogChooseLanguageOutput.ShowDialog() == DialogResult.OK)
-            {
-                var generator = new POGenerator(new POGeneratorSettings());
-
-                using var stream = File.Open(dialogChooseLanguageOutput.FileName, FileMode.OpenOrCreate);
-                using var writer = new StreamWriter(stream, Encoding.UTF8);
-                generator.Generate(writer, languageCatalog);
-            }
-        }
-
-        private static string GetTranslationVersion(POCatalog catalog)
+        private static Version GetTranslationVersion(POCatalog catalog)
         {
             var versionHeader = catalog.Headers.FirstOrDefault(
                 h => h.Key.Equals("Project-Id-Version", StringComparison.Ordinal)
             );
             if (versionHeader.Value != null)
             {
-                return versionHeader.Value;
+                return Version.Parse(versionHeader.Value);
             }
 
-            return "Unknown";
+            return null;
         }
 
         /// <summary>

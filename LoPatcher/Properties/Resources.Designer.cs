@@ -100,9 +100,9 @@ namespace LoPatcher.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] translations {
+        internal static byte[] LoTranslation {
             get {
-                object obj = ResourceManager.GetObject("translations", resourceCulture);
+                object obj = ResourceManager.GetObject("LoTranslation", resourceCulture);
                 return ((byte[])(obj));
             }
         }
