@@ -21,6 +21,10 @@ namespace LoTextExtractor
 
         public void ExtractToCatalog(string japaneseFile, string koreanFile)
         {
+            var formatter = new BinaryFormatter() { Binder = new BinaryFormatterBinder() };
+
+            Console.WriteLine("Loading Japanese data");
+
             Stream japaneseStream = File.OpenRead(japaneseFile);
             if (japaneseFile.EndsWith(".dat"))
             {
@@ -30,6 +34,10 @@ namespace LoTextExtractor
                 japaneseStream.Dispose();
                 japaneseStream = new MemoryStream(content);
             }
+
+            var japaneseRoot = formatter.Deserialize(japaneseStream) as LastOnTable;
+
+            Console.WriteLine("Loading Korean data");
 
             Stream koreanStream = File.OpenRead(koreanFile);
             if (koreanFile.EndsWith(".dat"))
@@ -41,10 +49,8 @@ namespace LoTextExtractor
                 koreanStream = new MemoryStream(content);
             }
 
-            var formatter = new BinaryFormatter() { Binder = new BinaryFormatterBinder() };
-
-            var japaneseRoot = formatter.Deserialize(japaneseStream) as LastOnTable;
             var koreanRoot = formatter.Deserialize(koreanStream) as LastOnTable;
+            var knownStrings = catalogManager.GetCatalogCount();
 
             foreach (var storyKvp in japaneseRoot._Table_PCStory_Client)
             {
@@ -66,6 +72,15 @@ namespace LoTextExtractor
                 }
             }
 
+            var newKnownStrings = catalogManager.GetCatalogCount();
+            if (newKnownStrings > knownStrings)
+            {
+                Console.WriteLine($"Extracted {(newKnownStrings - knownStrings).ToString("N0")} strings from LastOnTable._Table_PCStory_Client");
+            }
+
+            
+            knownStrings = catalogManager.GetCatalogCount();
+
             foreach (var kvp in japaneseRoot._Table_BuffEffect_Client)
             {
                 ProcessObject(
@@ -75,10 +90,17 @@ namespace LoTextExtractor
                 );
             }
 
+            newKnownStrings = catalogManager.GetCatalogCount();
+            if (newKnownStrings > knownStrings)
+            {
+                Console.WriteLine($"Extracted {(newKnownStrings - knownStrings).ToString("N0")} strings from LastOnTable._Table_BuffEffect_Client");
+            }
+
+
             // Loop through the dictionaries in TableManager and process each of them
             foreach (var field in japaneseRoot._TableManager.GetType().GetFields())
             {
-                var knownStrings = catalogManager.GetCatalogCount();
+                knownStrings = catalogManager.GetCatalogCount();
 
                 if (field.Name == "_Table_Forbidden")
                 {
@@ -102,7 +124,7 @@ namespace LoTextExtractor
                     );
                 }
 
-                var newKnownStrings = catalogManager.GetCatalogCount();
+                newKnownStrings = catalogManager.GetCatalogCount();
                 if (newKnownStrings > knownStrings)
                 {
                     Console.WriteLine($"Extracted {(newKnownStrings - knownStrings).ToString("N0")} strings from LastOnTable._TableManager.{field.Name}");

@@ -23,6 +23,8 @@ namespace LoTextExtractor
                 File.Delete(outputFile);
             }
 
+            Console.WriteLine("Loading known translations");
+
             using var stream = File.OpenRead("Resources/LoText.template.po");
             var parser = new POParser(new POParserSettings());
             var result = parser.Parse(stream, Encoding.UTF8);
