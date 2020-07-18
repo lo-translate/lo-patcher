@@ -15,9 +15,11 @@ namespace LoTextExtractor
                 return 1;
             }
 
-            if (File.Exists("LoText.po"))
+            var outputFile = "LoText.extracted.po";
+
+            if (File.Exists(outputFile))
             {
-                File.Delete("LoText.po");
+                File.Delete(outputFile);
             }
 
             using var stream = File.OpenRead("Resources/LoText.template.po");
@@ -37,9 +39,9 @@ namespace LoTextExtractor
 
             translationFinder.LoadKnownRegexFromTsv("Resources/binfilepatcher-regex.tsv");
 
-            if (File.Exists("Resources/LoText.po"))
+            if (File.Exists("LoText.po"))
             {
-                translationFinder.LoadKnownTextFromTranslation("Resources/LoText.po");
+                translationFinder.LoadKnownTextFromTranslation("LoText.po");
             }
 
             var catalogManager = new CatalogManager(result.Catalog);
@@ -48,7 +50,7 @@ namespace LoTextExtractor
             new LocalizationPatchExtractor(translationFinder, catalogManager).ExtractToCatalog(args[2]);
 
             var generator = new POGenerator(new POGeneratorSettings());
-            using var outStream = File.Open("LoText.po", FileMode.OpenOrCreate);
+            using var outStream = File.Open(outputFile, FileMode.OpenOrCreate);
             using var writer = new StreamWriter(outStream, Encoding.UTF8);
             generator.Generate(writer, result.Catalog);
 
