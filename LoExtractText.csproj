@@ -21,7 +21,7 @@
     <None Update="Resources\binfilepatcher-regex.tsv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Resources\data.bin-template.po">
+    <None Update="Resources\LoText.template.po">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Resources\localefilepatcher-library.tsv">
