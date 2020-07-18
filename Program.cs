@@ -15,7 +15,8 @@ namespace LoTextExtractor
                 return 1;
             }
 
-            var outputFile = "LoText.extracted.po";
+            var existingTranslationFile = "LoTranslation.po";
+            var outputFile = "LoTranslation.extracted.po";
 
             if (File.Exists(outputFile))
             {
@@ -39,9 +40,9 @@ namespace LoTextExtractor
 
             translationFinder.LoadKnownRegexFromTsv("Resources/binfilepatcher-regex.tsv");
 
-            if (File.Exists("LoText.po"))
+            if (File.Exists(existingTranslationFile))
             {
-                translationFinder.LoadKnownTextFromTranslation("LoText.po");
+                translationFinder.LoadKnownTextFromTranslation(existingTranslationFile);
             }
 
             var catalogManager = new CatalogManager(result.Catalog);
