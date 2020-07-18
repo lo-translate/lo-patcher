@@ -1,0 +1,150 @@
+직격	피해량+{0}%,Direct Hit: Damage +{0}%
+정찰 비행	적중+{0}%,Air Recon: Accuracy +{0}%
+정찰 비행	회피+{0}%,Air Recon: Evasion +{0}%
+정찰 비행	방어 관통+{0}%,Air Recon: Defense Penetration +{0}%
+집중 사격	피해량+{0}%,Focus Fire: Damage +{0}%
+사냥감 몰이	공격력+{0}%,Corner Prey: Attack +{0}%
+사냥감 몰이	적중+{0}%,Corner Prey: Accuracy +{0}%
+사냥감 몰이	치명타+{0}%,Corner Prey: Crit Chance +{0}%
+기사도	받는 피해 {0}% 감소,Chivalry: {0}% Damage Reduction
+기사도	행동력 {0}%,Chivalry: Action Speed {0}%
+감전	AP {0},Shocked: AP+{0}
+감전	회피 {0}%,Shocked: Evasion {0}%
+검거 완료!	AP+{0},Arrest Complete: AP+{0}
+검거 완료!	공격력+{0}%,Arrest Complete: Attack +{0}%
+검거 완료!	치명타+{0}%,Arrest Complete: Crit Chance +{0}%
+검거 완료!	적중+{0}%,Arrest Complete: Accuracy +{0}%
+이터널 빔!	적중 {0}%,Eternal Beam: Accuracy {0}%
+이터널 빔!	AP {0},Eternal Beam: AP+{0}
+역장 전개	방어막+{0},Force Field Deployment: Barrier +{0}
+역장 전개	방어막+{0},Force Field Deployment: Shield +{0}
+역장 전개	지정 대상 보호,Force Field Deployment: Protect Target
+엄폐	회피+{0}%,Obscuration: Evasion +{0}%
+엄폐	받는 피해 {0}% 감소,Obscuration: {0}% Damage Reduction
+오비탈 플레이팅	화염 저항+{0}%,Orbital Plating: Resist Fire +{0}%
+오비탈 플레이팅	냉기 저항+{0}%,Orbital Plating: Resist Ice +{0}%
+오비탈 플레이팅	전기 저항+{0}%,Orbital Plating: Resist Electric +{0}%
+오비탈 플레이팅	효과 저항+{0}%,Orbital Plating: Resist Effects +{0}%
+오비탈 플레이팅	방어력+{0}%,Orbital Plating: Defense +{0}%
+견제 사격	회피 {0}%,Diversion Shot: Evasion {0}%
+견제 사격	적중 {0}%,Diversion Shot: Accuracy {0}%
+정밀 스캔	회피 {0}%,Precision Scan: Evasion {0}%
+강타	행동 불가,Smash: Stunned
+강타	행동 불가,Smash: No Action
+강타	피해량+{0}%,Smash: Damage +{0}%
+부식	방어력 {0}%,Corrosion: Defense {0}%
+부식	행동력 {0}%,Corrosion: Action Speed {0}%
+벌크 업	뒤로 {0}칸 밀기,Bulk Up: Push Back {0} Spaces
+벌크 업	피해량+{0}%,Bulk Up: Damage +{0}%
+벌크 업	AP {0},Bulk Up: AP+{0}
+벌크 업	공격력 증가,Bulk Up: Attack Up
+벌크 업	공격력+{0}%,Bulk Up: Attack +{0}%
+민감한 눈	치명타+{0}%,Keen Eyes: Crit Chance +{0}%
+민감한 눈	적중+{0}%,Keen Eyes: Accuracy +{0}%
+민감한 눈	방어 관통+{0}%,Keen Eyes: Defense Penetration +{0}%
+점착탄	행동력 {0}%,Cohesive Bullet: Action Speed {0}%
+경계 태세	행동력 {0}%,Alert Stance: Action Speed {0}%
+경계 태세	공격 지원,Alert Stance: Follow-Up Attack
+반격 태세	{0}% 위력으로 반격,Counter Stance: Counter with {0}% damage
+가드 올리기	행 보호,Guard Up: Row Protection
+장갑 관통	방어력 감소,Pierce Armor: Defense Down
+장갑 깎기	방어력 {0}%,Shear Armor: Defense {0}%
+살육 쾌감	공격력+{0}%,Killing Ecstasy: Attack +{0}%
+위협 감지	회피+{0}%,Sense Danger: Evasion +{0}%
+위협 감지	공격력 {0}%,Sense Danger: Attack {0}%
+광란	행동력+{0}%,Rampage: Action Speed +{0}%
+광란	치명타+{0}%,Rampage: Crit Chance +{0}%
+감전	행동 불가,Shocked: Stunned
+감전	행동 불가,Shocked: No Action
+정원사의 본성	공격력+{0}%,Gardener's True Nature: Attack +{0}%
+정원사의 본성	치명타+{0}%,Gardener's True Nature: Crit Chance +{0}%
+정원사의 본성	방어 관통 {0}%,Gardener's True Nature: Defense Penetration {0}%
+위협 사격	치명타 {0}%,Warning Shot: Crit Chance {0}%
+위협 사격	적중 {0}%,Warning Shot: Accuracy {0}%
+곡예 비행	{0}% 위력으로 반격,Acrobatic Flight: Counter with {0}% damage
+곡예 비행	받는 피해 {0}% 감소,Acrobatic Flight: {0}% Damage Reduction
+곡예 비행	회피+{0}%,Acrobatic Flight: Evasion +{0}%
+곡예 비행	지정 대상 보호,Acrobatic Flight: Protect Target
+진압 개시	방어력+{0}%,Commence Suppression: Defense +{0}%
+진압 개시	행 보호,Commence Suppression: Row Protection
+전원 돌격!	공격력+{0}%,Everyone Charge!: Attack +{0}%
+전원 돌격!	치명타+{0}%,Everyone Charge!: Crit Chance +{0}%
+전원 돌격!	행동력+{0}%,Everyone Charge!: Action Speed +{0}%
+2회전 시작이야!	공격력+{0}%,Round 2 Start!: Attack +{0}%
+2회전 시작이야!	치명타+{0}%,Round 2 Start!: Crit Chance +{0}%
+2회전 시작이야!	행동력+{0}%,Round 2 Start!: Action Speed +{0}%
+냥냥 펀치!	적중 {0}%,Meowmeow Punch!: Accuracy {0}%
+호위 지정	지정 대상 보호,Appoint Escort: Protect Target
+호위 지정	공격 지원,Appoint Escort: Follow-Up Attack
+호위 지정	AP+{0},Appoint Escort: AP+{0}
+고고도 스캐닝	방어 관통+{0}%,High-Altitude Scanning: Defense Penetration +{0}%
+하얀 사신	{0}% 위력으로 반격,White Death: Counter with {0}% damage
+하얀 사신	받는 피해 {0}% 감소,White Death: {0}% Damage Reduction
+SMG 연사	회피 {0}%,SMG Rapid Fire: Evasion {0}%
+P.G 활성화	공격력+{0}%,P.G Activation: Attack +{0}%
+강화 근력	행동력+{0}%,Enhanced Muscles: Action Speed +{0}%
+강화 근력	받는 피해 {0}% 감소,Enhanced Muscles: {0}% Damage Reduction
+P.G 활성화	방어 관통 {0}%,P.G Activation: Defense Penetration {0}%
+럭키 샷	피해량+{0}%,Lucky Shot: Damage +{0}%
+럭키 샷	AP {0},Lucky Shot: AP+{0}
+안도감	공격력+{0}%,Relief: Attack +{0}%
+안도감	적중+{0}%,Relief: Accuracy +{0}%
+안도감	치명타+{0}%,Relief: Crit Chance +{0}%
+안도감	행동력+{0}%,Relief: Action Speed +{0}%
+저 녀석 잡아라!	회피 {0}%,Get 'em!: Evasion {0}%
+목표 견제	공격력 {0}%,Target Check: Attack {0}%
+목표 견제	적중 {0}%,Target Check: Accuracy {0}%
+장갑 전개	받는 피해 {0}% 감소,Armor Deployment: {0}% Damage Reduction
+장갑 전개	행 보호,Armor Deployment: Row Protection
+장갑 전개	화염 저항+{0}%,Armor Deployment: Resist Fire +{0}%
+장갑 전개	냉기 저항+{0}%,Armor Deployment: Resist Ice +{0}%
+장갑 전개	전기 저항+{0}%,Armor Deployment: Resist Electric +{0}%
+장갑 전개	효과 저항+{0}%,Armor Deployment: Resist Effects +{0}%
+극도의 불편함	공격력+{0}%,Extreme Discomfort: Attack +{0}%
+극도의 불편함	치명타+{0}%,Extreme Discomfort: Crit Chance +{0}%
+극도의 불편함	행동력+{0}%,Extreme Discomfort: Action Speed +{0}%
+출력 강화	치명타+{0}%,Power Boost: Crit Chance +{0}%
+출력 강화	방어 관통 {0}%,Power Boost: Defense Penetration {0}%
+출력 강화	공격력+{0}%,Power Boost: Attack +{0}%
+리미터 해제	공격력+{0}%,Limiter Release: Attack +{0}%
+리미터 해제	행동력+{0}%,Limiter Release: Action Speed +{0}%
+리미터 해제	회피+{0}%,Limiter Release: Evasion +{0}%
+과부하	공격력+{0}%,Overload: Attack +{0}%
+과부하	적중 {0}%,Overload: Accuracy {0}%
+감전	피해량+{0}%,Shocked: Damage +{0}%
+경계 태세	행동력+{0}%,Alert Stance: Action Speed +{0}%
+감전	행동력 {0}%,Shocked: Action Speed {0}%
+반격 태세	공격력+{0}%,Counter Stance: Attack +{0}%
+반격 태세	치명타+{0}%,Counter Stance: Crit Chance +{0}%
+핀 포인트 저격	공격력+{0}%,Pinpoint Snipe: Attack +{0}%
+핀 포인트 저격	적중+{0}%,Pinpoint Snipe: Accuracy +{0}%
+핀 포인트 저격	치명타+{0}%,Pinpoint Snipe: Crit Chance +{0}%
+출력 강화	적중+{0}%,Power Boost: Accuracy +{0}%
+점착탄	회피 {0}%,Cohesive Bullet: Evasion {0}%
+감전	피해 감소 효과 해제,Shocked: Remove Damage Reduction
+덤벼덤벼!	받는 피해 {0}% 감소,Bring it on!: {0}% Damage Reduction
+진압 개시	AP+{0},Commence Suppression: AP+{0}
+토모와 친구들	공격력+{0}%,Tomo And Friends: Attack +{0}%
+토모와 친구들	치명타+{0}%,Tomo And Friends: Crit Chance +{0}%
+토모와 친구들	적중+{0}%,Tomo And Friends: Accuracy +{0}%
+토모와 친구들	행동력+{0}%,Tomo And Friends: Action Speed +{0}%
+토모와 친구들	치명타 증가,Tomo And Friends: Crit Chance Up
+토모와 친구들	적중 증가,Tomo And Friends: Accuracy Up
+토모와 친구들	행동력 증가,Tomo And Friends: Action Speed Up
+토모와 친구들	공격력 증가,Tomo And Friends: Attack Up
+토모와 친구들!	공격력+{0}%,Tomo And Friends!: Attack +{0}%
+토모와 친구들!	치명타+{0}%,Tomo And Friends!: Crit Chance +{0}%
+토모와 친구들!	적중+{0}%,Tomo And Friends!: Accuracy +{0}%
+토모와 친구들!	행동력+{0}%,Tomo And Friends!: Action Speed +{0}%
+토모와 친구들~	공격력+{0}%,Tomo And Friends~: Attack +{0}%
+토모와 친구들~	치명타+{0}%,Tomo And Friends~: Crit Chance +{0}%
+토모와 친구들~	적중+{0}%,Tomo And Friends~: Accuracy +{0}%
+토모와 친구들~	행동력+{0}%,Tomo And Friends~: Action Speed +{0}%
+토모와 친구들?	공격력+{0}%,Tomo And Friends?: Attack +{0}%
+토모와 친구들?	치명타+{0}%,Tomo And Friends?: Crit Chance +{0}%
+토모와 친구들?	적중+{0}%,Tomo And Friends?: Accuracy +{0}%
+토모와 친구들?	행동력+{0}%,Tomo And Friends?: Action Speed +{0}%
+망원 조준장치	공격력+{0}%,Telescoping Sights: Attack +{0}%
+망원 조준장치	적중+{0}%,Telescoping Sights: Accuracy +{0}%
+망원 조준장치	치명타+{0}%,Telescoping Sights: Crit Chance +{0}%
+곡예 비행	회피 증가,Acrobatic Flight: Evasion Up

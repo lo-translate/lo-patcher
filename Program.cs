@@ -1,24 +1,33 @@
-﻿using System.Collections.Generic;
-using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
+﻿using FileHelpers;
 using Karambolo.PO;
-using System.Text;
 using LoExtractText.Lo.Generated;
-using System.Reflection;
-using System.Diagnostics;
-using System.Collections;
 using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
+using System.Reflection;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Text;
 
 namespace LoExtractText
 {
-    class Program
+    internal class Program
     {
-        static int Main(string[] args)
+        private static Dictionary<string, string> knownText = new Dictionary<string, string>();
+        private static POCatalog catalog;
+
+        private static int Main(string[] args)
         {
             if (args.Length < 2)
             {
                 Console.WriteLine("Usage: LoExtractText <data.bin> <data_ko.bin>");
                 return 1;
+            }
+
+            if (File.Exists("data.bin.po"))
+            {
+                File.Delete("data.bin.po");
             }
 
             using var stream = File.OpenRead("data.bin-template.po");
@@ -28,7 +37,28 @@ namespace LoExtractText
             using var fileJp = File.OpenRead(args[0]);
             using var fileKo = File.OpenRead(args[1]);
 
-            AddStringsToCatalog(fileJp, fileKo, result.Catalog);
+            LoadKnownTextFromTsv("Resources/binfilepatcher-142_new.tsv", knownText);
+            LoadKnownTextFromTsv("Resources/binfilepatcher-library.tsv", knownText);
+            LoadKnownTextFromTsv("Resources/localefilepatcher-library.tsv", knownText);
+
+            LoadKnownTextFromCsv("Resources/skilltool-known-effects.csv", knownText);
+            LoadKnownTextFromCsv("Resources/skilltool-known-skills.csv", knownText);
+            LoadKnownTextFromCsv("Resources/skilltool-skill-trans.csv", knownText);
+            LoadKnownTextFromCsv("Resources/skilltool-strings.csv", knownText);
+
+            if (File.Exists("Resources/data.bin.po"))
+            {
+                LoadKnownTextFromTranslation("Resources/DataBin.po", knownText);
+            }
+
+            if (File.Exists("Resources/LocalizationPatch.po"))
+            {
+                LoadKnownTextFromTranslation("Resources/LocalizationPatch.po", knownText);
+            }
+
+            catalog = result.Catalog;
+
+            AddStringsToCatalog(fileJp, fileKo);
 
             var generator = new POGenerator(new POGeneratorSettings());
             using var outStream = File.Open("data.bin.po", FileMode.OpenOrCreate);
@@ -38,7 +68,71 @@ namespace LoExtractText
             return 0;
         }
 
-        private static void AddStringsToCatalog(Stream fileJp, Stream fileKo, POCatalog catalog)
+        private static void LoadKnownTextFromTranslation(string input, Dictionary<string, string> knownText)
+        {
+            using var stream = File.OpenRead(input);
+            var parser = new POParser(new POParserSettings());
+            var result = parser.Parse(stream, Encoding.UTF8);
+
+            if (result.Success)
+            {
+                foreach (var key in result.Catalog.Keys)
+                {
+                    var jpText = key.Id;
+                    var translation = result.Catalog.GetTranslation(key);
+                    if (string.IsNullOrEmpty(translation))
+                    {
+                        continue;
+                    }
+
+                    if (knownText.ContainsKey(jpText))
+                    {
+                        if (translation != knownText[jpText])
+                        {
+                            Debug.WriteLine($"Duplicate translation: {knownText[jpText]} != {translation}");
+                        }
+                        continue;
+                    }
+
+                    knownText.Add(jpText, translation);
+                }
+            }
+        }
+
+        private static void LoadKnownTextFromTsv(string input, Dictionary<string, string> knownText)
+        {
+            var engine = new FileHelperEngine<Translation.TsvTranslation>();
+
+            AddTranslations(engine.ReadFile(input), knownText);
+        }
+
+        private static void LoadKnownTextFromCsv(string input, Dictionary<string, string> knownText)
+        {
+            var engine = new FileHelperEngine<Translation.CsvTranslation>()
+            {
+            };
+
+            AddTranslations(engine.ReadFile(input), knownText);
+        }
+
+        private static void AddTranslations(Translation[] translations, Dictionary<string, string> knownText)
+        {
+            foreach (var translation in translations)
+            {
+                if (knownText.ContainsKey(translation.Korean))
+                {
+                    if (knownText[translation.Korean] != translation.English)
+                    {
+                        Debug.WriteLine($"Duplicate translation: {knownText[translation.Korean]} != {translation.English}");
+                    }
+                    continue;
+                }
+
+                knownText.Add(translation.Korean, translation.English);
+            }
+        }
+
+        private static void AddStringsToCatalog(Stream fileJp, Stream fileKo)
         {
             var formatter = new BinaryFormatter() { Binder = new BinaryFormatterBinder() };
 
@@ -55,7 +149,7 @@ namespace LoExtractText
                 {
                     var koStage = deserializedKo._Table_PCStory_Client[storyId][index];
 
-                    ProcessObject(stage, koStage, $"LastOnTable._Table_PCStory_Client[{storyId}][{index}]", catalog);
+                    ProcessObject(stage, koStage, $"LastOnTable._Table_PCStory_Client[{storyId}][{index}]");
 
                     index++;
                 }
@@ -66,13 +160,17 @@ namespace LoExtractText
                 ProcessObject(
                     kvp.Value,
                     deserializedKo._Table_BuffEffect_Client[kvp.Key],
-                    $"LastOnTable._Table_BuffEffect_Client[{kvp.Key}]",
-                    catalog
+                    $"LastOnTable._Table_BuffEffect_Client[{kvp.Key}]"
                 );
             }
 
             foreach (var field in deserializedJp._TableManager.GetType().GetFields())
             {
+                if (field.Name == "_Table_Forbidden")
+                {
+                    continue;
+                }
+
                 if (field.FieldType.Name != "Dictionary`2")
                 {
                     continue;
@@ -86,14 +184,13 @@ namespace LoExtractText
                     ProcessObject(
                         kvp.Value,
                         fieldInstanceKr[kvp.Key],
-                        $"LastOnTable._TableManager.{field.Name}[{kvp.Key}]",
-                        catalog
+                        $"LastOnTable._TableManager.{field.Name}[{kvp.Key}]"
                     );
                 }
             }
         }
 
-        private static void ProcessObject(object jpObject, object koObject, string reference, POCatalog catalog)
+        private static void ProcessObject(object jpObject, object koObject, string reference)
         {
             foreach (var property in jpObject.GetType().GetProperties())
             {
@@ -132,11 +229,25 @@ namespace LoExtractText
 
                 var enText = "";
 
+                if (knownText.ContainsKey(koText))
+                {
+                    enText = knownText[koText];
+                }
+                else if (knownText.ContainsKey(jpText))
+                {
+                    enText = knownText[jpText];
+                }
+
                 koText = koText.Replace("\r", "\\r").Replace("\n", "\\n");
 
                 if (property.Name == "Char_Name")
                 {
-                    enText = (string)jpObject.GetType().GetProperty("Char_Name_EngDisp").GetValue(jpObject, null);
+                    var officialTranslation = (string)jpObject.GetType().GetProperty("Char_Name_EngDisp").GetValue(jpObject, null);
+                    if (!string.IsNullOrEmpty(enText))
+                    {
+                        Debug.WriteLine($"Duplicate translation: {officialTranslation} != {enText}");
+                    }
+                    enText = officialTranslation;
                 }
 
                 AddToCatalog(jpText, koText, enText, $"{reference}.{property.Name}", catalog);
