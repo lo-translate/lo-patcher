@@ -39,7 +39,6 @@
             this.labelLanguageVersionLabel = new System.Windows.Forms.Label();
             this.dialogChoosePatchOutput = new System.Windows.Forms.SaveFileDialog();
             this.labelStatus = new System.Windows.Forms.Label();
-            this.dialogChooseLanguageOutput = new System.Windows.Forms.SaveFileDialog();
             this.groupBoxBundleFile.SuspendLayout();
             this.groupBoxLanguageData.SuspendLayout();
             this.SuspendLayout();
@@ -158,11 +157,6 @@
             this.labelStatus.Text = "Status text";
             this.labelStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // dialogChooseLanguageOutput
-            // 
-            this.dialogChooseLanguageOutput.FileName = "translations.po";
-            this.dialogChooseLanguageOutput.Filter = "Translation files|*.po|All files|*.*";
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -196,7 +190,6 @@
         private System.Windows.Forms.Label labelStatus;
         private System.Windows.Forms.GroupBox groupBoxBundleFile;
         private System.Windows.Forms.Label labelLanguageVersion;
-        private System.Windows.Forms.SaveFileDialog dialogChooseLanguageOutput;
     }
 }
 
