@@ -17,15 +17,15 @@ namespace LoTextExtractor
         {
             string enText = null;
 
-            if (knownText.ContainsKey(koreanText))
+            if (koreanText != null && knownText.ContainsKey(koreanText))
             {
                 enText = knownText[koreanText];
             }
-            else if (knownText.ContainsKey(japaneseText))
+            else if (japaneseText != null && knownText.ContainsKey(japaneseText))
             {
                 enText = knownText[japaneseText];
             }
-            else
+            else if (koreanText != null)
             {
                 foreach (var regexKvp in knownRegex)
                 {
