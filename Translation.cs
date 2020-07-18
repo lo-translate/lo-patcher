@@ -1,8 +1,9 @@
 ﻿using FileHelpers;
 
+#pragma warning disable CS0649 // Field is never assigned to
+
 namespace LoTextExtractor
 {
-#pragma warning disable CS0649 // Field is never assigned to
     internal class Translation
     {
         [FieldQuoted('"', QuoteMode.OptionalForBoth)]
@@ -36,4 +37,5 @@ namespace LoTextExtractor
         }
     }
 }
+
 #pragma warning restore CS0649 // Field is never assigned to

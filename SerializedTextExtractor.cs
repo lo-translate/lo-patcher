@@ -1,7 +1,6 @@
 ﻿using LoTextExtractor.Lo.Generated;
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
@@ -133,7 +132,7 @@ namespace LoTextExtractor
                     foreach (var japaneseArrayText in japanesePropInstance)
                     {
                         var koreanArrayText = koreanPropInstance[stringIndex++];
-                        
+
                         ProcessText((string)japaneseArrayText, (string)koreanArrayText, "", $"{reference}.{property.Name}[{stringIndex}]");
                     }
 
@@ -151,7 +150,7 @@ namespace LoTextExtractor
                     ? ""
                     : (string)koreanObject.GetType().GetProperty(property.Name).GetValue(koreanObject, null);
 
-                if (japaneseText == null && koreanText == null) 
+                if (japaneseText == null && koreanText == null)
                 {
                     if (property.Name != "SkinUnlockItem")
                     {
@@ -174,7 +173,6 @@ namespace LoTextExtractor
 
                 ProcessText(japaneseText, koreanText, englishText, $"{reference}.{property.Name}");
             }
-
         }
 
         private void ProcessText(string japaneseText, string koreanText, string englishText, string reference)
