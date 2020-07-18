@@ -20,7 +20,7 @@ namespace LoTextExtractor
                 File.Delete("LoText.po");
             }
 
-            using var stream = File.OpenRead("LoText.template.po");
+            using var stream = File.OpenRead("Resources/LoText.template.po");
             var parser = new POParser(new POParserSettings());
             var result = parser.Parse(stream, Encoding.UTF8);
 
