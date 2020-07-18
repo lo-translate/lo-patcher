@@ -15,21 +15,31 @@ namespace LoTextExtractor
 
         public string FindTranslation(string koreanText, string japaneseText)
         {
-            string enText = null;
+            foreach (var foreignText in new[] { koreanText, japaneseText })
+            {
+                if (foreignText == null)
+                {
+                    continue;
+                }
 
-            if (koreanText != null && knownText.ContainsKey(koreanText))
-            {
-                enText = knownText[koreanText];
-            }
-            else if (japaneseText != null && knownText.ContainsKey(japaneseText))
-            {
-                enText = knownText[japaneseText];
-            }
-            else if (koreanText != null)
-            {
+                var translation = knownText.ContainsKey(foreignText) ? knownText[foreignText] : null;
+                if (string.IsNullOrEmpty(translation))
+                {
+                    // If we were not found try again with \r\n as the line ending (this is needed due to Karambolo.PO
+                    // using it in the parsed strings)
+                    var normalizedForeignText = Regex.Replace(foreignText, @"\r\n|\n\r|\n|\r", "\r\n");
+
+                    translation = knownText.ContainsKey(normalizedForeignText) ? knownText[normalizedForeignText] : null;
+                }
+
+                if (!string.IsNullOrEmpty(translation))
+                {
+                    return translation;
+                }
+
                 foreach (var regexKvp in knownRegex)
                 {
-                    var match = regexKvp.Key.Match(koreanText);
+                    var match = regexKvp.Key.Match(foreignText);
                     if (match.Success)
                     {
                         var replaced = regexKvp.Value.Replace("`", match.Groups[1].Value);
@@ -37,13 +47,14 @@ namespace LoTextExtractor
                         // Make sure we replaced something
                         if (replaced != match.Groups[1].Value)
                         {
-                            enText = replaced;
+                            return replaced;
                         }
                     }
                 }
+
             }
 
-            return enText;
+            return null;
         }
 
         public void LoadKnownTextFromTranslation(string input)
