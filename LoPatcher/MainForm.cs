@@ -158,6 +158,7 @@ namespace LoPatcher
                 buttonPatch.Enabled = false;
             }
 
+            labelSelectedFile.Enabled = enable;
             linkLabelCheckLanguageUpdate.Enabled = enable;
             buttonChooseBundle.Enabled = enable;
             buttonLanguageUpdate.Enabled = enable;
