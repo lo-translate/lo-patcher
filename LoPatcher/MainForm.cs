@@ -20,10 +20,6 @@ namespace LoPatcher
         private Thread patchThread;
         private readonly LanguageCatalog languageCatalog;
 
-        private delegate void SetStatusTextDelegate(string text, Color color);
-        private delegate void EnableFormDelegate(bool enable);
-        private delegate void ResetFormDelegate(bool enable);
-
         public MainForm()
         {
             InitializeComponent();
@@ -78,7 +74,7 @@ namespace LoPatcher
         {
             if (labelSelectedFile.InvokeRequired)
             {
-                labelSelectedFile.Invoke(new ResetFormDelegate(ResetForm), new object[] { includeStatus });
+				labelSelectedFile.Invoke(new MethodInvoker(delegate { ResetForm(includeStatus); }));
                 return;
             }
 
@@ -103,7 +99,7 @@ namespace LoPatcher
         {
             if (labelStatus.InvokeRequired)
             {
-                labelStatus.Invoke(new SetStatusTextDelegate(SetStatusText), new object[] { text, textColor });
+                labelStatus.Invoke(new MethodInvoker(delegate { SetStatusText(text, color); }));
                 return;
             }
 
@@ -115,7 +111,7 @@ namespace LoPatcher
         {
             if (buttonChooseBundle.InvokeRequired)
             {
-                buttonChooseBundle.Invoke(new EnableFormDelegate(EnableForm), new object[] { enable });
+                buttonChooseBundle.Invoke(new MethodInvoker(delegate { EnableForm(enable); }));
                 return;
             }
 
