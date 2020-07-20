@@ -175,6 +175,15 @@ namespace LoPatcher.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to LoTranslation.po.
+        /// </summary>
+        internal static string LanguageRemoteFile {
+            get {
+                return ResourceManager.GetString("LanguageRemoteFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to https://api.github.com/repos/lo-translate/lo-translation/releases/latest.
         /// </summary>
         internal static string LanguageUpdateUrl {

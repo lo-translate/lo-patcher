@@ -268,7 +268,7 @@ namespace LoPatcher
         {
             var languageOutputPath = Path.Join(
                 Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location),
-                "LoTranslation.po"
+                Properties.Resources.LanguageLocalFile
             );
 
             EnableForm(false);
@@ -277,7 +277,9 @@ namespace LoPatcher
             progressBar.Value = 0;
             progressBar.Visible = true;
 
-            languageUpdater.StartUpdate(lanugageUpdateUrl, languageOutputPath, this);
+            languageUpdater.StartUpdate(
+                lanugageUpdateUrl, Properties.Resources.LanguageRemoteFile, languageOutputPath, this
+            );
         }
 
         public void Report(int progress)

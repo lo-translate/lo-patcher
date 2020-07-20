@@ -23,7 +23,7 @@ namespace LoPatcher.LanguageUpdate
             downloadWorker.RunWorkerCompleted += DownloadWorkerComplete;
         }
 
-        public void StartUpdate(Uri updateUrl, string outputPath, IProgress<int> progressReporter)
+        public void StartUpdate(Uri updateUrl, string remoteFile, string outputPath, IProgress<int> progressReporter)
         {
             if (updateUrl == null)
             {
@@ -37,6 +37,7 @@ namespace LoPatcher.LanguageUpdate
 
             downloadWorker.RunWorkerAsync(new LanguageUpdaterTaskArguments()
             {
+                RemoteFile = remoteFile,
                 DownloadFrom = updateUrl,
                 DownloadTo = outputPath,
                 ProgressReporter = progressReporter,
@@ -81,7 +82,7 @@ namespace LoPatcher.LanguageUpdate
             {
                 foreach (var entry in zip.Entries)
                 {
-                    if (entry.Name != "LoTranslation.po")
+                    if (entry.Name != arguments.RemoteFile)
                     {
                         continue;
                     }
@@ -109,6 +110,7 @@ namespace LoPatcher.LanguageUpdate
 
         private class LanguageUpdaterTaskArguments
         {
+            public string RemoteFile;
             public Uri DownloadFrom;
             public string DownloadTo;
             public IProgress<int> ProgressReporter;
