@@ -80,6 +80,13 @@ namespace LoPatcher.Patcher.Targets
                     continue;
                 }
 
+                // The following strings cause the game to hang on load when replaced, I do not know why.
+                if (japaneseText == "時" || // Time
+                    japaneseText == "대체 코어을 지급합니다") // Given Proxy Core
+                {
+                    continue;
+                }
+
                 var searchBytes = GetSearchBytes(japaneseText);
                 var indexes = IndexesOf(dataBytes, searchBytes);
 
