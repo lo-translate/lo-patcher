@@ -187,13 +187,9 @@ namespace LoTextExtractor
 
                 var englishText = translationFinder.FindTranslation(koreanText, japaneseText);
 
-                if (property.Name == "Char_Name")
+                if (property.Name == "Char_Name" && string.IsNullOrEmpty(englishText))
                 {
                     var officialTranslation = (string)japaneseObject.GetType().GetProperty("Char_Name_EngDisp").GetValue(japaneseObject, null);
-                    if (!string.IsNullOrEmpty(englishText) && !officialTranslation.Equals(englishText, System.StringComparison.Ordinal))
-                    {
-                        Debug.WriteLine($"Duplicate translation: '{officialTranslation}' != '{englishText}'");
-                    }
                     englishText = officialTranslation;
                 }
 
