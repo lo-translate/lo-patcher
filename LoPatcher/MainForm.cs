@@ -1,5 +1,6 @@
 ﻿using LoPatcher.LanguageUpdate;
 using LoPatcher.Patcher;
+using LoPatcher.Patcher.Containers;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -114,6 +115,16 @@ namespace LoPatcher
                 var onlyFileName = Path.GetFileName(file);
                 using var fileStream = File.OpenRead(file);
                 var fileContainer = containers.FirstOrDefault(container => container.CanPatch(fileStream));
+
+                if (fileContainer is AssetBundleContainer)
+                {
+                    MessageBox.Show(
+                        "Asset bundle support is not complete and will not translate as much. For more translations " +
+                        "extract data.bin and LocalizationPatch from __data with UABE, then patch the raw export " +
+                        "files and re-import the patched version with UABE.",
+                        "Warning"
+                    );
+                }
 
                 if (fileContainer == null)
                 {
