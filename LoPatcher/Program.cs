@@ -23,12 +23,14 @@ namespace LoPatcher
 
             var targets = new List<IPatchTarget>()
             {
+                new SerializedDataPatcher(languageCatalog),
                 new LocalizationPatchPatcher(languageCatalog),
             };
 
             var containers = new List<IPatchTarget>()
             {
                 new AssetBundleContainer(targets),
+                new ExtractedAssetContainer(targets),
             };
 
             using var form = new MainForm(languageCatalog, containers);

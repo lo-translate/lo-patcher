@@ -85,5 +85,19 @@ namespace LoPatcher
 
             return null;
         }
+
+        public IDictionary<string, string> AsDictionary()
+        {
+            var dictionary = new Dictionary<string, string>();
+            foreach (var key in catalog)
+            {
+                var translation = catalog.GetTranslation(key.Key);
+                if (!string.IsNullOrEmpty(translation))
+                {
+                    dictionary[key.Key.Id] = translation;
+                }
+            }
+            return dictionary;
+        }
     }
 }
