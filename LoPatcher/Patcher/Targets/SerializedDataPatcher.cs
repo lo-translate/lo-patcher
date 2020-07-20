@@ -68,8 +68,6 @@ namespace LoPatcher.Patcher.Targets
 
             foreach (var kvp in dictionary)
             {
-                Debug.WriteLine($"Replaced {replacedStrings}");
-
                 var japaneseText = kvp.Key;
                 var englishText = kvp.Value;
 
@@ -141,7 +139,7 @@ namespace LoPatcher.Patcher.Targets
             Debug.WriteLine(
                 $"Replaced {replacedStrings.ToString("N0", NumberFormatInfo.CurrentInfo)} strings " +
                 $"({replacedInsances.ToString("N0", NumberFormatInfo.CurrentInfo)} instances) in SerializedData " +
-                $"({neededEolChange})"
+                $"({neededEolChange} EOL changes needed)"
             );
 
             if (replacedStrings > 0)

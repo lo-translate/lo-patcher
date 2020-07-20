@@ -47,7 +47,10 @@ namespace LoPatcher.Patcher.Targets
             var replaced = 0;
 
             // We manually parse the TSV instead of using something like FileHelpers so the line endings don't get
-            // changed.
+            // changed. I have not tested whether it would cause an issue, I just checked whether changing nothing with
+            // FileHelpers caused a data change, it did so I stuck with manual parsing.
+            // The tab we use in the match is technically there because there is a third, unused column.  If they ever
+            // add data to it we'll have to switch to a real parser that can handle multi-line entries.
             var lines = Regex.Split(content, "\t\r\n");
 
             for (var i = 0; i < lines.Length; i++)
@@ -83,7 +86,8 @@ namespace LoPatcher.Patcher.Targets
             }
 
             Debug.WriteLine(
-                $"Replaced {replaced.ToString("N0", NumberFormatInfo.CurrentInfo)} strings in LocalizationPatch"
+                $"Replaced {replaced.ToString("N0", NumberFormatInfo.CurrentInfo)} strings out of " +
+                $"{(lines.Length - 1).ToString("N0", NumberFormatInfo.CurrentInfo)} in LocalizationPatch"
             );
 
             if (replaced < 1)
