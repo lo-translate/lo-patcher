@@ -87,6 +87,10 @@ namespace LoPatcher
             MessageBox.Show(message, Properties.Resources.ErrorModalTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
+        /// <summary>
+        /// Builds the local translation path using the executable path and the file name from the resources.
+        /// </summary>
+        /// <returns></returns>
         private static string GetLocalTranslationPath()
         {
             return Path.Join(
@@ -95,6 +99,10 @@ namespace LoPatcher
             );
         }
 
+        /// <summary>
+        /// Builds the queue from the specified input files
+        /// </summary>
+        /// <param name="files"></param>
         private void ChooseInputFiles(string[] files)
         {
             patchQueue = new PatchQueue();
@@ -147,6 +155,10 @@ namespace LoPatcher
             }
         }
 
+        /// <summary>
+        /// Enables or disables the controls that the user can interact with.
+        /// </summary>
+        /// <param name="enable"></param>
         private void EnableForm(bool enable)
         {
             if (enable)
@@ -164,6 +176,9 @@ namespace LoPatcher
             buttonLanguageUpdate.Enabled = enable;
         }
 
+        /// <summary>
+        /// Resets the form to the initial state.
+        /// </summary>
         private void ResetForm()
         {
             patchQueue = null;
@@ -337,6 +352,11 @@ namespace LoPatcher
             ButtonChooseBundle_Click(sender, e);
         }
 
+        /// <summary>
+        /// Called when the user clicks the patch button, starts the patch thread.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonPatch_Click(object sender, EventArgs e)
         {
             EnableForm(false);
@@ -345,6 +365,11 @@ namespace LoPatcher
             patchQueue = null;
         }
 
+        /// <summary>
+        /// Called when the patch thread is complete.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void PatchWorker_OnComplete(object sender, PatchResponse e)
         {
             if (e.Errors.Count > 0)
@@ -367,6 +392,10 @@ namespace LoPatcher
             EnableForm(true);
         }
 
+        /// <summary>
+        /// Cleanup
+        /// </summary>
+        /// <param name="disposing"></param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
