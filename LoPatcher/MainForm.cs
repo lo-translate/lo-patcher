@@ -58,6 +58,9 @@ namespace LoPatcher
             }
 
             patchWorker.OnComplete += PatchWorker_OnComplete;
+
+            DragEnter += MainForm_DragEnter;
+            DragDrop += MainForm_DragDrop;
         }
 
         /// <summary>
@@ -160,6 +163,33 @@ namespace LoPatcher
             if (dialogChooseInput.ShowDialog() == DialogResult.OK)
             {
                 ChooseInputFiles(dialogChooseInput.FileNames);
+            }
+        }
+
+        /// <summary>
+        /// Listen for drop events to select any files dropped.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MainForm_DragDrop(object sender, DragEventArgs e)
+        {
+            string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
+            if (files != null && files.Length > 0)
+            {
+                ChooseInputFiles(files);
+            }
+        }
+
+        /// <summary>
+        /// Listen for drag enter events let Windows know we want the drop.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MainForm_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                e.Effect = DragDropEffects.Copy;
             }
         }
 
