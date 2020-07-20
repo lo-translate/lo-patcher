@@ -392,6 +392,11 @@ namespace LoPatcher
         /// <param name="value"></param>
         public void Report(PatchProgress value)
         {
+            if (value == null)
+            {
+                throw new ArgumentNullException(nameof(value));
+            }
+
             if (progressBar.InvokeRequired)
             {
                 progressBar.Invoke(new MethodInvoker(delegate { Report(value); }));
@@ -435,6 +440,7 @@ namespace LoPatcher
                     ErrorMessage(Properties.Resources.ErrorModalPatchFullFail, string.Join("\r\n", e.Errors));
                 }
 
+                ResetForm();
                 EnableForm(true);
                 return;
             }
