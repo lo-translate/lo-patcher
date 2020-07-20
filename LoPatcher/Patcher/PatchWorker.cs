@@ -12,30 +12,33 @@ namespace LoPatcher.Patcher
 
         public PatchWorker()
         {
-            patchWorker = new BackgroundWorker();
+            patchWorker = new BackgroundWorker()
+            {
+                WorkerReportsProgress = true,
+            };
 
             patchWorker.DoWork += DoPatch;
             patchWorker.RunWorkerCompleted += PatchWorkerComplete;
         }
 
-        public void StartPatching(PatchQueue queue)
+        public void StartPatching(PatchQueue queue, IProgress<PatchProgress> progressReporter)
         {
             if (queue == null)
             {
                 throw new ArgumentNullException(nameof(queue));
             }
 
-            patchWorker.RunWorkerAsync(queue);
+            patchWorker.RunWorkerAsync(new PatchArguments(queue, progressReporter));
         }
 
         private void DoPatch(object sender, DoWorkEventArgs e)
         {
-            var queue = e.Argument as PatchQueue;
+            var arguments = e.Argument as PatchArguments;
             var response = new PatchResponse();
 
             e.Result = response;
 
-            foreach (var item in queue.Items)
+            foreach (var item in arguments.Queue.Items)
             {
                 try
                 {
@@ -45,7 +48,7 @@ namespace LoPatcher.Patcher
                     // Copy the file to a memory stream so we can modify it
                     fileStream.CopyTo(memoryStream);
 
-                    if (item.Container.Patch(memoryStream))
+                    if (item.Container.Patch(memoryStream, arguments.ProgressReporter))
                     {
                         response.FilesPatched++;
 
@@ -101,6 +104,18 @@ namespace LoPatcher.Patcher
         {
             Dispose(disposing: true);
             GC.SuppressFinalize(this);
+        }
+
+        private class PatchArguments
+        {
+            public PatchQueue Queue;
+            public IProgress<PatchProgress> ProgressReporter;
+
+            public PatchArguments(PatchQueue queue, IProgress<PatchProgress> progressReporter)
+            {
+                Queue = queue;
+                ProgressReporter = progressReporter;
+            }
         }
     }
 }

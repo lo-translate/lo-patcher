@@ -19,7 +19,7 @@ namespace LoPatcher.Patcher.Containers
             return ExtractedAssetReader.MatchesStructure(stream);
         }
 
-        public bool Patch(Stream stream)
+        public bool Patch(Stream stream, IProgress<PatchProgress> progressReporter)
         {
             if (stream == null)
             {
@@ -46,7 +46,7 @@ namespace LoPatcher.Patcher.Containers
                     // Reset the position to 0 in case a target forgets to reset the position before patching
                     memoryStream.Position = 0;
 
-                    if (target.Patch(memoryStream))
+                    if (target.Patch(memoryStream, progressReporter))
                     {
                         patchApplied = true;
                     }

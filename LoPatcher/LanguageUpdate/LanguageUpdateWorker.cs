@@ -14,13 +14,16 @@ namespace LoPatcher.LanguageUpdate
 
         public LanguageUpdateWorker()
         {
-            downloadWorker = new BackgroundWorker();
+            downloadWorker = new BackgroundWorker()
+            {
+                WorkerReportsProgress = true,
+            };
 
             downloadWorker.DoWork += DoDownload;
             downloadWorker.RunWorkerCompleted += DownloadWorkerComplete;
         }
 
-        public void StartUpdate(Uri updateUrl, string outputPath)
+        public void StartUpdate(Uri updateUrl, string outputPath, IProgress<int> progressReporter)
         {
             if (updateUrl == null)
             {
@@ -32,7 +35,12 @@ namespace LoPatcher.LanguageUpdate
                 throw new ArgumentNullException(nameof(outputPath));
             }
 
-            downloadWorker.RunWorkerAsync(new LanguageUpdaterTaskArguments() { DownloadFrom = updateUrl, DownloadTo = outputPath });
+            downloadWorker.RunWorkerAsync(new LanguageUpdaterTaskArguments()
+            {
+                DownloadFrom = updateUrl,
+                DownloadTo = outputPath,
+                ProgressReporter = progressReporter,
+            });
         }
 
         private void DownloadWorkerComplete(object sender, RunWorkerCompletedEventArgs e)
@@ -61,6 +69,10 @@ namespace LoPatcher.LanguageUpdate
             using var client = new HttpClient();
 
             client.DownloadFile(arguments.DownloadFrom, tempFile);
+            client.DownloadProgressChanged += (object sender, System.Net.DownloadProgressChangedEventArgs e) =>
+            {
+                arguments.ProgressReporter?.Report(e.ProgressPercentage);
+            };
 
             var extracted = false;
 
@@ -99,6 +111,7 @@ namespace LoPatcher.LanguageUpdate
         {
             public Uri DownloadFrom;
             public string DownloadTo;
+            public IProgress<int> ProgressReporter;
         }
 
         protected virtual void Dispose(bool disposing)

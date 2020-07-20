@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 
 namespace LoPatcher.Patcher
 {
@@ -6,6 +7,6 @@ namespace LoPatcher.Patcher
     {
         public bool CanPatch(Stream stream);
 
-        public bool Patch(Stream stream);
+        public bool Patch(Stream stream, IProgress<PatchProgress> progressReporter);
     }
 }

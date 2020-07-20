@@ -36,7 +36,7 @@ namespace LoPatcher.Patcher.Containers
             return fileSignature.Equals(unityFsSignature, StringComparison.Ordinal);
         }
 
-        public bool Patch(Stream stream)
+        public bool Patch(Stream stream, IProgress<PatchProgress> progressReporter)
         {
             if (stream == null)
             {
@@ -79,7 +79,7 @@ namespace LoPatcher.Patcher.Containers
                 var mainName = bundle.file.bundleInf6.dirInf[0].name;
                 var assetsFile = manager.LoadAssetsFile(mainStream, mainName, true);
 
-                var replacers = ProcessAssetsFile(manager, assetsFile);
+                var replacers = ProcessAssetsFile(manager, assetsFile, progressReporter);
                 if (replacers.Count < 1)
                 {
                     return false;
@@ -133,7 +133,7 @@ namespace LoPatcher.Patcher.Containers
             }
         }
 
-        private List<AssetsReplacer> ProcessAssetsFile(AssetsManager manager, AssetsFileInstance assetsFile)
+        private List<AssetsReplacer> ProcessAssetsFile(AssetsManager manager, AssetsFileInstance assetsFile, IProgress<PatchProgress> progressReporter)
         {
             assetsFile.table.GenerateQuickLookupTree();
             manager.UpdateDependencies();
@@ -169,7 +169,7 @@ namespace LoPatcher.Patcher.Containers
 
                     scriptStream.Write(Encoding.UTF8.GetBytes(script.AsString()));
 
-                    if (targets.First(t => t is LocalizationPatchPatcher).Patch(scriptStream))
+                    if (targets.First(t => t is LocalizationPatchPatcher).Patch(scriptStream, progressReporter))
                     {
                         script.Set(scriptStream.ToArray());
 

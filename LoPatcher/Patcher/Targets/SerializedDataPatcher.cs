@@ -53,7 +53,7 @@ namespace LoPatcher.Patcher.Targets
             return true;
         }
 
-        public bool Patch(Stream stream)
+        public bool Patch(Stream stream, IProgress<PatchProgress> progressReporter)
         {
             stream.Position = 0;
 
@@ -66,8 +66,12 @@ namespace LoPatcher.Patcher.Targets
             var replacedStrings = 0;
             var neededEolChange = 0;
 
+            progressReporter.Report(new PatchProgress() { IncreaseTotal = dictionary.Count });
+
             foreach (var kvp in dictionary)
             {
+                progressReporter.Report(new PatchProgress() { IncreaseCurrent = 1 });
+
                 var japaneseText = kvp.Key;
                 var englishText = kvp.Value;
 
@@ -101,6 +105,8 @@ namespace LoPatcher.Patcher.Targets
                     continue;
                 }
 
+                progressReporter.Report(new PatchProgress() { IncreaseTotal = indexes.Count });
+
                 // We replace in reverse order so we don't need to worry about recalculating the indexes when there are
                 // multiple instances found.
                 foreach (var index in indexes.Reverse())
@@ -131,6 +137,8 @@ namespace LoPatcher.Patcher.Targets
 
                     // Update the dataBytes array with the replaced version.
                     dataBytes = bufferStream.ToArray();
+
+                    progressReporter.Report(new PatchProgress() { IncreaseCurrent = 1 });
                 }
 
                 replacedStrings++;

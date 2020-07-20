@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace LoPatcher
 {
-    public partial class MainForm : Form
+    public partial class MainForm : Form, IProgress<PatchProgress>, IProgress<int>
     {
         private readonly PatchWorker patchWorker = new PatchWorker();
         private readonly IEnumerable<IPatchTarget> containers;
@@ -262,7 +262,22 @@ namespace LoPatcher
 
             EnableForm(false);
 
-            languageUpdater.StartUpdate(lanugageUpdateUrl, languageOutputPath);
+            progressBar.Maximum = 100;
+            progressBar.Value = 0;
+            progressBar.Visible = true;
+
+            languageUpdater.StartUpdate(lanugageUpdateUrl, languageOutputPath, this);
+        }
+
+        public void Report(int progress)
+        {
+            if (progressBar.InvokeRequired)
+            {
+                progressBar.Invoke(new MethodInvoker(delegate { Report(progress); }));
+                return;
+            }
+
+            progressBar.Value = progress;
         }
 
         /// <summary>
@@ -277,6 +292,8 @@ namespace LoPatcher
                 labelCurrentLangVersion.Invoke(new MethodInvoker(delegate { LanguageUpdater_OnComplete(sender, e); }));
                 return;
             }
+
+            progressBar.Visible = false;
 
             EnableForm(true);
 
@@ -361,8 +378,35 @@ namespace LoPatcher
         {
             EnableForm(false);
 
-            patchWorker.StartPatching(patchQueue);
+            progressBar.Maximum = 1;
+            progressBar.Value = 0;
+            progressBar.Visible = true;
+
+            patchWorker.StartPatching(patchQueue, this);
             patchQueue = null;
+        }
+
+        /// <summary>
+        /// Called when the patch task has a progress update.
+        /// </summary>
+        /// <param name="value"></param>
+        public void Report(PatchProgress value)
+        {
+            if (progressBar.InvokeRequired)
+            {
+                progressBar.Invoke(new MethodInvoker(delegate { Report(value); }));
+                return;
+            }
+
+            if (value.IncreaseTotal > 0)
+            {
+                progressBar.Maximum += value.IncreaseTotal;
+            }
+
+            if (value.IncreaseCurrent > 0)
+            {
+                progressBar.Value += value.IncreaseCurrent;
+            }
         }
 
         /// <summary>
@@ -372,6 +416,14 @@ namespace LoPatcher
         /// <param name="e"></param>
         private void PatchWorker_OnComplete(object sender, PatchResponse e)
         {
+            if (progressBar.InvokeRequired)
+            {
+                progressBar.Invoke(new MethodInvoker(delegate { PatchWorker_OnComplete(sender, e); }));
+                return;
+            }
+
+            progressBar.Visible = false;
+
             if (e.Errors.Count > 0)
             {
                 if (e.FilesPatched > 0)

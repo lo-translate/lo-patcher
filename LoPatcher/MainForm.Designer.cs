@@ -28,6 +28,7 @@
             this.buttonLanguageUpdate = new System.Windows.Forms.Button();
             this.labelCurrentLangVersionLabel = new System.Windows.Forms.Label();
             this.dialogChoosePatchOutput = new System.Windows.Forms.SaveFileDialog();
+            this.progressBar = new System.Windows.Forms.ProgressBar();
             this.groupBoxBundleFile.SuspendLayout();
             this.groupBoxLanguageData.SuspendLayout();
             this.SuspendLayout();
@@ -56,9 +57,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelSelectedFile.AutoEllipsis = true;
-            this.labelSelectedFile.Location = new System.Drawing.Point(91, 19);
+            this.labelSelectedFile.Location = new System.Drawing.Point(91, 20);
             this.labelSelectedFile.Name = "labelSelectedFile";
-            this.labelSelectedFile.Size = new System.Drawing.Size(357, 39);
+            this.labelSelectedFile.Size = new System.Drawing.Size(357, 38);
             this.labelSelectedFile.TabIndex = 1;
             this.labelSelectedFile.Text = "No file(s) selected";
             this.labelSelectedFile.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -78,7 +79,7 @@
             // 
             this.buttonPatch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonPatch.Enabled = false;
-            this.buttonPatch.Location = new System.Drawing.Point(370, 183);
+            this.buttonPatch.Location = new System.Drawing.Point(370, 179);
             this.buttonPatch.Name = "buttonPatch";
             this.buttonPatch.Size = new System.Drawing.Size(102, 25);
             this.buttonPatch.TabIndex = 1;
@@ -168,12 +169,21 @@
             this.dialogChoosePatchOutput.FileName = "__data.modified";
             this.dialogChoosePatchOutput.Filter = "__data files|__data*|All files|*.*";
             // 
+            // progressBar
+            // 
+            this.progressBar.Location = new System.Drawing.Point(15, 179);
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(344, 24);
+            this.progressBar.TabIndex = 3;
+            this.progressBar.Visible = false;
+            // 
             // MainForm
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(484, 219);
+            this.ClientSize = new System.Drawing.Size(484, 215);
+            this.Controls.Add(this.progressBar);
             this.Controls.Add(this.groupBoxLanguageData);
             this.Controls.Add(this.buttonPatch);
             this.Controls.Add(this.groupBoxBundleFile);
@@ -203,6 +213,7 @@
         private System.Windows.Forms.Label labelNewestLangVersionLabel;
         private System.Windows.Forms.Label labelNewestLangVersion;
         private System.Windows.Forms.LinkLabel linkLabelCheckLanguageUpdate;
+        private System.Windows.Forms.ProgressBar progressBar;
     }
 }
 

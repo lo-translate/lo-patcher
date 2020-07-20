@@ -38,7 +38,7 @@ namespace LoPatcher.Patcher.Targets
             return true;
         }
 
-        public bool Patch(Stream stream)
+        public bool Patch(Stream stream, IProgress<PatchProgress> progressReporter)
         {
             stream.Position = 0;
 
@@ -53,8 +53,12 @@ namespace LoPatcher.Patcher.Targets
             // add data to it we'll have to switch to a real parser that can handle multi-line entries.
             var lines = Regex.Split(content, "\t\r\n");
 
+            progressReporter.Report(new PatchProgress() { IncreaseTotal = lines.Length });
+
             for (var i = 0; i < lines.Length; i++)
             {
+                progressReporter.Report(new PatchProgress() { IncreaseCurrent = 1 });
+
                 var parts = Regex.Split(lines[i], "\t");
                 if (parts.Length < 3)
                 {
