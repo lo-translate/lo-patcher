@@ -86,12 +86,12 @@ namespace LoPatcher.Patcher.Targets
                 $"Replaced {replaced.ToString("N0", NumberFormatInfo.CurrentInfo)} strings in LocalizationPatch"
             );
 
-            var rejoined = string.Join("\t\r\n", lines);
-
-            if (rejoined.Equals(content, StringComparison.Ordinal))
+            if (replaced < 1)
             {
                 return false;
             }
+
+            var rejoined = string.Join("\t\r\n", lines);
 
             stream.Position = 0;
             stream.SetLength(0);
