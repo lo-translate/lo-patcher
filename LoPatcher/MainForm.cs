@@ -1,16 +1,11 @@
-﻿using LoPatcher.BundlePatch.AssetPatch;
+﻿using LoPatcher.LanguageUpdate;
 using LoPatcher.Patcher;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LoPatcher
@@ -19,12 +14,16 @@ namespace LoPatcher
     {
         private readonly PatchWorker patchWorker = new PatchWorker();
         private readonly IEnumerable<IPatchTarget> containers;
+        private readonly LanguageUpdateCheckWorker languageUpdateChecker = new LanguageUpdateCheckWorker();
+        private readonly LanguageUpdateWorker languageUpdater = new LanguageUpdateWorker();
 
         private readonly LanguageCatalog languageCatalog;
+        private readonly string localLanguageFile;
 
         private readonly string defaultSelectedFileText;
 
         private PatchQueue patchQueue;
+        private Uri lanugageUpdateUrl;
 
         public MainForm(LanguageCatalog languageCatalog, IEnumerable<IPatchTarget> containers)
         {
@@ -36,11 +35,19 @@ namespace LoPatcher
             // Save the selected file text so we can set it again when resetting the form.
             defaultSelectedFileText = labelSelectedFile.Text;
 
-            SetStatusText("");
+            // Hide the newest version label and update button. They will be shown when the user clicks check update.
+            labelNewestLangVersion.Visible = false;
+            buttonLanguageUpdate.Visible = false;
 
-            if (File.Exists("LoTranslation.po"))
+            // Load the translations from a file if it exists (downloaded via update) or the resource if not
+            localLanguageFile = Path.Join(
+                Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location),
+                Properties.Resources.LanguageLocalFile
+            );
+
+            if (File.Exists(localLanguageFile))
             {
-                languageCatalog.LoadTranslations("LoTranslation.po");
+                languageCatalog.LoadTranslations(localLanguageFile);
             }
             else
             {
@@ -58,9 +65,13 @@ namespace LoPatcher
             }
 
             patchWorker.OnComplete += PatchWorker_OnComplete;
+            languageUpdateChecker.OnComplete += LanguageUpdateChecker_OnComplete;
+            languageUpdater.OnComplete += LanguageUpdater_OnComplete;
 
             DragEnter += MainForm_DragEnter;
             DragDrop += MainForm_DragDrop;
+
+            ResetForm();
         }
 
         /// <summary>
@@ -74,6 +85,14 @@ namespace LoPatcher
             message = message.Replace("{reason}", reason ?? "", StringComparison.Ordinal).Trim();
 
             MessageBox.Show(message, Properties.Resources.ErrorModalTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private static string GetLocalTranslationPath()
+        {
+            return Path.Join(
+                Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location),
+                Properties.Resources.LanguageLocalFile
+            );
         }
 
         private void ChooseInputFiles(string[] files)
@@ -151,6 +170,120 @@ namespace LoPatcher
             buttonPatch.Enabled = false;
 
             labelCurrentLangVersion.Text = languageCatalog.Version?.ToString() ?? "Unknown";
+        }
+
+        /// <summary>
+        /// Called when the user clicks the check language update button. Hides the link, shows the version label, and
+        /// starts the check update task.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void LinkLabelCheckLanguageUpdate_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            labelNewestLangVersion.Text = Properties.Resources.LabelTextCheckingUpdate;
+            labelNewestLangVersion.Visible = true;
+
+            linkLabelCheckLanguageUpdate.Visible = false;
+
+            EnableForm(false);
+
+            languageUpdateChecker.StartUpdateCheck(new Uri(Properties.Resources.LanguageUpdateUrl));
+        }
+
+        /// <summary>
+        /// Called after the update checker is done (on error or success)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void LanguageUpdateChecker_OnComplete(object sender, UpdateCheckResponse e)
+        {
+            if (labelNewestLangVersion.InvokeRequired)
+            {
+                labelNewestLangVersion.Invoke(new MethodInvoker(delegate { LanguageUpdateChecker_OnComplete(sender, e); }));
+                return;
+            }
+
+            EnableForm(true);
+
+            if (!e.Success)
+            {
+                labelNewestLangVersion.Visible = false;
+                linkLabelCheckLanguageUpdate.Visible = true;
+
+                ErrorMessage(Properties.Resources.ErrorModalUpdateCheckFailed, e.Error?.Message ?? "Unknown error.");
+                return;
+            }
+
+            labelNewestLangVersion.Text = e.Version.ToString();
+
+            try
+            {
+                lanugageUpdateUrl = new Uri(e.UpdateLocation);
+            }
+            catch (UriFormatException)
+            {
+                ErrorMessage(Properties.Resources.ErrorModalUpdateCheckFailed, "Invalid update URL receieved.");
+                return;
+            }
+
+            if (languageCatalog.Version == null || e.Version > languageCatalog.Version)
+            {
+                buttonLanguageUpdate.Visible = true;
+            }
+        }
+
+        /// <summary>
+        /// Called when the user clicks the update button. Starts the updater task.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ButtonLanguageUpdate_Click(object sender, EventArgs e)
+        {
+            var languageOutputPath = Path.Join(
+                Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location),
+                "LoTranslation.po"
+            );
+
+            EnableForm(false);
+
+            languageUpdater.StartUpdate(lanugageUpdateUrl, languageOutputPath);
+        }
+
+        /// <summary>
+        /// Called when the language task is complete.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void LanguageUpdater_OnComplete(object sender, UpdateResponse e)
+        {
+            if (labelCurrentLangVersion.InvokeRequired)
+            {
+                labelCurrentLangVersion.Invoke(new MethodInvoker(delegate { LanguageUpdater_OnComplete(sender, e); }));
+                return;
+            }
+
+            EnableForm(true);
+
+            if (!e.Success)
+            {
+                ErrorMessage(Properties.Resources.ErrorModalUpdateFailed, e.Error?.Message ?? "Unknown error.");
+                return;
+            }
+
+            using var stream = File.OpenRead(GetLocalTranslationPath());
+
+            if (languageCatalog.LoadTranslations(stream))
+            {
+                buttonLanguageUpdate.Visible = false;
+                labelCurrentLangVersion.Text = languageCatalog.Version?.ToString() ?? "Unknown";
+            }
+            else
+            {
+                ErrorMessage(
+                    Properties.Resources.ErrorModalTranslationParse,
+                    string.Join("\r\n", languageCatalog.Errors)
+                );
+            }
         }
 
         /// <summary>
@@ -243,6 +376,8 @@ namespace LoPatcher
             if (disposing)
             {
                 patchWorker?.Dispose();
+                languageUpdateChecker?.Dispose();
+                languageUpdater?.Dispose();
             }
 
             base.Dispose(disposing);

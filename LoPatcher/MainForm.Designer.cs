@@ -21,19 +21,21 @@
             this.buttonChooseBundle = new System.Windows.Forms.Button();
             this.buttonPatch = new System.Windows.Forms.Button();
             this.groupBoxLanguageData = new System.Windows.Forms.GroupBox();
-            this.labelLanguageVersion = new System.Windows.Forms.Label();
+            this.linkLabelCheckLanguageUpdate = new System.Windows.Forms.LinkLabel();
+            this.labelNewestLangVersion = new System.Windows.Forms.Label();
+            this.labelNewestLangVersionLabel = new System.Windows.Forms.Label();
+            this.labelCurrentLangVersion = new System.Windows.Forms.Label();
             this.buttonLanguageUpdate = new System.Windows.Forms.Button();
-            this.labelLanguageVersionLabel = new System.Windows.Forms.Label();
+            this.labelCurrentLangVersionLabel = new System.Windows.Forms.Label();
             this.dialogChoosePatchOutput = new System.Windows.Forms.SaveFileDialog();
-            this.labelStatus = new System.Windows.Forms.Label();
             this.groupBoxBundleFile.SuspendLayout();
             this.groupBoxLanguageData.SuspendLayout();
             this.SuspendLayout();
             // 
             // dialogChooseInput
             // 
-            this.dialogChooseInput.FileName = "__data";
-            this.dialogChooseInput.Filter = "__data files|__data*|All files|*.*";
+            this.dialogChooseInput.Filter = "UABE extracted asset files (raw)|*.dat|All files|*.*";
+            this.dialogChooseInput.Multiselect = true;
             // 
             // groupBoxBundleFile
             // 
@@ -43,10 +45,10 @@
             this.groupBoxBundleFile.Controls.Add(this.buttonChooseBundle);
             this.groupBoxBundleFile.Location = new System.Drawing.Point(13, 13);
             this.groupBoxBundleFile.Name = "groupBoxBundleFile";
-            this.groupBoxBundleFile.Size = new System.Drawing.Size(459, 57);
+            this.groupBoxBundleFile.Size = new System.Drawing.Size(459, 67);
             this.groupBoxBundleFile.TabIndex = 0;
             this.groupBoxBundleFile.TabStop = false;
-            this.groupBoxBundleFile.Text = "Bundle file";
+            this.groupBoxBundleFile.Text = "Asset files to patch";
             // 
             // labelSelectedFile
             // 
@@ -54,16 +56,17 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelSelectedFile.AutoEllipsis = true;
-            this.labelSelectedFile.Location = new System.Drawing.Point(91, 28);
+            this.labelSelectedFile.Location = new System.Drawing.Point(91, 19);
             this.labelSelectedFile.Name = "labelSelectedFile";
-            this.labelSelectedFile.Size = new System.Drawing.Size(357, 20);
+            this.labelSelectedFile.Size = new System.Drawing.Size(357, 39);
             this.labelSelectedFile.TabIndex = 1;
-            this.labelSelectedFile.Text = "No file selected";
+            this.labelSelectedFile.Text = "No file(s) selected";
+            this.labelSelectedFile.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.labelSelectedFile.Click += new System.EventHandler(this.LabelSelectedFile_Click);
             // 
             // buttonChooseBundle
             // 
-            this.buttonChooseBundle.Location = new System.Drawing.Point(11, 22);
+            this.buttonChooseBundle.Location = new System.Drawing.Point(11, 27);
             this.buttonChooseBundle.Name = "buttonChooseBundle";
             this.buttonChooseBundle.Size = new System.Drawing.Size(75, 25);
             this.buttonChooseBundle.TabIndex = 0;
@@ -75,7 +78,7 @@
             // 
             this.buttonPatch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonPatch.Enabled = false;
-            this.buttonPatch.Location = new System.Drawing.Point(370, 150);
+            this.buttonPatch.Location = new System.Drawing.Point(370, 183);
             this.buttonPatch.Name = "buttonPatch";
             this.buttonPatch.Size = new System.Drawing.Size(102, 25);
             this.buttonPatch.TabIndex = 1;
@@ -87,69 +90,90 @@
             // 
             this.groupBoxLanguageData.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBoxLanguageData.Controls.Add(this.labelLanguageVersion);
+            this.groupBoxLanguageData.Controls.Add(this.linkLabelCheckLanguageUpdate);
+            this.groupBoxLanguageData.Controls.Add(this.labelNewestLangVersion);
+            this.groupBoxLanguageData.Controls.Add(this.labelNewestLangVersionLabel);
+            this.groupBoxLanguageData.Controls.Add(this.labelCurrentLangVersion);
             this.groupBoxLanguageData.Controls.Add(this.buttonLanguageUpdate);
-            this.groupBoxLanguageData.Controls.Add(this.labelLanguageVersionLabel);
-            this.groupBoxLanguageData.Location = new System.Drawing.Point(13, 81);
+            this.groupBoxLanguageData.Controls.Add(this.labelCurrentLangVersionLabel);
+            this.groupBoxLanguageData.Location = new System.Drawing.Point(13, 91);
             this.groupBoxLanguageData.Name = "groupBoxLanguageData";
-            this.groupBoxLanguageData.Size = new System.Drawing.Size(459, 57);
+            this.groupBoxLanguageData.Size = new System.Drawing.Size(459, 77);
             this.groupBoxLanguageData.TabIndex = 2;
             this.groupBoxLanguageData.TabStop = false;
             this.groupBoxLanguageData.Text = "Language data";
             // 
-            // labelLanguageVersion
+            // linkLabelCheckLanguageUpdate
             // 
-            this.labelLanguageVersion.AutoSize = true;
-            this.labelLanguageVersion.Location = new System.Drawing.Point(56, 25);
-            this.labelLanguageVersion.Name = "labelLanguageVersion";
-            this.labelLanguageVersion.Size = new System.Drawing.Size(55, 15);
-            this.labelLanguageVersion.TabIndex = 2;
-            this.labelLanguageVersion.Text = "00000000";
+            this.linkLabelCheckLanguageUpdate.AutoSize = true;
+            this.linkLabelCheckLanguageUpdate.Location = new System.Drawing.Point(109, 47);
+            this.linkLabelCheckLanguageUpdate.Name = "linkLabelCheckLanguageUpdate";
+            this.linkLabelCheckLanguageUpdate.Size = new System.Drawing.Size(40, 15);
+            this.linkLabelCheckLanguageUpdate.TabIndex = 5;
+            this.linkLabelCheckLanguageUpdate.TabStop = true;
+            this.linkLabelCheckLanguageUpdate.Text = "Check";
+            this.linkLabelCheckLanguageUpdate.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelCheckLanguageUpdate_LinkClicked);
+            // 
+            // labelNewestLangVersion
+            // 
+            this.labelNewestLangVersion.AutoEllipsis = true;
+            this.labelNewestLangVersion.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.labelNewestLangVersion.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.labelNewestLangVersion.Location = new System.Drawing.Point(108, 47);
+            this.labelNewestLangVersion.Name = "labelNewestLangVersion";
+            this.labelNewestLangVersion.Size = new System.Drawing.Size(210, 15);
+            this.labelNewestLangVersion.TabIndex = 4;
+            this.labelNewestLangVersion.Text = "0000.00.00.00";
+            // 
+            // labelNewestLangVersionLabel
+            // 
+            this.labelNewestLangVersionLabel.AutoSize = true;
+            this.labelNewestLangVersionLabel.Location = new System.Drawing.Point(12, 47);
+            this.labelNewestLangVersionLabel.Name = "labelNewestLangVersionLabel";
+            this.labelNewestLangVersionLabel.Size = new System.Drawing.Size(90, 15);
+            this.labelNewestLangVersionLabel.TabIndex = 3;
+            this.labelNewestLangVersionLabel.Text = "Newest version:";
+            // 
+            // labelCurrentLangVersion
+            // 
+            this.labelCurrentLangVersion.AutoEllipsis = true;
+            this.labelCurrentLangVersion.Location = new System.Drawing.Point(108, 27);
+            this.labelCurrentLangVersion.Name = "labelCurrentLangVersion";
+            this.labelCurrentLangVersion.Size = new System.Drawing.Size(210, 15);
+            this.labelCurrentLangVersion.TabIndex = 2;
+            this.labelCurrentLangVersion.Text = "0000.00.00.00";
             // 
             // buttonLanguageUpdate
             // 
             this.buttonLanguageUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonLanguageUpdate.Enabled = false;
-            this.buttonLanguageUpdate.Location = new System.Drawing.Point(330, 20);
+            this.buttonLanguageUpdate.Location = new System.Drawing.Point(330, 32);
             this.buttonLanguageUpdate.Name = "buttonLanguageUpdate";
             this.buttonLanguageUpdate.Size = new System.Drawing.Size(118, 25);
             this.buttonLanguageUpdate.TabIndex = 1;
-            this.buttonLanguageUpdate.Text = "Check for update";
+            this.buttonLanguageUpdate.Text = "Download update";
             this.buttonLanguageUpdate.UseVisualStyleBackColor = true;
+            this.buttonLanguageUpdate.Click += new System.EventHandler(this.ButtonLanguageUpdate_Click);
             // 
-            // labelLanguageVersionLabel
+            // labelCurrentLangVersionLabel
             // 
-            this.labelLanguageVersionLabel.AutoSize = true;
-            this.labelLanguageVersionLabel.Location = new System.Drawing.Point(11, 25);
-            this.labelLanguageVersionLabel.Name = "labelLanguageVersionLabel";
-            this.labelLanguageVersionLabel.Size = new System.Drawing.Size(48, 15);
-            this.labelLanguageVersionLabel.TabIndex = 0;
-            this.labelLanguageVersionLabel.Text = "Version:";
+            this.labelCurrentLangVersionLabel.AutoSize = true;
+            this.labelCurrentLangVersionLabel.Location = new System.Drawing.Point(11, 27);
+            this.labelCurrentLangVersionLabel.Name = "labelCurrentLangVersionLabel";
+            this.labelCurrentLangVersionLabel.Size = new System.Drawing.Size(91, 15);
+            this.labelCurrentLangVersionLabel.TabIndex = 0;
+            this.labelCurrentLangVersionLabel.Text = "Current version:";
             // 
             // dialogChoosePatchOutput
             // 
             this.dialogChoosePatchOutput.FileName = "__data.modified";
             this.dialogChoosePatchOutput.Filter = "__data files|__data*|All files|*.*";
             // 
-            // labelStatus
-            // 
-            this.labelStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelStatus.AutoEllipsis = true;
-            this.labelStatus.Location = new System.Drawing.Point(13, 146);
-            this.labelStatus.Name = "labelStatus";
-            this.labelStatus.Size = new System.Drawing.Size(351, 32);
-            this.labelStatus.TabIndex = 3;
-            this.labelStatus.Text = "Status text";
-            this.labelStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // MainForm
             // 
+            this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(484, 186);
-            this.Controls.Add(this.labelStatus);
+            this.ClientSize = new System.Drawing.Size(484, 219);
             this.Controls.Add(this.groupBoxLanguageData);
             this.Controls.Add(this.buttonPatch);
             this.Controls.Add(this.groupBoxBundleFile);
@@ -172,11 +196,13 @@
         private System.Windows.Forms.Button buttonPatch;
         private System.Windows.Forms.GroupBox groupBoxLanguageData;
         private System.Windows.Forms.Button buttonLanguageUpdate;
-        private System.Windows.Forms.Label labelLanguageVersionLabel;
+        private System.Windows.Forms.Label labelCurrentLangVersionLabel;
         private System.Windows.Forms.SaveFileDialog dialogChoosePatchOutput;
-        private System.Windows.Forms.Label labelStatus;
         private System.Windows.Forms.GroupBox groupBoxBundleFile;
-        private System.Windows.Forms.Label labelLanguageVersion;
+        private System.Windows.Forms.Label labelCurrentLangVersion;
+        private System.Windows.Forms.Label labelNewestLangVersionLabel;
+        private System.Windows.Forms.Label labelNewestLangVersion;
+        private System.Windows.Forms.LinkLabel linkLabelCheckLanguageUpdate;
     }
 }
 

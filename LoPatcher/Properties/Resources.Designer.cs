@@ -71,11 +71,46 @@ namespace LoPatcher.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Patch already running.
+        ///   Looks up a localized string similar to Failed to patch all files.
+        ///
+        ///{reason}.
         /// </summary>
-        internal static string ErrorModalAlreadyRunning {
+        internal static string ErrorModalPatchFullFail {
             get {
-                return ResourceManager.GetString("ErrorModalAlreadyRunning", resourceCulture);
+                return ResourceManager.GetString("ErrorModalPatchFullFail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed to patch all files.
+        ///
+        ///{reason}.
+        /// </summary>
+        internal static string ErrorModalPatchPartialFail {
+            get {
+                return ResourceManager.GetString("ErrorModalPatchPartialFail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No valid files selected.
+        ///
+        ///{reason}.
+        /// </summary>
+        internal static string ErrorModalSelectionFullFail {
+            get {
+                return ResourceManager.GetString("ErrorModalSelectionFullFail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Some invalid files selected.
+        ///
+        ///{reason}.
+        /// </summary>
+        internal static string ErrorModalSelectionPartialFail {
+            get {
+                return ResourceManager.GetString("ErrorModalSelectionPartialFail", resourceCulture);
             }
         }
         
@@ -89,11 +124,62 @@ namespace LoPatcher.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Failed to parse translations, patch will not function..
+        ///   Looks up a localized string similar to Failed to parse translations, patcher will not work until broken translations are fixed.
+        ///
+        ///{reason}.
         /// </summary>
         internal static string ErrorModalTranslationParse {
             get {
                 return ResourceManager.GetString("ErrorModalTranslationParse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Translation update check failed
+        ///
+        ///{reason}.
+        /// </summary>
+        internal static string ErrorModalUpdateCheckFailed {
+            get {
+                return ResourceManager.GetString("ErrorModalUpdateCheckFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Translation update failed
+        ///
+        ///{reason}.
+        /// </summary>
+        internal static string ErrorModalUpdateFailed {
+            get {
+                return ResourceManager.GetString("ErrorModalUpdateFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Checking....
+        /// </summary>
+        internal static string LabelTextCheckingUpdate {
+            get {
+                return ResourceManager.GetString("LabelTextCheckingUpdate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to LoTranslation.po.
+        /// </summary>
+        internal static string LanguageLocalFile {
+            get {
+                return ResourceManager.GetString("LanguageLocalFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://api.github.com/repos/lo-translate/lo-translation/releases/latest.
+        /// </summary>
+        internal static string LanguageUpdateUrl {
+            get {
+                return ResourceManager.GetString("LanguageUpdateUrl", resourceCulture);
             }
         }
         
@@ -104,6 +190,15 @@ namespace LoPatcher.Properties {
             get {
                 object obj = ResourceManager.GetObject("LoTranslation", resourceCulture);
                 return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Patch complete.
+        /// </summary>
+        internal static string ModalPatchComplete {
+            get {
+                return ResourceManager.GetString("ModalPatchComplete", resourceCulture);
             }
         }
     }
