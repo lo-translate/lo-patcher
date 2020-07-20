@@ -85,6 +85,9 @@ namespace LoTextExtractor
                         // the translation file contains the most up to date translations.
                     }
 
+                    japaneseText = japaneseText.Replace("`n", "\n");
+                    translation = translation.Replace("`n", "\n");
+
                     knownText[japaneseText] = translation;
                 }
             }
@@ -110,17 +113,22 @@ namespace LoTextExtractor
         {
             foreach (var translation in translations)
             {
-                if (knownText.ContainsKey(translation.Korean))
+                var englishText = translation.English;
+                var koreanText = translation.Korean;
+
+                koreanText = koreanText.Replace("`n", "\n");
+                englishText = englishText.Replace("…", "...").Replace("`n", "\n");
+
+                if (knownText.ContainsKey(koreanText))
                 {
-                    if (!translation.English.Equals(knownText[translation.Korean], System.StringComparison.Ordinal))
+                    if (!englishText.Equals(knownText[koreanText], System.StringComparison.Ordinal))
                     {
-                        Debug.WriteLine($"Duplicate translation: '{knownText[translation.Korean]}' != '{translation.English}'");
+                        Debug.WriteLine($"Duplicate translation: '{knownText[koreanText]}' != '{englishText}'");
                     }
                     continue;
                 }
 
-                var englishText = translation.English.Replace("…", "...");
-                knownText.Add(translation.Korean, englishText);
+                knownText.Add(koreanText, englishText);
             }
         }
 
