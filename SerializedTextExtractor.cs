@@ -98,7 +98,6 @@ namespace LoTextExtractor
 
             var excludedFields = new[]
             {
-                "_Table_Function",  // Causes game load to hang at 0% when strings are replaced
                 "_Table_Forbidden", // Forbidden words, nothing useful for translation
             };
 
