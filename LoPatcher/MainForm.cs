@@ -40,6 +40,29 @@ namespace LoPatcher
             {
                 languageCatalog.LoadTranslations(Properties.Resources.LoTranslation);
             }
+
+            // Display any translation catalog errors to the user. We continue so the user can attempt to update the
+            // broken translations.
+            if (languageCatalog.Errors.Any())
+            {
+                ErrorMessage(
+                    Properties.Resources.ErrorModalTranslationParse,
+                    string.Join("\r\n", languageCatalog.Errors)
+                );
+            }
+        }
+
+        /// <summary>
+        /// Displays an error message to the user. Replaces {reason} in the error message string with the specified
+        /// reason.
+        /// </summary>
+        /// <param name="message"></param>
+        /// <param name="reason"></param>
+        private static void ErrorMessage(string message, string reason = null)
+        {
+            message = message.Replace("{reason}", reason ?? "", StringComparison.Ordinal).Trim();
+
+            MessageBox.Show(message, Properties.Resources.ErrorModalTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void ChooseInputFile(string file)

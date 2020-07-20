@@ -128,7 +128,9 @@
     <value>Error</value>
   </data>
   <data name="ErrorModalTranslationParse" xml:space="preserve">
-    <value>Failed to parse translations, patch will not function.</value>
+    <value>Failed to parse translations, patcher will not work until broken translations are fixed.
+
+{reason}</value>
   </data>
   <data name="LoTranslation" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\lotranslation.po;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
