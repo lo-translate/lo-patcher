@@ -205,9 +205,36 @@ namespace LoPatcher.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Patch complete.
         /// </summary>
-        internal static string ModalPatchComplete {
+        internal static string SuccessModalPatchComplete {
             get {
-                return ResourceManager.GetString("ModalPatchComplete", resourceCulture);
+                return ResourceManager.GetString("SuccessModalPatchComplete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Success.
+        /// </summary>
+        internal static string SuccessModalTitle {
+            get {
+                return ResourceManager.GetString("SuccessModalTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Asset bundle support is not complete and will not translate as much. For more translations extract data.bin and LocalizationPatch from __data with UABE, then patch the raw export files and re-import the patched versions with UABE..
+        /// </summary>
+        internal static string WarningModalAssetBundle {
+            get {
+                return ResourceManager.GetString("WarningModalAssetBundle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Warning.
+        /// </summary>
+        internal static string WarningModalTitle {
+            get {
+                return ResourceManager.GetString("WarningModalTitle", resourceCulture);
             }
         }
     }

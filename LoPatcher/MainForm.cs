@@ -119,10 +119,8 @@ namespace LoPatcher
                 if (fileContainer is AssetBundleContainer)
                 {
                     MessageBox.Show(
-                        "Asset bundle support is not complete and will not translate as much. For more translations " +
-                        "extract data.bin and LocalizationPatch from __data with UABE, then patch the raw export " +
-                        "files and re-import the patched version with UABE.",
-                        "Warning"
+                        Properties.Resources.WarningModalAssetBundle,
+                        Properties.Resources.WarningModalTitle
                     );
                 }
 
@@ -458,7 +456,7 @@ namespace LoPatcher
                 return;
             }
 
-            MessageBox.Show(Properties.Resources.ModalPatchComplete);
+            MessageBox.Show(Properties.Resources.SuccessModalPatchComplete, Properties.Resources.SuccessModalTitle);
             ResetForm();
             EnableForm(true);
         }

@@ -174,7 +174,16 @@
   <data name="LoTranslation" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\lotranslation.po;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="ModalPatchComplete" xml:space="preserve">
+  <data name="SuccessModalPatchComplete" xml:space="preserve">
     <value>Patch complete</value>
+  </data>
+  <data name="SuccessModalTitle" xml:space="preserve">
+    <value>Success</value>
+  </data>
+  <data name="WarningModalAssetBundle" xml:space="preserve">
+    <value>Asset bundle support is not complete and will not translate as much. For more translations extract data.bin and LocalizationPatch from __data with UABE, then patch the raw export files and re-import the patched versions with UABE.</value>
+  </data>
+  <data name="WarningModalTitle" xml:space="preserve">
+    <value>Warning</value>
   </data>
 </root>
