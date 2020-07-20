@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using System.Runtime.Serialization.Formatters.Binary;
 
@@ -78,7 +79,6 @@ namespace LoTextExtractor
                 Console.WriteLine($"Extracted {(newKnownStrings - knownStrings).ToString("N0")} strings from LastOnTable._Table_PCStory_Client");
             }
 
-            
             knownStrings = catalogManager.GetCatalogCount();
 
             foreach (var kvp in japaneseRoot._Table_BuffEffect_Client)
@@ -96,13 +96,18 @@ namespace LoTextExtractor
                 Console.WriteLine($"Extracted {(newKnownStrings - knownStrings).ToString("N0")} strings from LastOnTable._Table_BuffEffect_Client");
             }
 
+            var excludedFields = new[]
+            {
+                "_Table_Function",  // Causes game load to hang at 0% when strings are replaced
+                "_Table_Forbidden", // Forbidden words, nothing useful for translation
+            };
 
             // Loop through the dictionaries in TableManager and process each of them
             foreach (var field in japaneseRoot._TableManager.GetType().GetFields())
             {
                 knownStrings = catalogManager.GetCatalogCount();
 
-                if (field.Name == "_Table_Forbidden")
+                if (excludedFields.Contains(field.Name))
                 {
                     continue;
                 }
