@@ -1,15 +1,19 @@
+using LoPatcher.Patcher;
+using LoPatcher.Patcher.Containers;
+using LoPatcher.Patcher.Targets;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace LoPatcher
 {
-    static class Program
+    internal static class Program
     {
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        private static void Main()
         {
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
@@ -17,7 +21,17 @@ namespace LoPatcher
 
             var languageCatalog = new LanguageCatalog();
 
-            using var form = new MainForm(languageCatalog);
+            var targets = new List<IPatchTarget>()
+            {
+                new LocalizationPatchPatcher(languageCatalog),
+            };
+
+            var containers = new List<IPatchTarget>()
+            {
+                new AssetBundleContainer(targets),
+            };
+
+            using var form = new MainForm(languageCatalog, containers);
             Application.Run(form);
         }
     }

@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Runtime.Serialization;
 
-namespace LoPatcher.BundlePatch
+namespace LoPatcher.Patcher.Exceptions
 {
     public class PatchFailedException : Exception
     {
@@ -15,6 +14,10 @@ namespace LoPatcher.BundlePatch
         }
 
         public PatchFailedException(string message, Exception innerException) : base(message, innerException)
+        {
+        }
+
+        protected PatchFailedException(SerializationInfo info, StreamingContext context) : base(info, context)
         {
         }
     }

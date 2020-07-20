@@ -121,8 +121,25 @@
   <data name="classdata" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\classdata.tpk;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="ErrorModalAlreadyRunning" xml:space="preserve">
-    <value>Patch already running</value>
+  <data name="ErrorModalPatchFullFail" xml:space="preserve">
+    <value>Failed to patch all files.
+
+{reason}</value>
+  </data>
+  <data name="ErrorModalPatchPartialFail" xml:space="preserve">
+    <value>Failed to patch all files.
+
+{reason}</value>
+  </data>
+  <data name="ErrorModalSelectionFullFail" xml:space="preserve">
+    <value>No valid files selected.
+
+{reason}</value>
+  </data>
+  <data name="ErrorModalSelectionPartialFail" xml:space="preserve">
+    <value>Some invalid files selected.
+
+{reason}</value>
   </data>
   <data name="ErrorModalTitle" xml:space="preserve">
     <value>Error</value>
@@ -132,7 +149,29 @@
 
 {reason}</value>
   </data>
+  <data name="ErrorModalUpdateCheckFailed" xml:space="preserve">
+    <value>Translation update check failed
+
+{reason}</value>
+  </data>
+  <data name="ErrorModalUpdateFailed" xml:space="preserve">
+    <value>Translation update failed
+
+{reason}</value>
+  </data>
+  <data name="LabelTextCheckingUpdate" xml:space="preserve">
+    <value>Checking...</value>
+  </data>
+  <data name="LanguageLocalFile" xml:space="preserve">
+    <value>LoTranslation.po</value>
+  </data>
+  <data name="LanguageUpdateUrl" xml:space="preserve">
+    <value>https://api.github.com/repos/lo-translate/lo-translation/releases/latest</value>
+  </data>
   <data name="LoTranslation" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\lotranslation.po;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ModalPatchComplete" xml:space="preserve">
+    <value>Patch complete</value>
   </data>
 </root>

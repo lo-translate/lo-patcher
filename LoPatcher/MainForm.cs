@@ -1,4 +1,5 @@
 ﻿using LoPatcher.BundlePatch.AssetPatch;
+using LoPatcher.Patcher;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -6,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -15,15 +17,23 @@ namespace LoPatcher
 {
     public partial class MainForm : Form
     {
-        private string selectedFile;
-        private readonly string defaultSelectedFileText;
-        private Thread patchThread;
+        private readonly PatchWorker patchWorker = new PatchWorker();
+        private readonly IEnumerable<IPatchTarget> containers;
+
         private readonly LanguageCatalog languageCatalog;
 
-        public MainForm()
+        private readonly string defaultSelectedFileText;
+
+        private PatchQueue patchQueue;
+
+        public MainForm(LanguageCatalog languageCatalog, IEnumerable<IPatchTarget> containers)
         {
             InitializeComponent();
 
+            this.languageCatalog = languageCatalog ?? throw new ArgumentNullException(nameof(languageCatalog));
+            this.containers = containers ?? throw new ArgumentNullException(nameof(containers));
+
+            // Save the selected file text so we can set it again when resetting the form.
             defaultSelectedFileText = labelSelectedFile.Text;
 
             SetStatusText("");
@@ -46,6 +56,8 @@ namespace LoPatcher
                     string.Join("\r\n", languageCatalog.Errors)
                 );
             }
+
+            patchWorker.OnComplete += PatchWorker_OnComplete;
         }
 
         /// <summary>
@@ -61,93 +73,101 @@ namespace LoPatcher
             MessageBox.Show(message, Properties.Resources.ErrorModalTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        private void ChooseInputFile(string file)
+        private void ChooseInputFiles(string[] files)
         {
-            selectedFile = file;
-            labelSelectedFile.Text = GetShorterDirectory(selectedFile);
-            buttonPatch.Enabled = true;
+            patchQueue = new PatchQueue();
 
-            SetStatusText("");
-        }
-
-        private void ResetForm(bool includeStatus)
-        {
-            if (labelSelectedFile.InvokeRequired)
+            var errors = new List<string>();
+            var builder = new StringBuilder();
+            foreach (var file in files)
             {
-				labelSelectedFile.Invoke(new MethodInvoker(delegate { ResetForm(includeStatus); }));
-                return;
+                var onlyFileName = Path.GetFileName(file);
+                using var fileStream = File.OpenRead(file);
+                var fileContainer = containers.FirstOrDefault(container => container.CanPatch(fileStream));
+
+                if (fileContainer == null)
+                {
+                    errors.Add($"Unknown file format: {onlyFileName}");
+                    continue;
+                }
+
+                if (builder.Length > 0)
+                {
+                    builder.Append(", ");
+                }
+
+                builder.Append(onlyFileName);
+                patchQueue.Items.Add(new PatchQueueItem(file, fileContainer));
             }
 
-            selectedFile = string.Empty;
-            labelSelectedFile.Text = defaultSelectedFileText;
-            buttonPatch.Enabled = false;
-
-            labelCurrentLangVersion.Text = languageCatalog.Version?.ToString() ?? "Unknown";
-
-            if (includeStatus)
+            if (errors.Count > 0)
             {
-                SetStatusText("");
-            }
-        }
-
-        private void SetStatusText(string text)
-        {
-            SetStatusText(text, SystemColors.WindowText);
-        }
-
-        private void SetStatusText(string text, Color textColor)
-        {
-            if (labelStatus.InvokeRequired)
-            {
-                labelStatus.Invoke(new MethodInvoker(delegate { SetStatusText(text, color); }));
-                return;
+                if (builder.Length > 0)
+                {
+                    ErrorMessage(Properties.Resources.ErrorModalSelectionPartialFail, string.Join("\r\n", errors));
+                }
+                else
+                {
+                    ErrorMessage(Properties.Resources.ErrorModalSelectionFullFail, string.Join("\r\n", errors));
+                }
             }
 
-            labelStatus.ForeColor = textColor;
-            labelStatus.Text = text;
+            if (builder.Length > 0)
+            {
+                labelSelectedFile.Text = builder.ToString();
+                buttonPatch.Enabled = true;
+            }
+            else
+            {
+                labelSelectedFile.Text = defaultSelectedFileText;
+                buttonPatch.Enabled = false;
+                patchQueue = null;
+            }
         }
 
         private void EnableForm(bool enable)
         {
-            if (buttonChooseBundle.InvokeRequired)
+            if (enable)
             {
-                buttonChooseBundle.Invoke(new MethodInvoker(delegate { EnableForm(enable); }));
-                return;
-            }
-
-            Enabled = enable;
-        }
-
-        private void DoPatch()
-        {
-            EnableForm(false);
-
-            using var classData = new MemoryStream(Properties.Resources.classdata);
-            var assetPatchers = new List<IAssetPatcher>() { new LocalizationPatchPatcher(languageCatalog) };
-            var patcher = new BundlePatch.BundlePatcher(classData, assetPatchers);
-            var outputFile = dialogChoosePatchOutput.FileName;
-            var result = patcher.Patch(selectedFile, outputFile);
-            if (result.Success)
-            {
-                SetStatusText($"File patched, saved to {GetShorterDirectory(outputFile)}", Color.Green);
-                ResetForm(false);
+                buttonPatch.Enabled = !labelSelectedFile.Text.Equals(defaultSelectedFileText, StringComparison.Ordinal);
             }
             else
             {
-                SetStatusText($"Failed to patch file: {result.Status}", Color.Red);
+                buttonPatch.Enabled = false;
             }
 
-            EnableForm(true);
+            linkLabelCheckLanguageUpdate.Enabled = enable;
+            buttonChooseBundle.Enabled = enable;
+            buttonLanguageUpdate.Enabled = enable;
         }
 
+        private void ResetForm()
+        {
+            patchQueue = null;
+            labelSelectedFile.Text = defaultSelectedFileText;
+            buttonPatch.Enabled = false;
+
+            labelCurrentLangVersion.Text = languageCatalog.Version?.ToString() ?? "Unknown";
+        }
+
+        /// <summary>
+        /// Called when the user clicks the browse button.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonChooseBundle_Click(object sender, EventArgs e)
         {
             if (dialogChooseInput.ShowDialog() == DialogResult.OK)
             {
-                ChooseInputFile(dialogChooseInput.FileName);
+                ChooseInputFiles(dialogChooseInput.FileNames);
             }
         }
 
+        /// <summary>
+        /// Called when the user clicks on the selected file label, forwards on to the choose file button event.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void LabelSelectedFile_Click(object sender, EventArgs e)
         {
             ButtonChooseBundle_Click(sender, e);
@@ -155,24 +175,47 @@ namespace LoPatcher
 
         private void ButtonPatch_Click(object sender, EventArgs e)
         {
-            if (dialogChoosePatchOutput.ShowDialog() != DialogResult.OK)
+            EnableForm(false);
+
+            patchWorker.StartPatching(patchQueue);
+            patchQueue = null;
+        }
+
+        private void PatchWorker_OnComplete(object sender, PatchResponse e)
+        {
+            if (e.Errors.Count > 0)
             {
+                if (e.FilesPatched > 0)
+                {
+                    ErrorMessage(Properties.Resources.ErrorModalPatchPartialFail, string.Join("\r\n", e.Errors));
+                }
+                else
+                {
+                    ErrorMessage(Properties.Resources.ErrorModalPatchFullFail, string.Join("\r\n", e.Errors));
+                }
+
+                EnableForm(true);
                 return;
             }
 
-            if (patchThread != null && patchThread.IsAlive)
+            MessageBox.Show(Properties.Resources.ModalPatchComplete);
+            ResetForm();
+            EnableForm(true);
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
             {
-                MessageBox.Show(
-                    Properties.Resources.ErrorModalAlreadyRunning,
-                    Properties.Resources.ErrorModalTitle,
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error
-                );
-                return;
+                components.Dispose();
             }
 
-            patchThread = new Thread(new ThreadStart(DoPatch)) { IsBackground = true };
-            patchThread.Start();
+            if (disposing)
+            {
+                patchWorker?.Dispose();
+            }
+
+            base.Dispose(disposing);
         }
 
         /// <summary>
