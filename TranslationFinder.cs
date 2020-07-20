@@ -119,7 +119,8 @@ namespace LoTextExtractor
                     continue;
                 }
 
-                knownText.Add(translation.Korean, translation.English);
+                var englishText = translation.English.Replace("…", "...");
+                knownText.Add(translation.Korean, englishText);
             }
         }
 
