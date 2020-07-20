@@ -10,7 +10,7 @@ namespace LoPatcher
 {
     public class LanguageCatalog : ILanguageCatalog
     {
-        public POCatalog catalog;
+        private POCatalog catalog;
 
         public Version Version { get; private set; }
 
