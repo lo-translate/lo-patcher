@@ -1,5 +1,4 @@
-﻿using Karambolo.PO;
-using LoPatcher.BundlePatch.AssetPatch;
+﻿using LoPatcher.BundlePatch.AssetPatch;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,7 +18,7 @@ namespace LoPatcher
         private string selectedFile;
         private readonly string defaultSelectedFileText;
         private Thread patchThread;
-        private POCatalog catalog;
+        private readonly LanguageCatalog languageCatalog;
 
         private delegate void SetStatusTextDelegate(string text, Color color);
         private delegate void EnableFormDelegate(bool enable);
@@ -35,34 +34,11 @@ namespace LoPatcher
 
             if (File.Exists("LoTranslation.po"))
             {
-                using var stream = File.OpenRead("LoTranslation.po");
-                catalog = LoadTranslations(stream);
+                languageCatalog.LoadTranslations("LoTranslation.po");
             }
             else
             {
-                using var stream = new MemoryStream(Properties.Resources.LoTranslation);
-                catalog = LoadTranslations(stream);
-            }
-        }
-
-        private static POCatalog LoadTranslations(Stream stream)
-        {
-            var parser = new POParser(new POParserSettings());
-            var result = parser.Parse(stream, Encoding.UTF8);
-
-            if (result.Success)
-            {
-                return result.Catalog;
-            }
-            else
-            {
-                MessageBox.Show(
-                    Properties.Resources.ErrorModalTranslationParse,
-                    Properties.Resources.ErrorModalTitle,
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error
-                );
-                return null;
+                languageCatalog.LoadTranslations(Properties.Resources.LoTranslation);
             }
         }
 
@@ -86,7 +62,8 @@ namespace LoPatcher
             selectedFile = string.Empty;
             labelSelectedFile.Text = defaultSelectedFileText;
             buttonPatch.Enabled = false;
-            labelLanguageVersion.Text = GetTranslationVersion(catalog).ToString();
+
+            labelCurrentLangVersion.Text = languageCatalog.Version?.ToString() ?? "Unknown";
 
             if (includeStatus)
             {
@@ -177,19 +154,6 @@ namespace LoPatcher
 
             patchThread = new Thread(new ThreadStart(DoPatch)) { IsBackground = true };
             patchThread.Start();
-        }
-
-        private static Version GetTranslationVersion(POCatalog catalog)
-        {
-            var versionHeader = catalog.Headers.FirstOrDefault(
-                h => h.Key.Equals("Project-Id-Version", StringComparison.Ordinal)
-            );
-            if (versionHeader.Value != null)
-            {
-                return Version.Parse(versionHeader.Value);
-            }
-
-            return null;
         }
 
         /// <summary>

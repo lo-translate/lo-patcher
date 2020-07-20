@@ -15,7 +15,9 @@ namespace LoPatcher
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            using var form = new MainForm();
+            var languageCatalog = new LanguageCatalog();
+
+            using var form = new MainForm(languageCatalog);
             Application.Run(form);
         }
     }
