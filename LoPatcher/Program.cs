@@ -23,8 +23,8 @@ namespace LoPatcher
 
             var targets = new List<IPatchTarget>()
             {
-                new SerializedDataPatcher(languageCatalog),
-                new LocalizationPatchPatcher(languageCatalog),
+                new SerializedDataTarget(languageCatalog),
+                new LocalizationPatchTarget(languageCatalog),
             };
 
             var containers = new List<IPatchTarget>()

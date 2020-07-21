@@ -9,11 +9,11 @@ using System.Text.RegularExpressions;
 
 namespace LoPatcher.Patcher.Targets
 {
-    internal class SerializedDataPatcher : IPatchTarget
+    internal class SerializedDataTarget : IPatchTarget
     {
         private readonly ILanguageCatalog languageCatalog;
 
-        public SerializedDataPatcher(ILanguageCatalog languageCatalog)
+        public SerializedDataTarget(ILanguageCatalog languageCatalog)
         {
             this.languageCatalog = languageCatalog ?? throw new ArgumentNullException(nameof(languageCatalog));
         }

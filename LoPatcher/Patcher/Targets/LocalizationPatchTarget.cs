@@ -8,11 +8,11 @@ using System.Text.RegularExpressions;
 
 namespace LoPatcher.Patcher.Targets
 {
-    internal class LocalizationPatchPatcher : IPatchTarget
+    internal class LocalizationPatchTarget : IPatchTarget
     {
         private readonly ILanguageCatalog languageCatalog;
 
-        public LocalizationPatchPatcher(ILanguageCatalog languageCatalog)
+        public LocalizationPatchTarget(ILanguageCatalog languageCatalog)
         {
             this.languageCatalog = languageCatalog ?? throw new ArgumentNullException(nameof(languageCatalog));
         }

@@ -169,7 +169,7 @@ namespace LoPatcher.Patcher.Containers
 
                     scriptStream.Write(Encoding.UTF8.GetBytes(script.AsString()));
 
-                    if (targets.First(t => t is LocalizationPatchPatcher).Patch(scriptStream, progressReporter))
+                    if (targets.First(t => t is LocalizationPatchTarget).Patch(scriptStream, progressReporter))
                     {
                         script.Set(scriptStream.ToArray());
 
