@@ -23,13 +23,15 @@ namespace LoTextExtractor
                 }
 
                 var translation = knownText.ContainsKey(foreignText) ? knownText[foreignText] : null;
-                if (string.IsNullOrEmpty(translation))
+                if (string.IsNullOrEmpty(translation) && foreignText.Contains('\n'))
                 {
-                    // If we were not found try again with \r\n as the line ending (this is needed due to Karambolo.PO
-                    // using it in the parsed strings)
+                    // If we can't find a known translation try again using Windows style new lines. This is needed
+                    // due to Karambolo.PO using it while parsing the PO file.
                     var normalizedForeignText = Regex.Replace(foreignText, @"\r\n|\n\r|\n|\r", "\r\n");
-
-                    translation = knownText.ContainsKey(normalizedForeignText) ? knownText[normalizedForeignText] : null;
+                    if (!normalizedForeignText.Equals(foreignText, System.StringComparison.Ordinal))
+                    {
+                        translation = knownText.ContainsKey(normalizedForeignText) ? knownText[normalizedForeignText] : null;
+                    }
                 }
 
                 if (!string.IsNullOrEmpty(translation))
