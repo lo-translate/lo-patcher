@@ -274,6 +274,8 @@ namespace LoPatcher
             progressBar.Maximum = 100;
             progressBar.Value = 0;
             progressBar.Visible = true;
+            labelCurrentStatus.Text = "Downloading language update...";
+            labelCurrentStatus.Visible = true;
 
             languageUpdater.StartUpdate(
                 lanugageUpdateUrl, Properties.Resources.LanguageRemoteFile, languageOutputPath, this
@@ -305,6 +307,7 @@ namespace LoPatcher
             }
 
             progressBar.Visible = false;
+            labelCurrentStatus.Visible = false;
 
             EnableForm(true);
 
@@ -392,6 +395,8 @@ namespace LoPatcher
             progressBar.Maximum = 1;
             progressBar.Value = 0;
             progressBar.Visible = true;
+            labelCurrentStatus.Text = "Starting...";
+            labelCurrentStatus.Visible = true;
 
             patchWorker.StartPatching(patchQueue, this);
             patchQueue = null;
@@ -412,6 +417,13 @@ namespace LoPatcher
             {
                 progressBar.Invoke(new MethodInvoker(delegate { Report(value); }));
                 return;
+            }
+
+            if (!string.IsNullOrEmpty(value.SetTargetAndReset))
+            {
+                labelCurrentStatus.Text = value.SetTargetAndReset;
+                progressBar.Value = 0;
+                progressBar.Maximum = 1;
             }
 
             if (value.IncreaseTotal > 0)
@@ -439,6 +451,7 @@ namespace LoPatcher
             }
 
             progressBar.Visible = false;
+            labelCurrentStatus.Visible = false;
 
             if (e.Errors.Count > 0)
             {

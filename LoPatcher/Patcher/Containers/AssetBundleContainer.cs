@@ -1,11 +1,9 @@
 ﻿using AssetsTools.NET;
 using AssetsTools.NET.Extra;
-using LoPatcher.Patcher.Targets;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
 using System.Text;
 
 namespace LoPatcher.Patcher.Containers
@@ -14,7 +12,7 @@ namespace LoPatcher.Patcher.Containers
     {
         private const string unityFsSignature = "UnityFS";
 
-        private IList<IPatchTarget> targets;
+        private readonly IList<IPatchTarget> targets;
 
         public AssetBundleContainer(IList<IPatchTarget> targets)
         {
@@ -41,6 +39,11 @@ namespace LoPatcher.Patcher.Containers
             if (stream == null)
             {
                 throw new ArgumentNullException(nameof(stream));
+            }
+
+            if (progressReporter == null)
+            {
+                throw new ArgumentNullException(nameof(progressReporter));
             }
 
             // AssetsTools.NET can only operate on a FileStream so we convert back into one using a temporary file.
@@ -155,6 +158,11 @@ namespace LoPatcher.Patcher.Containers
 
                 if (typeName == "TextAsset" && assetName == "LocalizationPatch")
                 {
+                    progressReporter.Report(new PatchProgress()
+                    {
+                        SetTargetAndReset = $"{assetName}"
+                    });
+
                     var baseField = manager.GetATI(assetsFile.file, info).GetBaseField();
 
                     var name = baseField.Get("m_Name")?.GetValue().AsString();

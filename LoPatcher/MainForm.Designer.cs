@@ -29,6 +29,7 @@
             this.labelCurrentLangVersionLabel = new System.Windows.Forms.Label();
             this.dialogChoosePatchOutput = new System.Windows.Forms.SaveFileDialog();
             this.progressBar = new System.Windows.Forms.ProgressBar();
+            this.labelCurrentStatus = new System.Windows.Forms.Label();
             this.groupBoxBundleFile.SuspendLayout();
             this.groupBoxLanguageData.SuspendLayout();
             this.SuspendLayout();
@@ -79,7 +80,7 @@
             // 
             this.buttonPatch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonPatch.Enabled = false;
-            this.buttonPatch.Location = new System.Drawing.Point(370, 179);
+            this.buttonPatch.Location = new System.Drawing.Point(370, 206);
             this.buttonPatch.Name = "buttonPatch";
             this.buttonPatch.Size = new System.Drawing.Size(102, 25);
             this.buttonPatch.TabIndex = 1;
@@ -171,18 +172,33 @@
             // 
             // progressBar
             // 
-            this.progressBar.Location = new System.Drawing.Point(15, 179);
+            this.progressBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.progressBar.Location = new System.Drawing.Point(12, 207);
             this.progressBar.Name = "progressBar";
             this.progressBar.Size = new System.Drawing.Size(344, 24);
             this.progressBar.TabIndex = 3;
             this.progressBar.Visible = false;
+            // 
+            // labelCurrentStatus
+            // 
+            this.labelCurrentStatus.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelCurrentStatus.AutoEllipsis = true;
+            this.labelCurrentStatus.Location = new System.Drawing.Point(13, 180);
+            this.labelCurrentStatus.Name = "labelCurrentStatus";
+            this.labelCurrentStatus.Size = new System.Drawing.Size(459, 19);
+            this.labelCurrentStatus.TabIndex = 4;
+            this.labelCurrentStatus.Text = "Processing...";
+            this.labelCurrentStatus.Visible = false;
             // 
             // MainForm
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(484, 215);
+            this.ClientSize = new System.Drawing.Size(484, 242);
+            this.Controls.Add(this.labelCurrentStatus);
             this.Controls.Add(this.progressBar);
             this.Controls.Add(this.groupBoxLanguageData);
             this.Controls.Add(this.buttonPatch);
@@ -214,6 +230,7 @@
         private System.Windows.Forms.Label labelNewestLangVersion;
         private System.Windows.Forms.LinkLabel linkLabelCheckLanguageUpdate;
         private System.Windows.Forms.ProgressBar progressBar;
+        private System.Windows.Forms.Label labelCurrentStatus;
     }
 }
 
