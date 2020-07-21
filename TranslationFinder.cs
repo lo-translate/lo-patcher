@@ -15,7 +15,7 @@ namespace LoTextExtractor
 
         public string FindTranslation(string koreanText, string japaneseText)
         {
-            foreach (var foreignText in new[] { koreanText, japaneseText })
+            foreach (var foreignText in new[] { japaneseText, koreanText })
             {
                 if (foreignText == null)
                 {
@@ -74,6 +74,9 @@ namespace LoTextExtractor
                         continue;
                     }
 
+                    japaneseText = japaneseText.Replace("`n", "\n");
+                    translation = translation.Replace("`n", "\n");
+
                     if (knownText.ContainsKey(japaneseText))
                     {
                         if (!translation.Equals(knownText[japaneseText], System.StringComparison.Ordinal))
@@ -84,9 +87,6 @@ namespace LoTextExtractor
                         // We intentionally don't prevent the translation from being overwritten under the assumption
                         // the translation file contains the most up to date translations.
                     }
-
-                    japaneseText = japaneseText.Replace("`n", "\n");
-                    translation = translation.Replace("`n", "\n");
 
                     knownText[japaneseText] = translation;
                 }
