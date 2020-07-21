@@ -59,13 +59,13 @@ namespace LoTextExtractor
             {
                 if (comment.Length > 0)
                 {
-                    comment += " -- ";
+                    comment += " - ";
                 }
                 
                 // The comment we save the Korean text in can't contain new lines, tabs are just for visual convenience
-                comment += "Korean Text: " + koreanText.Replace("\r", "\\r")
+                comment += "Korean Text: '" + koreanText.Replace("\r", "\\r")
                                                        .Replace("\n", "\\n")
-                                                       .Replace("\t", "\\t");
+                                                       .Replace("\t", "\\t") + "'";
 
             }
 
