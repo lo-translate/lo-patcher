@@ -52,6 +52,7 @@ namespace LoTextExtractor
 
             var koreanRoot = formatter.Deserialize(koreanStream) as LastOnTable;
             var knownStrings = catalogManager.GetCatalogCount();
+            var knownTranslations = catalogManager.GetTranslationCount();
 
             foreach (var storyKvp in japaneseRoot._Table_PCStory_Client)
             {
@@ -74,12 +75,16 @@ namespace LoTextExtractor
             }
 
             var newKnownStrings = catalogManager.GetCatalogCount();
+            var newKnownTranslations = catalogManager.GetTranslationCount();
             if (newKnownStrings > knownStrings)
             {
-                Console.WriteLine($"Extracted {(newKnownStrings - knownStrings).ToString("N0")} strings from LastOnTable._Table_PCStory_Client");
+                Console.WriteLine($"Extracted {(newKnownStrings - knownStrings).ToString("N0")} strings with " +
+                    $"{(newKnownTranslations - knownTranslations).ToString("N0")} translations from " +
+                    $"LastOnTable._Table_PCStory_Client");
             }
 
             knownStrings = catalogManager.GetCatalogCount();
+            knownTranslations = catalogManager.GetTranslationCount();
 
             foreach (var kvp in japaneseRoot._Table_BuffEffect_Client)
             {
@@ -91,9 +96,12 @@ namespace LoTextExtractor
             }
 
             newKnownStrings = catalogManager.GetCatalogCount();
+            newKnownTranslations = catalogManager.GetTranslationCount();
             if (newKnownStrings > knownStrings)
             {
-                Console.WriteLine($"Extracted {(newKnownStrings - knownStrings).ToString("N0")} strings from LastOnTable._Table_BuffEffect_Client");
+                Console.WriteLine($"Extracted {(newKnownStrings - knownStrings).ToString("N0")} strings with " +
+                    $"{(newKnownTranslations - knownTranslations).ToString("N0")} translations from " +
+                    $"LastOnTable._Table_BuffEffect_Client");
             }
 
             var excludedFields = new[]
@@ -105,6 +113,7 @@ namespace LoTextExtractor
             foreach (var field in japaneseRoot._TableManager.GetType().GetFields())
             {
                 knownStrings = catalogManager.GetCatalogCount();
+                knownTranslations = catalogManager.GetTranslationCount();
 
                 if (excludedFields.Contains(field.Name))
                 {
@@ -129,9 +138,12 @@ namespace LoTextExtractor
                 }
 
                 newKnownStrings = catalogManager.GetCatalogCount();
+                newKnownTranslations = catalogManager.GetTranslationCount();
                 if (newKnownStrings > knownStrings)
                 {
-                    Console.WriteLine($"Extracted {(newKnownStrings - knownStrings).ToString("N0")} strings from LastOnTable._TableManager.{field.Name}");
+                    Console.WriteLine($"Extracted {(newKnownStrings - knownStrings).ToString("N0")} strings with " +
+                        $"{(newKnownTranslations - knownTranslations).ToString("N0")} translations from " +
+                        $"LastOnTable._TableManager.{field.Name}");
                 }
             }
 

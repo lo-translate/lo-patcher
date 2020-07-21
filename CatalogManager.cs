@@ -1,6 +1,7 @@
 ﻿using Karambolo.PO;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace LoTextExtractor
 {
@@ -16,6 +17,11 @@ namespace LoTextExtractor
         public int GetCatalogCount()
         {
             return catalog.Count;
+        }
+
+        public int GetTranslationCount()
+        {
+            return catalog.Keys.Count(k => !string.IsNullOrEmpty(catalog.GetTranslation(k)));
         }
 
         public void AddToCatalog(string japaneseText, string koreanText, string englishText, string source, int sourceLine)
