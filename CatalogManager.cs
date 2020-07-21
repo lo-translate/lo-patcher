@@ -56,7 +56,7 @@ namespace LoTextExtractor
                         || japaneseText.Contains("{" + index.ToString() + "}"))
                         && !englishText.Contains("{" + index.ToString() + "}"))
                     {
-                        Console.WriteLine($"Possible missing replacement: '{englishText}' at {source}");
+                        Console.WriteLine($" - Possible missing replacement: '{englishText}' at {source}");
                         break;
                     }
                 }
@@ -67,7 +67,7 @@ namespace LoTextExtractor
                         && (!koreanText.Contains("{" + index.ToString() + "}")
                         || !japaneseText.Contains("{" + index.ToString() + "}")))
                     {
-                        Console.WriteLine($"Possible missing replacement: '{englishText}' at {source}");
+                        Console.WriteLine($" - Possible missing replacement: '{englishText}' at {source}");
                         break;
                     }
                 }
