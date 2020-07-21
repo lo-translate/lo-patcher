@@ -76,6 +76,15 @@ namespace LoPatcher.Patcher.Targets
                 // The string ID is 0, Korean is 1, Japanese is 2
                 var japaneseText = parts[2];
 
+                var wasQuoted = false;
+                var quotedMatch = Regex.Match(japaneseText, "^\"(.*)\"$", RegexOptions.Singleline);
+
+                if (quotedMatch.Success)
+                {
+                    wasQuoted = true;
+                    japaneseText = Regex.Replace(japaneseText, "^\"(.*)\"$", "$1", RegexOptions.Singleline);
+                }
+
                 var translation = languageCatalog.FindTranslation(japaneseText);
 
                 if (string.IsNullOrEmpty(translation))
@@ -83,6 +92,11 @@ namespace LoPatcher.Patcher.Targets
                     continue;
                 }
 
+                if (wasQuoted)
+                {
+                    translation = $"\"{translation}\"";
+                }
+                
                 replaced++;
 
                 parts[2] = translation.Replace("\r", "", StringComparison.Ordinal);
