@@ -43,6 +43,28 @@ namespace LoTextExtractor
             if (!string.IsNullOrEmpty(englishText))
             {
                 newEntry.Translation = englishText.Trim(' ');
+
+                for (var index = 0; index < 10; index++)
+                {
+                    if ((koreanText.Contains("{" + index.ToString() + "}")
+                        || japaneseText.Contains("{" + index.ToString() + "}"))
+                        && !englishText.Contains("{" + index.ToString() + "}"))
+                    {
+                        Console.WriteLine($"Possible missing replacement: '{englishText}' at {source}");
+                        break;
+                    }
+                }
+
+                for (var index = 0; index < 10; index++)
+                {
+                    if (englishText.Contains("{" + index.ToString() + "}")
+                        && (!koreanText.Contains("{" + index.ToString() + "}")
+                        || !japaneseText.Contains("{" + index.ToString() + "}")))
+                    {
+                        Console.WriteLine($"Possible missing replacement: '{englishText}' at {source}");
+                        break;
+                    }
+                }
             }
 
             // We render a partial source in a comment as well so it is visible in poedit and gives immediate context
