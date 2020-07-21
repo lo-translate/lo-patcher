@@ -32,6 +32,8 @@ namespace LoTextExtractor
             var engine = new FileHelperEngine<Translation.LocalizationPatchTranslation>();
             var result = engine.ReadString(reader.ReadToEnd());
 
+            var knownStrings = catalogManager.GetCatalogCount();
+
             foreach (var translation in result)
             {
                 if (translation.Code == "code" || string.IsNullOrEmpty(translation.Japanese))
@@ -57,6 +59,12 @@ namespace LoTextExtractor
             }
 
             stream?.Dispose();
+
+            var newKnownStrings = catalogManager.GetCatalogCount();
+            if (newKnownStrings > knownStrings)
+            {
+                Console.WriteLine($"Extracted {(newKnownStrings - knownStrings).ToString("N0")} strings from LocalizationPatch");
+            }
         }
     }
 }
