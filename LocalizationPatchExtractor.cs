@@ -30,37 +30,66 @@ namespace LoTextExtractor
             }
 
             using var reader = new StreamReader(stream);
-            var engine = new FileHelperEngine<Translation.LocalizationPatchTranslation>();
-            var result = engine.ReadString(reader.ReadToEnd());
+
+            // We parse the TSV manually instead of using FileHelpers so the line endings match their original version.
+            // This doesn't matter in the end since line endings get converted when loaded with Karambolo.PO and need
+            // normalization when searching but at least this keeps the rendered line ending in the Korean text comment
+            // right.
+            var lines = Regex.Split(reader.ReadToEnd(), "\t\r\n");
+
+            stream.Dispose();
 
             var knownStrings = catalogManager.GetCatalogCount();
             var knownTranslations = catalogManager.GetTranslationCount();
 
-            foreach (var translation in result)
+            for (var i = 0; i < lines.Length; i++)
             {
-                if (translation.Code == "code" || string.IsNullOrEmpty(translation.Japanese))
+                var line = lines[i];
+                var parts = Regex.Split(line, "\t");
+                if (parts.Length < 3)
+                {
+                    throw new Exception(
+                        $"Failed to parse LocalizationPatch TSV, found {parts.Length} columns, expected 3"
+                    );
+                }
+
+                // Skip the TSV header
+                if (parts[0].Equals("code", StringComparison.Ordinal))
+                {
+                    continue;
+                }
+
+                // The string ID is 0, Korean is 1, Japanese is 2
+                var code = parts[0];
+                var koreanText = parts[1];
+                var japaneseText = parts[2];
+
+                if (string.IsNullOrEmpty(japaneseText))
                 {
                     continue;
                 }
 
                 // Make sure we contain non-ASCII text
-                if (Regex.Match(translation.Japanese, "^[\x00-\x7F]+$").Success)
+                if (Regex.Match(japaneseText, "^[\x00-\x7F]+$").Success)
                 {
-                    //Debug.WriteLine($"Japanese text ASCII: {translation.Japanese}");
+                    //Debug.WriteLine($"Japanese text ASCII: {japaneseText}");
                     continue;
                 }
 
-                var englishText = translationFinder.FindTranslation(translation.Korean, translation.Japanese);
+                // Remove quotes if they surround the string. We don't store quotes in the translation file, this will
+                // need to be taken into account when patching the file.
+                ReplaceSurroundingQuotes(ref japaneseText);
+                ReplaceSurroundingQuotes(ref koreanText);
 
-                if (string.IsNullOrEmpty(englishText) && translation.Korean == translation.Japanese)
+                var englishText = translationFinder.FindTranslation(koreanText, japaneseText);
+
+                if (string.IsNullOrEmpty(englishText) && koreanText == japaneseText)
                 {
-                    Debug.WriteLine($"Japanese text matches Korean text: {translation.Korean}");
+                    Debug.WriteLine($"Japanese text matches Korean text: {koreanText}");
                 }
 
-                catalogManager.AddToCatalog(translation.Japanese, translation.Korean, englishText, $"LocalizationPatch-{translation.Code}", int.Parse(translation.Code));
+                catalogManager.AddToCatalog(japaneseText, koreanText, englishText, $"LocalizationPatch-{code}", int.Parse(code));
             }
-
-            stream?.Dispose();
 
             var newKnownStrings = catalogManager.GetCatalogCount();
             if (newKnownStrings > knownStrings)
@@ -70,6 +99,18 @@ namespace LoTextExtractor
                     $" {(newKnownTranslations - knownTranslations).ToString("N0")} translations from " +
                     $"LocalizationPatch");
             }
+        }
+
+        private bool ReplaceSurroundingQuotes(ref string text)
+        {
+            var quotedMatch = Regex.Match(text, "^\"(.*)\"$", RegexOptions.Singleline);
+            if (quotedMatch.Success)
+            {
+                text = Regex.Replace(text, "^\"(.*)\"$", "$1", RegexOptions.Singleline);
+                return true;
+            }
+
+            return false;
         }
     }
 }
