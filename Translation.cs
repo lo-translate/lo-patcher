@@ -21,20 +21,6 @@ namespace LoTextExtractor
         public class CsvTranslation : Translation
         {
         }
-
-        [DelimitedRecord("\t")]
-        public class LocalizationPatchTranslation
-        {
-            public string Code;
-
-            [FieldQuoted('"', QuoteMode.OptionalForBoth)]
-            public string Korean;
-
-            [FieldQuoted('"', QuoteMode.OptionalForBoth)]
-            public string Japanese;
-
-            public string English;
-        }
     }
 }
 
