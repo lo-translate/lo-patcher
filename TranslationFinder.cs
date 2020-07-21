@@ -96,17 +96,21 @@ namespace LoTextExtractor
         public void LoadKnownTextFromTsv(string input)
         {
             var engine = new FileHelperEngine<Translation.TsvTranslation>();
+            
+            using var stream = File.OpenRead(input);
+            using var reader = new StreamReader(stream);
 
-            AddTranslations(engine.ReadFile(input));
+            AddTranslations(engine.ReadString(reader.ReadToEnd().Replace("`n", "\n")));
         }
 
         public void LoadKnownTextFromCsv(string input)
         {
-            var engine = new FileHelperEngine<Translation.CsvTranslation>()
-            {
-            };
+            var engine = new FileHelperEngine<Translation.CsvTranslation>();
 
-            AddTranslations(engine.ReadFile(input));
+            using var stream = File.OpenRead(input);
+            using var reader = new StreamReader(stream);
+
+            AddTranslations(engine.ReadString(reader.ReadToEnd().Replace("`n", "\n")));
         }
 
         private void AddTranslations(Translation[] translations)
@@ -116,8 +120,7 @@ namespace LoTextExtractor
                 var englishText = translation.English;
                 var koreanText = translation.Korean;
 
-                koreanText = koreanText.Replace("`n", "\n");
-                englishText = englishText.Replace("…", "...").Replace("`n", "\n");
+                englishText = englishText.Replace("…", "...");
 
                 if (knownText.ContainsKey(koreanText))
                 {
