@@ -33,6 +33,7 @@ namespace LoTextExtractor
             var result = engine.ReadString(reader.ReadToEnd());
 
             var knownStrings = catalogManager.GetCatalogCount();
+            var knownTranslations = 0;
 
             foreach (var translation in result)
             {
@@ -55,6 +56,11 @@ namespace LoTextExtractor
                     Debug.WriteLine($"Japanese text matches Korean text: {translation.Korean}");
                 }
 
+                if (!string.IsNullOrEmpty(englishText))
+                {
+                    knownTranslations++;
+                }
+
                 catalogManager.AddToCatalog(translation.Japanese, translation.Korean, englishText, $"LocalizationPatch-{translation.Code}", int.Parse(translation.Code));
             }
 
@@ -63,7 +69,8 @@ namespace LoTextExtractor
             var newKnownStrings = catalogManager.GetCatalogCount();
             if (newKnownStrings > knownStrings)
             {
-                Console.WriteLine($"Extracted {(newKnownStrings - knownStrings).ToString("N0")} strings from LocalizationPatch");
+                Console.WriteLine($"Extracted {(newKnownStrings - knownStrings).ToString("N0")} strings with " +
+                    $" {(knownTranslations).ToString("N0")} translations from LocalizationPatch");
             }
         }
     }
