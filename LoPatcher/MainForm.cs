@@ -116,14 +116,6 @@ namespace LoPatcher
                 using var fileStream = File.OpenRead(file);
                 var fileContainer = containers.FirstOrDefault(container => container.CanPatch(fileStream));
 
-                if (fileContainer is AssetBundleContainer)
-                {
-                    MessageBox.Show(
-                        Properties.Resources.WarningModalAssetBundle,
-                        Properties.Resources.WarningModalTitle
-                    );
-                }
-
                 if (fileContainer == null)
                 {
                     errors.Add($"Unknown file format: {onlyFileName}");

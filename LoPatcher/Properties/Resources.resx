@@ -180,10 +180,4 @@
   <data name="SuccessModalTitle" xml:space="preserve">
     <value>Success</value>
   </data>
-  <data name="WarningModalAssetBundle" xml:space="preserve">
-    <value>Asset bundle support is not complete and will not translate as much. For more translations extract data.bin and LocalizationPatch from __data with UABE, then patch the raw export files and re-import the patched versions with UABE.</value>
-  </data>
-  <data name="WarningModalTitle" xml:space="preserve">
-    <value>Warning</value>
-  </data>
 </root>

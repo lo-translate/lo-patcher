@@ -104,6 +104,8 @@ namespace LoPatcher.Patcher.Containers
                 // We can't use stream in AssetsFileWriter or it will be closed when writer is disposed.
                 stream.Position = 0;
                 stream.SetLength(0);
+
+                outputStream.Position = 0;
                 outputStream.CopyTo(stream);
 
                 return true;
@@ -156,38 +158,66 @@ namespace LoPatcher.Patcher.Containers
                 var typeName = type.name.GetString(manager.classFile);
                 var assetName = AssetHelper.GetAssetNameFast(assetsFile.file, manager.classFile, info);
 
-                if (typeName == "TextAsset" && assetName == "LocalizationPatch")
+                // We don't care about non-text assets or the Korean data files
+                if (typeName != "TextAsset" || assetName.Contains("_ko.bin", StringComparison.Ordinal))
                 {
-                    progressReporter.Report(new PatchProgress()
+                    continue;
+                }
+
+                progressReporter.Report(new PatchProgress()
+                {
+                    SetTargetAndReset = $"{assetName}"
+                });
+
+                var baseField = manager.GetATI(assetsFile.file, info).GetBaseField();
+
+                var name = baseField.Get("m_Name")?.GetValue().AsString();
+                var script = baseField.Get("m_Script").GetValue();
+
+                if (string.IsNullOrEmpty(name) || script == null)
+                {
+                    continue;
+                }
+
+                var scriptBytes = script.GetRawValue() as byte[];
+
+                using var scriptStream = new MemoryStream();
+                scriptStream.Write(scriptBytes);
+
+                var patched = false;
+
+                foreach (var target in targets)
+                {
+                    if (target.CanPatch(scriptStream))
                     {
-                        SetTargetAndReset = $"{assetName}"
-                    });
-
-                    var baseField = manager.GetATI(assetsFile.file, info).GetBaseField();
-
-                    var name = baseField.Get("m_Name")?.GetValue().AsString();
-                    var script = baseField.Get("m_Script")?.GetValue();
-
-                    if (string.IsNullOrEmpty(name) || script == null)
-                    {
-                        continue;
-                    }
-
-                    using var scriptStream = new MemoryStream();
-
-                    scriptStream.Write(Encoding.UTF8.GetBytes(script.AsString()));
-
-                    if (targets.First(t => t is LocalizationPatchTarget).Patch(scriptStream, progressReporter))
-                    {
-                        script.Set(scriptStream.ToArray());
-
-                        var replaced = baseField.WriteToByteArray();
-
-                        assetReplacers.Add(new AssetsReplacerFromMemory(
-                            info.curFileTypeOrIndex, info.index, (int)info.curFileType, 0xFFFF, replaced
-                        ));
+                        if (target.Patch(scriptStream, progressReporter))
+                        {
+                            patched = true;
+                        }
                     }
                 }
+
+                if (!patched)
+                {
+                    continue;
+                }
+
+                using var memoryStream = new MemoryStream();
+                using var assetWriter = new AssetsFileWriter(memoryStream);
+
+                var updatedBytes = scriptStream.ToArray();
+
+                assetWriter.bigEndian = false;
+                assetWriter.WriteCountStringInt32(assetName);
+                assetWriter.Align();
+                assetWriter.Write(updatedBytes.Length);
+                assetWriter.Write(updatedBytes);
+                assetWriter.Align();
+                var replaced = memoryStream.ToArray();
+
+                assetReplacers.Add(new AssetsReplacerFromMemory(
+                    info.curFileTypeOrIndex, info.index, (int)info.curFileType, 0xFFFF, replaced
+                ));
             }
 
             return assetReplacers;
