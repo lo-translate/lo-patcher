@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Runtime.InteropServices;
 using System.Security;
 using System.Text;
@@ -10,7 +11,7 @@ namespace LoTextExtractor
 {
     internal class CatalogManager
     {
-        public void Save(List<ExtractedText> entries)
+        public void Save(List<ExtractedText> entries, string filename)
         {
             var translationCatalog = CreateCatalog();
 
@@ -36,19 +37,50 @@ namespace LoTextExtractor
 
             foreach (var entry in entries)
             {
+                // There are a lot of this string in various unrelated parts of the structure, seems to be a generic
+                // error string. We don't want it anywhere but the error string table.
+                if (entry.Japanese == "2-エラーが発生しました。" && !entry.Source.StartsWith("ServerErrString"))
+                {
+                    continue;
+                }
+
+                var key = new POKey(entry.Japanese);
+                if (translationCatalog.Contains(key))
+                {
+                    continue;
+                }
+
+                // Since PO catalogs can't contain duplicate entries any after this will be skipped. We pull the Korean
+                // text from the duplicate entries if they have it and we don't.
+                //
+                // This is needed for the PCStory PO file to contain both. The PCStory table only contains Japanese
+                // while the PCStory_Client contains both (but doesn't have contextual key names so we prefer PCStory).
+                // For example, for a string in PCStory_Client the path is PCStory_Client[1][0].DgStartTriggerString1,
+                // in PCStory the path is PCStory[Story_3P_ConstantiaS2_1_3P_ConstantiaS2_1].DgStartTriggerString1.
+                if (string.IsNullOrEmpty(entry.Korean))
+                {
+                    var otherEntryWithKorean = entries.Where(e =>
+                    {
+                        return e != entry
+                            && e.Japanese.Equals(entry.Japanese, StringComparison.Ordinal)
+                            && !string.IsNullOrEmpty(e.Korean);
+                    }).FirstOrDefault();
+
+                    if (otherEntryWithKorean != null)
+                    {
+                        entry.Korean = otherEntryWithKorean.Korean;
+                    }
+                }
+
                 AddToCatalog(translationCatalog, entry);
             }
 
-            WriteCatalog(translationCatalog, "LoTranslation.Extracted.po");
+            WriteCatalog(translationCatalog, filename);
         }
 
         private void AddToCatalog(POCatalog catalog, ExtractedText entry)
         {
             var key = new POKey(entry.Japanese);
-            if (catalog.Contains(key))
-            {
-                return;
-            }
 
             var newEntry = new POSingularEntry(key)
             {
@@ -138,6 +170,5 @@ namespace LoTextExtractor
                 return NativeMethods.StrCmpLogicalW(a, b);
             }
         }
-
     }
 }

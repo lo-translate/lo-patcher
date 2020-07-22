@@ -1,8 +1,10 @@
-﻿using System;
-using System.IO;
-using LoPatcher.Unity;
-using System.Linq;
+﻿using LoPatcher.Unity;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
+using System.Linq;
+using System.Reflection;
 using System.Text.RegularExpressions;
 
 namespace LoTextExtractor
@@ -13,7 +15,7 @@ namespace LoTextExtractor
         {
             if (args.Length < 1)
             {
-                Console.WriteLine("Usage: LoTextExtractor <__data>");
+                Console.WriteLine("Usage: LoTextExtractor <__data> [output-directory]");
                 return 1;
             }
 
@@ -37,20 +39,24 @@ namespace LoTextExtractor
             foreach (var asset in bundleAssets)
             {
                 // We don't care about non-text assets, the Korean data files are handled with the Japanese
-                if (asset.Type != "TextAsset" || asset.Name.Contains("_ko.bin", StringComparison.Ordinal))
+                if (!asset.Type.Equals("TextAsset", StringComparison.OrdinalIgnoreCase) ||
+                    asset.Name.EndsWith("_ko.bin", StringComparison.OrdinalIgnoreCase))
                 {
+                    Debug.WriteLine($"Skipped bundle '{asset.Name}' ({asset.Type})");
                     continue;
                 }
 
-                if (asset.Name == "LocalizationPatch")
+                var count = entries.Count();
+
+                if (asset.Name.Equals("LocalizationPatch", StringComparison.OrdinalIgnoreCase))
                 {
-                    Console.WriteLine($"Parsing {asset.Name} as TSV");
+                    Console.Write($"Processing {asset.Name} ");
 
                     entries.AddRange(localizationPatchExtractor.ExtractText(asset.GetScript()));
                 }
-                else if (asset.Name.EndsWith(".bin", StringComparison.Ordinal))
+                else if (asset.Name.EndsWith(".bin", StringComparison.OrdinalIgnoreCase))
                 {
-                    Console.WriteLine($"Parsing {asset.Name} as serialized data");
+                    Console.Write($"Processing {asset.Name} ");
 
                     var koreanAsset = bundleAssets.FirstOrDefault(b => b.Name == asset.Name.Replace(".bin", "_ko.bin"));
 
@@ -58,13 +64,19 @@ namespace LoTextExtractor
                 }
                 else
                 {
-                    Console.WriteLine($"Unknown bundle {asset.Name}");
+                    Debug.WriteLine($"Skipped bundle '{asset.Name}' ({asset.Type})");
+                    continue;
                 }
+
+                var newCount = entries.Count();
+                Console.WriteLine($"{newCount - count:N0} entries extracted");
             }
 
-            var onlyWanted = new List<ExtractedText>();
+            Console.WriteLine($"Filtering and translating extracted text");
 
-            Console.WriteLine($"Filtering and translating list");
+            var groups = new Dictionary<string, List<ExtractedText>>();
+            var sanityChecker = new ExtractedTextSanityChecker();
+            var warnings = new List<string>();
 
             foreach (var entry in entries)
             {
@@ -74,13 +86,84 @@ namespace LoTextExtractor
                 }
 
                 entry.English = translationFinder.FindTranslation(entry.Korean, entry.Japanese);
-                onlyWanted.Add(entry);
+
+                var parts = Regex.Split(entry.Source, "[^a-zA-Z_]");
+                if (parts.Length < 1)
+                {
+                    Debug.WriteLine($"Unknown source format {entry.Source}");
+                    continue;
+                }
+
+                var group = parts[0];
+
+                // At time of creating this app the text extracted text from _Client tables are the same as the table
+                // with _Client. Putting them in the same group will ensure only one copy of them is stored (whichever
+                // ends up first after sorting)
+                if (group.EndsWith("_Client"))
+                {
+                    group = Regex.Replace(group, "_Client$", "");
+                }
+
+                if (!groups.ContainsKey(group))
+                {
+                    groups[group] = new List<ExtractedText>();
+                }
+
+                groups[group].Add(entry);
+
+                foreach (var warning in sanityChecker.GetWarnings(entry)) 
+                { 
+                    warnings.Add($"{group}: {warning}");
+                }
             }
 
-            Console.WriteLine($"Saving translation catalog");
+            Console.WriteLine($"Saving translation catalogs");
 
-            var catalogManager = new CatalogManager();
-            catalogManager.Save(onlyWanted);
+            var outputPath = new DirectoryInfo(
+                args.Length > 1
+                    ? args[2]
+                    : Path.Combine(
+                        Path.GetDirectoryName(Assembly.GetExecutingAssembly().FullName),
+                        "Extracted"
+                    )
+            );
+
+            if (outputPath.Exists)
+            {
+                foreach (var file in Directory.GetFiles(outputPath.FullName, "*.po", SearchOption.AllDirectories))
+                {
+                    File.Delete(file);
+                }
+            }
+            else
+            {
+                Directory.CreateDirectory(outputPath.FullName);
+            }
+
+            File.WriteAllText(Path.Join(outputPath.FullName, "VERSION"), string.Format("{0:yyyy.MM.dd.00}", DateTime.Now));
+
+            var warningFile = Path.Join(outputPath.FullName, "WARNINGS");
+            if (warnings.Any())
+            {
+                File.WriteAllLines(Path.Join(outputPath.FullName, "WARNINGS"), warnings);
+            }
+            else
+            {
+                if (File.Exists(warningFile))
+                {
+                    File.Delete(warningFile);
+                }
+            }
+
+            foreach (var group in groups)
+            {
+                var file = Path.Join(outputPath.FullName, $"{group.Key}.po");
+
+                Console.WriteLine($" - Saving {file}");
+
+                var catalogManager = new CatalogManager();
+                catalogManager.Save(group.Value, file);
+            }
 
             return 0;
         }
