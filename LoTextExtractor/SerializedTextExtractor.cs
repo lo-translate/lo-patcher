@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -17,15 +18,11 @@ namespace LoTextExtractor
 
             var formatter = new BinaryFormatter() { Binder = new BinaryFormatterBinder() };
 
-            Console.WriteLine(" - Loading Japanese data");
             using var japaneseStream = new MemoryStream(japaneseData);
             var japaneseRoot = formatter.Deserialize(japaneseStream) as LastOnTable;
 
-            Console.WriteLine(" - Loading Korean data");
             using var koreanStream = new MemoryStream(koreanData);
             var koreanRoot = formatter.Deserialize(koreanStream) as LastOnTable;
-
-            Console.WriteLine(" - Parsing _Table_PCStory_Client");
 
             foreach (var storyKvp in japaneseRoot._Table_PCStory_Client)
             {
@@ -44,8 +41,6 @@ namespace LoTextExtractor
                 }
             }
 
-            Console.WriteLine(" - Parsing _Table_BuffEffect_Client");
-
             foreach (var kvp in japaneseRoot._Table_BuffEffect_Client)
             {
                 var sourceName = $"BuffEffect_Client[{kvp.Key}]";
@@ -62,8 +57,6 @@ namespace LoTextExtractor
             // Loop through the dictionaries in TableManager and process each of them
             foreach (var field in japaneseRoot._TableManager.GetType().GetFields())
             {
-                Console.WriteLine($" - Parsing _TableManager.{field.Name}");
-
                 if (excludedFields.Contains(field.Name) || field.FieldType.Name != "Dictionary`2")
                 {
                     continue;
@@ -76,7 +69,7 @@ namespace LoTextExtractor
                 {
                     var sourceName = $"{field.Name.Replace("_Table_", "")}[{kvp.Key}]";
                     var koreanValue = koreanFieldInstance[kvp.Key];
-                    
+
                     extractedText.AddRange(FindTextInObject(kvp.Value, koreanValue, sourceName));
                 }
             }
@@ -131,7 +124,7 @@ namespace LoTextExtractor
                 {
                     if (property.Name != "SkinUnlockItem")
                     {
-                        Console.WriteLine($"Failed to obtain text from property {sourceName}.{property.Name}");
+                        Debug.WriteLine($"Failed to obtain text from property {sourceName}.{property.Name}");
                     }
                     continue;
                 }
