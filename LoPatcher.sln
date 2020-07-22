@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoPatcher", "LoPatcher\LoPa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssetsTools.NET", "AssetsTools.NET\AssetTools.NET\AssetsTools.NET.csproj", "{E09D5AC2-1A2E-4EC1-94AD-3F5E22F17658}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoTextExtractor", "LoTextExtractor\LoTextExtractor.csproj", "{40FA6895-6E6D-4038-B9DD-6EFC56F41AC4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,14 @@ Global
 		{E09D5AC2-1A2E-4EC1-94AD-3F5E22F17658}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E09D5AC2-1A2E-4EC1-94AD-3F5E22F17658}.Release|x64.ActiveCfg = Release|x64
 		{E09D5AC2-1A2E-4EC1-94AD-3F5E22F17658}.Release|x64.Build.0 = Release|x64
+		{40FA6895-6E6D-4038-B9DD-6EFC56F41AC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40FA6895-6E6D-4038-B9DD-6EFC56F41AC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40FA6895-6E6D-4038-B9DD-6EFC56F41AC4}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{40FA6895-6E6D-4038-B9DD-6EFC56F41AC4}.Debug|x64.Build.0 = Debug|Any CPU
+		{40FA6895-6E6D-4038-B9DD-6EFC56F41AC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40FA6895-6E6D-4038-B9DD-6EFC56F41AC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40FA6895-6E6D-4038-B9DD-6EFC56F41AC4}.Release|x64.ActiveCfg = Release|Any CPU
+		{40FA6895-6E6D-4038-B9DD-6EFC56F41AC4}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
