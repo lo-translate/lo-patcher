@@ -1,7 +1,7 @@
 ﻿using LoTextExtractor.Lo.Generated;
 using System;
 using System.Collections;
-using System.Diagnostics;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -11,48 +11,21 @@ namespace LoTextExtractor
 {
     internal class SerializedTextExtractor
     {
-        private readonly TranslationFinder translationFinder;
-        private readonly CatalogManager catalogManager;
-
-        public SerializedTextExtractor(TranslationFinder translationFinder, CatalogManager catalogManager)
+        public IEnumerable<ExtractedText> ExtractText(byte[] japaneseData, byte[] koreanData)
         {
-            this.translationFinder = translationFinder ?? throw new ArgumentNullException(nameof(translationFinder));
-            this.catalogManager = catalogManager ?? throw new ArgumentNullException(nameof(catalogManager));
-        }
+            var extractedText = new List<ExtractedText>();
 
-        public void ExtractToCatalog(string japaneseFile, string koreanFile)
-        {
             var formatter = new BinaryFormatter() { Binder = new BinaryFormatterBinder() };
 
-            Console.WriteLine("Loading Japanese data");
-
-            Stream japaneseStream = File.OpenRead(japaneseFile);
-            if (japaneseFile.EndsWith(".dat"))
-            {
-                var asset = new RawExtractedAsset(japaneseStream);
-                var content = asset.Content;
-
-                japaneseStream.Dispose();
-                japaneseStream = new MemoryStream(content);
-            }
-
+            Console.WriteLine(" - Loading Japanese data");
+            using var japaneseStream = new MemoryStream(japaneseData);
             var japaneseRoot = formatter.Deserialize(japaneseStream) as LastOnTable;
 
-            Console.WriteLine("Loading Korean data");
-
-            Stream koreanStream = File.OpenRead(koreanFile);
-            if (koreanFile.EndsWith(".dat"))
-            {
-                var asset = new RawExtractedAsset(koreanStream);
-                var content = asset.Content;
-
-                koreanStream.Dispose();
-                koreanStream = new MemoryStream(content);
-            }
-
+            Console.WriteLine(" - Loading Korean data");
+            using var koreanStream = new MemoryStream(koreanData);
             var koreanRoot = formatter.Deserialize(koreanStream) as LastOnTable;
-            var knownStrings = catalogManager.GetCatalogCount();
-            var knownTranslations = catalogManager.GetTranslationCount();
+
+            Console.WriteLine(" - Parsing _Table_PCStory_Client");
 
             foreach (var storyKvp in japaneseRoot._Table_PCStory_Client)
             {
@@ -62,46 +35,23 @@ namespace LoTextExtractor
 
                 foreach (var japaneseStage in stages)
                 {
+                    var sourceName = $"PCStory_Client[{storyId}][{index}]";
                     var koreanStage = koreanRoot._Table_PCStory_Client[storyId][index];
 
-                    ProcessObject(
-                        japaneseStage,
-                        koreanStage,
-                        $"LastOnTable._Table_PCStory_Client[{storyId}][{index}]"
-                    );
+                    extractedText.AddRange(FindTextInObject(japaneseStage, koreanStage, sourceName));
 
                     index++;
                 }
             }
 
-            var newKnownStrings = catalogManager.GetCatalogCount();
-            var newKnownTranslations = catalogManager.GetTranslationCount();
-            if (newKnownStrings > knownStrings)
-            {
-                Console.WriteLine($"Extracted {(newKnownStrings - knownStrings).ToString("N0")} strings with " +
-                    $"{(newKnownTranslations - knownTranslations).ToString("N0")} translations from " +
-                    $"LastOnTable._Table_PCStory_Client");
-            }
-
-            knownStrings = catalogManager.GetCatalogCount();
-            knownTranslations = catalogManager.GetTranslationCount();
+            Console.WriteLine(" - Parsing _Table_BuffEffect_Client");
 
             foreach (var kvp in japaneseRoot._Table_BuffEffect_Client)
             {
-                ProcessObject(
-                    kvp.Value,
-                    koreanRoot._Table_BuffEffect_Client[kvp.Key],
-                    $"LastOnTable._Table_BuffEffect_Client[{kvp.Key}]"
-                );
-            }
+                var sourceName = $"BuffEffect_Client[{kvp.Key}]";
+                var koreanObject = koreanRoot._Table_BuffEffect_Client[kvp.Key];
 
-            newKnownStrings = catalogManager.GetCatalogCount();
-            newKnownTranslations = catalogManager.GetTranslationCount();
-            if (newKnownStrings > knownStrings)
-            {
-                Console.WriteLine($"Extracted {(newKnownStrings - knownStrings).ToString("N0")} strings with " +
-                    $"{(newKnownTranslations - knownTranslations).ToString("N0")} translations from " +
-                    $"LastOnTable._Table_BuffEffect_Client");
+                extractedText.AddRange(FindTextInObject(kvp.Value, koreanObject, sourceName));
             }
 
             var excludedFields = new[]
@@ -112,15 +62,9 @@ namespace LoTextExtractor
             // Loop through the dictionaries in TableManager and process each of them
             foreach (var field in japaneseRoot._TableManager.GetType().GetFields())
             {
-                knownStrings = catalogManager.GetCatalogCount();
-                knownTranslations = catalogManager.GetTranslationCount();
+                Console.WriteLine($" - Parsing _TableManager.{field.Name}");
 
-                if (excludedFields.Contains(field.Name))
-                {
-                    continue;
-                }
-
-                if (field.FieldType.Name != "Dictionary`2")
+                if (excludedFields.Contains(field.Name) || field.FieldType.Name != "Dictionary`2")
                 {
                     continue;
                 }
@@ -130,29 +74,20 @@ namespace LoTextExtractor
 
                 foreach (DictionaryEntry kvp in japaneseFieldInstance)
                 {
-                    ProcessObject(
-                        kvp.Value,
-                        koreanFieldInstance[kvp.Key],
-                        $"LastOnTable._TableManager.{field.Name}[{kvp.Key}]"
-                    );
-                }
-
-                newKnownStrings = catalogManager.GetCatalogCount();
-                newKnownTranslations = catalogManager.GetTranslationCount();
-                if (newKnownStrings > knownStrings)
-                {
-                    Console.WriteLine($"Extracted {(newKnownStrings - knownStrings).ToString("N0")} strings with " +
-                        $"{(newKnownTranslations - knownTranslations).ToString("N0")} translations from " +
-                        $"LastOnTable._TableManager.{field.Name}");
+                    var sourceName = $"{field.Name.Replace("_Table_", "")}[{kvp.Key}]";
+                    var koreanValue = koreanFieldInstance[kvp.Key];
+                    
+                    extractedText.AddRange(FindTextInObject(kvp.Value, koreanValue, sourceName));
                 }
             }
 
-            japaneseStream?.Dispose();
-            koreanStream?.Dispose();
+            return extractedText;
         }
 
-        private void ProcessObject(object japaneseObject, object koreanObject, string reference)
+        private static IEnumerable<ExtractedText> FindTextInObject(object japaneseObject, object koreanObject, string sourceName)
         {
+            var foundText = new List<ExtractedText>();
+
             foreach (var property in japaneseObject.GetType().GetProperties())
             {
                 if (property.MemberType != MemberTypes.Property && property.MemberType != MemberTypes.Field)
@@ -160,7 +95,7 @@ namespace LoTextExtractor
                     continue;
                 }
 
-                if (property.ToString().StartsWith("System.Collections.Generic.List`1[System.String]"))
+                if (property.ToString().StartsWith("System.Collections.Generic.List`1[System.String]", StringComparison.Ordinal))
                 {
                     var japanesePropInstance = property.GetValue(japaneseObject) as IList;
                     var koreanPropInstance = property.GetValue(japaneseObject) as IList;
@@ -171,7 +106,12 @@ namespace LoTextExtractor
                     {
                         var koreanArrayText = koreanPropInstance[stringIndex++];
 
-                        ProcessText((string)japaneseArrayText, (string)koreanArrayText, "", $"{reference}.{property.Name}[{stringIndex}]");
+                        foundText.Add(new ExtractedText()
+                        {
+                            Japanese = (string)japaneseArrayText,
+                            Korean = (string)koreanArrayText,
+                            Source = $"{sourceName}.{property.Name}[{stringIndex}]",
+                        });
                     }
 
                     continue;
@@ -183,57 +123,28 @@ namespace LoTextExtractor
                 }
 
                 var japaneseText = (string)property.GetValue(japaneseObject, null);
-
-                var koreanText = koreanObject == null
-                    ? ""
-                    : (string)koreanObject.GetType().GetProperty(property.Name).GetValue(koreanObject, null);
+                var koreanText = koreanObject != null
+                    ? (string)koreanObject.GetType().GetProperty(property.Name).GetValue(koreanObject, null)
+                    : "";
 
                 if (japaneseText == null && koreanText == null)
                 {
                     if (property.Name != "SkinUnlockItem")
                     {
-                        Console.WriteLine($"Failed to obtain text from property {property.Name}");
+                        Console.WriteLine($"Failed to obtain text from property {sourceName}.{property.Name}");
                     }
                     continue;
                 }
 
-                var englishText = translationFinder.FindTranslation(koreanText, japaneseText);
-
-                if (property.Name == "Char_Name" && string.IsNullOrEmpty(englishText))
+                foundText.Add(new ExtractedText()
                 {
-                    var officialTranslation = (string)japaneseObject.GetType().GetProperty("Char_Name_EngDisp").GetValue(japaneseObject, null);
-                    englishText = officialTranslation;
-                }
-
-                ProcessText(japaneseText, koreanText, englishText, $"{reference}.{property.Name}");
-            }
-        }
-
-        private void ProcessText(string japaneseText, string koreanText, string englishText, string reference)
-        {
-            if (string.IsNullOrWhiteSpace(japaneseText))
-            {
-                return;
+                    Japanese = japaneseText,
+                    Korean = koreanText,
+                    Source = $"{sourceName}.{property.Name}",
+                });
             }
 
-            // Make sure we contain non-ASCII text
-            if (System.Text.RegularExpressions.Regex.Match(japaneseText, "^[\x00-\x7F]+$").Success)
-            {
-                //Debug.WriteLine($"Japanese text ASCII: {japaneseText}");
-                return;
-            }
-
-            if (koreanText == japaneseText)
-            {
-                Debug.WriteLine($"Japanese text matches Korean text: {japaneseText}");
-            }
-
-            if (string.IsNullOrEmpty(englishText))
-            {
-                englishText = translationFinder.FindTranslation(koreanText, japaneseText);
-            }
-
-            catalogManager.AddToCatalog(japaneseText, koreanText, englishText, $"{reference}", 0);
+            return foundText;
         }
     }
 }

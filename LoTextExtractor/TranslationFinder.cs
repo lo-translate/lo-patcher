@@ -13,6 +13,25 @@ namespace LoTextExtractor
         private readonly Dictionary<string, string> knownText = new Dictionary<string, string>();
         private readonly Dictionary<Regex, string> knownRegex = new Dictionary<Regex, string>();
 
+        public TranslationFinder()
+        {
+            LoadKnownTextFromTsv("Resources/binfilepatcher-142_new.tsv");
+            LoadKnownTextFromTsv("Resources/binfilepatcher-library.tsv");
+            LoadKnownTextFromTsv("Resources/localefilepatcher-library.tsv");
+
+            LoadKnownTextFromCsv("Resources/skilltool-known-effects.csv");
+            LoadKnownTextFromCsv("Resources/skilltool-known-skills.csv");
+            LoadKnownTextFromCsv("Resources/skilltool-skill-trans.csv");
+            LoadKnownTextFromCsv("Resources/skilltool-strings.csv");
+
+            LoadKnownRegexFromTsv("Resources/binfilepatcher-regex.tsv");
+
+            if (File.Exists("LoTranslation.po"))
+            {
+                LoadKnownTextFromTranslation("LoTranslation.po");
+            }
+        }
+
         public string FindTranslation(string koreanText, string japaneseText)
         {
             foreach (var foreignText in new[] { japaneseText, koreanText })
@@ -23,7 +42,7 @@ namespace LoTextExtractor
                 }
 
                 var translation = knownText.ContainsKey(foreignText) ? knownText[foreignText] : null;
-                if (string.IsNullOrEmpty(translation) && foreignText.Contains('\n'))
+                if (string.IsNullOrEmpty(translation) && foreignText.Contains('\n', System.StringComparison.Ordinal))
                 {
                     // If we can't find a known translation try again using Windows style new lines. This is needed
                     // due to Karambolo.PO using it while parsing the PO file.
@@ -44,7 +63,7 @@ namespace LoTextExtractor
                     var match = regexKvp.Key.Match(foreignText);
                     if (match.Success)
                     {
-                        var replaced = regexKvp.Value.Replace("`", match.Groups[1].Value);
+                        var replaced = regexKvp.Value.Replace("`", match.Groups[1].Value, System.StringComparison.Ordinal);
 
                         // Make sure we replaced something
                         if (replaced != match.Groups[1].Value)
@@ -76,8 +95,8 @@ namespace LoTextExtractor
                         continue;
                     }
 
-                    japaneseText = japaneseText.Replace("`n", "\n");
-                    translation = translation.Replace("`n", "\n");
+                    japaneseText = japaneseText.Replace("`n", "\n", System.StringComparison.Ordinal);
+                    translation = translation.Replace("`n", "\n", System.StringComparison.Ordinal);
 
                     if (knownText.ContainsKey(japaneseText))
                     {
@@ -102,7 +121,7 @@ namespace LoTextExtractor
             using var stream = File.OpenRead(input);
             using var reader = new StreamReader(stream);
 
-            AddTranslations(engine.ReadString(reader.ReadToEnd().Replace("`n", "\n")));
+            AddTranslations(engine.ReadString(reader.ReadToEnd().Replace("`n", "\n", System.StringComparison.Ordinal)));
         }
 
         public void LoadKnownTextFromCsv(string input)
@@ -112,7 +131,7 @@ namespace LoTextExtractor
             using var stream = File.OpenRead(input);
             using var reader = new StreamReader(stream);
 
-            AddTranslations(engine.ReadString(reader.ReadToEnd().Replace("`n", "\n")));
+            AddTranslations(engine.ReadString(reader.ReadToEnd().Replace("`n", "\n", System.StringComparison.Ordinal)));
         }
 
         private void AddTranslations(Translation[] translations)
@@ -122,7 +141,7 @@ namespace LoTextExtractor
                 var englishText = translation.English;
                 var koreanText = translation.Korean;
 
-                englishText = englishText.Replace("…", "...");
+                englishText = englishText.Replace("…", "...", System.StringComparison.Ordinal);
 
                 if (knownText.ContainsKey(koreanText))
                 {

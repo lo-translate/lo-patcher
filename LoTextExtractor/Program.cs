@@ -1,7 +1,9 @@
-﻿using Karambolo.PO;
-using System;
+﻿using System;
 using System.IO;
-using System.Text;
+using LoPatcher.Unity;
+using System.Linq;
+using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace LoTextExtractor
 {
@@ -9,57 +11,81 @@ namespace LoTextExtractor
     {
         private static int Main(string[] args)
         {
-            if (args.Length < 3)
+            if (args.Length < 1)
             {
-                Console.WriteLine("Usage: LoTextExtractor <data.bin[.dat]> <data_ko.bin[.dat]> <LocalizationPatch.tsv[.dat]>");
+                Console.WriteLine("Usage: LoTextExtractor <__data>");
                 return 1;
             }
 
-            var existingTranslationFile = "LoTranslation.po";
-            var outputFile = "LoTranslation.extracted.po";
-
-            if (File.Exists(outputFile))
-            {
-                File.Delete(outputFile);
-            }
-
-            Console.WriteLine("Loading known translations");
-
-            using var stream = File.OpenRead("Resources/LoTranslation.extracted.template.po");
-            var parser = new POParser(new POParserSettings());
-            var result = parser.Parse(stream, Encoding.UTF8);
-
             var translationFinder = new TranslationFinder();
 
-            translationFinder.LoadKnownTextFromTsv("Resources/binfilepatcher-142_new.tsv");
-            translationFinder.LoadKnownTextFromTsv("Resources/binfilepatcher-library.tsv");
-            translationFinder.LoadKnownTextFromTsv("Resources/localefilepatcher-library.tsv");
+            using var stream = File.OpenRead(args[0]);
+            using var helper = new AssetsToolsBundle(File.ReadAllBytes(@"Resources\classdata.tpk"));
 
-            translationFinder.LoadKnownTextFromCsv("Resources/skilltool-known-effects.csv");
-            translationFinder.LoadKnownTextFromCsv("Resources/skilltool-known-skills.csv");
-            translationFinder.LoadKnownTextFromCsv("Resources/skilltool-skill-trans.csv");
-            translationFinder.LoadKnownTextFromCsv("Resources/skilltool-strings.csv");
-
-            translationFinder.LoadKnownRegexFromTsv("Resources/binfilepatcher-regex.tsv");
-
-            if (File.Exists(existingTranslationFile))
+            if (!helper.Load(stream))
             {
-                translationFinder.LoadKnownTextFromTranslation(existingTranslationFile);
+                Console.WriteLine("Failed to load bundle");
+                return 1;
             }
 
-            var catalogManager = new CatalogManager(result.Catalog);
+            var localizationPatchExtractor = new LocalizationPatchExtractor();
+            var serializedTextExtractor = new SerializedTextExtractor();
 
-            new SerializedTextExtractor(translationFinder, catalogManager).ExtractToCatalog(args[0], args[1]);
-            new LocalizationPatchExtractor(translationFinder, catalogManager).ExtractToCatalog(args[2]);
+            var entries = new List<ExtractedText>();
 
-            var generator = new POGenerator(new POGeneratorSettings());
-            using var outStream = File.Open(outputFile, FileMode.OpenOrCreate);
-            using var writer = new StreamWriter(outStream, Encoding.UTF8);
+            var bundleAssets = helper.GetAssets();
+            foreach (var asset in bundleAssets)
+            {
+                // We don't care about non-text assets, the Korean data files are handled with the Japanese
+                if (asset.Type != "TextAsset" || asset.Name.Contains("_ko.bin", StringComparison.Ordinal))
+                {
+                    continue;
+                }
 
-            result.Catalog.Headers["PO-Revision-Date"] = string.Format("{0:yyyy-MM-dd HH:mmzz00}", DateTime.Now);
-            result.Catalog.Headers["Project-Id-Version"] = string.Format("{0:yyyy.MM.dd.00}", DateTime.Now);
+                if (asset.Name == "LocalizationPatch")
+                {
+                    Console.WriteLine($"Parsing {asset.Name} as TSV");
 
-            generator.Generate(writer, result.Catalog);
+                    entries.AddRange(localizationPatchExtractor.ExtractText(asset.GetScript()));
+                }
+                else if (asset.Name.EndsWith(".bin", StringComparison.Ordinal))
+                {
+                    if (asset.Name != "data.bin")
+                    {
+                        continue;
+                    }
+
+                    Console.WriteLine($"Parsing {asset.Name} as serialized data");
+
+                    var koreanAsset = bundleAssets.FirstOrDefault(b => b.Name == asset.Name.Replace(".bin", "_ko.bin"));
+
+                    entries.AddRange(serializedTextExtractor.ExtractText(asset.GetScript(), koreanAsset?.GetScript()));
+                }
+                else
+                {
+                    Console.WriteLine($"Unknown bundle {asset.Name}");
+                }
+            }
+
+            var onlyWanted = new List<ExtractedText>();
+
+            Console.WriteLine($"Filtering and translating list");
+
+            foreach (var entry in entries)
+            {
+                if (string.IsNullOrEmpty(entry.Japanese) || Regex.Match(entry.Japanese, "^[\x00-\x7F]+$").Success)
+                {
+                    continue;
+                }
+
+                entry.English = translationFinder.FindTranslation(entry.Korean, entry.Japanese);
+                onlyWanted.Add(entry);
+            }
+
+            Console.WriteLine($"Saving translation catalog");
+
+            var catalogManager = new CatalogManager();
+            catalogManager.Save(onlyWanted);
 
             return 0;
         }

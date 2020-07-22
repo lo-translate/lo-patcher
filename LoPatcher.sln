@@ -8,6 +8,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssetsTools.NET", "AssetsTools.NET\AssetTools.NET\AssetsTools.NET.csproj", "{E09D5AC2-1A2E-4EC1-94AD-3F5E22F17658}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoTextExtractor", "LoTextExtractor\LoTextExtractor.csproj", "{40FA6895-6E6D-4038-B9DD-6EFC56F41AC4}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E09D5AC2-1A2E-4EC1-94AD-3F5E22F17658} = {E09D5AC2-1A2E-4EC1-94AD-3F5E22F17658}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

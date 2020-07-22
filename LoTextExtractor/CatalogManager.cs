@@ -1,32 +1,30 @@
 ﻿using Karambolo.PO;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
 
 namespace LoTextExtractor
 {
     internal class CatalogManager
     {
-        private readonly POCatalog catalog;
-
-        public CatalogManager(POCatalog catalog)
+        public void Save(List<ExtractedText> entries)
         {
-            this.catalog = catalog ?? throw new ArgumentNullException(nameof(catalog));
+            var translationCatalog = CreateCatalog();
+
+            foreach (var entry in entries)
+            {
+                AddToCatalog(translationCatalog, entry);
+            }
+
+            WriteCatalog(translationCatalog, "LoTranslation.Extracted.po");
         }
 
-        public int GetCatalogCount()
+        private void AddToCatalog(POCatalog catalog, ExtractedText entry)
         {
-            return catalog.Count;
-        }
-
-        public int GetTranslationCount()
-        {
-            return catalog.Keys.Count(k => !string.IsNullOrEmpty(catalog.GetTranslation(k)));
-        }
-
-        public void AddToCatalog(string japaneseText, string koreanText, string englishText, string source, int sourceLine)
-        {
-            var key = new POKey(japaneseText);
+            var key = new POKey(entry.Japanese);
             if (catalog.Contains(key))
             {
                 return;
@@ -40,34 +38,34 @@ namespace LoTextExtractor
                     {
                         References = new POSourceReference[]
                         {
-                            new POSourceReference(source, sourceLine)
+                            new POSourceReference($"{entry.Source}", entry.SourceLine)
                         }
                     }
                 },
             };
 
-            if (!string.IsNullOrEmpty(englishText))
+            if (!string.IsNullOrEmpty(entry.English))
             {
-                newEntry.Translation = englishText.Trim(' ');
+                newEntry.Translation = entry.English.Trim(' ');
 
                 for (var index = 0; index < 10; index++)
                 {
-                    if ((koreanText.Contains("{" + index.ToString() + "}")
-                        || japaneseText.Contains("{" + index.ToString() + "}"))
-                        && !englishText.Contains("{" + index.ToString() + "}"))
+                    if ((entry.Korean.Contains("{" + index.ToString() + "}", StringComparison.Ordinal)
+                        || entry.Japanese.Contains("{" + index.ToString() + "}", StringComparison.Ordinal))
+                        && !entry.English.Contains("{" + index.ToString() + "}", StringComparison.Ordinal))
                     {
-                        Console.WriteLine($" - Possible missing replacement: '{englishText}' at {source}");
+                        Console.WriteLine($" - Possible missing replacement: '{entry.English}' at {entry.Source}");
                         break;
                     }
                 }
 
                 for (var index = 0; index < 10; index++)
                 {
-                    if (englishText.Contains("{" + index.ToString() + "}")
-                        && (!koreanText.Contains("{" + index.ToString() + "}")
-                        || !japaneseText.Contains("{" + index.ToString() + "}")))
+                    if (entry.English.Contains("{" + index.ToString() + "}", StringComparison.Ordinal)
+                        && (!entry.Korean.Contains("{" + index.ToString() + "}", StringComparison.Ordinal)
+                        || !entry.Japanese.Contains("{" + index.ToString() + "}", StringComparison.Ordinal)))
                     {
-                        Console.WriteLine($" - Possible missing replacement: '{englishText}' at {source}");
+                        Console.WriteLine($" - Possible missing replacement: '{entry.English}' at {entry.Source}");
                         break;
                     }
                 }
@@ -75,25 +73,21 @@ namespace LoTextExtractor
 
             // We render a partial source in a comment as well so it is visible in poedit and gives immediate context
             // (the source reference added above can be viewed on right click but that is annoying).
-            var comment = source.IndexOf("LocalizationPatch") == -1
-                ? source.Replace("LastOnTable.", "")
-                        .Replace("_TableManager.", "")
-                        .Replace("_Table_", "")
-                : "";
+            var comment = entry.Source.IndexOf("LocalizationPatch", StringComparison.Ordinal) == -1 ? entry.Source : "";
 
             // If we have Korean text add it to the comment as well. This gives us multiple strings to throw at a
             // machine translator to hopefully get better context.
-            if (!string.IsNullOrEmpty(koreanText) && koreanText != japaneseText)
+            if (!string.IsNullOrEmpty(entry.Korean) && entry.Korean != entry.Japanese)
             {
                 if (comment.Length > 0)
                 {
-                    comment += " - ";
+                    comment += "; ";
                 }
-                
+
                 // The comment we save the Korean text in can't contain new lines, tabs are just for visual convenience
-                comment += "Korean Text: '" + koreanText.Replace("\r", "\\r")
-                                                       .Replace("\n", "\\n")
-                                                       .Replace("\t", "\\t") + "'";
+                comment += "Korean Text: '" + entry.Korean.Replace("\r", "\\r", StringComparison.Ordinal)
+                                                       .Replace("\n", "\\n", StringComparison.Ordinal)
+                                                       .Replace("\t", "\\t", StringComparison.Ordinal) + "'";
 
             }
 
@@ -106,6 +100,31 @@ namespace LoTextExtractor
             }
 
             catalog.Add(newEntry);
+        }
+
+        private static POCatalog CreateCatalog()
+        {
+            using var templateStream = File.OpenRead("Resources/LoTranslation.extracted.template.po");
+            var parser = new POParser(new POParserSettings());
+            var result = parser.Parse(templateStream, Encoding.UTF8);
+            return result.Catalog;
+        }
+
+        private static void WriteCatalog(POCatalog catalog, string outputFile)
+        {
+            if (File.Exists(outputFile))
+            {
+                File.Delete(outputFile);
+            }
+
+            var generator = new POGenerator(new POGeneratorSettings());
+            using var outStream = File.Open(outputFile, FileMode.OpenOrCreate);
+            using var writer = new StreamWriter(outStream, Encoding.UTF8);
+
+            catalog.Headers["PO-Revision-Date"] = string.Format("{0:yyyy-MM-dd HH:mmzz00}", DateTime.Now);
+            catalog.Headers["Project-Id-Version"] = string.Format("{0:yyyy.MM.dd.00}", DateTime.Now);
+
+            generator.Generate(writer, catalog);
         }
     }
 }
