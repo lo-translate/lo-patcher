@@ -2,9 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
+using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
-using System.Text.RegularExpressions;
 
 namespace LoTextExtractor
 {
@@ -13,6 +13,26 @@ namespace LoTextExtractor
         public void Save(List<ExtractedText> entries)
         {
             var translationCatalog = CreateCatalog();
+
+            entries.Sort((x, y) =>
+            {
+                if (x.Source == y.Source)
+                {
+                    return x.SourceLine.CompareTo(y.SourceLine);
+                }
+
+                if (x.Source == "LocalizationPatch")
+                {
+                    return 1;
+                }
+
+                if (y.Source == "LocalizationPatch")
+                {
+                    return -1;
+                }
+
+                return new NaturalStringComparer().Compare(x.Source, y.Source);
+            });
 
             foreach (var entry in entries)
             {
@@ -126,5 +146,21 @@ namespace LoTextExtractor
 
             generator.Generate(writer, catalog);
         }
+
+        [SuppressUnmanagedCodeSecurity]
+        private static class NativeMethods
+        {
+            [DllImport("shlwapi.dll", CharSet = CharSet.Unicode)]
+            public static extern int StrCmpLogicalW(string psz1, string psz2);
+        }
+
+        private sealed class NaturalStringComparer : IComparer<string>
+        {
+            public int Compare(string a, string b)
+            {
+                return NativeMethods.StrCmpLogicalW(a, b);
+            }
+        }
+
     }
 }
