@@ -141,8 +141,8 @@ namespace LoTextExtractor
             using var outStream = File.Open(outputFile, FileMode.OpenOrCreate);
             using var writer = new StreamWriter(outStream, Encoding.UTF8);
 
-            catalog.Headers["PO-Revision-Date"] = string.Format("{0:yyyy-MM-dd HH:mmzz00}", DateTime.Now);
-            catalog.Headers["Project-Id-Version"] = string.Format("{0:yyyy.MM.dd.00}", DateTime.Now);
+            // We only store the date when generating
+            catalog.Headers["PO-Revision-Date"] = string.Format("{0:yyyy-MM-dd 12:00-0400}", DateTime.Now);
 
             generator.Generate(writer, catalog);
         }
