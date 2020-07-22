@@ -67,33 +67,11 @@ namespace LoTextExtractor
             if (!string.IsNullOrEmpty(entry.English))
             {
                 newEntry.Translation = entry.English.Trim(' ');
-
-                for (var index = 0; index < 10; index++)
-                {
-                    if ((entry.Korean.Contains("{" + index.ToString() + "}", StringComparison.Ordinal)
-                        || entry.Japanese.Contains("{" + index.ToString() + "}", StringComparison.Ordinal))
-                        && !entry.English.Contains("{" + index.ToString() + "}", StringComparison.Ordinal))
-                    {
-                        Console.WriteLine($" - Possible missing replacement: '{entry.English}' at {entry.Source}");
-                        break;
-                    }
-                }
-
-                for (var index = 0; index < 10; index++)
-                {
-                    if (entry.English.Contains("{" + index.ToString() + "}", StringComparison.Ordinal)
-                        && (!entry.Korean.Contains("{" + index.ToString() + "}", StringComparison.Ordinal)
-                        || !entry.Japanese.Contains("{" + index.ToString() + "}", StringComparison.Ordinal)))
-                    {
-                        Console.WriteLine($" - Possible missing replacement: '{entry.English}' at {entry.Source}");
-                        break;
-                    }
-                }
             }
 
-            // We render a partial source in a comment as well so it is visible in poedit and gives immediate context
-            // (the source reference added above can be viewed on right click but that is annoying).
-            var comment = entry.Source.IndexOf("LocalizationPatch", StringComparison.Ordinal) == -1 ? entry.Source : "";
+            var comment = "";
+
+            // TODO Read comments from loaded PO files?
 
             // If we have Korean text add it to the comment as well. This gives us multiple strings to throw at a
             // machine translator to hopefully get better context.
@@ -108,7 +86,6 @@ namespace LoTextExtractor
                 comment += "Korean Text: '" + entry.Korean.Replace("\r", "\\r", StringComparison.Ordinal)
                                                        .Replace("\n", "\\n", StringComparison.Ordinal)
                                                        .Replace("\t", "\\t", StringComparison.Ordinal) + "'";
-
             }
 
             if (!string.IsNullOrEmpty(comment))
