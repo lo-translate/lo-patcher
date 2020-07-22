@@ -166,6 +166,12 @@ namespace LoPatcher.Unity
         {
             if (disposing)
             {
+                bundle?.stream.Close();
+                assetsFile?.stream.Close();
+
+                assetsFileStream?.Dispose();
+                bundleFileStream?.Dispose();
+
                 try
                 {
                     if (File.Exists(unpackFile))
@@ -189,9 +195,6 @@ namespace LoPatcher.Unity
                 {
                     Debug.WriteLine($"Failed to delete temp file {temporaryFile}, {exception.Message}");
                 }
-
-                assetsFileStream?.Dispose();
-                bundleFileStream?.Dispose();
             }
         }
 
