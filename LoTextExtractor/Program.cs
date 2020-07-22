@@ -50,11 +50,6 @@ namespace LoTextExtractor
                 }
                 else if (asset.Name.EndsWith(".bin", StringComparison.Ordinal))
                 {
-                    if (asset.Name != "data.bin")
-                    {
-                        continue;
-                    }
-
                     Console.WriteLine($"Parsing {asset.Name} as serialized data");
 
                     var koreanAsset = bundleAssets.FirstOrDefault(b => b.Name == asset.Name.Replace(".bin", "_ko.bin"));
