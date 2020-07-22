@@ -7,7 +7,7 @@ using System.IO;
 
 namespace LoPatcher.Unity
 {
-    public class AssetsToolsHelper : IDisposable
+    public class AssetsToolsBundle : IDisposable
     {
         private readonly AssetsManager manager;
         private BundleFileInstance bundle;
@@ -19,7 +19,7 @@ namespace LoPatcher.Unity
         private MemoryStream assetsFileStream;
         private FileStream bundleFileStream;
 
-        public AssetsToolsHelper(byte[] classData)
+        public AssetsToolsBundle(byte[] classData)
         {
             using var classDataStream = new MemoryStream(classData);
 
@@ -30,7 +30,7 @@ namespace LoPatcher.Unity
             temporaryFile = Path.GetTempFileName();
         }
 
-        public bool LoadBundle(Stream stream)
+        public bool Load(Stream stream)
         {
             bundleFileStream?.Dispose();
 
@@ -45,10 +45,10 @@ namespace LoPatcher.Unity
 
             bundleFileStream = File.OpenRead(temporaryFile);
 
-            return LoadBundle(bundleFileStream);
+            return Load(bundleFileStream);
         }
 
-        public bool LoadBundle(FileStream bundleStream)
+        public bool Load(FileStream bundleStream)
         {
             bundle = manager.LoadBundleFile(bundleStream);
 
@@ -56,7 +56,7 @@ namespace LoPatcher.Unity
             // asset sizes and unpack if needed.
             if (IsPacked(bundle))
             {
-                bundle = UnpackBundle(manager, bundle, unpackFile);
+                bundle = Unpack(manager, bundle, unpackFile);
             }
 
             var files = BundleHelper.LoadAllAssetsDataFromBundle(bundle.file);
@@ -125,7 +125,7 @@ namespace LoPatcher.Unity
         /// <param name="bundle">The bundle to unpack</param>
         /// <param name="unpackedFile">The unpacked bundle file</param>
         /// <returns></returns>
-        private static BundleFileInstance UnpackBundle(
+        private static BundleFileInstance Unpack(
             AssetsManager manager,
             BundleFileInstance bundle,
             string unpackedFile

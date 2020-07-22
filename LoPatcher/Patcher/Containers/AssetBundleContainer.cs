@@ -45,16 +45,16 @@ namespace LoPatcher.Patcher.Containers
                 throw new ArgumentNullException(nameof(progressReporter));
             }
 
-            using var helper = new AssetsToolsHelper(Properties.Resources.classdata);
+            using var bundle = new AssetsToolsBundle(Properties.Resources.classdata);
 
-            if (!helper.LoadBundle(stream))
+            if (!bundle.Load(stream))
             {
                 throw new Exception("Failed to load bundle");
             }
 
             var assetReplacers = new List<AssetsReplacer>();
 
-            foreach (var asset in helper.GetAssets())
+            foreach (var asset in bundle.GetAssets())
             {
                 // We don't care about non-text assets or the Korean data files
                 if (asset.Type != "TextAsset" || asset.Name.Contains("_ko.bin", StringComparison.Ordinal))
@@ -99,7 +99,7 @@ namespace LoPatcher.Patcher.Containers
 
             if (assetReplacers.Count > 0)
             {
-                helper.SaveTo(assetReplacers, stream);
+                bundle.SaveTo(assetReplacers, stream);
             }
 
             return assetReplacers.Count > 0;
