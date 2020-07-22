@@ -36,7 +36,7 @@
             // 
             // dialogChooseInput
             // 
-            this.dialogChooseInput.Filter = "UABE extracted asset files (raw)|*.dat|All files|*.*";
+            this.dialogChooseInput.Filter = "Asset bundle files|__data*|UABE extracted asset files (raw)|*.dat|All files|*.*";
             this.dialogChooseInput.Multiselect = true;
             // 
             // groupBoxBundleFile
