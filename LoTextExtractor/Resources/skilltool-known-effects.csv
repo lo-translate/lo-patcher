@@ -1,0 +1,53 @@
+공격력+{0}%,Attack +{0}%
+방어력+{0}%,Defense +{0}%
+치명타+{0}%,Crit Chance +{0}%
+적중+{0}%,Accuracy +{0}%
+행동력+{0}%,Action Speed +{0}%
+회피+{0}%,Evasion +{0}%
+AP+{0},AP+{0}
+피해량+{0}%,Damage +{0}%
+방어 관통+{0}%,Defense Penetration +{0}%
+공격력 {0}%,Attack {0}%
+방어력 {0}%,Defense {0}%
+치명타 {0}%,Crit Chance {0}%
+적중 {0}%,Accuracy {0}%
+행동력 {0}%,Action Speed {0}%
+회피 {0}%,Evasion {0}%
+AP {0},AP+{0}
+피해량 {0}%,Damage {0}%
+방어 관통 {0}%,Defense Penetration {0}%
+방어막+{0},Barrier +{0}
+받는 피해 {0}% 감소,{0}% Damage Reduction
+행 보호,Row Protection
+열 보호,Column Protection
+{0}% 위력으로 반격,Counter with {0}% damage
+공격력 증가,Attack Up
+방어력 증가,Defense Up
+치명타 증가,Crit Chance Up
+적중 증가,Accuracy Up
+행동력 증가,Action Speed Up
+회피 증가,Evasion Up
+공격력 감소,Attack Down
+방어력 감소,Defense Down
+치명타 감소,Crit Chance Down
+적중 감소,Accuracy Down
+행동력 감소,Action Speed Down
+회피 감소,Evasion Down
+화염 저항+{0}%,Resist Fire +{0}%
+냉기 저항+{0}%,Resist Ice +{0}%
+전기 저항+{0}%,Resist Electric +{0}%
+효과 저항+{0}%,Resist Effects +{0}%
+지정 대상 보호,Protect Target
+방어막+{0},Shield +{0}
+도발 효과,Taunt Target
+지정 대상 보호 해제,Remove Target Protection
+열 보호 해제,Remove Column Protection
+행 보호 해제,Remove Row Protection
+피해 감소 효과 해제,Remove Damage Reduction
+뒤로 {0}칸 밀기,Push Back {0} Spaces
+행동 불가,Stunned
+일정 확률로 행동 불가,Chance to Stun
+공격 지원,Follow-Up Attack
+행동 불가,No Action
+다음 공격 치명타 적용,Next attack Crits
+자폭 공격,Suicide Attack

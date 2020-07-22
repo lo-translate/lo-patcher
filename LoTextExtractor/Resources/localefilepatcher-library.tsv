@@ -1,0 +1,1331 @@
+"서버 점검 중입니다.`n자세한 내용은 공식카페에서 확인해 주세요."	"Server Maintenance.`nPlease check the official cafe for details."
+"일반공격`n범위보기"	"General Attack`nRange View"
+"특수기술`n범위보기"	"Special Attack`nRange View"
+{0} 클리어하시면 해금됩니다.	Clear {0} to unlock.
+필요 전투력	Required Combat Power
+스쿼드에 배치된 캐릭터가 없어 출격할 수 없습니다.	You can't sortie because there are no squad members.
+스쿼드는 하나라도 있어야 합니다.	You must have at least 1 squad.
+전투력 -	Combat Power -
+잘못된 인자를 선택하셨습니다	You selected the wrong parameter
+액티브 스킬이 2개가 아니다	There are not two active skills
+{0} ENTER_STAGE 에러코드입니다.	ENTER_STAGE Error Code {0}
+예	Yes
+아니오	No
+확인	OK 
+21 스쿼드에 속한 바이오로이드는 강화/해체의 재료가 될 수 없습니다.	Bioroids from the 21 Squad cannot be used as materials.
+레벨 순 정렬	Sort/Level
+등급 순 정렬	Sort/Rank
+뒤로	Back
+사용 순 정렬	Sort/Usage
+21 스쿼드	21 Squad
+등록	Recruit
+해제	Remove
+탐색 중...	Exploring...
+상세정보	More Info
+캐릭터 교체	Character Replacement
+회피율	EVA
+적중률	ACC
+방어력	DEF
+스쿼드 전투력	Squad Power
+공격력	ATK
+우편	Mail
+임무	Missions
+순위	Rank
+연구	Research
+전투에서 대원을 잃지 마십시오.	Do not lose Units
+전투에서 피해를 입지 마십시오.	Do not take damage
+20턴내에 스테이지를 완료 하십시오.	Win within 20 turns
+스테이지를 완료 하십시오	Complete the stage
+임무중 새로 합류한 대원	New Recruits
+새대원이 본부에 합류했습니다.	New recruit heading to your base.
+합류	Joining
+아군신호 포착 됨	Friendly signal received
+신호정밀탐색중	Precision signal location
+모든 스쿼드에	In all squads
+"터치하여`n분대원`n추가"	"Tap to`nAdd`nSquad"
+스쿼드의 1열에	1st squad column
+스쿼드의 후열에	Back of the squad
+진형	Form
+지원 화력	Supporting Fire
+오퍼레이터 강화	Operator Enhancement
+"오퍼레이터`n보너스"	"?Operator`nBonus?"
+"지원 장비`n교체`n"	"Support Gear`nReplacement"
+닫기	Close
+스쿼드 선택	Select Squad
+편집	Edit
+전투 시작	Start Battle
+전략 화면	Strategy Screen
+퇴각	Flee
+승인	OK
+자원 탐색시	Search for Resources
+입장	Enter
+자원 탐색 화면 보기	View Exploration Screen
+자원 탐색	Exploration
+전투력 화면 보기	Display Combat Power Screen
+자원탐사대 배치	Resource Exploration
+전투력	Combat Power
+"중복 캐릭터를 스쿼드에`n등록할 수 없습니다."	"Duplicate Units`ncannot be added in the same squad."
+대기	Waiting
+미션 중단 여부를 확인합니다.	Confirm Mission Retreat
+전투 중에는 퇴각할 수 없습니다.	You cannot retreat
+미션 중단 시 기지로 귀환하며 미션은 실패하게 됩니다.	If you retreat, you will fail the mission return to your base.
+닉네임을 입력하세요.	Choose a name.
+중복된 닉네임 입니다.	That name is taken.
+게임을 종료 하시겠습니까?	Do you want to exit?
+{0} 스테이지 완료 후 자원탐사대를 배치하세요.	Deploy an exploration Unit after completing stage {0}
+탐색 스쿼드 선택	Select Exploration Squad
+출전 조건	Entry requirements
+평균 레벨	Avg. Level
+스쿼드 구성 인원	Squad Members
+아이템 획득 확률 추가	Bonus Item Drop Chance
+탐색 시작	Start Exploration
+탐색 소요 시간	Exploration Time
+이상	or more
+스쿼드를 투입하세요	Present in squad
+선택됨	Selected
+자원 탐색 중	Searching for resources
+레벨 부족	Level too low
+탐색 취소	Cancel Exploration
+자원 탐색 중	Searching for resources
+인원수 부족	Insufficient Squad Members
+"[c][ffcc00]자원 탐색[-][/c]을 중지할 경우, 자원을 획득할 수 없습니다.`n중지하시겠습니까?"	"If you stop your [c][ffcc00]Exploration[-][/c], you will not acquire resources.`nDo you want to stop?"
+탐색 중지	Stop
+계속 탐색	Continue
+탐색 완료	Exploration Complete
+계속 탐색을 진행하시겠습니까?	Continue Exploring?
+능력치 보기	View Stats
+능력치	Stats
+치명타	CRIT
+사정 거리	Range
+공격 범위 : 십자	Pattern: Cross
+행동력 소모	AP Cost
+공격 범위	Range
+사용 중	In Use
+10레벨에 개방	Unlock at Lv10
+20레벨에 개방	Unlock at Lv20
+30레벨에 개방	Unlock at Lv30
+40레벨에 개방	Unlock at Lv40
+50레벨에 개방	Unlock at Lv50
+60레벨에 개방	Unlock at Lv60
+70레벨에 개방	Unlock at Lv70
+80레벨에 개방	Unlock at Lv80
+90레벨에 개방	Unlock at Lv90
+해당 장비는 탐사 중이거나 자동 전투 중인 전투원이 착용하고 있는 장비입니다.	The Gear is equipped on a Unit who is exploring or Autobattling.
+요구 전투력	Required Combat Power
+"B급 장비`n모두 선택"	"Select All`nB-Class Gear"
+결 정	Confirm
+먼저 강화할 장비를 장착해 주세요.	Select the gear to be enhanced first.
+전투원 제작	"Craft`nUnit"
+전투원 강화	"Enhance`nUnit"
+장비 제작	"Craft`nGear"
+장비 강화	"Enhance`nGear"
+강화 수치	Units Consumed
+사용 자원	Resources Consumed
+강화할 아이템이 없습니다.	There is no item to enhance.
+재료 아이템이 없습니다.	There is no material.
+장비부품	Gear Pieces
+강화 불가! 자원 부족	Cannot perform enhancement due to a lack of resources
+취소	Cancel
+상점열기	Go To Store
+제조 완료	Build Complete
+제조 시작	Start Building
+즉시 완성	Fast-Track
+장비 제작 불가! 자원 부족	Cannot build due to a lack of resources!
+전투 장비 코어 부족!	Not enough Battle Gear cores!
+AI 코어 부족!	Not enough AI cores!
+유전자 씨앗 부족!	Net enough Gene Seeds!
+숙소 부족	Not enough room
+전투원제작 불가! 자원 부족	Cannot build Unit due to a lack of resources.
+{0} 스테이지를 클리어하시면 해금됩니다.	Clear stage {0} to unlock
+캐릭터 상세	Unit Details
+스킬 경험치	Skill Exp
+레벨{0} 활성화	Unlock at Lv{0}
+기본	Normal
+주의	Caution
+코어 링크 해제	Core Link Release
+이 코어 링크를 해제하기 위해서는 링크 해제기가 소모됩니다.	To unlink you will consume a Link Breaker.
+링크 해제기 부족	You do not have a Link Breaker.
+코어 링크	Core Link
+경장	Light
+중장	Heavy
+기동	Flying
+보호기	Defender
+공격기	Attacker
+지원기	Support
+다른 전투원이 장착한 코어	Core is mounted by another Unit
+코어 링크 불가	No core link
+이 코어를 장착한 전투원은 현재 임무 중입니다.	Units with this core are currently on duty.
+스쿼드 정원 초과	?Squad garden exceeds?
+더 이상 전투원을 배치할 수 없습니다.	You can no longer place Units
+(링크 해제기 총 보유 수 {0}개)	(Total {0} Link Breakers)
+제작 할 유닛이 없습니다.	There are no Units to build.
+다음 레벨 정보	Next Level
+[c][FFFFFF7D]피해량[-][/c]	[c][FFFFFF7D]Damage[-][/c]
+[c][FFFFFF7D]효과[-][/c]	[c][FFFFFF7D]Effect[-][/c]
+쿨 다운	Cooldown
+증가	Increase
+{0}차 전투	{0]th battle
+[상세확인]	[Check Details]
+경고	Warning
+강화할 전투원 필요	Requires a Unit to enhance
+먼저 강화할 전투원을 선택해 주세요.	Please select a Unit first.
+회로 제공 전투원 필요	Requires a Circuit donor Unit
+주의! 강화 회로 제거!	Warning! Removing Enhanced Circuit!
+강화 회로 제거	Enhancement Circuit Removal
+강화 회로 제거기 부족	Not enough Circuit Removers
+강화 포인트 없음	No Enhancement Points
+모든 강화 가능 포인트를 사용해 더 이상 강화용 캐릭터를 선택할 수 없습니다.	?You won't be able to choose a Unit for enhancement with all your Enhancement Points?
+강화 포인트 초과	Enhancement Points exceeded
+최대 강화 포인트를 초과해 해당 캐릭터를 재료로 사용할 수 없습니다.	The Unit cannot be used as material beyond the maximum Enhancement Points.
+전투원 수복	Recovery
+쾌속 수복	Quick Fix  
+수복할 전투원을 지정하세요.	Please select a Unit to recover.
+수복 시설 현황	Recovery Facility Status
+터치하여 슬롯 확장	Tap to add slot
+즉시 수복	Quick Fix
+쾌속 수복 나노 머신 부족!	Insufficient Nano Machines for Quick Fix!
+모든 전투원이 건강!	All Units are healthy!
+수복이 필요한 전투원이 존재하지 않습니다.	There are no Units needing recovery
+수복 슬롯 해제	Release Slot Release
+수복 완료!	"Recovery`nComplete!"
+쾌속 수복 불가 자원 부족!	Not enough resources for Quick Fix!
+자원 부족	Not enough resources
+쾌속 완료	Fast Completion
+이야기 {0} {1} 시작되었습니다.	Story Mission {0} {1} has started.
+이야기 {0} {1} 의 스테이지로 이동하시겠습니까?	Are you sure you want to go to Story Mission {0} {1}?
+이야기 {0} {1} 완료되었습니다.	Story Mission {0} {1} complete.
+나중에 출발	Go Later
+지금 출발	Go Now
+이야기 보기	View Story
+수집물 확인	Check Collection
+이전의 기록	Previous Record
+이야기 목록 보기	View Story List
+이야기 시작	Start Talking
+{0}에게 어떤 이야기를 걸까요?	What will you tell {0}?
+준비완료	Ready
+응급 수복	Emergency Repair
+출격중	Sortie
+수복 확인	Confirm Recovery
+전투 턴 자동 종료	Autobattle Stopped
+탐사중	Exploring
+탐사 중인 스쿼드 입니다.	This squad is exploring
+스쿼드 내에 수복 중인 캐릭터가 있어 출격할 수 없습니다.	You cannot sortie because a Unit being recovered.
+행동 불능 상태인 멤버가 있어 출격할 수 없습니다.	You cannot sortie because a Unit is inoperable.
+수복 필요	Recover
+행동력	Action Speed
+모듈 분해	Recycling
+분해 획득 자원	Recovered Resources
+모듈 분해 확인	Recycling Check
+선택하신 캐릭터들의 전투 모듈을 분해하시겠습니까?	Do you want to recycle the selected Units?
+분해 결과	Recycling Result
+다음 자원을 획득했습니다.	Obtained the above resources.
+주의!	Warning!
+등급 / 레벨이 높은 장비입니다. 정말 분해하시겠습니까?	Do you really want to recycle high grade/level gear?
+분해 확인	Recycle Check
+선택하신 장비들을 정말 분해하시겠습니까?	Do you want to recycle the selected gear?
+분해	Recycling
+캐릭터	Units
+장비	Gear
+모듈 분해 할 캐릭터가 없습니다.	You have not selected any Units to recycle.
+분해 할 장비 아이템이 없습니다.	You have not selected any Gear to recycle.
+수복하러가기	Go to Recovery
+수복중	Recovery
+{0}명 더 배치 가능합니다. (최대 5명)	Can deploy {0} more. (Up to 5)
+나중에 출발	Go Later
+지금 출발	Go Now
+~~행동을 하세요.	Take action.
+선물	Gifts
+시설물 편집	Edit Facility
+구매	Purchase
+이야기 {0}<{1}>가 완료되었습니다.	Complete story {0} <{1}>.
+함교	Bridge
+기록물 보관소	Archives
+창고	Warehouse
+이야기 보기	View Story
+수집물 확인	Check Collection
+이전의 기록	Previous Record
+이야기 시작 조건	Story start condition
+이야기 진행	Story progress
+이야기	Story
+완료	Complete
+이야기 파일 시작 조건	Story start condition
+이야기 목록 보기	View Story List
+이야기 시작	Start Talking
+전술 정보 수집 중	Tactical Information Display
+스킬명 : {0}	Skill Name: {0}
+[c][f10916]공격기[-][/c]가 배치되지 않아 화력이 낮습니다.	An [c][f10916]Attacker[-][/c] is not deployed, so damage output may be low.
+[c][f10916]보호기[-][/c]가 배치되지 않아 안정성이 낮습니다.	A [c][f10916]Defender[-][/c] is not deployed, so your Units may be vulnerable.
+[c][f10916]지원기[-][/c]가 배치되지 않아 보조 성능이 낮습니다.	A [c][f10916]Support[-][/c] is not deployed, so you are lacking in various enhancements.
+적합률	Compatibility
+주의 - 링크 보너스 : 적합률 {0}%	Warning - Link Bonus {0} compatible
+스킬 사용 불가 상태입니다.	Skill unavailable
+이동 불가 상태입니다.	Immobilized.
+반격	Counterattack
+지원 공격	Supporting Attack
+적 정보	Enemy Info
+정찰 성공	Recon Success
+"B급 캐릭터`n모두 선택"	Select all B-Class Units
+대신 맞기	?Fit instead?
+{0} 리더로 지정하시겠습니까?	Select {0} as the new leader?
+리더 지정	Select Leader
+다음 자원이 부족해서 출격할 수 없습니다.	There are not enough resources to sortie.
+부관 변경	"Switch`nAide"
+지원 스쿼드	Support Squad
+설정	Set
+캐릭터 수집율	Unit Collection Rate
+완료 업적 수	Completed Achievements
+{0}위	Rank {0}
+순위 밖	Not Ranked
+프로필	Profile
+번호 순 정렬	Sort/number
+[c][42ff62]{0}[-][/c] 전투원을 부관으로 임명하시겠습니까?	Appoint a new Unit?
+지원 스쿼드 선택	Select Support Squad
+설정됨	Set
+스쿼드	Squad
+친구 수	Friends
+레벨 ▲	Level ▲
+접속 시간 ▲	Connected ▲
+친구 목록	Friends List
+친구 추가	Add to Friends
+신청 확인	Confirm application
+정보	Information
+방문	Visit
+1:1 채팅	Direct Chat
+죄종 접속 {0} 전	Last Connected {0}
+{0}일	{0} days
+{0}시간	{0} hours
+레벨 ▼	Level ▼
+삭제	Delete
+닉네임	Name
+검색 닉네임 입력	Find by Name
+검색	Find
+친구 신청	Add friend
+친구	Friend
+해당 유저와 친구 맺기 요청을 하시겠습니까?	Send a friend request to this user?
+일괄 수락	Bulk accept
+일괄 거부	Bulk reject
+거부	Reject
+수락	Accept
+일	Days
+시간 전	Hours ago
+분 전	Minutes ago
+초 전	Seconds ago
+[c][42ff62]{0}[-][/c] 님을 친구 삭제하시겠습니까?	[c][42ff62]{0}[-][/c] Are you sure you want to delete your friend?
+[c][42ff62]주의 - 해당 유저와의 1:1 채팅 내용도 삭제됩니다.[-][/c]	[c][42ff62]Warning - Direct chats with this user will also be deleted[-][/c]
+친구 삭제	Remove
+검색 UID 입력	Find by UID
+접속 시간 ▼	Connected ▼
+최종접속	Last connection
+로그 삭제	Delete log
+전송	Send
+ 님과의 대화 목록	Chat list
+상대방이 채팅 방을 나갔습니다.	The person left the chatroom.
+채팅 방을 나갔습니다.	I left the chatroom.
+"친구 수가 최대여서`n친구 신청을 할 수 없습니다."	"You cannot send an application.`nYour friends list is already at the limit."
+검색 대상을 입력하십시오.	Please enter a search target.
+"친구 수가 최대여서`n친구 수락을 할 수 없습니다.."	"You cannot accept an application.`Your friends list is already at the limit."
+친구가 없습니다.	No friends.
+친구스쿼드	Friend's squad
+사용 대기 {0}	Waiting for use {0}
+상태	Status
+스킬	Skill
+필살기	Once
+없음	"No`nItem"
+보유 스킬	Skills Possessed
+액티브	Active
+패시브	Passive
+적용 중인 [c][FFBA29FF]버프	Applying [c][FFBA29FF]Buff
+지속	Duration
+적용 중인 [c][9F5404FF]디버프	Applying [c][9F5404FF]Debuff
+영구	Permanent
+없음	"No`nItem"
+스킬 효과 없음	No effect
+합류 전투원	Unit Roster
+바이오로이드	Bioroid
+AGS 로봇	AGS Robot
+분대 보기	Squad View
+도감	Album
+캐릭터 상세 정보	Unit Details
+공격 빈도	Attack Speed
+속도	Speed
+보조 능력	Secondary Ability
+지구력	Endurance
+알려지지 않음	Unknown
+분대 완성 보상 받기	Receive squad completion rewards
+모든 임무 보이기	Show all missions
+일일	Daily
+주간	Weekly
+월간	Monthly
+업적	Achievements
+보상	Reward
+진행도	Progress
+{0}[c][FFBA29FF]{1}[-][/c] 임무 완료 시 개방	Complete mission {0}[c][FFBA29FF]{1}[-][/c]
+보상 획득	Reward
+임무 완료	Mission complete
+다음 보상을 획득했습니다.	Earned the following rewards:
+보상 완료	Rewards collected
+보상 일괄 획득	Collect rewards
+선택하신 분류의 임무가 없습니다.	There are no missions in this category.
+출격 모드 선택	Select mode
+이벤트	Event
+잔여 횟수	Remaining
+"진행 중인 이벤트가`n없습니다."	"There are no`nEvents in progress"
+일일 훈련	Daily Training
+초급	Beginner
+중급	Intermediate
+상급	Advanced
+최상급	Expert
+소모 티켓 :	Tickets:
+적정 전투력 : {0} 이상	Recommended Combat Power: {0} or more
+시작	Begin
+훈련 달성율	Training results
+훈련 완료 Exp	Training Completion Exp.
+획득 보상	Earned Rewards
+보통	Normal
+호감	Crush
+친밀	Intimate
+애정	Love
+호감도 상승	Affection rise
+호감도 하락	Affection fall
+이벤트	Event
+수복 필요	Recover
+이야기 리스트가 없습니다.	There is no story list
+연구소	Laboratory
+시설 연구	"Facility`nResearch"
+로봇 설계	"Robot`nEngineering"
+승급	Advancement
+연구 항목을 선택하세요.	Select a research topic
+연구 실행	Begin research
+연구 필요 조건	Research requirements
+연구중	Researching
+즉시 완료	Fast-Track
+연구 취소	Cancel Research
+연구 완료 까지	Until research is completed
+기술 목록	Technology list
+필요 기술	Need skills
+제작	Manufacture
+기술 연구	"Tech`nresearch"
+설계도	Blueprint
+잠금 해제 조건	Unlock condition
+"[c][FFBA29FF]{0}[-][/c]의 연구 완료에 다음 자원과 시간이 소모됩니다.`n연구를 실행하시겠습니까?"	"[c][FFBA29FF]{0}[-][/c] will require the following resources and time to complete.`nDo you want to begin researching this?"
+[c][FFBA29FF]{0}[-][/c]의 연구를 완료했습니다!	[c][FFBA29FF]{0}[-][/c] research has been completed!
+연구 완료	Research complete
+연구 완료	Research complete
+연구 즉시 완료	Research Completed
+[c][FFBA29FF]{0}[-][/c]의 연구를 취소합니다.	[c][FFBA29FF]{0}[-][/c]Cancel research
+[c][f10916]연구에 소모한 자원은 돌려 받을 수 없습니다.[-][/c]	[c][f10916]Resources spent on research cannot be refunded.[-][/c]
+연구	Research
+추가 자원 획득 비율	Increased resource generation
+소모 자원	Resource Cost
+소모 자원 감소	Reduced Resource Cost
+연구 완료	Research complete
+연구 완료	Research complete
+일반	Normal
+일반	General
+특수	Special
+연구소	Laboratory
+제작 시 소모 자원	Crafting Resource Cost
+모든 등급	All Ranks
+모든 타입	All Types
+모든 역할	All Roles
+모든 등급 ▲	All Ranks ▲
+모든 타입 ▲	All Types ▲
+모든 역할 ▲	All Roles ▲
+상세보기	View details
+제작시간:	Crafting time:
+획득 방법	Acquisition method
+설계 연구 필요	Needs design research
+설계도 없음	No blueprint
+연구실에서 다음 연구가 완료되지 않아 제작할 수 없습니다.	You have not complete the required research to craft this Robot.
+제작 가능한 로봇이 없습니다.	There are no craftable Robots.
+"[c][FFBA29FF]연구소[-][/c]에서  [c][FFBA29FF]로봇 제작[-][/c] 시설을 연구해야`n사용할 수 있습니다."	"[c][FFBA29FF]Robot Engineering[-][/c] needs to be studied in the [c][FFBA29FF]Research lab[-][/c]`nBefore it can be used."
+"[c][FFBA29FF]연구소[-][/c]에서  [c][FFBA29FF]특수 제작[-][/c] 시설을 연구해야`n사용할 수 있습니다."	"[c][FFBA29FF]Special Builds[-][/c] needs to be studied in the [c][FFBA29FF]Research lab[-][/c]`nBefore it can be used."
+로봇 제작 중	Build Robots
+특수 제조 중	Special Builds
+일반 제조 중	Standard Builds
+선물 목록	Gift list
+선택	Selection
+{0} 아이템을 선물할 캐릭터를 선택해 주세요.	Please select a Unit to receive {0}.
+알림	Notice
+[c][FFBA29FF]{0}[-][/c]에게 [c][FFBA29FF]{1}[-][/c]아이템을 선물하시겠습니까?	Give [[c][FFBA29FF]{1}[-][/c] to [c][FFBA29FF]{0}[-][/c]?
+[c][FFBA29FF]{0}[-][/c]에게 [c][FFBA29FF]{1}[-][/c]아이템을 선물했습니다.	Gave [c][FFBA29FF]{1}[-][/c] to [c][FFBA29FF]{0}[-][/c].
+호감도가 맥스입니다.	Already at max affection.
+"수복 대상`n일괄 선택"	"Bulk Select`nFor Recovery"
+[c][FFBA29FF]{0}[-][/c] 선물 시 개방	Give the [c][FFBA29FF]{0}[-][/c] as a gift.
+도착한 우편이 없습니다.	No mail received
+일괄 수령	Receive All
+확인된 메일 없음	?No mail verified?
+우편 내용 없음	?No postal content?
+우편 받기	Receive mail
+우편 수령	Receive mail
+(최대 20개)	(Up to 20)
+시스템	System
+일반	Normal
+일반	General
+우편함	Mailbox
+추가 선물함	Gift package
+추가 메일 요청중~	Requesting mail~
+남은 보관 시간 :	Expiration:
+일	Days
+시간	Time
+분	Minute
+초	Second
+"[c][FFBA29FF]연구소[-][/c]에서  [c][FFBA29FF]{0}[-][/c] 시설을 연구해야`n사용할 수 있습니다."	"We need to research [c][FFBA29FF]{0}[-][/c] in the [c][FFBA29FF]research lab[-][/c]`nBefore it can be used"
+"전투원 대기실이 부족해 진행할 수 없습니다.`n여유 공간 확보가 필요합니다."	"Not enough free Lobby space to proceed.`nFree up some slots."
+"장비 창고가 부족해 진행할 수 없습니다.`n여유 공간 확보가 필요합니다."	"Not enough free Warehouse space to proceed.`nFree up some slots."
+"소모품 창고가 부족해 진행할 수 없습니다.`n여유 공간 확보가 필요합니다."	"Not enough resources to proceed.`nYou need to free up space."
+캐릭터 인벤토리가 부족해 제작을 할 수 없습니다.	Not enough Lobby space to complete the build.
+장비 인벤토리가 부족해 제작을 할 수 없습니다.	Not enough Warehouse space to complete crafting.
+캐릭터 인벤토리가 부족해 구매할 수 없습니다.	Not enough Lobby space to complete purchase.
+장비 인벤토리가 부족해 구매할 수 없습니다.	Not enough Warehouse space to complete purchase.
+소모품 인벤토리가 부족해 구매할 수 없습니다.	Not enough resource capacity to complete purchase.
+소모품 인벤토리가 부족해 뽑기를 실행할 수 없습니다.	Not enough resource capacity to pull.
+소모품 인벤토리가 부족해 탐사를 진행할 수 없습니다.	Not enough resource capacity to explore.
+캐릭터 인벤토리가 부족해 퀘스트 보상을 수령할 수 없습니다.	Not enough Lobby space to receive quest rewards.
+장비 인벤토리가 부족해 퀘스트 보상을 수령할 수 없습니다.	Not enough Warehouse space to receive quest rewards.
+소모품 인벤토리가 부족해 퀘스트 보상을 수령할 수 없습니다.	Not enough supply capacity to receive reward.
+해제	Remove
+변경	Change
+이동	Move
+전투원 수복에 빈 슬롯이 없습니다.	Not enough Recovery Facility space.
+선물주기	Give gift
+{0}월	{0}months
+보급 획득	Supply
+{0}일차 보급이 지급되었습니다.	{0} day supply issued.
+{0} 부족해 우편으로 지급되었습니다.	{0} was not paid due to mail.
+{0}일차	Day {0}
+깜짝 상자	Lottery
+번들 상품	Gifts
+이벤트 상품	Event Deals
+참치캔	Tuna Cans
+자원	Resources
+티켓	Boosters
+재료	Materials
+설비	Expansion
+이 상품을 구매하시겠습니까?	Do you want to purchase this?
+구매하기	Purchase
+"참치캔이 부족해 구입할수 없습니다.`n참치캔 구입하자구요~~"	"Not enough Tuna Cans to complete purchase.`nMaybe we should buy some~~"
+참치캔 부족	Tuna Cans
+보급 목록	Supply List
+전투원 목록	Unit list
+장비 목록	Gear list
+소모품 목록	Resource list
+제작 및 강화	"Crafting`nResources"
+로봇 부품팩	Robot Parts
+다음 사유로 ( [c][f10916]{0}[-][/c] ) 블럭 되었습니다.	Blocked for reason: ( [c][f10916]{0}[-][/c] ).
+욕설 / 비방	Abusive Language
+비인가 프로그램 사용	Use of an unauthorized program
+부정 조작	Tampering
+시스템 악용	Exploits
+사용 상품 환불	Refund of used goods
+남았습니다.	Left.
+구입 하였습니다.	Purchased
+화면을 터치하여 닫아주세요.	Please close the screen
+사령관 숙련도 증가	Commander level increased
+사령관 숙련도 Lv.{0} 달성	The Commander achieved Lv.{0}
+자원 자동 회복 상한 [c][FFBA29FF]+{0}	Resource Capacity [c][FFBA29FF]+{0}
+구글 계정으로 로그인	Log in with your Google account
+GUEST 계정으로 로그인	Log in as a GUEST
+이미 연동된 계정입니다. 계정 정보를 갱신하기 위해 타이틀 화면으로 돌아갑니다.	The account is already linked. You will return to the title screen to update your account details.
+구글 계정 연동 되었습니다.	Google account linked!
+"연동 실패 다시 연동해주세요.`n타이틀 화면으로 돌아갑니다."	"Account linking failed.`nReturning to the Title Screen."
+파견한 대원들이 복귀했습니다.	Dispatched Units returned.
+수복이 완료 되었습니다.	Recovery complete.
+[c][ffcc00]{0} {1}구역 전투 시작[-][/c]	[c][ffcc00]{0} Start battle for Zone {1}[-][/c]
+{0}라운드 시작	Round {0} start!
+[c][e3e3e3]{0},{1}에게 {2} 사용[-][/c]	[c][e3e3e3]{0} used {2} on {1}[-][/c]
+[c][e3e3e3]{0}, {1}사용[-][/c] 	[c][e3e3e3]{0} used {1}[-][/c] 
+[c][ff4945]{0} {1} 피해를 입음.[-][/c]	[c][ff4945]{0} took damage {1}.[-][/c]
+[c][c70400]{0} 치명타로 {1} 피해를 입음[-][/c]	[c][c70400]{0} critically hit {1}[-][/c]
+[c][2ac940]{0} 회피 성공[-][/c]	[c][2ac940]{0} evaded the attack[-][/c]
+[c][ffdab9]{0} {1} 적용됨[-][/c]	[c][ffdab9]{0} applied {1}[-][/c]
+[c][cbbeb5]{0} {1} 제거됨[-][/c]	[c][cbbeb5]{0} removed {1}[-][/c]
+[c][bfbfbf]{0} {1} 효과 저항[-][/c]	[c][bfbfbf]{0} resisted {1}[-][/c]
+[c][2ac940]{0}, {1} 보호[-][/c]	[c][2ac940]{0} defended {1}[-][/c]
+[c][2ac940]{0}의 공격 지원[-][/c]	[c][2ac940]{0} performed a Support Attack[-][/c]
+[c][ffa432]{0} {1}에게 반격함[-][/c]	[c][ffa432]{0} Counterattacked {1}[-][/c]
+[c][bfbfbf]아군의 {0} 전투 불능이 됨[-][/c]	[c][bfbfbf]Ally {0} has been incapacitated[-][/c]
+[c][fbf6cb]적군의 {0} 전투 불능이 됨[-][/c]	[c][fbf6cb]Enemy {0} has been incapacitated[-][/c]
+{0} 대기	Waiting for {0}
+{0} {1}번 그리드로 이동	Moving to position {0} {1}
+[c][c8deff]{0} 설치됨[-][/c]	[c][c8deff]{0} installed[-][/c]
+{0}라운드 시작	Round {0} start!
+치명율	CRIT
+자원 탐색 중인 스쿼드 대원은 편집할 수 없습니다.	You cannot edit squads that are exploring.
+전투 불능	Incapacitated
+수복 중인 전투원이 있어 자원 탐사를 보낼 수 없습니다.	You cannot send out explorers because a squad member is in recovery.
+전투 불가 상태인 전투원이 있어 자원 탐사를 보낼 수 없습니다.	You cannot send out explorers because there is a squad member engaged in combat.
+장시간 응답이 없어 타이틀 화면으로 이동합니다	You are being returned to the title screen due to inactivity.
+교체되는 캐릭터가 교체 대상 스쿼드에 이미 있는 경우에도 동일한 캐릭터가 있어 교체할 수 없습니다	The Unit you are trying to replace is already in the squad. You cannot have duplicate Units in the squad.
+링크중인 바이오로이드 보기	View Bioroid Links
+다음 연구가 완료되지 않아 제작할 수 없습니다.	The required research is incomplete, so it cannot be crafted.
+일괄 선택	Bulk Select
+경장형	Light
+중장형	Heavy
+기동형	Flying
+등급	Rank
+타입	Type
+역할군	Role
+이야기 다시 보기	Replay Story
+이야기 시작	Start Talking
+자동전투	Autobattle
+이전	Previous
+다음	Next
+전투원	Units
+소모품	Materials
+{0}라운드 남음	{0} Rounds Left
+{0} 라운드 경과	Round {0}
+쿠폰 입력	Enter coupon
+쿠폰 입력	Redeem coupon
+- 각 쿠폰은 계정 당 1회만 사용 가능합니다.	- A coupon may only be used once per account.
+- 보상은 우편함으로 지급됩니다.	- Rewards will be sent to your mailbox.
+쿠폰 번호를 입력하세요.	Please enter a coupon code.
+쿠폰 보상이 메일로 전송되었습니다.	Coupon rewards have been sent to by e-mail.
+이미 사용한 쿠폰 코드이거나 유효하지 않은 쿠폰 코드입니다.	This coupon code has already been used or is invalid.
+예상 적중률	Est. Hit Rate
+분석불가	Cannot analyze
+중요 전투원	Critical Unit
+중요 전투원 등록	Critical Unit Registration
+게임 설정	Settings
+전투 속도	Battle Speed
+기본	Normal
+텍스트 속도	Text Speed
+느림	Slow
+보통	Normal
+빠름	Fast
+스토리 다시보기	Story Replay
+임무 완료	Mission complete
+컷 인 연출	Unit Cut-ins Display
+부상 연출	Battle Damage Display
+사운드	Audio
+배경 음악	BGM
+효과음	SFX
+음성	Voice
+끄기	Off
+켜기	On
+알림 설정	Notifications
+공지 수신	Receive Notifications
+파견 완료	Exploration Complete
+수복 완료	Recovery Complete
+연구 완료	Research Complete
+구글 연결되지 않음	Not connected with Google
+사운드 설정	Sound Settings
+계정	Account
+계정 설정	Account Settings
+연동 계정 선택	Select Linked Account
+페이스북 연결되지 않음	Not connected with Facebook
+계정을 연결해 게임 데이터를 안전하게 보존하세요	Link your accounts to back up your data
+내 UID :	My UID: 
+로그아웃	Log Out
+문의 / 쿠폰	Contact / Coupon
+고객 센터	Service Center
+쿠폰 입력	Enter coupon
+쿠폰 입력	Redeem coupon
+각 버튼을 누르면 팝업이 출력됩니다.	Pressing buttons will display pop-ups
+기본 설정 적용	Reset to defaults
+쓰고 싶은거 쓰세요.	Write what you want.
+끄기	Off
+켜기	On
+튜토리얼 중엔 사용할 수 없습니다.	Not available during the tutorial.
+대기실 확장	Expand Lobby
+창고 확장	Expand Warehouse
+소지품 창고 확인	Check your inventory
+"참치캔이 부족해 구매할 수 없습니다.`n참치캔을 구매하러 가시겠습니까?"	"Not enough Tuna Cans to complete purchase.`nWould you like to go buy some?"
+다음 자원이 부족해 진행할 수 없습니다.	Not enough resources to proceed.
+상점에서 자원을 구매하시겠습니까?	Would you like to buy resources in the Store?
+"[c][FFBA29FF]{0}[-][/c]이(가) 부족해 진행할 수 없습니다.`n[c][FFBA29FF]{1}[-][/c]을(를) 구매하러 가시겠습니까?"	"Not enough [c][FFBA29FF]{0}[-][/c] to proceed.`nWould you like to buy [c][FFBA29FF]{1}[-][/c]?"
+[c][FFBA29FF]{0}[-][/c]에게 [c][FFBA29FF]{1}[-][/c] 스킨이 적용되었습니다.	The [c][FFBA29FF]{1}[-][/c] skin has been applied to [c][FFBA29FF]{0}[-][/c]
+[c][FFBA29FF]{0}[-][/c]의 호감도가 [c][FFBA29FF]{1}[-][/c] 상승했습니다.	[c][FFBA29FF]{0}[-][/c]'s Affection has been raised by [c][FFBA29FF]{1}[-][/c]
+현재 호감도 : [c][FFBA29FF]{0}[-][/c]	Current affection: [c][FFBA29FF]{0}[-][/c]
+의 보급 목록	Supply Delivery List
+일까지	By
+[c][FFCC00FF]{0}[-][/c] 를 구입 하였습니다.	You purchased [c][FFCC00FF]{0}[-][/c]
+"[c][FFCC00FF]{0}[-][/c] 참치를 사용해`n{1} [c][FFCC00FF]{2}[-][/c]개를 구입 하였습니다."	"[c][FFCC00FF]{0}[-][/c] Tuna Cans`n{1} [c][FFCC00FF]{2}[-][/c] have been purchased."
+선택됨	Selected
+추가 선물이 없습니다.	There are no additional gifts.
+모든 전투원 제조 슬롯이 사용중입니다.	All Unit build slots are in use.
+월요일	Monday
+화요일	Tuesday
+수요일	Wednesday
+목요일	Thursday
+금요일	Friday
+토요일	Saturday
+일요일	Sunday
+"[c][FFBA29FF]연구소[-][/c]에서  [c][FFBA29FF]{0}[-][/c] 시설을 연구해야`n사용할 수 있습니다."	"We need to research [c][FFBA29FF]{0}[-][/c] in the [c][FFBA29FF]research lab[-][/c]`nBefore it can be used"
+잔여 횟수 : {0}	{0} remaining
+개방된 외전 챕터가 없습니다.	There is no open abduction chapter.
+이야기를 진행할 전투원을 선택해 주세요.	Please select a Unit to hear their story.
+입력한 내용 중, 비정상적인 문자가 포함되어 있어 승인이 불가능합니다.	Your entry contains special characters and cannot be approved.
+입력한 내용 중, 욕설 등의 부적절한 단어가 포함되어 있어 승인이 불가능합니다.	Your entry contains inappropriate words such as foul language and cannot be approved.
+탐사 스쿼드 선택	Exploration squad selection
+평균 레벨이 조건에 맞지 않습니다.	The average level requirement is not met.
+평균 인원이 조건에 맞지 않습니다.	The squad size requirement is not met.
+스쿼드 중에 수복중인 객체가 있습니다.	There is a squad member being recovered.
+스쿼드 중에 전투불능 상태인 객체가 있습니다.	There is an incapacitated squad member.
+분해 전투원 선택	Unit recycling selection
+분해 장비 선택	Gear recycling selection
+"강화 재료`n장비 선택`n"	"Select gear`nenhancement material"
+전투 진행 속도를 조정 합니다.	Adjust battle speed
+텍스트 출력 속도를 조정합니다.	Adjust text speed
+스테이지 진행 시, 이미 본 스토리를 다시 봅니다.	As you progress, review story content you've already seen
+임무 완료 시, 알림 창이 출력됩니다.	Display a notification when a mission is completed.
+전투 중, 전투원 컷 인을 출력합니다.	Show a Unit cut-in during combat.
+전투 중, 부상 컷 인을 출력합니다.	Show Unit battle damage cut-ins duing combat.
+배경 음악 볼륨을 조정합니다.	Adjust the background music volume.
+효과음 볼륨을 조정합니다.	Adjust the sound volume.
+캐릭터 음성 볼륨을 조정합니다.	Adjust the character voice volume.
+점검 완료 및 이벤트 푸시 공지를 수신합니다.	Receive push notifications.
+파견 완료 시, 푸시 알람을 수신합니다.	Receive push notifications when explorations complete.
+전투원이 수복 완료되면 푸시 알람을 수신합니다.	Receive push notifications when Units are recovered.
+연구가 완료되면 푸시 알람을 수신합니다.	Receive push notifications when research is completed.
+남은 수복 시간	Time for Recovery
+"[c][f0f0b3]{0}[-][/c]의 쾌속 수복에 다음과 같이 자원이 필요합니다`n쾌속 수복을 실행하시겠습니까?"	"Requires using: [c][f0f0b3]{0}[-][/c]`nWould you like to run a Quick Fix?"
+[c][FFFFFF7D]사정 거리[-][/c]	[c][FFFFFF7D]Range[-][/c]
+[c][FFFFFF7D]행동력 소모[-][/c]	[c][FFFFFF7D]AP Used[-][/c]
+{0} 파괴양을 정해주세요	Select the amount of {0} to consume
+{0} 파괴량을 정해주세요	Select the amount of {0} to consume
+[c][f0f0b3]{0}[-][/c] 전투원의 호감도가 상승했습니다.	The unit's affection has increased by [c][f0f0b3]{0}[-][/c]
+[c][f0f0b3]{0}[-][/c] 전투원의 경험치가 [c][f0f0b3]{1}[-][/c] 상승했습니다.	Unit [c][f0f0b3]{0}[-][/c] gained [c][f0f0b3]{1}[-][/c] experience.
+판매 중인 상품이 없습니다.	There is nothing on sale.
+자원 탐색 중인 스쿼드는 편집할 수 없습니다.	You cannot modify squads while they are exploring.
+정보창으로	Info Window
+적합률 : [c][f0f0b3]{0}%[-][/c]	Compatibility: [c][f0f0b3]{0}%[-][/c]
+더 이상 확장할 수 없습니다.	It cannot be extended further.
+해 제	Remove
+공지	Notice
+점검	Check
+이벤트	Event
+반복 전투는 클리어 스테이지만 가능합니다.	You can only Repeat Battle in cleared stages.
+연동됨	Linked
+소개말은 30자 제한 입니다.	Your welcome message is limited to 30 characters.
+전투 시뮬레이션 중에는 스쿼드 변경을 할 수 없습니다.	Squad changes cannot be made during combat simulation.
+장착 가능한 장비가 없습니다.	There is no available gear.
+유효 사거리 밖입니다.	Exceeds effective range.
+적용 중인 효과 없음	There is no effect
+배치됨	Deployed
+연구 필요 조건을 만족하지 못했습니다.	You did not meet the research requirements.
+소개말이 등록되었습니다.	Welcome message registered.
+정지기간 :	Wait time: 
+까지	Until
+잠시 후 반복전투가 시작됩니다	The battle will begin shortly
+반복전투 종료	End Repeat Battle
+"새로운 버전이 스토어에 업데이트 되었습니다.`n다운로드를 위해 스토어로 이동합니다."	"A new version has been released.`nPlease get the new version to play."
+지원 스쿼드의 유일한 전투원이어서 해제 또는 다른 스쿼드에 배치할 수 없습니다. 	This is the only Unit in the supporting squad and they cannot be released or placed in another squad.
+정보 없음	No information
+[c][FFBA29FF]{0}[-][/c]이(가) 부족해 진행할 수 없습니다	Not enough [c][FFBA29FF]{0}[-][/c] to proceed.
+지금은 서버가 혼잡합니다. 나중에 다시 시도해주세요 	The server is overloaded. Please try again later.
+강화 포인트가 모자라 선택할 수 없습니다.	There are not enough Enhancement Points left to select this Unit.
+더 이상 탐사를 보낼 수 없습니다.	You cannot send more explorers.
+"아래 메일로 문의 부탁 드립니다.`nE-mail : last_origin@smartjoy-game.com"	"Please contact us at the following e-mail:`nE-mail : last_origin@smartjoy-game.com"
+한 번에 분해할 수 있는 전투원 수가 가득 찼습니다.	The Unit recycling queue is full.
+한 번에 분해할 수 있는 장비 수가 가득 찼습니다.	The gear recycling queue is full.
+입장 티켓이 부족 합니다.	Out of daily tickets
+자기 자신은 검색할 수 없습니다.	You can't search for yourself.
+정보	Information
+- 기본 자원 보상 -	- Resources Found -
+- 추가 획득 보상 -	- Additional Materials Found -
+추가 보상이 없습니다.	No resources found.
+획득 보상이 없습니다.	No materials found.
+{0} 라운드 지속	{0} rounds remaining
+서버가 혼잡하여 입장이 지연되고 있습니다.	Access is delayed due to server overloading.
+입장 가능한 요일이 아닙니다.	Access is denied due to server availability.
+입장 자원이 부족합니다.	Access is denied due to a lack of resources.
+입장 대기인원 {0}명	Position in queue: {0}
+카페가기	Go to Cafe
+장시간 응답이 없어 앱을 종료합니다.	App has been closed due to inactivity.
+접속 대기 중입니다.	Waiting for connection.
+즉시	Momentarily
+종료	End
+선물할 아이템이 없습니다.	You have no gifts.
+[c][f0f0b3]{0}[-][/c] 전투원의 스킬 경험치가 [c][f0f0b3]{1}[-][/c] 상승했습니다.	[c][f0f0b3]{0}[-][/c] Units have gained [c][f0f0b3]{1}[-][/c] experience.
+게임 접속중입니다.	Connection Established
+게임 접속 대기	Wait for game connection
+한 번에 강화할 수 있는 장비 수가 가득 찼습니다.	The amount of gear you can power up at once is full.
+반복전투 취소	Cancel Repeat Battle
+사용 가능한 부품이 없습니다.	Not enough Parts.
+전투 진입 준비 중입니다...	Preparing to enter battle...
+자원 소모량 표기	Display resource costs
+코어 링크된 전투원 표기	Display Core Linked Units
+유효하지 않은 구글 계정입니다.	Invalid Google account
+구글 로그인에 실패하였습니다.	Google login failed
+강화 레벨이 최대인 장비여서 더 이상 강화할 수 없습니다.	You are at the gear enhancement limit for this item.
+장 착	Equip
+"교체할 장비는 현재 다른 캐릭터가 장착 중인 장비입니다.`n그래도 장착 하시겠습니까?"	"The gear to be replaced is currently equipped on another Unit.`nDo you want to equip it anyway?"
+장착 장비	Equipping
+교체 장비	Replace Gear
+자원 탐색중	Exploring
+스쿼드 슬롯 해제	Vacate squad slot
+회원탈퇴	Withdraw
+"회원 탈퇴를 하는 경우 계정내 모든 데이터가 삭제 됩니다.`n회원 탈퇴로 인한 데이터 초기화는 환불 대상이 아닙니다.`n정말로 회원 탈퇴를 진행하시겠습니까?"	"If you withdraw, all data in your account will be deleted.`nLoss of data due to withdrawal is not eligible for a refund.`nDo you really want to withdraw?"
+"회원 탈퇴를 하여 삭제된 계정데이터는 다시는 복구할 수 없습니다.`n정말로 회원 탈퇴를 진행하시겠습니까?"	"Loss of account data due to withdrawal cannot be recovered.`nDo you really want to withdraw?"
+경고!	Warning!
+재료 선택	Material selection
+모듈	Core
+획득 완료! 인벤토리를 확인해주세요.	Acquired! Please check your inventory.
+닉네임 변경	Change Name
+{0}이 1개 필요합니다.	One {0} is required.
+"변경할 닉네임을 입력해 주세요.`n변경 시 {0}이 1개 소모 됩니다."	"Please enter a new name.`nA {0} will be consumed for each name change."
+닉네임 변경이 완료 되었습니다.	Name change is complete.
+닉네임 변경권이 없습니다.	You are not allowed to change your name.
+"캐릭터 전체보기에서 사진 찍기 위해선 카메라 권한이 필요합니다.`n카메라 권한 요청을 하시겠습니까?"	"Camera permissions are required to take a picture.`nDo you want to grant camera permissions?"
+삼안 산업 물자 교환소	"Saman Industries`nMaterial Exchange"
+이벤트 교환	"Event`nExchange"
+강화 재료	Enhancement Materials
+제작 재료	Crafting Materials
+의상 처분	Costume Recycling
+의상 교환	Costume Exchange
+전투원/장비	Units / Gear
+좌측 탭에서 교환할 의상을 선택 해주세요.	Please select a costume to exchange from the left.
+선택된 의상을 하단에 표기된 교환권으로 교환합니다.	The selected costume will be exchanged for the voucher indicated below.
+교환하기	Exchange
+위의 내용으로 교환 하시겠습니까?	Do you want to exchange it with the above?
+교환수량	Quantity to exchange
+교환에 성공 하였습니다.	Exchange successful
+교환 완료	Exchange completed
+교환 실패	Exchange failed
+교환에 필요한 자원이 부족합니다.	Not enough resources for exchange
+교환할 {0}의 수량을 선택 해주세요.	Exchange how many {0}?
+이 상품으로 교환 하시겠습니까?	Do you want to exchange for this item?
+보유 의상	Owned Costumes
+교환 개수	Number of exchanges
+최대 교환 개수를 초과해 교환하실 수 없습니다.	You cannot exchange more than the maximum allowed exchanges.
+{0}개	{0} item(s)
+{0} [c][f0f0b3]{1}개[-][/c] 교환에 성공 하였습니다.	{0} [c][f0f0b3]{1}개[-][/c] exchanges were successful.
+연결이 원활하지 않아 요청을 수행할 수 없습니다.	A connection could not be made because of a poor connection quality.
+다시 접속	Reconnect
+연결이 원활하지 않아 진행할 수 없습니다. 타이틀 화면으로 돌아갑니다.	The connection quality is too poor to continue. Returning to the Title Screen.
+이벤트 스테이지	Event Stage
+인벤토리가 부족해 일부 품목은 우편으로 발송되었습니다.	Some items were mailed to you due to insufficient inventory space.
+전투 서버와 연결이 원활하지 않아 요청을 수행할 수 없습니다.	The request could not be completed due to poor connectivity with the battle server.
+전투 서버와 연결이 원활하지 않아 진행할 수 없습니다. 타이틀 화면으로 돌아갑니다.	The connection to the battle server was lost and cannot proceed. Returning to the Title Screen.
+분해중입니다. 잠시만 기다려주세요.	Recycling in progress, please wait.
+강화포인트	Enhancement Point
+운용 비용	Operating Costs
+부대 운용 비용	Unit operating costs
+탐사를 떠나면 선물을 받거나 수복이 불가능 합니다.	If you leave the expedition, you will not be able to receive or recover any gifts.
+탐사중인 스쿼드는 장비 장착/해제를 제외한 정보를 변경할 수 없습니다.	No changes can be made to an exploring squad except to equip or remove items.
+보낸 요청	Sent request
+보낸 요청을 취소 하시겠습니까?	Are you sure you want to cancel the request?
+보낸 요청이 없습니다.	No outbound requests.
+장비 잠금	Lock Gear
+잠금 해제	Unlock
+수복필요	Needs recovery
+중파	Moderate Damage
+장착 장비 숨기기	Hide Equipped
+강화 레벨	Enhancement Level
+획득	Obtained
+종류	Type
+보조	Equip
+전용	Special
+전투원 승급	Promote Unit
+승급 전투원 선택	Select Unit to promote
+승급시킬 전투원을 선택해 주세요.	Please select a Unit to promote.
+승급 [b2aaa5]조건[-]	Promotion [b2aaa5]conditions[-]
+■ 승급 대상인 전투원만 승급 목록에 출력됩니다.	■ Only promotable Units will be displayed.
+■ 승급에 필요한 [ffcc00]레벨[-]과 [00c6ff]호감도[-] 조건을 만족하면 승급을 진행할 수 있습니다.	You will be able to proceed only if you meet the [ffcc00]level[-] and [00c6ff]affection[-] requirements.
+■ [ffcc00]SS등급[-]으로 승급 시, 승급 [ffcc00]전용 스킨[-]이 활성화됩니다.	When promoted to [ffcc00]SS Rank[-], an exclusive skin will be awarded.
+승급에 필요한 조건을 달성하지 못했습니다.	You do not meet the requirement for promotion.
+호감도	Affection
+승급 시, 다음 자원이 소모 됩니다.	Promotion consumes the following resources.
+승급을 진행 하시겠습니까?	Do you want to proceed with the promotion?
+모든 승급이 완료된 전투원 입니다.	Unit has been fully promoted.
+다음 승급이 개방되지 않은 전투원 입니다.	The next promotion is not available for this Unit.
+스킬 레벨	Skill Level
+승급 대상	Promotion target
+호감도 : 	Affection: 
+신규 스킬	New skills
+전투입장	Battle Entry
+스킬정보	Skill Info
+승급 [b2aaa5]안내[-]	[b2aaa5]Promotion[-]
+이벤트 보급 획득	Event Resource Acquisition
+처분할 수 있는 상품이 없습니다.	There is nothing to exchange.
+■ 슬롯 상단의 영구 코어화 버튼을 통해 전투원을 인벤토리에서 제외 시킬 수 있습니다.	■ You can remove linked Units from the roster by using the link button above the link slot.
+■ 영구 링크로 소모한 전투원은 대기실로 되돌릴 수 없으며, 슬롯 초기화 시 사라집니다.	■ Units spent in a permanent link cannot return to the Lobby, and will disappear if the slot is reset.
+"슬롯에 표기할 스킨을 선택해 주세요.`n보유하고 있는 스킨내에서 변경이 가능 합니다."	"Please select a skin to be displayed.`nYou can select any skin you own."
+코어링크 : 적합률 [c][FFA820FF]{0}%[-][/c]	Core Link: Compatibility [c] [FFA820FF] {0}% [-] [/ c]
+코어 링크에 사용되는 전투원 보존 여부를 선택해 주세요.	Please choose whether or not to preserve the linked Unit.
+[c][FFA820FF]영구 링크 시, 해당 전투원은 링크 보너스를 제공 하고 인벤토리에서 사라집니다.[-][/c]	[c][FFA820FF]For permanent links, the Unit will provide a link and disappear from the roster.[-][/c]
+영구 링크	Permanent
+보존	Preserve
+전투원 영구 링크 불가	Unit Permanent Link Not Available
+장비를 장착중인 전투원은 링크가 불가능 합니다. 해당 캐릭터 설정으로 이동 하시겠습니까?	Units with gear cannot link. Do you want to go to the Character Details page?
+대체 코어 설정	Alternate Core Settings
+{0}을(를) 사용해 선택한 링크 슬롯에 적합률 [c][f0f0b3]100%[-][/c]인 대체 코어를 설정 합니다.	Use {0} to set an Alternate Core with [f0f0b3]100%[-][/c] compatibility for this slot.
+{0}을(를) 사용해 선택한 링크 슬롯에 적합률 [c][f0f0b3]100%[-][/c]인 대체 코어를 설정 합니다.	Use {0} to set an Alternate Core with [f0f0b3]100%[-][/c] compatibility for this slot.
+[c][f0f0b3]대체 코어는 링크되는 전투원의 형상으로 변경되며 슬롯에 영구 링크 됩니다.[-][/c]	[c][f0f0b3]Alternate Cores will take the shape of the Unit and be permanently linked.[-][/c]
+링크 방식 설정	Link Method Selection
+해당 전투원을 영구 링크 하시겠습니까?	Do you want to permanently link that Unit?
+풀 링크 보너스 설정	Full Link Bonus Settings
+"풀 링크 보너스는 [c][f0f0b3]1종만 선택[-][/c]할 수 있습니다.`n해당 기능을 풀 링크 보너스로 설정 하시겠습니까?"	"A Full Link Bonus [c][f0f0b3]can only be selected once.[-][/c]`nDo you want to select this Full Link bonus?"
+총 적합률 [c][22F5FFFF]{0}%[-][/c]	Total Link Quality [c][22F5FFFF]{0}%[-][/c]
+풀 링크 보너스	Full link bonus
+[c][22F5FFFF][풀 링크 보너스는 총 적합률 500% 달성 시, 설정할 수 있습니다.][-][/c]	[c][22F5FFFF][The full link bonus is obtained at 500% total link quality][-][/c]
+풀 링크 보너스 재 설정	Full link bonus reset
+코어 링크 해제기를 소모해 풀 링크 보너스를 위와같이 재설정 합니다.	Consumes the Link Breaker to reset the full link bonus as shown.
+링크 초기화	Begin Linking
+"현재 슬롯을 초기화 합니다. [c][f0f0b3]링크 중인 코어는 소멸[-][/c] 됩니다.`n해당 링크 슬롯을 초기화하기 위해서는 [c][f0f0b3]링크 해제기[-][/c]가 필요 합니다."	"Reset the current slot. [c][f0f0b3]The linked core will be destroyed[-][/c]`nAn [c][f0f0b3]Link Breaker[-][/c] is required to reset the link slot."
+적합률 {0}%	Compatibility
+■ 코어링크 - 총 적합률 [c][22F5FFFF]{0}%[-][/c]	■ Core Link - Total Link Quality [c][22F5FFFF]{0}%[-][/c]
+전투원 소모 불가	Unit cannot be consumed
+스킨 선택	Select skin
+장비를 장착중인 전투원은 링크가 불가능 합니다.	Units with gear cannot be linked.
+장비를 장착중인 전투원은 영구 링크가 불가능 합니다.	Units with gear cannot be permanently linked.
+장비를 장착중인 전투원은 영구 링크가 불가능 합니다.	Units with gear cannot be permanently linked.
+적용중	Apply
+풀링크 보너스 재설정	Reset full link bonus
+코어 링크 해제기를 소모해 풀링크 보너스를 위와같이 재설정 합니다.	Consume the Core Link Releaser to reset the full link bonus as shown.
+링크 보너스 총합	Link Bonus Total
+"영구 링크된 캐릭터를 링크 해제 할 경우 영구히 삭제 됩니다.`n정말로 영구 링크를 해제 하시겠습니까?"	"If you unlink a permanently linked Unit, it will be destroyed.`nDo you really want to unlink this Unit?"
+중요 전투원으로 등록되어 잠금 상태인 전투원은 영구 링크할 수 없습니다.	Units that are locked cannot be permanently linked.
+상	High
+중	Medium
+하	Low
+텍스쳐 품질	Texture Quality
+설정한 부관의 이미지가 변경되지 않고 고정됩니다.	The image of the current aide cannot be changed.
+"로비에서 출력되는 부관의 이미지가 보유하고 있는 모든 캐릭터의 이미지 중에서 랜덤으로 출력됩니다.`n실제 부관이 변경되는 것은 아니며 출력되는 이미지만 변경됩니다."	"The image of the aide in the lobby is randomly chosen from all Units owned.`nThe actual aide does not change, only the displayed image."
+"로비에서 출력되는 부관의 이미지를 보유하고 있는 모든 캐릭터 중에서 랜덤으로 출력합니다.`n실제 부관이 변경되는 것은 아니며 출력되는 이미지만 변경됩니다."	"Display a random character from all owned characters in the lobby.`nThe actual aide doesn't change, only the displayed image."
+"로비에서 출력되는 부관의 이미지가 보유하고 있는 모든 스킨의 이미지 중에서 랜덤으로 출력됩니다.`n실제 부관이 변경되는 것은 아니며 출력되는 이미지만 변경됩니다."	"The image of the aide in the lobby is randomly chosen from all Skins owned.`nThe actual aide does not change, only the displayed image."
+"로비에서 출력되는 부관의 이미지를 보유하고 있는 스킨 중에서 랜덤으로 출력합니다.`n실제 부관이 변경되는 것은 아니며 출력되는 이미지만 변경됩니다."	"Display a random skin from all skins of all characters owned in the lobby.`nThe actual aide doesn't change, only the displayed image."
+강화 불가 캐릭터 숨김	Hide Unenhanceable
+아직 사용할 수 없는 지원 스쿼드입니다.	Support squad unavailable.
+오르카 훈장 획득 수	Orca Medal Counter
+스킨전용 배경이 활성화 되어 있습니다.	Activated skin background
+이름	Name
+다음 문제 때문에 더 이상 반복 전투를 진행할 수 없습니다.	Autobattle ended for the following reason:
+장비 창고 부족	No more Warehouse space
+장비 창고 부족	No more Warehouse space
+캐릭터 창고 부족	No more Lobby space
+소모품 창고 부족	Not enough resource capacity
+자원 부족	Not enough resources
+획득 가능 보급	Obtainable resources
+철충 본대 도착까지 남은 일 수 :	Number of days remaining until main enemy arrives:
+교전 중인 전장	Battlefield
+진행 상황	Progress
+구역 클리어 시 보상	Reward for Area Clear
+점거 완료	Occupation complete
+교전 중	In engagement
+제 1구역	Area 1
+제 2구역	Area 2
+제 3구역	Area 3
+제 4구역	Area 4
+제 5구역	Area 5
+제 6구역	Area 6
+제 7구역	Area 7
+제 8구역	Area 8
+제 9구역	Area 9
+제 10구역	Area 10
+{0}구역 진행 상황 {1} 이상	Zone {0} progress is greater than {1}
+초기화 시, 해당 시점까지의 진행 상태에 따라 보상이 지급됩니다.	Upon resetting, rewards will be awarded based on your current progress.
+제 {0} 구역	Zone {0}
+도착임박	Arrival
+추가작업	Additional Work
+리셋	Reset
+상한 확장	Increase Limits
+비활성화된 스테이지여서 탐색을 보낼 수 없습니다.	Exploration cannot be start because it is disabled.
+배틀 로그	Battle Log
+아이템 정보	Item Info
+부품	Parts
+영양	Nutrients
+전력	Power
+자원 회복 한도	Resource Capacity
+연구 보너스	Research Bonus
+외부 부대	Friends
+소개말을 입력해 주세요.	Please enter your introduction
+전체 랜덤	Random(Unit)
+스킨 랜덤	Random(Skin)
+함장실	Commander's Room
+비밀의 방	Secret Room
+0.5배속	x0.5 Speed
+2배속	2x Speed
+3배속	3x Speed
+선물 선택	Select a gift
+제작하기	Craft
+고급모듈필요	Advanced module required
+공방	"Work-`nshop"
+로봇 설계도 목록	List of Robot designs
+머리	Head
+일반 제작 설정	General Crafting Settings
+상부	Upper
+하부	Lower
+특수 제작 설정	Special Crafting Settings
+메카닉 제작 설정	Robot Crafting Settings
+필요 자원	Required Resources
+총 소모 자원	Resource Cost
+보유 자원	Resources Held
+메카닉	Robots
+강화 전투원 선택	Choose a Unit to enhance
+회로 제공 전투원	Circuit Donor Units
+남은 강화 포인트	Enhancement Points Left
+강화 장비 선택	Choose Gear to enhance
+강화 재료 아이템	Enhancement material
+"닦고 조이고`n기름 치는 거거든?"	"Will you clean, tighten`nand grease?"
+"회로 제공`n전투원 선택"	"Install Circuit`nSelect Unit"
+지원	Support
+공격	Attacker
+보호	Defender
+낮은 순         ▲	Ascending         ▲
+보유 개수	Qty Held
+레벨	Level
+명중률	ACC
+스토리 캐릭터	Story Character
+정렬필터	Sort by
+정렬 기준 선택	Sort By
+높은 순         ▼	Descending         ▼
+수집율	Collection Rate
+출석 체크	Attendance Check
+등록 된 부대	Friend List
+부대 검색	Find Friend
+통신 요청	Received Requests
+등록 된 부대가 없습니다.	There are no friends registered.
+모두 거부	Reject All
+모두 수락	Accept All
+요청 받은 내역이 없습니다.	No requested details.
+친구 프로필	Friend's Profile
+부대명	Name
+검색 부대명 입력	Find by Unit name
+전투원 해제	Unlock Unit
+전투원 잠금	Lock Unit
+칩	Chip
+상세 정보	Details
+보유 한도	Capacity
+진행중	"In`nProgress"
+소모 강화 포인트	Enhancement Point Cost
+등급필터	Filter
+잔여 강화 포인트	Enhancement Points Left
+전투원 선택	Select Unit
+발견 가능	Find
+스테이지 클리어 조건	Stage Clear Conditions
+스테이지 패배 조건	Stage Defeat Conditions
+모든 적 처치	Defeat all enemies
+아군 스쿼드 전멸	Our squad is defeated
+실종 대원 목록	Lost Units
+획득 가능 물품	Salvageable Items
+스테이지 승리 조건	Victory Conditions
+클리어 보상	Stage Clear Rewards
+★4 보상	★4 Rewards
+탐사완료	Exploration Completion
+탐사시간	Exploration Time
+탐색	Explore
+완 료	Complete
+탐색 스쿼드	Exploration squad
+탐색 조건	Exploration Criteria
+추가 획득 가능	Additional Items
+탐색 완료 보상	Exploration Rewards
+반복전투	Repeat Battle
+수복시간	Recovery Time
+결정	Decide
+행동 개시	Begin
+달성한 이야기	Story Complete
+선택 된 이야기 없음	No Story Selected
+획득 가능한 보상	Possible Rewards
+보유 티켓 :	Held Tickets :
+모의 전투 훈련	Combat Simulation
+적정 전투력 :	"Recommended`nCombat Power"
+모든 스테이지를 클리어 했습니다.	All Stages Cleared
+분대 변경	Change Squad
+가능 요청 수	?Number of possible requests?
+전투 정비	Battle Repairs
+대상 정보	Target Info
+상태 정보	Status Info
+전투 개시	Begin Battle
+승급에 필요한 레벨 조건을 만족하지 못해 승급할 수 없습니다.	Cannot promote. The level requirement for promotion has not been met.
+승급에 필요한 호감도 조건을 만족하지 못해 승급할 수 없습니다.	Cannot promote. The affection requirement has not been met.
+승급에 필요한 재료가 부족해 승급할 수 없습니다.	Cannot promote. You do not have the required materials.
+제 {0}구역 {1}섹터	Area {1} - Zone {0}
+점거 실패	?Failed to occupy?
+임무 중 획득 아이템	Mission Items Acquired
+출현 적	Enemies emerge
+확보한 보급품 수	Supplies Secured
+최대 도달 구역	Highest Area Reached
+장비를 장착중인 전투원은 링크가 불가능 합니다. 해당 캐릭터 설정으로 이동 하시겠습니까?	Cannot link Units that are equipped with gear. Do you want to go to the Unit Settings?
+한 번에 강화할 수 있는 장비 수가 가득 찼습니다.	You have reached the limit of selectable enhancement material.
+그럼, 주인님 간략하게 설명을 드릴게요.	Commander, I will give you a brief explanation.
+"지휘 콘솔을 봐주세요.`n일단은 제가 가장 먼저 공격 준비가 되었어요."	"Please look at the command console.`nAs it stands, I'm the first to be ready to attack."
+"지휘 콘솔에 표시된 우리 얼굴은 공격 순서를 의미해요.`n전투 준비 상태는 AP라고 하고 준비된 상태를 10으로 표시해요. 기억해 주세요."	"Our faces on the command console represent the order of attack.`nCombat readiness is measured by AP and we are ready when it reaches 10. Please take note of this."
+이번엔 저만 전투 준비가 되었어요. 그래도 선공으로 시작할 수 있겠네요. 	Right now, I'm the only one ready to fight, but I will start with a first lesson.
+"그럼 제가 할 수 있는 행동을 지정할 차례에요. `n전투 명령엔 저희의 전투 기술 사용이 가장 기본이에요."	"Then it's my turn to plan an action.`nOur use of combat skills is fundamental to a successful battle strategy."
+"그 외에도 이동이나 대기 명령도 가능하지만… 이번엔 가장 적을 빨리 무찌르는 게 가장 중요하니 `n우선 가장 공격력이 강한 전투 기술을 사용하기로 해요."	"You can also move around and wait, but... The most important thing right now is the defeat the enemy quickly. `nFirst, let's use the most aggressive strategy."
+"자, 명령할 전투 기술을 선택하셨으면 적을 지정해 주세요. `n일단은 앞에 있는 적이 좋겠네요."	"Now, if you have selected a combat skill to execute, please select an enemy to target. `nI'd like to be in front of you for now."
+좋아요. 적이 반파되었네요. 그럼 다음 전투 명령을…	All right, the enemy has been damaged. Then I'll give you the next battle order...
+다음은 나야 나! 헤헤! 이번엔 나도 준비 됐다고!	It's me next! Heheh! I'm ready this time!
+"사령관! 이번엔 내가 먼저거든?`n앞에 있는 녀석부터 얼른 처치하고 뒤에 있는 녀석과 거리부터 줄이자고!"	"Commander, I'm the first one this time.`nLet's get rid of the one in front of us so we can close in on the back one!"
+쓸 기술은 기본적으로 지정되어 있으니 바로 앞에 있는 녀석을 목표로 지정해 줘!	The skill you're going to use is selected, so please target the enemy in the front!
+좋아! 공격 준비 완료!	All right! Ready to attack!
+주인님, 제 목표도 지정해 주세요.	 Commander, I need you to select my target.
+"[c][FFBA29FF]{0}[-][/c]의 연구를 즉시 완료합니다.`n[c][FFBA29FF]수상한 연산회로[-][/c] 1개가 소모됩니다."	"Complete researching [c][FFBA29FF]{0}[-][/c] immediately.`nOne [c][FFBA29FF]Strange Circuit[-][/c] will be used."
+"이 스테이지에선 친구 스쿼드를`n사용할 수 없습니다."	"You cannot use your friend's squad on this stage."
+사용할 수 있는 친구 스쿼드가 없습니다	No friend squad available
+설치할 수 있는 최대 개수를 초과해 소환할 수 없습니다	You cannot summon more than the maximum number that can fit.
+요청 받은 친구 목록이 없습니다.	There are no friend requests listed.
+"[c][ffcc00]{0}단계[-][/c]`n진행중"	"Stage [c][ffcc00]{0}[-][/c]`nIn Progress"
+이야기 {0} <{1}> 시작되었습니다.	Begin stage <{1}> of Story {0}.
+이야기 {0} <{1}>의 스테이지로 이동하시겠습니까?	Do you want to go to Stage <{1}> of Story {0}?
+"등급 / 레벨이 높은 캐릭터입니다. 정말 전투 모듈을 분해하시겠습니까?`n모듈 분해 시 해당 캐릭터는 사라집니다."	"The Unit has a high rank or level. Are you sure you want to recycle it?`nWhen you recycle a Unit, it will be destroyed."
+"분해`n전투원 선택"	"Recycling`nSelect a Unit"
+"분해`n장비 선택"	"Recycling`nSelect Gear"
+"출격 가능 스쿼드 수가 최대여서 더 이상 `n출격 스쿼드를 등록할 수 없습니다."	"The maximum number of squads has been reached.`nUnable to register further squads"
+"[c][f0f0b3]{0}[-][/c]의 수복에 다음과 같이 자원과 시간이 필요합니다.`n수복을 실행하시겠습니까?"	"It will cost the following resources to recover [c][f0f0b3]{0}[-][/c]. Are you sure you want to begin recovery?"
+"수복에 필요한 자원이 부족합니다.`n자원을 구입하시겠습니까?"	"There are not enough resources to begin recovery.`nWould you like to purchase some?"
+"잠긴 슬롯을 해제하시겠습니까?`n(슬롯 해제를 위해서는 상점에서 슬롯 확장 메뉴를 구입하여야 합니다.)"	"Do you want to open the locked slot?`n(To open the slot you must purchase a slot expansion from the store"
+"쾌속 수복 나노 머신이 부족합니다.`n(즉시 수복을 위해서는 해당 아이템을 구입해야 합니다.)"	"There are no more Quick Fix Nanomachines.`n(In order to recover instantly, you must purchase some)"
+"즉시 수복을 시행 하시겠습니까?`n(즉시 수복에는 쾌속 수복 나노 머신이 필요합니다.)"	"Do you want to recover instantly?`n(You will need a Quick Fix Nanomachine.)"
+"강화 회로 제거기가 부족합니다.`n(강화 회로 제거를 위해서는 강화 회로 제거기를 구입해야 합니다.)"	"There are no more enhancement Circuit Removers.`n(To remove enhancements, a Circuit Remover must be purchased)"
+업데이트 예정입니다.	Scheduled for update.
+"해당 재료는 강화가 되어있는 아이템 입니다.`n정말 재료로 사용하시겠습니까?"	"This material is enhanced.`nAre you sure you want to use it as enhancement material?"
+"{0}의 스킬 {1}의 레벨이 {2}이 되었습니다.`n[url={3}][c][c68115][상세확인][-][/c][/url]"	"The skill {1} in {0} has reached a level of {2}`n[url=3}c68115][details][-][/c][/url]"
+"다른 전투원이 장착한 코어 해제를 위해서는 코어 링크 해제기가 필요합니다.`n기존 링크를 해제해 장착하시겠습니까?"	"A Link Breaker is required to release the cores installed in other Units.`nAre you sure you want to remove the existing link?"
+"코어 링크를 해제할 링크 해제기가 부족합니다!`n(링크 해제를 위해서는 링크 해제기를 상점에서 구입해야 합니다.)"	"There are no more Link Breakers to be able to release the core link!`n(To release the link, a Link Breaker must be purchased.)"
+"[c][FFA820FF]코어 링크를 할 경우, 코어를 해제하기 위해서는 코어 링크 해제기가 필요합니다.`n코어 링크를 하시겠습니까?[-][/c]"	"When you make a core link, you would need a Link Breaker in order to release it.`nAre you sure you want to make a core link?"
+{0} 스테이지를 클리어하시면 해금됩니다.	Clear Stage {0} to open.
+"캐릭터의 숙소가 꽉 찼습니다.`n숙소를 확장 하시겠습니까?"	"The lobby is full.`nWould you like to expand your available space?"
+"전투원제작을 진행하기 위한 자원이 부족합니다.`n자원 구매를 위해 상점으로 이동하시겠습니까?"	"There are not enough resources to complete crafting.`nDo you want to go to the store to purchase some?"
+"유전자 씨앗이 부족합니다.`n(바이오로이드 제작을 위해서는 유전자 씨앗을 구입해야 합니다.)"	"There are not enough Gene Seeds.`n(To produce Bioroids, you will have to purchase Gene Seeds.)"
+"급속 완성 회로가 부족합니다.`n(급속 완성을 위해 제조권을 구입해야 합니다.)"	"There are not enough Quick-Complete Circuits.`n(Quick-Complete Circuits must be purchased to fast-track crafting)"
+급속 완성 회로 부족!	Not enough Quick-Complete Circuits!
+"제작을 즉시 완성 하시겠습니까?`n(즉시 완성에는 제조권이 필요합니다.)"	"Do you want to fast-track crafting?`n(You will need a Quick-Complete Circuit to fast-track crafting.)"
+"AI 코어가 부족합니다.`n(로롯 제작을 위해서는 AI 코어를 구입해야 합니다.)"	"There are not enough AI Cores.`n(In order to craft a Robot, you must purchase an AI Core.)"
+"전투 장비 코어가 부족합니다.`n(장비 제작을 위해서는 전투 장비 코어를 구입해야 합니다.)"	"There are not enough Battle Gear Cores.`n(In order to craft gear, you must purchase a Battle Gear Core.)"
+"장비제작을 진행하기 위한 자원이 부족합니다.`n자원 구매를 위해 상점으로 이동하시겠습니까?"	"There are not enough resources to proceed with gear crafting.`nDo you want to go to the store to purchase some?"
+"이 강화를 진행하기 위한 자원이 부족합니다.`n자원 구매를 위해 상점으로 이동하시겠습니까?"	"There are not enough resources to proceed with enhancement.`nDo you want to go to the store to purchase some?"
+탐색중에는 코어시스템을 이용할 수 없습니다.	You cannot use the Core system while Exploring.
+탐색중에는 아이템시스템을 이용할 수 없습니다.	You cannot use the Gear system while Exploring.
+해당 pc는 탐색중입니다.	?The corresponding PC is being explored.?
+기억을 잃은 내가 깨어났을 때 첫 번째로 들은 소식은 나를 제외한 모든 인간이 멸망했다는 소식이었다.	The first news I heard when I woke up was that all humans except me were destroyed.
+전투원의 강화 상한을 확장하기 위해서는 회로를 제공할 재료 전투원이 필요합니다.	In order to enhance the capabilities of a unit, we need material units to provide their Circuits.
+전투원을 강화하기 위해서는 회로를 제공할 재료 전투원이 필요합니다.	In order to enhance a unit, we need material units to provide their Circuits.
+"강화를 리셋할 경우,`n모든 강화 스탯이 초기화되고 강화 가능 회수를 되돌려 받게 됩니다.`n강화를 리셋 하시겠습니까?"	"If you reset enhancements,`nAll enhancements will be reset and you will be refunded spent enhancement points.`nDo you want to reset enhancements?"
+"쾌속 수복을 진행하기 위한 자원이 부족합니다.`n자원 구매를 위해 상점으로 이동하시겠습니까?"	"There are not enough resources to complete a Quick Fix.`nDo you want to go to the store to purchase some?"
+"다음 자원을 소모해`n[c][f0f0b3]{0}[-][/c] 전투원을 수복합니다."	"It will cost the following resources`nto recover [c][f0f0b3]{0}[-][/c]"
+"메인`n스토리"	"Main`nStory"
+"일일`n훈련"	"Daily`nTraining"
+"외전`n스토리"	"Sub-`nStory"
+캐릭터 상세 [c][FFBA29FF]Character Info	Unit Details [c][FFBA29FF]Character Info
+세계	World
+편성	Order
+상점	Store
+기지	Base
+"{0}단계`n진행 중..."	"Stage {0}`nIn Progress..."
+교환소	Exchange Station
+보낸 요청을 취소 하시겠습니까?	Are you sure you want to cancel the request?
+"수복에 필요한 자원이 부족합니다`n자원을 구입하시겠습니까?"	"There are not enough resources to begin recovery`nWould you like to purchase some?"
+예상 적 전투력 : {0}	Expected Enemy Combat Power : {0}
+제 {0}구역 점거 후 진행 가능	You can proceed after occupying Zone {0}
+되돌리기	Restore
+기록 갱신!	Record updated!
+강화할 전투원을 선택해 주세요.	Please select a Unit to enhance.
+해당 능력치의 강화 레벨 상한 확장이 필요합니다.	You must raise the limit of the corresponding enhancement level.
+항목 상세정보	Item Details
+최대 강화상한을 초과해 해당 캐릭터를 재료로 사용할 수 없습니다.	You cannot use the Unit as material beyond the enhancement limit.
+기술자 한 명 더 구해주시든지..	Get me another engineer..
+전투원에 코어 링크 장착	Install one Core Link to Units
+확보 예정 광물 수	Number of minerals to acquire
+구역 위험도 : {0}	Area Danger: {0}
+구역 위험도 : {0}	Area Danger: {0}
+확보 가능 광물 수	Number of available minerals
+{0}횟수 남음	{0} times left
+현재 폐쇄된 상태라 진입할 수 없습니다.	Unable to enter because it is currently closed.
+다음 전장 개방일 : {0}	Next War Opening Day: {0}
+영원한 전장	Endless War
+철충 거점을 점령해 특수 광물을 확보하십시오. 점령한 구역이 많을수록 철수 시 획득하는 광물이 증가합니다.	Take control of the Iron Parasite bases to secure special minerals. The more zones you control, the more minerals are acquired upon withdrawal.
+강화 상한 레벨 확장	Enhancement Upper Limit Expansion
+확보 예정 광물 총량	Total minerals secured
+더 이상 확장할 수 없습니다.	Expansion limit reached
+중복 스쿼드는 등록할 수 없습니다.	Duplicate squads may not be registered.
+이미 클리어한 스테이지여서 보상이 지급되지 않습니다.	The stage was already cleared so no reward will be given.
+문의	Inquiry
+출현 확률	Chance of Appearing
+부관으로 설정된 전투원은 영구 링크할 수 없습니다.	A unit set as an aide cannot be permanently linked.
+구글 연동됨	Google Linked
+이용 약관	Terms of Use
+개인정보처리방침	Privacy Policy
+자금결제법	Payment Settlement Law
+제작 기록	Production Record
+일반 전투원 제작 기록	General Unit Production Record
+특수 전투원 제작 기록	Special Unit Production Record
+장비 제작 기록	Equipment Production Record
+제작 투입	Production Input
+전체	All
+경장 공격기	Light Attacker
+경장 보호기	Light Defender
+경장 지원기	Light Support
+기동 공격기	Flying Attacker
+기동 보호기	Flying Defender
+기동 지원기	Flying Support
+중장 공격기	Heavy Attacker
+중장 보호기	Heavy Defender
+중장 지원기	Heavy Support
+회로	Circuit
+OS 시스템	OS System
+보조 장비	Auxiliary Equipment
+제조 시설 no.{0}	Manufacturing Facility no.{0}
+트위터 연결되지 않음	Twitter not connected
+트위터 연동됨	Twitter-linked
+이미 연동된 계정입니다.	This account has already been linked.
+무료	Free
+유료	Pay
+캐릭터를 빠르게 두 번 터치시 동일한 캐릭터가 일괄 선택됩니다.	When you double-tap a unit, all of the same unit is selected.
+장비를 빠르게 두 번 터치시 동일한 장비가 일괄 선택됩니다.	You can batch-select the same equipment when a piece is double-tapped.
+속성 저항	Effect Resistance
+배경	Background
+배경 설정	Background Settings
+캐릭터 설정	Character Settings
+기본배경프리셋{0}	Default Background Preset {0}
+프리셋 이름 변경	Rename Preset
+변경할 프리셋 이름을 설정해주세요.	Please set the preset name to change.
+최대 10자의 한글, 영문, 숫자를 사용할 수 있습니다.	You can use up to 10 Korean, English and numeric characters.
+프리셋 설정	Preset Settings
+배경 / 캐릭터	Background / Character
+프리셋 이름	Preset Name
+프리셋 랜덤	Random Preset
+프리셋에 등록 되어 있는 캐릭터입니다.	The character is registered in a preset.
+이름변경	Rename
+프리셋 편집	Edit Preset
+캐릭터를 선택해주세요.	Please select a character.
+배경을 선택해주세요.	Please select a background.
+이름을 입력해주세요.	Please enter a name.
+변경된 프리셋 설정이 없습니다.	No preset settings have been changed.
+이미 자원탐사가 진행중입니다.	The exploration is already underway.
+프리셋을 설정을 초기화 하시겠습니까?	Do you want to reset the preset?
+초기화	Initialization
+보유하지 않은 배경입니다.	You do not have the background.
+부관 변경시 일시적으로 프리셋 설정이 해제됩니다.	Preset settings are temporarily disabled when changing the aide.
+[c][f0f0b3]{0}[-][/c]에게 [c][f0f0b3]{1}[-][/c]아이템을 선물하여 호감도가 [c][f0f0b3]{2}[-][/c] 상승했습니다.	You have given [c][f0f0b3]{1}[-][/c] to [c][f0f0b3]{0}[-][/c] as a gift, increasing their affection by [c][f0f0b3]{2}[-][/c].
+현재 전투원 레벨 [c][f0f0b3]: {0}[-][/c]	Current fighter level[c][f0f0b3]: {0}[-][/c]
+선물수량	Gift Quantity
+상거래법	Commercial Transaction Law
+일반 모듈	General Module
+중급 모듈	Intermediate Module
+고급 모듈	Advanced Module
+최대 선물수량을 초과하였습니다.	Maximum number of gifts has exceeded.
+더 이상 선물을 할 수 없습니다.	You cannot give any more gifts.
+최대 레벨 도달	Maximum level reached
+기본 적용	Apply Default
+프리셋 적용	Apply Preset
+캐릭터 랜덤	Random character
+캐릭터 및 배경 랜덤	Random background and character
+스킨 및 배경 랜덤	Random skin and background
+"로비에서 출력되는 부관 및 배경 이미지를 미리 설정한 프리셋에서 출력합니다.`n실제 부관이 변경되는 것은 아니며 출력되는 이미지만 변경됩니다."	"Displays character and backgrounds in the lobby from your presets.`nThe actual aide does not change, only the displayed image."
+"로비에서 출력되는 부관 및 배경 이미지를 보유하고 있는 모든 캐릭터 및 배경 중에서 랜덤으로 출력합니다.`n실제 부관이 변경되는 것은 아니며 출력되는 이미지만 변경됩니다."	"Display a random skin and background from all owned characters with skin and background combinations in the lobby.`nThe actual aide does not change, only the displayed image."
+"로비에서 출력되는 부관 및 배경 이미지를 보유하고 있는 모든 스킨 및 배경 중에서 랜덤으로 출력합니다.`n실제 부관이 변경되는 것은 아니며 출력되는 이미지만 변경됩니다."	"Display a random character and background from all owned characters with character and background combinations in the lobby.`nThe actual aide does not change, only the displayed image."
+일괄해제	Batch Release
+스킬레벨 정보	Skill Level Information
+LV.{0}	Lv.{0}
+[c][f0f0b3]닉네임 확인[-][/c]	Confirm Name
+다음 호칭으로 사용하시겠습니까?\n\n[c][f0f0b3]{0}[-][/c]	Do you want to use this name?\n\n[c][f0f0b3]{0}[-][/c]
+다음 호칭으로 변경하시겠습니까?\n\n[c][f0f0b3]{0}[-][/c]	Do you want to change the next name?\n\n[c][f0f0b3]{0}[-][/c]
+기록실	Record Room
+출현확률	Chance to appear
+연구 효과	Research Effect
+연구대기	Awaiting Research
+연구시간	Time to Research
+를 실행 하시겠습니까?	Do you want to run it?
+대상을 선택하세요.	Please select a target.
+재고	Stock
+전투 승리	Battle Victory
+중파 스킨 설정은 프리셋 및 캐릭터 상세보기 메뉴에 일괄 적용됩니다.	Damaged skin status is immediately visible in presets and character detail menus.
+잠금을 해제 하려면 화면을 스크롤 하세요.	Scroll the screen to unlock.
+버튼을 누르면 미니게임을 시작합니다.	Press the button to start the minigame.
+화면보호기 설정	Screen Saver Settings
+{0}분	{0} minutes
+다음 퍼즐	Next Puzzle
+슬라이드 퍼즐을 풀어보세요!	Solve the slide puzzle!
+[c][f0f0b3]{0}%[-][/c]	[c][f0f0b3]{0}%[-][/c]
+근방에서 아군 신호 탐색중...	Searching for friendly signals in the area...
+일괄 수령중 입니다. 잠시만 기다려주세요.	Starting bulk receipt. Please wait.
+[c][ffb900ff]제작 중인 장비[-][/c]가 있습니다.\n [c][ffb900ff]급속 완성 회로[-][/c]를 소모하여 즉시 완성 하시겠습니까?\n\n즉시 완성된 장비는 [c][ffb900ff]일괄적으로 수령[-][/c]됩니다.\n\n[sub][c][CDCDCDFF]SS급 장비를 제외한 등장 연출은 생략됩니다.[-][/c]	[c][ffb900ff]There is equipment in production[-][/c].\nDo you want to consume a [c][ffb900ff]Quick-Complete Circuit[-][/c] and complete it immediately?\n\nQuick-Completed equipment is received [c][ffb900ff]as a batch[-][/c].\n\n[sub][c][CDCDCDFF]Only SS-Class equipment will be shown.[-][/c]
+수령	Receipt
+일괄 수령 완료	Bulk receipt complete
+일괄 제작 중입니다. 잠시만 기다려주세요.	Working on batch production. Please wait.
+제조 중인 장비가 없습니다.	No equipment is being produced.
+수령 가능 장비가 없습니다.	No equipment available.
+일괄제작	Batch Production
+[c][ffb900ff]비어있는 슬롯[-][/c]에 원하는 수량 만큼의 제작을 진행 합니다.\n\n현재 비어있는 슬롯 개수는 [c][ffb900ff]{0}칸[-][/c] 입니다.	Produce the desired quantity [c][ffb900ff]in empty slots[-][/c].\n\nThere are currently [c][ffb900ff]{0}[-][/c] slots available.
+[c][ffb900ff]비어있는 슬롯[-][/c]에 원하는 수량 만큼의 제작을 진행 합니다.\n\n현재 비어있는 슬롯 개수는 [c][ffb900ff]{0}칸[-][/c] 입니다.\n\n[sub][c][CDCDCDFF]제작 수량 당 자원 소모치는 현재 배분한 자원과 동일합니다.[-][/c]	Produce the desired quantity [c][ffb900ff]in empty slots[-][/c].\n\nThere are currently [c][ffb900ff]{0}[-][/c] slots available.\n\n[sub][c][CDCDCDFF]The resource consumption per build quantity is the same as the resources currently allocated.[-][/c]
+제작수량	Production Quantity
+제작에 필요한 재료가 부족합니다.	Insufficient materials to build.
+제작에 필요한 자원이 부족합니다.	Insufficient resources to build.
+제작에 필요한 슬롯이 부족합니다.	Insufficient slots to build.
+최대 제작 수량입니다.	Maximum production quantity.
+계정연동에 실패했습니다.	Account linking failed.
+코어링크 - 총 적합률 [c][22F5FFFF]{0}%[-][/c]	Core Link - Total Fit [c][22F5FFFF]{0}%[-][/c]
+스킬 범위	Skill Range
+[c][ffb900ff]제작 중인 캐릭터[-][/c]가 있습니다.\n [c][ffb900ff]급속 완성 회로[-][/c]를 소모하여 즉시 완성 하시겠습니까?\n\n즉시 완성된 캐릭터는 [c][ffb900ff]일괄적으로 수령[-][/c]됩니다.\n\n[sub][c][CDCDCDFF]우측 상단 버튼을 사용하여 등장 연출을 모두 스킵할 수 있습니다.[-][/c]	[c][ffb900ff]There are characters in production[-][/c].\nDo you want to consume a [c][ffb900ff]Quick-Complete Circuit[-][/c] and complete it immediately?\n\nQuick-Completed characters are received [c][ffb900ff]as a batch[-][/c].\n\n[sub][c][CDCDCDFF]You can use the top-right button to skip character display.[-][/c]
+제조 중인 캐릭터가 없습니다.	No characters are in production.
+수령 가능 캐릭터가 없습니다.	No characters can be collected.
+스킬 상세 정보 -	Skill Details -
+지원 받을수 있는 외부 부대가 없습니다	There are no external units available for backup
+의 스쿼드 배치	Squad Placement
+구매 확인	Confirm Purchase
+구매 완료	Purchase Completed
+삼안 산업 물자 영업소에\n오신 걸 환영합니다!\n\n무엇을 도와드릴까요?	Welcome to the Saman Industrial Material Supplies Office!\n\nWhat can I do for you?
+승리 조건	Victory Conditions
+패배 조건	Defeat Conditions
+미션	Mission
+최대 강화 장비 숨기기	Hide Max Enhancement Equipment
+기타	Other
+고정 범위	Fixed Range
+상대 좌표	Relative to Target
+30초	30 Seconds
+5분	5 Minutes
+15분	15 Minutes
+OFF	OFF
+화면 보호기	Screen Saver
+전투 중, 조작이 없을 경우 화면 보호기를\n자동으로 실행하는 시간을 조정 합니다.	Adjusts the time to automatically launch\nthe screen saver when idling during combat.
+품절	Sold Out
+적용중인 상품입니다.	The item effect is applied.
+ON	ON
+[c][97a9a3]{0} 반격 실패(스킬사용불가)[-][/c]	[c][97a9a3]{0} Counterattack Failed (Skill Unavailable)[-][/c]
+[c][97a9a3]{0} 반격 실패(행동불가)[-][/c]	[c][97a9a3]{0} Counterattack Failed (Cannot Act)[-][/c]
+[c][97a9a3]{0} 반격 실패(사거리)[-][/c]	[c][97a9a3]{0} Counterattack Failed (Range)[-][/c]
+[c][97a9a3]{0} 지원공격 실패(스킬사용불가)[-][/c]	[c][97a9a3]{0} Support Attack Failed (Skill Unavailable)[-][/c]
+[c][97a9a3]{0} 지원공격 실패(행동불가)[-][/c]	[c][97a9a3]{0} Support Attack Failed (Cannot Act)[-][/c]
+[c][97a9a3]{0} 지원공격 실패(사거리)[-][/c]	[c][97a9a3]{0} Support Attack Failed (Range)[-][/c]
+{0} {1} 방어막 흡수	{0} {1} Shield Absorption
+구매가능 최대 금액을 초과하여 더 이상 구매가 불가능 합니다.	You cannot purchase more than the maximum amount available.
+반복 전투 [c][00C0FFFF]{0}[-][c]회 완료!	Completed Repeat Battle [c][00C0FFFF]{0}[-][c] times!
+삼안 산업 재활용 교환소	Saman Industrial Recycling Exchange
+개봉 결과	Disassembly result
+제재된 유저입니다.\n사유 : {0}\n기간 : {1} ~ {2}	Sanctioned User.\nReason: {0}\nDate range: {1} to {2}
+회원탈퇴가 신청된 아이디입니다. 복구작업을 진행하시겠습니까?	This ID has been applied for membership withdrawal. Do you want to proceed with the recovery operation?
+복구작업이 완료되었습니다. 타이틀화면으로 돌아갑니다.	Recovery operation completed successfully. Returning to the title screen.
+모든 임무	All Missions
+전투	Battle
+강화/승급	Enhance / Promote
+제조	Produce
+계정으로 로그인	Log in with your account
+캐릭터 보유 수량 초과	Unit capacity exceeded
+자원 구매 안내	Resource Purchase Guide
+트위터 계정 연동 되었습니다.	Your Twitter account has been linked.
+로그인 정보가 만료되어 게임을 종료합니다	Exiting game due to login information expiring
+B급 일괄 선택	B-Class batch selection
+B급 일괄 해제	B-Class batch disassembly
+프리셋 설정된 전투원은 영구 링크가 불가능 합니다.	Units in a preset cannot be permanently linked.
+[c][2ac940]{0}의 재공격[-][/c]	[c][2ac940]Re-Attack of {0}[-][/c]
+{0} 피해 최소화	Minimize Damage {0}
+{0} 피해 무효	Nullify Damage {0}
++ 를 탭해 대원을 충원 할 수 있습니다.	+ Tap to recruit units.
+(완료)	(Complete)
+오늘은 더 이상 출력하지 않음 	No more output today 
+[FFCC00FF]▼[-] [보기]	[FFCC00FF]▼[-] [View]
+[FFCC00FF]▲[-] [닫기]	[FFCC00FF]▼[-] [Close]
+콘스탄챠의	Constantia
+공지사항	Notice
+전투 불능 전투원이 있어 전투 종료	Ending battle due to an inoperable unit
+전투 진입 불가	Unable to enter battle
+수용 초과로 인해 전투 종료	Ending battle due to exceeding capacity
+자원 부족으로 인해 전투 종료	Ending battle due to a lack of resources
+자원 탐색 현황을 상단에서 확인하실 수 있습니다.	You can check the status of explorations at the top.
+대기시간	Waiting Time
+강화	Enhance
+품절된 상품 숨기기	Hide out-of-stock items
+#4 퍼즐 메세지 	Puzzle Message #4 
+#5 퍼즐 메세지 	Puzzle Message #5 
+#6 퍼즐 메세지 	Puzzle Message #6 
+오프닝 영상 재생	Replay Opening Video
+서약	Pledge
+대사	Dialogue
+-획득 모듈-	-Acquired Modules-
+-획득 자원-	-Acquired Resources-
+추가 획득 보상	Additional Acquisitions
+서약된 전투원은 영구 링크가 불가능 합니다.	Pledged units cannot be permanently linked.
+최대 호감도	Maximum Affection
