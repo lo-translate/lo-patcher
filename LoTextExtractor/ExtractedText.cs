@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace LoTextExtractor
+﻿namespace LoTextExtractor
 {
-    class ExtractedText
+    internal class ExtractedText
     {
         public string Japanese;
         public string Korean;
