@@ -117,7 +117,7 @@ namespace LoTextExtractor
         public void LoadKnownTextFromTsv(string input)
         {
             var engine = new FileHelperEngine<Translation.TsvTranslation>();
-            
+
             using var stream = File.OpenRead(input);
             using var reader = new StreamReader(stream);
 

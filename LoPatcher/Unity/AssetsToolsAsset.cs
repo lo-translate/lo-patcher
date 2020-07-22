@@ -42,6 +42,11 @@ namespace LoPatcher.Unity
 
         public AssetsReplacer BuildReplacer(byte[] newScript)
         {
+            if (newScript == null)
+            {
+                throw new ArgumentNullException(nameof(newScript));
+            }
+
             using var memoryStream = new MemoryStream();
             using var assetWriter = new AssetsFileWriter(memoryStream);
 
