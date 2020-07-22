@@ -1,7 +1,6 @@
 ﻿using LoTextExtractor.Lo.Generated;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.Serialization;
@@ -19,8 +18,6 @@ namespace LoTextExtractor
 
         public override Type BindToType(string assemblyName, string typeName)
         {
-            Debug.WriteLine($"Missing type: typeName={typeName}; assemblyName={assemblyName}");
-
             var updatedTypeName = typeName;
 
             // Loop through the Generated classes and replace any type requests with the new location
@@ -75,11 +72,6 @@ namespace LoTextExtractor
                 {
                     return new List<Table_PCStory>().GetType();
                 }
-            }
-
-            if (typeName != updatedTypeName)
-            {
-                Debug.WriteLine($"Updated type: typeName={updatedTypeName}; assemblyName={assemblyName}");
             }
 
             return typeToDeserialize;
