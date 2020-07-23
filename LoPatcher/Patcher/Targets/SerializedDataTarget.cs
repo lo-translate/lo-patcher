@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -137,7 +136,7 @@ namespace LoPatcher.Patcher.Targets
 
                     // Write the area after the match.
                     bufferStream.Write(
-                        dataBytes, 
+                        dataBytes,
                         index + searchBytes.Length, // Start after the search result
                         dataBytes.Length - searchBytes.Length - index // To the end
                     );
@@ -151,14 +150,13 @@ namespace LoPatcher.Patcher.Targets
                 replacedStrings++;
             }
 
-            Debug.WriteLine(
-                $"Replaced {replacedStrings.ToString("N0", NumberFormatInfo.CurrentInfo)} strings " +
-                $"({replacedInsances.ToString("N0", NumberFormatInfo.CurrentInfo)} instances) in SerializedData " +
-                $"({neededEolChange} EOL changes needed)"
-            );
-
             if (replacedStrings > 0)
             {
+                Debug.WriteLine(
+                    $"Replaced {replacedStrings:N0} strings ({replacedInsances:N0} instances) in SerializedData " +
+                    $"({neededEolChange} EOL changes needed)"
+                );
+
                 stream.Position = 0;
                 stream.SetLength(0);
                 stream.Write(dataBytes);

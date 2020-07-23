@@ -1,7 +1,6 @@
 ﻿using LoPatcher.Patcher.Exceptions;
 using System;
 using System.Diagnostics;
-using System.Globalization;
 using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -96,7 +95,7 @@ namespace LoPatcher.Patcher.Targets
                 {
                     translation = $"\"{translation}\"";
                 }
-                
+
                 replaced++;
 
                 parts[2] = translation.Replace("\r", "", StringComparison.Ordinal);
@@ -104,8 +103,7 @@ namespace LoPatcher.Patcher.Targets
             }
 
             Debug.WriteLine(
-                $"Replaced {replaced.ToString("N0", NumberFormatInfo.CurrentInfo)} strings out of " +
-                $"{(lines.Length - 1).ToString("N0", NumberFormatInfo.CurrentInfo)} in LocalizationPatch"
+                $"Replaced {replaced:N0} strings out of {lines.Length - 1:N0} in LocalizationPatch"
             );
 
             if (replaced < 1)
