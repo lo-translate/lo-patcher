@@ -11,9 +11,10 @@ namespace LoTextExtractor
 {
     internal class CatalogManager
     {
-        public void Save(List<ExtractedText> entries, string filename)
+        public IEnumerable<string> Save(List<ExtractedText> entries, string filename)
         {
             var translationCatalog = CreateCatalog();
+            var sanityChecker = new ExtractedTextSanityChecker();
 
             entries.Sort((x, y) =>
             {
@@ -34,6 +35,8 @@ namespace LoTextExtractor
 
                 return new NaturalStringComparer().Compare(x.Source, y.Source);
             });
+
+            var warnings = new List<string>();
 
             foreach (var entry in entries)
             {
@@ -72,10 +75,14 @@ namespace LoTextExtractor
                     }
                 }
 
+                warnings.AddRange(sanityChecker.GetWarnings(entry));
+
                 AddToCatalog(translationCatalog, entry);
             }
 
             WriteCatalog(translationCatalog, filename);
+
+            return warnings;
         }
 
         private void AddToCatalog(POCatalog catalog, ExtractedText entry)

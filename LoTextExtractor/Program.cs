@@ -75,8 +75,6 @@ namespace LoTextExtractor
             Console.WriteLine($"Filtering and translating extracted text");
 
             var groups = new Dictionary<string, List<ExtractedText>>();
-            var sanityChecker = new ExtractedTextSanityChecker();
-            var warnings = new List<string>();
 
             foreach (var entry in entries)
             {
@@ -110,11 +108,6 @@ namespace LoTextExtractor
                 }
 
                 groups[group].Add(entry);
-
-                foreach (var warning in sanityChecker.GetWarnings(entry)) 
-                { 
-                    warnings.Add($"{group}: {warning}");
-                }
             }
 
             Console.WriteLine($"Saving translation catalogs");
@@ -141,6 +134,23 @@ namespace LoTextExtractor
             }
 
             File.WriteAllText(Path.Join(outputPath.FullName, "VERSION"), string.Format("{0:yyyy.MM.dd.00}", DateTime.Now));
+            
+            var warnings = new List<string>();
+
+            foreach (var group in groups)
+            {
+                var file = Path.Join(outputPath.FullName, $"{group.Key}.po");
+
+                Console.WriteLine($" - Saving {file}");
+
+                var catalogManager = new CatalogManager();
+                var catalogWarnings = catalogManager.Save(group.Value, file);
+
+                foreach (var warning in catalogWarnings)
+                {
+                    warnings.Add($"{group.Key}: {warning}");
+                }
+            }
 
             var warningFile = Path.Join(outputPath.FullName, "WARNINGS");
             if (warnings.Any())
@@ -153,16 +163,6 @@ namespace LoTextExtractor
                 {
                     File.Delete(warningFile);
                 }
-            }
-
-            foreach (var group in groups)
-            {
-                var file = Path.Join(outputPath.FullName, $"{group.Key}.po");
-
-                Console.WriteLine($" - Saving {file}");
-
-                var catalogManager = new CatalogManager();
-                catalogManager.Save(group.Value, file);
             }
 
             return 0;
