@@ -10,7 +10,7 @@ namespace LoTextExtractor
 {
     public class TranslationFinder
     {
-        private readonly LanguageCatalog languageCatalog = new LanguageCatalog();
+        private readonly LanguageCatalog languageCatalog = new LanguageCatalog() { LoadComments = true };
         private readonly Dictionary<string, string> knownText = new Dictionary<string, string>();
         private readonly Dictionary<Regex, string> knownRegex = new Dictionary<Regex, string>();
 
@@ -43,6 +43,24 @@ namespace LoTextExtractor
             {
                 LoadKnownTextFromDictionary(languageCatalog.Catalog);
             }
+        }
+
+        public string FindComment(string koreanText, string japaneseText)
+        {
+            foreach (var foreignText in new[] { japaneseText, koreanText })
+            {
+                if (foreignText == null)
+                {
+                    continue;
+                }
+
+                if (languageCatalog.Comments.ContainsKey(foreignText))
+                {
+                    return languageCatalog.Comments[foreignText];
+                }
+            }
+
+            return null;
         }
 
         public string FindTranslation(string koreanText, string japaneseText)

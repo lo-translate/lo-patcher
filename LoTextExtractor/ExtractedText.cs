@@ -6,6 +6,8 @@
         public string Korean;
         public string English;
 
+        public string Comment;
+
         public string Source;
         public int SourceLine;
     }

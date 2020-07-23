@@ -12,9 +12,13 @@ namespace LoPatcher
 {
     public class LanguageCatalog : ILanguageCatalog
     {
+        public bool LoadComments { get; set; } = false;
+
         public Version Version { get; private set; }
 
         public Dictionary<string, string> Catalog { get; private set; } = new Dictionary<string, string>();
+
+        public Dictionary<string, string> Comments { get; private set; } = new Dictionary<string, string>();
 
         public IEnumerable<string> Errors { get; private set; } = Array.Empty<string>();
 
@@ -163,7 +167,19 @@ namespace LoPatcher
                 foreach (var key in result.Catalog)
                 {
                     var original = key.Key.Id;
-                    var translation = result.Catalog.GetTranslation(key.Key);
+                    var item = result.Catalog[key.Key];
+                    if (!(item is POSingularEntry singleItem))
+                    {
+                        Debug.WriteLine($"Unhandled translation item type {item.GetType().Name}");
+                        continue;
+                    }
+
+                    if (LoadComments)
+                    {
+                        ExtractComments(key.Key, singleItem);
+                    }
+
+                    var translation = singleItem.Translation;
 
                     if (string.IsNullOrEmpty(translation))
                     {
@@ -194,6 +210,34 @@ namespace LoPatcher
                 }
 
                 return false;
+            }
+        }
+
+        private void ExtractComments(POKey key, POSingularEntry entry)
+        {
+            foreach (var comment in entry.Comments)
+            {
+                if (!(comment is POTranslatorComment translatorComment))
+                {
+                    continue;
+                }
+
+                var commentText = translatorComment.Text;
+
+                commentText = Regex.Replace(commentText, "(; )?Korean Text: (.*)$", "");
+
+                if (string.IsNullOrEmpty(commentText))
+                {
+                    continue;
+                }
+
+                if (Comments.ContainsKey(key.Id))
+                {
+                    Debug.WriteLine($"Duplicate translator comment: '{commentText}'");
+                    continue;
+                }
+
+                Comments[key.Id] = commentText;
             }
         }
     }

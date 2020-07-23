@@ -84,6 +84,7 @@ namespace LoTextExtractor
                 }
 
                 entry.English = translationFinder.FindTranslation(entry.Korean, entry.Japanese);
+                entry.Comment = translationFinder.FindComment(entry.Korean, entry.Japanese);
 
                 var parts = Regex.Split(entry.Source, "[^a-zA-Z_]");
                 if (parts.Length < 1)
@@ -140,7 +141,7 @@ namespace LoTextExtractor
                 Console.WriteLine($" - Saving {file}");
 
                 var catalogManager = new CatalogManager();
-                var catalogWarnings = catalogManager.Save(group.Value, file);
+                var catalogWarnings = catalogManager.SaveTo(file, group.Value);
 
                 foreach (var warning in catalogWarnings)
                 {

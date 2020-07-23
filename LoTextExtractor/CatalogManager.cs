@@ -11,7 +11,7 @@ namespace LoTextExtractor
 {
     internal class CatalogManager
     {
-        public IEnumerable<string> Save(List<ExtractedText> entries, string filename)
+        public IEnumerable<string> SaveTo(string filename, List<ExtractedText> entries)
         {
             var translationCatalog = CreateCatalog();
             var sanityChecker = new ExtractedTextSanityChecker();
@@ -85,11 +85,11 @@ namespace LoTextExtractor
             return warnings;
         }
 
-        private void AddToCatalog(POCatalog catalog, ExtractedText entry)
+        private void AddToCatalog(POCatalog catalog, ExtractedText extractedEntry)
         {
-            var key = new POKey(entry.Japanese);
+            var catalogKey = new POKey(extractedEntry.Japanese);
 
-            var newEntry = new POSingularEntry(key)
+            var catalogEntry = new POSingularEntry(catalogKey)
             {
                 Comments = new List<POComment>
                 {
@@ -97,24 +97,22 @@ namespace LoTextExtractor
                     {
                         References = new POSourceReference[]
                         {
-                            new POSourceReference($"{entry.Source}", entry.SourceLine)
+                            new POSourceReference($"{extractedEntry.Source}", extractedEntry.SourceLine)
                         }
                     }
                 },
             };
 
-            if (!string.IsNullOrEmpty(entry.English))
+            if (!string.IsNullOrEmpty(extractedEntry.English))
             {
-                newEntry.Translation = entry.English.Trim(' ');
+                catalogEntry.Translation = extractedEntry.English.Trim(' ');
             }
 
-            var comment = "";
-
-            // TODO Read comments from loaded PO files?
+            var comment = extractedEntry.Comment ?? "";
 
             // If we have Korean text add it to the comment as well. This gives us multiple strings to throw at a
             // machine translator to hopefully get better context.
-            if (!string.IsNullOrEmpty(entry.Korean) && entry.Korean != entry.Japanese)
+            if (!string.IsNullOrEmpty(extractedEntry.Korean) && extractedEntry.Korean != extractedEntry.Japanese)
             {
                 if (comment.Length > 0)
                 {
@@ -122,20 +120,20 @@ namespace LoTextExtractor
                 }
 
                 // The comment we save the Korean text in can't contain new lines, tabs are just for visual convenience
-                comment += "Korean Text: '" + entry.Korean.Replace("\r", "\\r", StringComparison.Ordinal)
+                comment += "Korean Text: '" + extractedEntry.Korean.Replace("\r", "\\r", StringComparison.Ordinal)
                                                        .Replace("\n", "\\n", StringComparison.Ordinal)
                                                        .Replace("\t", "\\t", StringComparison.Ordinal) + "'";
             }
 
             if (!string.IsNullOrEmpty(comment))
             {
-                newEntry.Comments.Add(new POTranslatorComment()
+                catalogEntry.Comments.Add(new POTranslatorComment()
                 {
                     Text = comment
                 });
             }
 
-            catalog.Add(newEntry);
+            catalog.Add(catalogEntry);
         }
 
         private static POCatalog CreateCatalog()
