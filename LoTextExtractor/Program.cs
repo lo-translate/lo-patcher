@@ -15,7 +15,7 @@ namespace LoTextExtractor
         {
             if (args.Length < 1)
             {
-                Console.WriteLine("Usage: LoTextExtractor <__data> [output-directory]");
+                Console.WriteLine("Usage: LoTextExtractor <__data>");
                 return 1;
             }
 
@@ -112,18 +112,14 @@ namespace LoTextExtractor
 
             Console.WriteLine($"Saving translation catalogs");
 
-            var outputPath = new DirectoryInfo(
-                args.Length > 1
-                    ? args[2]
-                    : Path.Combine(
-                        Path.GetDirectoryName(Assembly.GetExecutingAssembly().FullName),
-                        "Extracted"
-                    )
-            );
+            var outputPath = new DirectoryInfo(Path.Combine(
+                Path.GetDirectoryName(Assembly.GetExecutingAssembly().FullName),
+                "Extracted"
+            ));
 
             if (outputPath.Exists)
             {
-                foreach (var file in Directory.GetFiles(outputPath.FullName, "*.po", SearchOption.AllDirectories))
+                foreach (var file in Directory.GetFiles(outputPath.FullName, "*.po"))
                 {
                     File.Delete(file);
                 }
