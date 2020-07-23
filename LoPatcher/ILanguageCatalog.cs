@@ -4,8 +4,8 @@ namespace LoPatcher
 {
     public interface ILanguageCatalog
     {
-        public string FindTranslation(string text);
+        public Dictionary<string, string> Catalog { get; }
 
-        public IDictionary<string, string> AsDictionary();
+        public string FindTranslation(string text);
     }
 }

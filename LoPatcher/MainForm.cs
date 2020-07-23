@@ -1,8 +1,8 @@
 ﻿using LoPatcher.LanguageUpdate;
 using LoPatcher.Patcher;
-using LoPatcher.Patcher.Containers;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -48,12 +48,15 @@ namespace LoPatcher
 
             if (File.Exists(localLanguageFile))
             {
-                languageCatalog.LoadTranslations(localLanguageFile);
+                languageCatalog.LoadTranslations(new FileInfo(localLanguageFile));
             }
             else
             {
-                languageCatalog.LoadTranslations(Properties.Resources.LoTranslation);
+                using var stream = new MemoryStream(Properties.Resources.LoTranslation);
+                languageCatalog.LoadTranslations(stream);
             }
+
+            Debug.WriteLine($"Loaded {languageCatalog.Catalog.Count:N0} language entries");
 
             // Display any translation catalog errors to the user. We continue so the user can attempt to update the
             // broken translations.
@@ -270,7 +273,7 @@ namespace LoPatcher
             labelCurrentStatus.Visible = true;
 
             languageUpdater.StartUpdate(
-                lanugageUpdateUrl, Properties.Resources.LanguageRemoteFile, languageOutputPath, this
+                lanugageUpdateUrl, languageOutputPath, this
             );
         }
 
@@ -308,7 +311,7 @@ namespace LoPatcher
                 ErrorMessage(Properties.Resources.ErrorModalUpdateFailed, e.Error?.Message ?? "Unknown error.");
                 return;
             }
-
+            
             using var stream = File.OpenRead(GetLocalTranslationPath());
 
             if (languageCatalog.LoadTranslations(stream))

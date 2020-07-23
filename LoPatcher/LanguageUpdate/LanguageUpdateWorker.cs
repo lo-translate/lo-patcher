@@ -23,7 +23,7 @@ namespace LoPatcher.LanguageUpdate
             downloadWorker.RunWorkerCompleted += DownloadWorkerComplete;
         }
 
-        public void StartUpdate(Uri updateUrl, string remoteFile, string outputPath, IProgress<int> progressReporter)
+        public void StartUpdate(Uri updateUrl, string outputPath, IProgress<int> progressReporter)
         {
             if (updateUrl == null)
             {
@@ -37,7 +37,6 @@ namespace LoPatcher.LanguageUpdate
 
             downloadWorker.RunWorkerAsync(new LanguageUpdaterTaskArguments()
             {
-                RemoteFile = remoteFile,
                 DownloadFrom = updateUrl,
                 DownloadTo = outputPath,
                 ProgressReporter = progressReporter,
@@ -75,22 +74,24 @@ namespace LoPatcher.LanguageUpdate
                 arguments.ProgressReporter?.Report(e.ProgressPercentage);
             };
 
-            var extracted = false;
+            using var fileStream = new FileStream(tempFile, FileMode.Open);
+            using var zip = new ZipArchive(fileStream);
 
-            using (var fs = new FileStream(tempFile, FileMode.Open))
-            using (var zip = new ZipArchive(fs))
+            var foundCatalog = false;
+
+            foreach (var entry in zip.Entries)
             {
-                foreach (var entry in zip.Entries)
+                if (entry.Name.EndsWith(".po", StringComparison.OrdinalIgnoreCase))
                 {
-                    if (entry.Name != arguments.RemoteFile)
-                    {
-                        continue;
-                    }
-
-                    using var sr = new StreamReader(entry.Open());
-                    File.WriteAllText(arguments.DownloadTo, sr.ReadToEnd());
-                    extracted = true;
+                    foundCatalog = true;
+                    break;
                 }
+            }
+
+            if (foundCatalog)
+            {
+                File.Move(tempFile, arguments.DownloadTo);
+                return;
             }
 
             try
@@ -102,15 +103,11 @@ namespace LoPatcher.LanguageUpdate
                 Debug.WriteLine($"Failed to delete temp file {tempFile}, {exception.Message}");
             }
 
-            if (!extracted)
-            {
-                throw new Exception("Failed to find translation in release archive");
-            }
+            throw new Exception("Failed to find translation in release archive");
         }
 
         private class LanguageUpdaterTaskArguments
         {
-            public string RemoteFile;
             public Uri DownloadFrom;
             public string DownloadTo;
             public IProgress<int> ProgressReporter;

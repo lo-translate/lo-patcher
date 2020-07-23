@@ -166,20 +166,11 @@ namespace LoPatcher.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LoTranslation.po.
+        ///   Looks up a localized string similar to LoTranslation.zip.
         /// </summary>
         internal static string LanguageLocalFile {
             get {
                 return ResourceManager.GetString("LanguageLocalFile", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to LoTranslation.po.
-        /// </summary>
-        internal static string LanguageRemoteFile {
-            get {
-                return ResourceManager.GetString("LanguageRemoteFile", resourceCulture);
             }
         }
         

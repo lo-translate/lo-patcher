@@ -56,8 +56,6 @@ namespace LoPatcher.Patcher.Targets
         {
             stream.Position = 0;
 
-            var dictionary = languageCatalog.AsDictionary();
-
             var dataBytes = new byte[stream.Length];
             stream.Read(dataBytes, 0, (int)stream.Length);
 
@@ -65,9 +63,9 @@ namespace LoPatcher.Patcher.Targets
             var replacedStrings = 0;
             var neededEolChange = 0;
 
-            progressReporter.Report(new PatchProgress() { IncreaseTotal = dictionary.Count });
+            progressReporter.Report(new PatchProgress() { IncreaseTotal = languageCatalog.Catalog.Count });
 
-            foreach (var kvp in dictionary)
+            foreach (var kvp in languageCatalog.Catalog)
             {
                 progressReporter.Report(new PatchProgress() { IncreaseCurrent = 1 });
 
