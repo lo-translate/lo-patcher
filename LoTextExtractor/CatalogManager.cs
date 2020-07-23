@@ -23,16 +23,6 @@ namespace LoTextExtractor
                     return x.SourceLine.CompareTo(y.SourceLine);
                 }
 
-                if (x.Source == "LocalizationPatch")
-                {
-                    return 1;
-                }
-
-                if (y.Source == "LocalizationPatch")
-                {
-                    return -1;
-                }
-
                 return new NaturalStringComparer().Compare(x.Source, y.Source);
             });
 
