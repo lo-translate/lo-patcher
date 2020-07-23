@@ -11,7 +11,7 @@ namespace LoTextExtractor
 {
     internal class CatalogManager
     {
-        public IEnumerable<string> SaveTo(string filename, List<ExtractedText> entries)
+        public IEnumerable<string> SaveTo(string filename, DateTime versionDate, List<ExtractedText> entries)
         {
             var translationCatalog = CreateCatalog();
             var sanityChecker = new ExtractedTextSanityChecker();
@@ -70,7 +70,7 @@ namespace LoTextExtractor
                 AddToCatalog(translationCatalog, entry);
             }
 
-            WriteCatalog(translationCatalog, filename);
+            WriteCatalog(translationCatalog, filename, versionDate);
 
             return warnings;
         }
@@ -134,7 +134,7 @@ namespace LoTextExtractor
             return result.Catalog;
         }
 
-        private static void WriteCatalog(POCatalog catalog, string outputFile)
+        private static void WriteCatalog(POCatalog catalog, string outputFile, DateTime versionDate)
         {
             if (File.Exists(outputFile))
             {
@@ -146,7 +146,7 @@ namespace LoTextExtractor
             using var writer = new StreamWriter(outStream, Encoding.UTF8);
 
             // We only store the date when generating
-            catalog.Headers["PO-Revision-Date"] = string.Format("{0:yyyy-MM-dd 12:00-0400}", DateTime.Now);
+            catalog.Headers["PO-Revision-Date"] = string.Format("{0:yyyy-MM-dd 12:00-0400}", versionDate);
 
             generator.Generate(writer, catalog);
         }

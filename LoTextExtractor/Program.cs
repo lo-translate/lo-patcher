@@ -136,9 +136,10 @@ namespace LoTextExtractor
                 Directory.CreateDirectory(outputPath.FullName);
             }
 
-            File.WriteAllText(Path.Join(outputPath.FullName, "VERSION"), string.Format("{0:yyyy.MM.dd.00}", DateTime.Now));
-            
             var warnings = new List<string>();
+            var versionDate = DateTime.Now;
+
+            File.WriteAllText(Path.Join(outputPath.FullName, "VERSION"), string.Format("{0:yyyy.MM.dd.00}", versionDate));
 
             foreach (var group in groups)
             {
@@ -147,7 +148,7 @@ namespace LoTextExtractor
                 Console.WriteLine($" - Saving {file}");
 
                 var catalogManager = new CatalogManager();
-                var catalogWarnings = catalogManager.SaveTo(file, group.Value);
+                var catalogWarnings = catalogManager.SaveTo(file, versionDate, group.Value);
 
                 foreach (var warning in catalogWarnings)
                 {
