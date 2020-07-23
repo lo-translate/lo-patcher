@@ -117,6 +117,8 @@ namespace LoPatcher.Patcher.Targets
                 // multiple instances found.
                 foreach (var index in indexes.Reverse())
                 {
+                    progressReporter.Report(new PatchProgress() { IncreaseCurrent = 1 });
+
                     replacedInsances++;
 
                     using var bufferStream = new MemoryStream();
@@ -143,8 +145,6 @@ namespace LoPatcher.Patcher.Targets
 
                     // Update the dataBytes array with the replaced version.
                     dataBytes = bufferStream.ToArray();
-
-                    progressReporter.Report(new PatchProgress() { IncreaseCurrent = 1 });
                 }
 
                 replacedStrings++;
