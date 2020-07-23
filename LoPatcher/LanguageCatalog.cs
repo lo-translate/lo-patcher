@@ -133,7 +133,7 @@ namespace LoPatcher
 
             if (!Catalog.ContainsKey(text))
             {
-                if (text.IndexOf("\r\n") != -1)
+                if (text.IndexOf("\r\n", StringComparison.Ordinal) != -1)
                 {
                     // If we checked with Windows EOLs try without
                     text = text.Replace("\r", "", StringComparison.Ordinal);
