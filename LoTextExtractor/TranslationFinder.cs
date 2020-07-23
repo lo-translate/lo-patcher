@@ -1,15 +1,16 @@
 ﻿using FileHelpers;
-using Karambolo.PO;
+using LoPatcher;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Text;
+using System.Linq;
 using System.Text.RegularExpressions;
 
 namespace LoTextExtractor
 {
     public class TranslationFinder
     {
+        private readonly LanguageCatalog languageCatalog = new LanguageCatalog();
         private readonly Dictionary<string, string> knownText = new Dictionary<string, string>();
         private readonly Dictionary<Regex, string> knownRegex = new Dictionary<Regex, string>();
 
@@ -26,9 +27,21 @@ namespace LoTextExtractor
 
             LoadKnownRegexFromTsv("Resources/binfilepatcher-regex.tsv");
 
-            if (File.Exists("LoTranslation.po"))
+            var localFile = "LoTranslation.zip";
+            var localFolder = @"..\..\..\..\..\LoTranslation";
+
+            if (File.Exists(localFile))
             {
-                LoadKnownTextFromTranslation("LoTranslation.po");
+                languageCatalog.LoadTranslations(new FileInfo(localFile));
+            }
+            else if (Directory.Exists(localFolder))
+            {
+                languageCatalog.LoadTranslations(new DirectoryInfo(localFolder));
+            }
+
+            if (languageCatalog.Catalog.Any())
+            {
+                LoadKnownTextFromDictionary(languageCatalog.Catalog);
             }
         }
 
@@ -72,45 +85,37 @@ namespace LoTextExtractor
                         }
                     }
                 }
-
             }
 
             return null;
         }
 
-        public void LoadKnownTextFromTranslation(string input)
+        public void LoadKnownTextFromDictionary(Dictionary<string, string> dictionary)
         {
-            using var stream = File.OpenRead(input);
-            var parser = new POParser(new POParserSettings());
-            var result = parser.Parse(stream, Encoding.UTF8);
-
-            if (result.Success)
+            foreach (var kvp in dictionary)
             {
-                foreach (var key in result.Catalog.Keys)
+                var japaneseText = kvp.Key;
+                var translation = kvp.Value;
+                if (string.IsNullOrEmpty(translation))
                 {
-                    var japaneseText = key.Id;
-                    var translation = result.Catalog.GetTranslation(key);
-                    if (string.IsNullOrEmpty(translation))
-                    {
-                        continue;
-                    }
-
-                    japaneseText = japaneseText.Replace("`n", "\n", System.StringComparison.Ordinal);
-                    translation = translation.Replace("`n", "\n", System.StringComparison.Ordinal);
-
-                    if (knownText.ContainsKey(japaneseText))
-                    {
-                        if (!translation.Equals(knownText[japaneseText], System.StringComparison.Ordinal))
-                        {
-                            Debug.WriteLine($"Duplicate translation: '{translation}' != '{knownText[japaneseText]}'");
-                        }
-
-                        // We intentionally don't prevent the translation from being overwritten under the assumption
-                        // the translation file contains the most up to date translations.
-                    }
-
-                    knownText[japaneseText] = translation;
+                    continue;
                 }
+
+                japaneseText = japaneseText.Replace("`n", "\n", System.StringComparison.Ordinal);
+                translation = translation.Replace("`n", "\n", System.StringComparison.Ordinal);
+
+                if (knownText.ContainsKey(japaneseText))
+                {
+                    if (!translation.Equals(knownText[japaneseText], System.StringComparison.Ordinal))
+                    {
+                        Debug.WriteLine($"Duplicate translation: '{translation}' != '{knownText[japaneseText]}'");
+                    }
+
+                    // We intentionally don't prevent the translation from being overwritten under the assumption
+                    // the translation file contains the most up to date translations.
+                }
+
+                knownText[japaneseText] = translation;
             }
         }
 
