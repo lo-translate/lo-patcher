@@ -150,6 +150,12 @@ namespace LoPatcher
             {
                 labelSelectedFile.Text = builder.ToString();
                 buttonPatch.Enabled = true;
+
+                if (progressBar.Visible)
+                {
+                    progressBar.Visible = false;
+                    labelCurrentStatus.Visible = false;
+                }
             }
             else
             {
@@ -189,7 +195,7 @@ namespace LoPatcher
             labelSelectedFile.Text = defaultSelectedFileText;
             buttonPatch.Enabled = false;
 
-            labelCurrentLangVersion.Text = languageCatalog.Version?.ToString() ?? "Unknown";
+            labelCurrentLangVersion.Text = languageCatalog.Version?.ToString() ?? Properties.Resources.UnkownVersion;
         }
 
         /// <summary>
@@ -269,7 +275,7 @@ namespace LoPatcher
             progressBar.Maximum = 100;
             progressBar.Value = 0;
             progressBar.Visible = true;
-            labelCurrentStatus.Text = "Downloading language update...";
+            labelCurrentStatus.Text = Properties.Resources.StatusDownloadingUpdate;
             labelCurrentStatus.Visible = true;
 
             languageUpdater.StartUpdate(
@@ -317,7 +323,7 @@ namespace LoPatcher
             if (languageCatalog.LoadTranslations(stream))
             {
                 buttonLanguageUpdate.Visible = false;
-                labelCurrentLangVersion.Text = languageCatalog.Version?.ToString() ?? "Unknown";
+                labelCurrentLangVersion.Text = languageCatalog.Version?.ToString() ?? Properties.Resources.UnkownVersion;
             }
             else
             {
@@ -390,7 +396,7 @@ namespace LoPatcher
             progressBar.Maximum = 1;
             progressBar.Value = 0;
             progressBar.Visible = true;
-            labelCurrentStatus.Text = "Starting...";
+            labelCurrentStatus.Text = Properties.Resources.StatusPatchStarting;
             labelCurrentStatus.Visible = true;
 
             patchWorker.StartPatching(patchQueue, this);
@@ -445,9 +451,6 @@ namespace LoPatcher
                 return;
             }
 
-            progressBar.Visible = false;
-            labelCurrentStatus.Visible = false;
-
             if (e.Errors.Count > 0)
             {
                 if (e.FilesPatched > 0)
@@ -459,12 +462,18 @@ namespace LoPatcher
                     ErrorMessage(Properties.Resources.ErrorModalPatchFullFail, string.Join("\r\n", e.Errors));
                 }
 
+                progressBar.Visible = false;
+                labelCurrentStatus.Visible = false;
+
                 ResetForm();
                 EnableForm(true);
                 return;
             }
 
-            MessageBox.Show(Properties.Resources.SuccessModalPatchComplete, Properties.Resources.SuccessModalTitle);
+            progressBar.Maximum = 100;
+            progressBar.Value = 100;
+            labelCurrentStatus.Text = Properties.Resources.StatusPatchComplete;
+
             ResetForm();
             EnableForm(true);
         }

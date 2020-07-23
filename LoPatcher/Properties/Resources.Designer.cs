@@ -194,20 +194,38 @@ namespace LoPatcher.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Patch complete.
+        ///   Looks up a localized string similar to Downloading language update....
         /// </summary>
-        internal static string SuccessModalPatchComplete {
+        internal static string StatusDownloadingUpdate {
             get {
-                return ResourceManager.GetString("SuccessModalPatchComplete", resourceCulture);
+                return ResourceManager.GetString("StatusDownloadingUpdate", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Success.
+        ///   Looks up a localized string similar to Patch complete.
         /// </summary>
-        internal static string SuccessModalTitle {
+        internal static string StatusPatchComplete {
             get {
-                return ResourceManager.GetString("SuccessModalTitle", resourceCulture);
+                return ResourceManager.GetString("StatusPatchComplete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Starting....
+        /// </summary>
+        internal static string StatusPatchStarting {
+            get {
+                return ResourceManager.GetString("StatusPatchStarting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unknown.
+        /// </summary>
+        internal static string UnkownVersion {
+            get {
+                return ResourceManager.GetString("UnkownVersion", resourceCulture);
             }
         }
     }
