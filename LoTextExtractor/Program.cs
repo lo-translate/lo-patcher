@@ -96,8 +96,8 @@ namespace LoTextExtractor
                 var group = parts[0];
 
                 // At time of creating this app the text extracted text from _Client tables are the same as the table
-                // with _Client. Putting them in the same group will ensure only one copy of them is stored (whichever
-                // ends up first after sorting)
+                // without _Client. Putting them in the same group will ensure only one copy of them is stored
+                // (whichever ends up first after sorting)
                 if (group.EndsWith("_Client"))
                 {
                     group = Regex.Replace(group, "_Client$", "");
