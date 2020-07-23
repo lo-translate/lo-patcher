@@ -32,6 +32,11 @@ namespace LoPatcher.Unity
 
         public bool Load(Stream stream)
         {
+            if (stream == null)
+            {
+                throw new ArgumentNullException(nameof(stream));
+            }
+
             bundleFileStream?.Dispose();
 
             // AssetsTools.NET can only operate on a FileStream so we convert back into one using a temporary file.
@@ -95,6 +100,16 @@ namespace LoPatcher.Unity
 
         public void SaveTo(List<AssetsReplacer> replacers, Stream outputStream)
         {
+            if (replacers == null)
+            {
+                throw new ArgumentNullException(nameof(replacers));
+            }
+
+            if (outputStream == null)
+            {
+                throw new ArgumentNullException(nameof(outputStream));
+            }
+
             using var bufferStream = new MemoryStream();
             using var assetFileWriter = new AssetsFileWriter(bufferStream);
 

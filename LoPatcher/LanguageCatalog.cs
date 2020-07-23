@@ -20,6 +20,11 @@ namespace LoPatcher
 
         public bool LoadTranslations(byte[] translationBytes)
         {
+            if (translationBytes == null)
+            {
+                throw new ArgumentNullException(nameof(translationBytes));
+            }
+
             using var stream = new MemoryStream(translationBytes);
 
             return LoadTranslations(stream);
@@ -27,6 +32,11 @@ namespace LoPatcher
 
         public bool LoadTranslations(FileInfo file)
         {
+            if (file == null)
+            {
+                throw new ArgumentNullException(nameof(file));
+            }
+
             using var stream = File.OpenRead(file.FullName);
 
             return LoadTranslations(stream);
