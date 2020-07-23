@@ -103,6 +103,12 @@ namespace LoTextExtractor
                     group = Regex.Replace(group, "_Client$", "");
                 }
 
+                // Split up DialogScript into 2 groups, one for events and one for normal stages.
+                if (group == "DialogScript" && !Regex.IsMatch(entry.Source, "Ch[0-9]+Stage"))
+                {
+                    group = "DialogScriptEvent";
+                }
+
                 if (!groups.ContainsKey(group))
                 {
                     groups[group] = new List<ExtractedText>();
