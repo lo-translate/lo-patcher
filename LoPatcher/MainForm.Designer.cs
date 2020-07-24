@@ -50,7 +50,7 @@
             this.groupBoxBundleFile.Size = new System.Drawing.Size(459, 67);
             this.groupBoxBundleFile.TabIndex = 0;
             this.groupBoxBundleFile.TabStop = false;
-            this.groupBoxBundleFile.Text = "Asset files to patch";
+            this.groupBoxBundleFile.Text = "File to patch";
             // 
             // labelSelectedFile
             // 
@@ -62,7 +62,7 @@
             this.labelSelectedFile.Name = "labelSelectedFile";
             this.labelSelectedFile.Size = new System.Drawing.Size(357, 38);
             this.labelSelectedFile.TabIndex = 1;
-            this.labelSelectedFile.Text = "No file(s) selected";
+            this.labelSelectedFile.Text = "No file selected";
             this.labelSelectedFile.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.labelSelectedFile.Click += new System.EventHandler(this.LabelSelectedFile_Click);
             // 
