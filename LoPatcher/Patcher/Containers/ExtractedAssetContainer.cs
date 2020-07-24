@@ -28,6 +28,11 @@ namespace LoPatcher.Patcher.Containers
 
             var asset = ExtractedAssetReader.ReadFromStream(stream);
 
+            progressReporter.Report(new PatchProgress()
+            {
+                SetTargetAndReset = $"{asset.Name}"
+            });
+
             // Load the asset content into a memory stream. The stream will be passed to any targets that can handle
             // it and written to a new file once patching is compolete.
             using var memoryStream = new MemoryStream();
