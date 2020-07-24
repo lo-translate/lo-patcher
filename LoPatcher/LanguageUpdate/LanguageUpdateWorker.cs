@@ -74,23 +74,24 @@ namespace LoPatcher.LanguageUpdate
                 arguments.ProgressReporter?.Report(e.ProgressPercentage);
             };
 
-            using var fileStream = new FileStream(tempFile, FileMode.Open);
-            using var zip = new ZipArchive(fileStream);
-
             var foundCatalog = false;
 
-            foreach (var entry in zip.Entries)
+            using (var fileStream = new FileStream(tempFile, FileMode.Open))
+            using (var zip = new ZipArchive(fileStream))
             {
-                if (entry.Name.EndsWith(".po", StringComparison.OrdinalIgnoreCase))
+                foreach (var entry in zip.Entries)
                 {
-                    foundCatalog = true;
-                    break;
+                    if (entry.Name.EndsWith(".po", StringComparison.OrdinalIgnoreCase))
+                    {
+                        foundCatalog = true;
+                        break;
+                    }
                 }
             }
 
             if (foundCatalog)
             {
-                File.Move(tempFile, arguments.DownloadTo);
+                File.Copy(tempFile, arguments.DownloadTo);
                 return;
             }
 
