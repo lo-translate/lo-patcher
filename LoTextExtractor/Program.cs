@@ -83,8 +83,27 @@ namespace LoTextExtractor
                     continue;
                 }
 
-                entry.English = translationFinder.FindTranslation(entry.Korean, entry.Japanese);
-                entry.Comment = translationFinder.FindComment(entry.Korean, entry.Japanese);
+                var foreignTexts = new[] { entry.Japanese, entry.Korean };
+                entry.English = translationFinder.FindTranslation(foreignTexts);
+
+                var comments = new List<string>();
+
+                if (string.IsNullOrEmpty(entry.English))
+                {
+                    entry.English = translationFinder.FindPartialTranslation(foreignTexts);
+                    if (!string.IsNullOrEmpty(entry.English) && !Regex.Match(entry.English, "^[\x00-\x7F]+$").Success)
+                    {
+                        comments.Add("Partial Match");
+                    }
+                }
+
+                var existingComment = translationFinder.FindComment(entry.Korean, entry.Japanese);
+                if (!string.IsNullOrEmpty(existingComment))
+                {
+                    comments.Add(existingComment);
+                }
+
+                entry.Comment = string.Join("; ", comments);
 
                 var parts = Regex.Split(entry.Source, "[^a-zA-Z_]");
                 if (parts.Length < 1)
