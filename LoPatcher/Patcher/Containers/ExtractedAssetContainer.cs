@@ -26,6 +26,11 @@ namespace LoPatcher.Patcher.Containers
                 throw new ArgumentNullException(nameof(stream));
             }
 
+            if (progressReporter == null)
+            {
+                throw new ArgumentNullException(nameof(progressReporter));
+            }
+
             var asset = ExtractedAssetReader.ReadFromStream(stream);
 
             progressReporter.Report(new PatchProgress()
