@@ -89,7 +89,9 @@ namespace LoTextExtractor
 
                 var comments = new List<string>();
 
-                if (string.IsNullOrEmpty(entry.English))
+                // We only run on BuffEffect for now. It can match some partials in Skill, ItemConsumable, and 
+                // ShopDesc, but not enough for it to be worth it yet.
+                if (string.IsNullOrEmpty(entry.English) && entry.Source.Contains("BuffEffect", StringComparison.Ordinal))
                 {
                     entry.English = translationFinder.FindPartialTranslation(foreignTexts);
 
