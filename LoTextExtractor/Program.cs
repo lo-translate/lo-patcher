@@ -1,4 +1,5 @@
-﻿using LoPatcher.Unity;
+﻿using LoPatcher;
+using LoPatcher.Unity;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -91,9 +92,13 @@ namespace LoTextExtractor
                 if (string.IsNullOrEmpty(entry.English))
                 {
                     entry.English = translationFinder.FindPartialTranslation(foreignTexts);
-                    if (!string.IsNullOrEmpty(entry.English) && !Regex.Match(entry.English, "^[\x00-\x7F]+$").Success)
+
+                    if (!string.IsNullOrEmpty(entry.English))
                     {
-                        comments.Add("Partial Match");
+                        // This comment prevents this translation from being loaded again when extracting text. This
+                        // prevents the partial translation existing from preventing the entry from being processed
+                        // again in case additional partials have been added since we were last run.
+                        comments.Add(LanguageCatalog.PartialMatchComment);
                     }
                 }
 

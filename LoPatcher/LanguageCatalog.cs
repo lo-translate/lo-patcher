@@ -12,6 +12,8 @@ namespace LoPatcher
 {
     public class LanguageCatalog : ILanguageCatalog
     {
+        public const string PartialMatchComment = "Partial Auto Match";
+
         public bool LoadComments { get; set; } = false;
 
         public Version Version { get; private set; }
@@ -174,6 +176,11 @@ namespace LoPatcher
                         continue;
                     }
 
+                    if (WasPartial(singleItem))
+                    {
+                        continue;
+                    }
+
                     if (LoadComments)
                     {
                         ExtractComments(key.Key, singleItem);
@@ -211,6 +218,24 @@ namespace LoPatcher
 
                 return false;
             }
+        }
+
+        private static bool WasPartial(POSingularEntry entry)
+        {
+            foreach (var comment in entry.Comments)
+            {
+                if (!(comment is POTranslatorComment translatorComment))
+                {
+                    continue;
+                }
+
+                if (translatorComment.Text.Contains(PartialMatchComment, StringComparison.OrdinalIgnoreCase))
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         private void ExtractComments(POKey key, POSingularEntry entry)
