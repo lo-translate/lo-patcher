@@ -1,5 +1,6 @@
 ﻿using FileHelpers;
 using LoPatcher;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -45,7 +46,7 @@ namespace LoTextExtractor
             }
         }
 
-        public string FindComment(string koreanText, string japaneseText)
+        public string[] FindComments(string koreanText, string japaneseText)
         {
             foreach (var foreignText in new[] { japaneseText, koreanText })
             {
@@ -56,11 +57,11 @@ namespace LoTextExtractor
 
                 if (languageCatalog.Comments.ContainsKey(foreignText))
                 {
-                    return languageCatalog.Comments[foreignText];
+                    return Regex.Split(languageCatalog.Comments[foreignText], @";\s?");
                 }
             }
 
-            return null;
+            return Array.Empty<string>();
         }
 
         public string FindTranslation(string[] foreignTexts)

@@ -104,11 +104,9 @@ namespace LoTextExtractor
                     }
                 }
 
-                var existingComment = translationFinder.FindComment(entry.Korean, entry.Japanese);
-                if (!string.IsNullOrEmpty(existingComment))
-                {
-                    comments.Add(existingComment);
-                }
+                comments.AddRange(
+                    translationFinder.FindComments(entry.Korean, entry.Japanese).Where(c => !comments.Contains(c))
+                );
 
                 entry.Comment = string.Join("; ", comments);
 
