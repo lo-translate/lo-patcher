@@ -12,7 +12,7 @@ namespace LoPatcher
 {
     public class LanguageCatalog : ILanguageCatalog
     {
-        public const string PartialMatchComment = "Partial Auto Match";
+        public const string PartialMatchComment = "Generated Partial Match";
 
         public bool LoadComments { get; set; } = false;
 
