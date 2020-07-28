@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Text.RegularExpressions;
 
 namespace LoTextExtractor
 {
@@ -103,7 +104,7 @@ namespace LoTextExtractor
                         {
                             Japanese = (string)japaneseArrayText,
                             Korean = (string)koreanArrayText,
-                            Source = $"{sourceName}.{property.Name}[{stringIndex}]",
+                            Source = UpdateSource($"{sourceName}.{property.Name}[{stringIndex}]"),
                         });
                     }
 
@@ -133,11 +134,41 @@ namespace LoTextExtractor
                 {
                     Japanese = japaneseText,
                     Korean = koreanText,
-                    Source = $"{sourceName}.{property.Name}",
+                    Source = UpdateSource($"{sourceName}.{property.Name}"),
                 });
             }
 
             return foundText;
+        }
+
+        private static string UpdateSource(string source)
+        {
+            if (Regex.IsMatch(source, @"\.LobbyScript1\[[0-9]\]$"))
+            {
+                source += "(Affection<100)";
+            }
+            else if (Regex.IsMatch(source, @"\.LobbyScript2\[[0-9]\]$"))
+            {
+                source += "(Affection>40)";
+            }
+            else if (Regex.IsMatch(source, @"\.LobbyScript3\[[0-9]\]$"))
+            {
+                source += "(Affection>70)";
+            }
+            else if (Regex.IsMatch(source, @"\.LobbyScript4\[[0-9]\]$"))
+            {
+                source += "(Affection=100)";
+            }
+            else if (Regex.IsMatch(source, @"\.LobbyScriptSp1\[[0-9]\]$"))
+            {
+                source += "(Affection<100,SpecialTouch)";
+            }
+            else if (Regex.IsMatch(source, @"\.LobbyScriptSp2\[[0-9]\]$"))
+            {
+                source += "(Affection=100,SpecialTouch)";
+            }
+
+            return source;
         }
     }
 }
