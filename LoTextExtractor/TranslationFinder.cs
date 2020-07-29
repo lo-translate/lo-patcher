@@ -59,6 +59,14 @@ namespace LoTextExtractor
                 {
                     return Regex.Split(languageCatalog.Comments[foreignText], @";\s?");
                 }
+
+                // If we can't find a known translation try again using Windows style new lines. This is needed
+                // due to Karambolo.PO using Environment.NewLine while parsing the PO file.
+                var normalizedForeignText = Regex.Replace(foreignText, @"\r\n|\n\r|\n|\r", "\r\n");
+                if (languageCatalog.Comments.ContainsKey(normalizedForeignText))
+                {
+                    return Regex.Split(languageCatalog.Comments[normalizedForeignText], @";\s?");
+                }
             }
 
             return Array.Empty<string>();
@@ -77,7 +85,7 @@ namespace LoTextExtractor
                 if (string.IsNullOrEmpty(translation) && foreignText.Contains('\n', System.StringComparison.Ordinal))
                 {
                     // If we can't find a known translation try again using Windows style new lines. This is needed
-                    // due to Karambolo.PO using it while parsing the PO file.
+                    // due to Karambolo.PO using Environment.NewLine while parsing the PO file.
                     var normalizedForeignText = Regex.Replace(foreignText, @"\r\n|\n\r|\n|\r", "\r\n");
                     if (!normalizedForeignText.Equals(foreignText, System.StringComparison.Ordinal))
                     {
