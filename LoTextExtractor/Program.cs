@@ -43,7 +43,7 @@ namespace LoTextExtractor
                 if (!asset.Type.Equals("TextAsset", StringComparison.OrdinalIgnoreCase) ||
                     asset.Name.EndsWith("_ko.bin", StringComparison.OrdinalIgnoreCase))
                 {
-                    Debug.WriteLine($"Skipped bundle '{asset.Name}' ({asset.Type})");
+                    Debug.WriteLine($"Skipped asset '{asset.Name}' ({asset.Type})");
                     continue;
                 }
 
@@ -65,7 +65,7 @@ namespace LoTextExtractor
                 }
                 else
                 {
-                    Debug.WriteLine($"Skipped bundle '{asset.Name}' ({asset.Type})");
+                    Debug.WriteLine($"Skipped asset '{asset.Name}' ({asset.Type})");
                     continue;
                 }
 
