@@ -84,6 +84,12 @@ namespace LoTextExtractor
                     continue;
                 }
 
+                // ###-An error occurred - Added in multiple files during 7/29 patch
+                if (Regex.IsMatch(entry.Japanese, "^[0-9]{10}-エラーが発生しました。$"))
+                {
+                    continue;
+                }
+
                 var foreignTexts = new[] { entry.Japanese, entry.Korean };
                 entry.English = translationFinder.FindTranslation(foreignTexts);
 
