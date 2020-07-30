@@ -125,6 +125,9 @@ msgstr "$1 Evasion Reduction $2"
 msgid "回避率増加"
 msgstr "$1 Evasion Up $2"
 
+msgid "自分の回避率増加"
+msgstr "$1 Self Evasion Up $2"
+
 msgid "回避率"
 msgstr "$1 Evasion $2"
 
@@ -228,6 +231,12 @@ msgstr "$1 Reduced Range $2"
 msgid "後ろに\\{0\\}マス突き飛ばし"
 msgstr "$1 Push Back {0} Spaces $2"
 
+msgid "前に\\{0\\}マス引き寄せ"
+msgstr "$1 Pull Forward {0} Spaces $2"
+
+msgid "前に\\{0\\}マス移動"
+msgstr "$1 Move Forward {0} Spaces $2"
+
 msgid "一定確率で行動不可"
 msgstr "$1 Chance to Stun $2"
 
@@ -270,7 +279,7 @@ msgstr "$1 Damage Taken $2{0}% $3"
 msgid "防御力(\\+)?\\{0\\}%"
 msgstr "$1 Defense $2{0}% $3"
 
-msgid "防御貫通(\\+)?\\{0\\}%"
+msgid "防御貫通\\s?(\\+)?\\{0\\}%"
 msgstr "$1 Defense Penetration $2{0}% $3"
 
 msgid "経験値(\\+)?\\{0\\}%"
@@ -532,3 +541,78 @@ msgstr "$1 Let's Speed Race! $2"
 
 msgid "機動型の味方を保護"
 msgstr "$1 Target Protect Flying Allies $2"
+
+msgid "止められない疾走"
+msgstr "$1 Unstoppable Gallop $2"
+
+msgid "どこ見てるの?"
+msgstr "$1 Where are You Looking at? $2"
+
+msgid "行動不可"
+msgstr "$1 Stunned $2"
+
+msgid "スキル使用不可"
+msgstr "$1 Cannot use Skill $2"
+
+msgid "リミッター解除"
+msgstr "$1 Limiter Release $2"
+
+msgid "粘着弾"
+msgstr "$1 Cohesive Bullet $2"
+
+msgid "警戒態勢"
+msgstr "$1 Alert Stance $2"
+
+msgid "射程距離"
+msgstr "$1 Range $2"
+
+msgid "初期化"
+msgstr "$1 Initialization $2"
+
+msgid "致命的な魅力"
+msgstr "$1 Critical Charm $2"
+
+msgid "チアアップ!"
+msgstr "$1 Cheer Up! $2"
+
+msgid "LBRBスピーカー"
+msgstr "$1 LBRB Speakers $2"
+
+msgid "チアリーダー"
+msgstr "$1 Cheerleader $2"
+
+msgid "検挙完了!"
+msgstr "$1 Arrest Complete! $2"
+
+msgid "サイクロンストリーム"
+msgstr "$1 Cyclone Stream $2"
+
+msgid "強化筋力"
+msgstr "$1 Enhanced Muscles $2"
+
+msgid "高高度スキャン"
+msgstr "$1 High-Altitude Scanning $2"
+
+msgid "牽制射撃"
+msgstr "$1 Diversion Shot $2"
+
+msgid "全員突撃!"
+msgstr "$1 Everyone Charge! $2"
+
+msgid "極度の不快感"
+msgstr "$1 Extreme Discomfort $2"
+
+msgid "連携爆撃"
+msgstr "$1 Coordinated Bombardment $2"
+
+msgid "威嚇射撃"
+msgstr "$1 Warning Shot $2"
+
+msgid "曲芸飛行"
+msgstr "$1 Acrobatic Flight $2"
+
+msgid "編隊護衛"
+msgstr "$1 Escort Squadron $2"
+
+msgid "自爆攻撃"
+msgstr "$1 Suicide Attack $2"
