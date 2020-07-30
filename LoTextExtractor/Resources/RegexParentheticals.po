@@ -1,0 +1,110 @@
+msgid ""
+msgstr ""
+"Content-Transfer-Encoding: 8bit\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: en\n"
+"Language-Team: \n"
+"Last-Translator: \n"
+"MIME-Version: 1.0\n"
+"Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
+"PO-Revision-Date: 2020-07-30 16:17-0400\n"
+"POT-Creation-Date: \n"
+"Project-Id-Version: \n"
+"X-Generator: Poedit 2.4\n"
+"X-Notes: The strings in this file are matched using a .NET Regex surrounded by parentheses. If substring matches are included they should start at $1\n"
+
+msgid "バイオ"
+msgstr "Bio"
+
+msgid "自分"
+msgstr "Self"
+
+msgid "ロボット"
+msgstr "Robot"
+
+msgid "保護機"
+msgstr "Defender"
+
+msgid "保護機を除く"
+msgstr "Except Defender"
+
+msgid "腐食時"
+msgstr "Corrosion"
+
+msgid "機動"
+msgstr "Flying"
+
+msgid "攻撃機"
+msgstr "Attacker"
+
+msgid "攻撃機/支援機"
+msgstr "Attacker/Supporter"
+
+msgid "支援機"
+msgstr "Supporter"
+
+msgid "軽装/重装"
+msgstr "Light/Heavy"
+
+msgid "重装"
+msgstr "Heavy"
+
+msgid "軽装"
+msgstr "Light"
+
+msgid "最大"
+msgstr "Max"
+
+msgid "ハチコ"
+msgstr "Hachiko"
+
+msgid "ブラックハウンド"
+msgstr "Blackhound"
+
+msgid "サンドガール"
+msgstr "Sand Girl"
+
+msgid "ウンディーネ"
+msgstr "Undine"
+
+msgid "アタランテ"
+msgstr "Atalanta"
+
+msgid "最大\\+\\{0\\}%"
+msgstr "Max +{0}%"
+
+msgid "3重複"
+msgstr "3 stacks"
+
+msgid "5重複"
+msgstr "5 stacks"
+
+msgid "敵撃破時"
+msgstr "On kill"
+
+msgid "攻撃時"
+msgstr "On attack"
+
+msgid "味方撃破時"
+msgstr "On ally death"
+
+msgid "クリティカル時"
+msgstr "On critical"
+
+msgid "待機時"
+msgstr "On idle"
+
+msgid "浸水時"
+msgstr "when wet"
+
+msgid "再臨"
+msgstr "Second Coming"
+
+msgid "解除不可"
+msgstr "Cannot be released"
+
+msgid "フェンリル"
+msgstr "Fenrir"
+
+msgid "1回 / 解除不可"
+msgstr "1 time / Cannot be removed"

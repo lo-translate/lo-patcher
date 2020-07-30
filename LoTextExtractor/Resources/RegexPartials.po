@@ -1,0 +1,534 @@
+msgid ""
+msgstr ""
+"Content-Transfer-Encoding: 8bit\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: en\n"
+"Language-Team: \n"
+"Last-Translator: \n"
+"MIME-Version: 1.0\n"
+"Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
+"PO-Revision-Date: 2020-07-30 16:09-0400\n"
+"POT-Creation-Date: \n"
+"Project-Id-Version: \n"
+"X-Generator: Poedit 2.4\n"
+"X-Notes: The strings in this file are matched using a .NET Regex with chunk separators surrounding them (see BuildKnownParts in TranslationFinder.cs). The translated string should be surrounded by $1 and $2 to include the separators (increase the number in $2 if substrings are included).\n"
+
+msgid "きゃはは!"
+msgstr "$1 Hahaha! $2"
+
+msgid "サディズム"
+msgstr "$1 Sadistic Nature $2"
+
+msgid "リベンジャー"
+msgstr "$1 Revengeance $2"
+
+msgid "代謝促進"
+msgstr "$1 Metabolism Boost $2"
+
+msgid "突進"
+msgstr "$1 Rush $2"
+
+msgid "擬態"
+msgstr "$1 Mimesis $2"
+
+msgid "超高速突進"
+msgstr "$1 High-speed Rush $2"
+
+msgid "ダメージ量アップ"
+msgstr "$1 Increase Damage $2"
+
+msgid "スキル強化"
+msgstr "$1 Skill Enhancement $2"
+
+msgid "標的指定"
+msgstr "$1 Mark Target $2"
+
+msgid "標的設定"
+msgstr "$1 Mark Target $2"
+
+msgid "対象挑発"
+msgstr "$1 Taunt Target $2"
+
+msgid "挑発"
+msgstr "$1 Taunt $2"
+
+msgid "バリア/ダメージ減少無視"
+msgstr "$1 Ignore Shields / Damage Reduction $2"
+
+msgid "バリア/ダメージ軽減効果無視"
+msgstr "$1 Ignore Shields / Damage Reduction Effect $2"
+
+msgid "攻撃力/クリティカル率/行動力増加"
+msgstr "$1 Attack / Crit Chance / Action Speed Up $2"
+
+msgid "\\{0\\}%の威力で反撃"
+msgstr "$1 Counterattack with {0}% power $2"
+
+msgid "AP\\{0\\}に変更"
+msgstr "$1 Change AP to {0} $2"
+
+msgid "攻撃力増加"
+msgstr "$1 Attack Up $2"
+
+msgid "後ろに突き飛ばし"
+msgstr "$1 Push Back $2"
+
+msgid "AP増加"
+msgstr "$1 AP Up $2"
+
+msgid "APアップ"
+msgstr "$1 AP Up $2"
+
+msgid "AP減少"
+msgstr "$1 AP Down $2"
+
+msgid "攻撃支援"
+msgstr "$1 Follow-up Attack $2"
+
+msgid "指定対象保護"
+msgstr "$1 Protect Target $2"
+
+msgid "受けるダメージ減少"
+msgstr "$1 Damage Reduction $2"
+
+msgid "防御力"
+msgstr "$1 Defense $2"
+
+msgid "防御力(\\+)?\\{0\\}"
+msgstr "$1 Defense $2{0} $3"
+
+msgid "防御力減少"
+msgstr "$1 Defense Reduction $2"
+
+msgid "ダメージ減少"
+msgstr "$1 Damage Reduction $2"
+
+msgid "防御力増加"
+msgstr "$1 Defense Up $2"
+
+msgid "移動不可"
+msgstr "$1 Rooted $2"
+
+msgid "行保護"
+msgstr "$1 Row Protection $2"
+
+msgid "列保護"
+msgstr "$1 Column Protection $2"
+
+#  Column protection effect?
+msgid "列保護効果"
+msgstr "$1 Column Protection $2"
+
+msgid "回避率減少"
+msgstr "$1 Evasion Reduction $2"
+
+msgid "回避率増加"
+msgstr "$1 Evasion Up $2"
+
+msgid "回避率"
+msgstr "$1 Evasion $2"
+
+msgid "前に引き寄せ"
+msgstr "$1 Pull Forward $2"
+
+msgid "バリア効果"
+msgstr "$1 Shield Effect $2"
+
+msgid "反撃"
+msgstr "$1 Counterattack $2"
+
+msgid "標的"
+msgstr "$1 Mark $2"
+
+msgid "命中率"
+msgstr "$1 Accuracy $2"
+
+msgid "命中率増加"
+msgstr "$1 Accuracy Up $2"
+
+msgid "命中率減少"
+msgstr "$1 Accuracy Down $2"
+
+msgid "電気耐性"
+msgstr "$1 Resist Electric $2"
+
+msgid "状態異常耐性増加"
+msgstr "$1 Effect Resist Up $2"
+
+msgid "有害な効果解除"
+msgstr "$1 Remove Harmful Effects $2"
+
+#. Effect_3P_Fenrir_N_13
+msgid "手作り弁当装備時、攻撃力/行動力増加"
+msgstr "$1 When Lunch Box is Equipped Attack and Action Speed Up $2"
+
+msgid "行動力増加"
+msgstr "$1 Action Speed Up $2"
+
+msgid "ダメージ増幅"
+msgstr "$1 Increase Damage $2"
+
+msgid "行動力減少"
+msgstr "$1 Reduced Action Speed $2"
+
+msgid "行動力"
+msgstr "$1 Action Speed $2"
+
+msgid "攻撃力"
+msgstr "$1 Attack $2"
+
+msgid "クリティカル率"
+msgstr "$1 Critical Chance $2"
+
+msgid "クリティカル率増加"
+msgstr "$1 Critical Hit Rate $2"
+
+msgid "受けるダメージ最小化"
+msgstr "$1 Minimize Damage Received $2"
+
+msgid "ダメージ最小化"
+msgstr "$1 Minimize Damage $2"
+
+msgid "後ろから攻撃するほどダメージ増加"
+msgstr "$1 Increase damage dealt to further enemies $2"
+
+msgid "行動力減少解除"
+msgstr "$1 Remove Action Speed Reduction $2"
+
+msgid "回避率減少解除"
+msgstr "$1 Remove Evasion Reduction $2"
+
+msgid "命中率強化解除"
+msgstr "$1 Remove Accuracy Buff $2"
+
+msgid "命中率増加解除"
+msgstr "$1 Remove Hit Rate Buff $2"
+
+msgid "ダメージ減少効果解除"
+msgstr "$1 Remove Damage Reduction $2"
+
+msgid "クリティカル率減少"
+msgstr "$1 Reduced Crit Rate $2"
+
+msgid "行保護解除"
+msgstr "$1 Remove Row Protection $2"
+
+msgid "列保護解除"
+msgstr "$1 Remove Column Protection $2"
+
+msgid "混乱効果"
+msgstr "$1 Confusion Effect $2"
+
+msgid "自分射程距離増加"
+msgstr "$1 Increased Own Range $2"
+
+msgid "射程距離減少"
+msgstr "$1 Reduced Range $2"
+
+msgid "後ろに\\{0\\}マス突き飛ばし"
+msgstr "$1 Push Back {0} Spaces $2"
+
+msgid "一定確率で行動不可"
+msgstr "$1 Chance to Stun $2"
+
+msgid "\\{0\\}HPで戦闘続行"
+msgstr "$1 Continue Battle at {0} HP $2"
+
+msgid "自分のHP%が低いほどダメージ量増加"
+msgstr "$1 Deal more damage as HP decreases $2"
+
+msgid "敵のHP%低いほどダメージ量増加"
+msgstr "$1 Damage level increases as enemy HP decreases $2"
+
+msgid "敵HP%が低いほどダメージ量増加"
+msgstr "$1 Damage amount increases as enemy HP decreases $2"
+
+msgid "敵HP%が低いほどダメージ量(\\+)?\\{0\\}%"
+msgstr "$1 Deal $2{0}% more damage as enemy HP decreases $3"
+
+msgid "行動力(\\+)?\\{0\\}%"
+msgstr "$1 Action Speed $2{0}% $3"
+
+msgid "命中率(\\+)?\\{0\\}%"
+msgstr "$1 Accuracy $2{0}% $3"
+
+msgid "攻撃力(\\+)?\\{0\\}%"
+msgstr "$1 Attack $2{0}% $3"
+
+msgid "対軽装型ダメージ量(\\+)?\\{0\\}%"
+msgstr "$1 Anti-Light Damage $2{0}% $3"
+
+msgid "クリティカル率(\\+)?\\{0\\}%"
+msgstr "$1 Critical Hit Rate $2{0}% $3"
+
+msgid "ダメージ量(\\+)?\\{0\\}%"
+msgstr "$1 Damage $2{0}% $3"
+
+msgid "受けるダメージ(\\+)?\\{0\\}%"
+msgstr "$1 Damage Taken $2{0}% $3"
+
+msgid "防御力(\\+)?\\{0\\}%"
+msgstr "$1 Defense $2{0}% $3"
+
+msgid "防御貫通(\\+)?\\{0\\}%"
+msgstr "$1 Defense Penetration $2{0}% $3"
+
+msgid "経験値(\\+)?\\{0\\}%"
+msgstr "$1 Experience $2{0}% $3"
+
+msgid "射程距離(\\+)?\\{0\\}"
+msgstr "$1 Range $2{0} $3"
+
+msgid "対機動型ダメージ量(\\+)\\{0\\}%"
+msgstr "$1 $2{0}% Damage against Flying units $3"
+
+msgid "追加火炎ダメージ(\\+)?\\{0\\}%"
+msgstr "$1 Additional Fire Damage $2{0}% $3"
+
+msgid "火炎耐性(\\+)?\\{0\\}%"
+msgstr "$1 Resist Fire $2{0}% $3"
+
+msgid "電気耐性(\\+)?\\{0\\}%"
+msgstr "$1 Resist Electric $2{0}% $3"
+
+msgid "冷気耐性(\\+)?\\{0\\}%"
+msgstr "$1 Resist Ice $2{0}% $3"
+
+msgid "火全耐性(\\+)?\\{0\\}%"
+msgstr "$1 Resist Total $2{0}% $3"
+
+msgid "状態異常耐性(\\+)?\\{0\\}%"
+msgstr "$1 Resist Effects $2{0}% $3"
+
+msgid "受けるダメージ\\{0\\}%減少"
+msgstr "$1 {0}% Damage Reduction $2"
+
+msgid "受けるダメージ\\{0\\}%ダウン"
+msgstr "$1 {0}% Damage Reduction $2"
+
+msgid "回避率(\\+)?\\{0\\}%"
+msgstr "$1 Evasion $2{0}% $3"
+
+msgid "浸水"
+msgstr "$1 Wet $2"
+
+msgid "電荷集束"
+msgstr "$1 Electric Charge $2"
+
+msgid "模範教師"
+msgstr "$1 Role Model Teacher $2"
+
+msgid "電荷放出"
+msgstr "$1 Charge Release $2"
+
+msgid "電磁場刺激(!)?"
+msgstr "$1 Electric Field Stimulation$2 $3"
+
+msgid "電荷放出状態に変身"
+msgstr "$1 Entered Electric Emission state $2"
+
+msgid "戦闘終了時、味方の獲得経験値増加"
+msgstr "$1 After battle, increase EXP to allies $2"
+
+msgid "クリティカル時、ダメージ量増加"
+msgstr "$1 Increase Critical Damage $2"
+
+msgid "敵攻撃時、行動力増加/撃破時、一定確率でAP回復"
+msgstr "$1 Small chance to refund AP on destroying enemy $2"
+
+msgid "対軽装型ダメージ量増加"
+msgstr "$1 Increased Anti-Light Damage $2"
+
+msgid "バリア&ダメージ減少効果無視"
+msgstr "$1 Ignore Shield and Damage Reduction $2"
+
+msgid "一定確率でAP回復"
+msgstr "$1 Small chance to refund AP $2"
+
+msgid "攻撃力\\{0\\}% 固定ダメージ"
+msgstr "$1 Fixed damage {0}% $2"
+
+msgid "挑発対象ダメージ増加"
+msgstr "$1 Additional damage to Provoked enemies $2"
+
+msgid "ダメージ無効\\{0\\}回"
+msgstr "$1 Nullify Damage {0} times $2"
+
+msgid "ダメージ無効1回"
+msgstr "$1 Nullify Damage once $2"
+
+msgid "ダメージ無効"
+msgstr "$1 Nullify Damage $2"
+
+msgid "猫の手を貸す"
+msgstr "$1 Lend a Hand $2"
+
+msgid "柔軟性"
+msgstr "$1 Flexibility $2"
+
+msgid "目覚めた本能"
+msgstr "$1 Awakened Instinct $2"
+
+msgid "隣接するバイオロイドの攻撃力"
+msgstr "$1 Grant allies in Area of Effect Attack Up $2"
+
+msgid "精密分析"
+msgstr "$1 Accurate Analysis $2"
+
+msgid "隣接した味方の攻撃力"
+msgstr "$1 Grant allies in Area of Effect Attack Up $2"
+
+#  Defense penetration effect?
+msgid "防御貫通効果"
+msgstr "$1 Defense Penetration $2"
+
+msgid "防御貫通"
+msgstr "$1 Defense Penetration $2"
+
+msgid "防御貫通増加"
+msgstr "$1 Increased Defense Penetration $2"
+
+msgid "AGS戦術指揮"
+msgstr "$1 AGS Tactical Command $2"
+
+msgid "バリア\\+\\{0\\}"
+msgstr "$1 Shield +{0} $2"
+
+msgid "突撃支援"
+msgstr "$1 Assault Support $2"
+
+msgid "\\{0\\}%確率攻撃支援"
+msgstr "$1 Follow Up Attack {0}% $2"
+
+msgid "精密砲撃"
+msgstr "$1 Accurate Bombardment $2"
+
+msgid "指定対象保護解除"
+msgstr "$1 Remove Target Protect $2"
+
+msgid "指定保護解除"
+msgstr "$1 Remove Target Protect $2"
+
+msgid "高性能レーダー"
+msgstr "$1 High-Performance Radar $2"
+
+msgid "次の敵情報獲得"
+msgstr "$1 Grant Recon effect $2"
+
+# Recon Function?
+msgid "偵察機能"
+msgstr "$1 Recon $2"
+
+msgid "命中率減少解除"
+msgstr "$1 Remove Accuracy Reduction $2"
+
+msgid "味方の回避率増加"
+msgstr "$1 Grant allies in Area of Effect Evasion Up $2"
+
+msgid "実験対象募集!"
+msgstr "$1 Recruiting Test Subjects! $2"
+
+msgid "50%強化解除"
+msgstr "$1 50% chance to remove buffs $2"
+
+msgid "前に引き寄せる"
+msgstr "$1 Pull Forward $2"
+
+msgid "ランダム強化効果"
+msgstr "$1 Random Buff $2"
+
+msgid "敵の情報獲得"
+msgstr "$1 Grant Recon $2"
+
+msgid "急速充電"
+msgstr "$1 Quick Charge $2"
+
+msgid "出力強化"
+msgstr "$1 Enhance Output $2"
+
+msgid "バリア/ダメージ減少効果無視"
+msgstr "$1 Ignore Shield and Damage Reduction $2"
+
+msgid "特殊防御無視"
+msgstr "$1 Ignore Shield and Damage Reduction $2"
+
+msgid "バリア/ダメージ減少解除"
+msgstr "$1 Remove Shield and Damage Reduction $2"
+
+msgid "援護射撃"
+msgstr "$1 Support Fire $2"
+
+#  Daphne
+msgid "観察眼"
+msgstr "$1 Keen Eyes $2"
+
+#  Fenrir
+msgid "エリアパトロール"
+msgstr "$1 Domain Patrol $2"
+
+#. Effect_3P_Fenrir_N_3
+msgid "戦闘続行"
+msgstr "$1 Battle Continuation $2"
+
+#. Effect_3P_Fenrir_N_12
+msgid "敵撃破時、AP増加"
+msgstr "$1 On Kill, Increase AP $2"
+
+#. Effect_3P_Labiata_N_11
+msgid "HP50%以下の時、受けるダメージ減少"
+msgstr "$1 Reduce Damage Taken at 50% HP or less $2"
+
+#. Effect_3P_ScissorsLise_N_4
+msgid "敵のHP%が低いほどダメージ量\\+\\{0\\}%"
+msgstr "$1 Damage increases +{0}% as enemy HP decreases $2"
+
+msgid "害虫駆除"
+msgstr "$1 Pest Extermination $2"
+
+msgid "庭師の本性"
+msgstr "$1 Gardener's True Nature $2"
+
+#. Effect_3P_ScissorsLise_N_4
+msgid "攻撃対象のHP%が低いほどダメージ量アップ"
+msgstr "$1 Damage increases as enemy HP decreases $2"
+
+#. Effect_3P_ScissorsLise_N_14
+msgid "分隊内にリリスが居る場合、行動力増加"
+msgstr "$1 Increase Speed when Lilith is in Squad $2"
+
+#. Effect_DS_Azazel_N_3
+msgid "神の加護"
+msgstr "$1 Divine Protection $2"
+
+msgid "守護天使"
+msgstr "$1 Guardian Angel $2"
+
+#  Barrier? Shield was used in other strings
+msgid "バリア"
+msgstr "$1 Shield $2"
+
+#. Effect_MP_Nereid_EV2_4
+msgid "バトルジャンキー"
+msgstr "$1 Battle Overcommitment $2"
+
+msgid "戦闘開始時、戦闘続行"
+msgstr "$1 At start of wave, grant Battle Continuation $2"
+
+msgid "戦闘続行時、攻撃力"
+msgstr "$1 For the Wave, Attack Up $2"
+
+msgid "戦闘続行時、バリア&ダメージ減少無視"
+msgstr "$1 On Revive, Ignore Shields and Damage Reduction $2"
+
+msgid "真後ろの対象保護"
+msgstr "$1 Target Protect Behind $2"
+
+msgid "要員掩蔽"
+msgstr "$1 Covering Important Personnel $2"
+
+#. Effect_BR_Sleipnir_N_3
+msgid "スピード勝負よ!"
+msgstr "$1 Let's Speed Race! $2"
+
+msgid "機動型の味方を保護"
+msgstr "$1 Target Protect Flying Allies $2"
