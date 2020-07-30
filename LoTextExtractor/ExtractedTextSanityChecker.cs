@@ -37,7 +37,7 @@ namespace LoTextExtractor
             ExtractedText entry, string textToCheck, StringComparison comparison = StringComparison.OrdinalIgnoreCase
         )
         {
-            if (entry.English == null)
+            if (string.IsNullOrEmpty(entry.English))
             {
                 // We only care about issues with the English string
                 return true;
