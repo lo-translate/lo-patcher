@@ -94,7 +94,7 @@ namespace LoPatcher.Patcher.Containers
                     continue;
                 }
 
-                assetReplacers.Add(asset.BuildReplacer(scriptStream.ToArray()));
+                assetReplacers.Add(asset.BuildScriptReplacer(scriptStream.ToArray()));
             }
 
             if (assetReplacers.Count > 0)

@@ -1,7 +1,7 @@
 ﻿using AssetsTools.NET;
+using AssetsTools.NET.Extra;
 using System;
 using System.Diagnostics;
-using System.IO;
 
 namespace LoPatcher.Unity
 {
@@ -37,28 +37,26 @@ namespace LoPatcher.Unity
                 Debug.WriteLine($"Script name does not match asset name '{name}' != '{Name}'");
             }
 
-            return script.GetRawValue() as byte[];
+            return script.AsStringBytes();
         }
 
-        public AssetsReplacer BuildReplacer(byte[] newScript)
+        public AssetsReplacer BuildScriptReplacer(byte[] newScript)
         {
             if (newScript == null)
             {
                 throw new ArgumentNullException(nameof(newScript));
             }
 
-            using var memoryStream = new MemoryStream();
-            using var assetWriter = new AssetsFileWriter(memoryStream);
+            var script = baseField.Get("m_Script").GetValue();
+            if (script == null)
+            {
+                throw new InvalidOperationException("Script value doesn't exist");
+            }
 
-            assetWriter.bigEndian = false;
-            assetWriter.WriteCountStringInt32(Name);
-            assetWriter.Align();
-            assetWriter.Write(newScript.Length);
-            assetWriter.Write(newScript);
-            assetWriter.Align();
+            script.Set(newScript);
 
-            var replaced = memoryStream.ToArray();
-
+            var replaced = baseField.WriteToByteArray();
+            
             return new AssetsReplacerFromMemory(
                 info.curFileTypeOrIndex, info.index, (int)info.curFileType, 0xFFFF, replaced
             );
