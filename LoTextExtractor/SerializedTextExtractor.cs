@@ -52,6 +52,7 @@ namespace LoTextExtractor
 
             var excludedFields = new[]
             {
+                "_Table_Announce",  // Announcement popup is now a website
                 "_Table_Forbidden", // Forbidden words, nothing useful for translation
             };
 

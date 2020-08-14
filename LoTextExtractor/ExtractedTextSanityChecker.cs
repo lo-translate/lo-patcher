@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace LoTextExtractor
 {
@@ -13,49 +15,91 @@ namespace LoTextExtractor
             }
 
             var warnings = new List<string>();
+
+            if (string.IsNullOrEmpty(entry.English))
+            {
+                return warnings;
+            }
+
             var cleanText = entry.English?.Replace("\n", "\\n").Replace("\r", "\\r").Replace("\t", "\\t");
 
-            for (var index = 0; index < 99; index++)
+            var numbersInJapanese = Regex.Matches(entry.Japanese, @"(\d+)");
+            //var numbersInKorean = Regex.Matches(entry.Korean, @"(\d+)");
+            var numbersInEnglish = Regex.Matches(entry.English, @"(\d+)");
+
+            if (numbersInJapanese.Count < 1 && numbersInEnglish.Count < 1)
             {
-                var placeholder = "{" + index.ToString() + "}";
-                if (!IsEntrySane(entry, placeholder))
+                return warnings;
+            }
+
+            var japaneseValues = numbersInJapanese.Select(m => m.Captures.First().Value);
+            var englishValues = numbersInEnglish.Select(m => m.Captures.First().Value);
+            var source = entry.Source;
+            if (entry.SourceLine > 0)
+            {
+                source += $":{entry.SourceLine}";
+            }
+
+            foreach (var match in englishValues.Except(japaneseValues))
+            {
+                if (japaneseValues.Contains(ConvertAscii(match)))
                 {
-                    warnings.Add($"Possible placeholder issue: '{placeholder}' in '{cleanText}' at {entry.Source}");
+                    continue;
+                }
+                warnings.Add($"{source}: Number in English text but not Japanese: '{match}'");
+            }
+
+            foreach (var match in japaneseValues.Except(englishValues))
+            {
+                if (englishValues.Contains(ConvertUnicode(match)))
+                {
+                    continue;
                 }
 
-                var level = "Lv." + index.ToString();
-                if (!IsEntrySane(entry, level))
+                if (ConvertUnicode(match) == "1" && entry.English.Contains("once", StringComparison.OrdinalIgnoreCase))
                 {
-                    warnings.Add($"Possible level issue: '{level}' in '{cleanText}' at {entry.Source}");
+                    continue;
                 }
+
+                warnings.Add($"{source}: Number in Japanese text but not English: '{match}'");
             }
 
             return warnings;
         }
 
-        private bool IsEntrySane(
-            ExtractedText entry, string textToCheck, StringComparison comparison = StringComparison.OrdinalIgnoreCase
-        )
+
+        private Dictionary<string, string> unicodeCharacters = new Dictionary<string, string>()
         {
-            if (string.IsNullOrEmpty(entry.English))
+            { "１", "1" },
+            { "２", "2" },
+            { "３", "3" },
+            { "４", "4" },
+            { "５", "5" },
+            { "６", "6" },
+            { "７", "7" },
+            { "８", "8" },
+            { "９", "9" },
+            { "０", "0" },
+        };
+
+        private string ConvertUnicode(string input)
+        {
+            foreach(var kvp in unicodeCharacters)
             {
-                // We only care about issues with the English string
-                return true;
+                input = input.Replace(kvp.Key, kvp.Value, StringComparison.Ordinal);
             }
 
-            var inKorean = entry.Korean != null && entry.Korean.Contains(textToCheck, comparison);
-            var inJapanese = entry.Japanese != null && entry.Japanese.Contains(textToCheck, comparison);
-            var inEnglish = entry.English != null && entry.English.Contains(textToCheck, comparison);
+            return input;
+        }
 
-            if (
-                ((inKorean || inJapanese) && !inEnglish) ||
-                ((!inKorean || !inJapanese) && inEnglish)
-            )
+        private string ConvertAscii(string input)
+        {
+            foreach (var kvp in unicodeCharacters)
             {
-                return false;
+                input = input.Replace(kvp.Value, kvp.Key, StringComparison.Ordinal);
             }
 
-            return true;
+            return input;
         }
     }
 }

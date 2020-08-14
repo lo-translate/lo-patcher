@@ -75,7 +75,7 @@ namespace LoTextExtractor
 
             Console.WriteLine($"Filtering and translating extracted text");
 
-            var groups = new Dictionary<string, List<ExtractedText>>();
+            var groups = new SortedDictionary<string, List<ExtractedText>>();
 
             foreach (var entry in entries)
             {
@@ -180,10 +180,7 @@ namespace LoTextExtractor
                 var catalogManager = new CatalogManager();
                 var catalogWarnings = catalogManager.SaveTo(file, versionDate, group.Value);
 
-                foreach (var warning in catalogWarnings)
-                {
-                    warnings.Add($"{group.Key}: {warning}");
-                }
+                warnings.AddRange(catalogWarnings);
             }
 
             var warningFile = Path.Join(outputPath.FullName, "WARNINGS");
