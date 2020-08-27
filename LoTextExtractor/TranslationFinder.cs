@@ -233,8 +233,8 @@ namespace LoTextExtractor
 
         private Dictionary<Regex, string> BuildKnownParts()
         {
-            var start = @"(^|[:：/]{1})";
-            var end = @"($|[:：/\(（]{1})";
+            var start = @"(^|[:：／/]{1})";
+            var end = @"($|[:：／/\(（]{1})";
 
             using var partialStream = File.OpenRead(@"Resources\RegexPartials.po");
             var parser = new POParser(new POParserSettings());
