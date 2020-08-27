@@ -67,8 +67,7 @@ namespace LoTextExtractor
             return warnings;
         }
 
-
-        private Dictionary<string, string> unicodeCharacters = new Dictionary<string, string>()
+        private readonly Dictionary<string, string> unicodeCharacters = new Dictionary<string, string>()
         {
             { "１", "1" },
             { "２", "2" },
