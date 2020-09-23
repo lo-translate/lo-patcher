@@ -45,7 +45,9 @@ namespace LoTextExtractor
             foreach (var kvp in japaneseRoot._Table_BuffEffect_Client)
             {
                 var sourceName = $"BuffEffect_Client[{kvp.Key}]";
-                var koreanObject = koreanRoot._Table_BuffEffect_Client[kvp.Key];
+                var koreanObject = koreanRoot._Table_BuffEffect_Client.ContainsKey(kvp.Key)
+                    ? koreanRoot._Table_BuffEffect_Client[kvp.Key]
+                    : null;
 
                 extractedText.AddRange(FindTextInObject(kvp.Value, koreanObject, sourceName));
             }
