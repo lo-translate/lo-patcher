@@ -105,6 +105,11 @@ namespace LoTextExtractor
                     {
                         var koreanArrayText = koreanPropInstance[stringIndex++];
 
+                        if (Regex.IsMatch((string)koreanArrayText, "^[0-9]+$"))
+                        {
+                            koreanArrayText = "";
+                        }
+
                         foundText.Add(new ExtractedText()
                         {
                             Japanese = (string)japaneseArrayText,
@@ -133,6 +138,11 @@ namespace LoTextExtractor
                         Debug.WriteLine($"Failed to obtain text from property {sourceName}.{property.Name}");
                     }
                     continue;
+                }
+
+                if (Regex.IsMatch((string)koreanText, "^[0-9]+$"))
+                {
+                    koreanText = "";
                 }
 
                 foundText.Add(new ExtractedText()
