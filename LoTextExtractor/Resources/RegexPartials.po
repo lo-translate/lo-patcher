@@ -375,6 +375,9 @@ msgstr "$1 Lend a Hand $2"
 msgid "救いの手"
 msgstr "$1 Lend a Hand $2"
 
+msgid "猫の手"
+msgstr "$1 Lend a Hand $2"
+
 msgid "柔軟性"
 msgstr "$1 Flexibility $2"
 
