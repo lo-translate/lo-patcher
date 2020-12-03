@@ -23,7 +23,7 @@ namespace LoTextExtractor
             var japaneseRoot = formatter.Deserialize(japaneseStream) as LastOnTable;
 
             using var koreanStream = new MemoryStream(koreanData);
-            var koreanRoot = formatter.Deserialize(koreanStream) as LastOnTable;
+            var koreanRoot = koreanStream.Length > 0 ? formatter.Deserialize(koreanStream) as LastOnTable : null;
 
             foreach (var storyKvp in japaneseRoot._Table_PCStory_Client)
             {
@@ -34,7 +34,7 @@ namespace LoTextExtractor
                 foreach (var japaneseStage in stages)
                 {
                     var sourceName = $"PCStory_Client[{storyId}][{index}]";
-                    var koreanStage = koreanRoot._Table_PCStory_Client[storyId][index];
+                    var koreanStage = koreanRoot?._Table_PCStory_Client[storyId][index];
 
                     extractedText.AddRange(FindTextInObject(japaneseStage, koreanStage, sourceName));
 
@@ -67,12 +67,14 @@ namespace LoTextExtractor
                 }
 
                 var japaneseFieldInstance = field.GetValue(japaneseRoot._TableManager) as IDictionary;
-                var koreanFieldInstance = field.GetValue(koreanRoot._TableManager) as IDictionary;
+                var koreanFieldInstance = koreanRoot != null
+                    ? field.GetValue(koreanRoot._TableManager) as IDictionary
+                    : null;
 
                 foreach (DictionaryEntry kvp in japaneseFieldInstance)
                 {
                     var sourceName = $"{field.Name.Replace("_Table_", "")}[{kvp.Key}]";
-                    var koreanValue = koreanFieldInstance[kvp.Key];
+                    var koreanValue = koreanFieldInstance != null ? koreanFieldInstance[kvp.Key] : null;
 
                     extractedText.AddRange(FindTextInObject(kvp.Value, koreanValue, sourceName));
                 }

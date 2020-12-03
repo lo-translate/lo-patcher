@@ -60,8 +60,9 @@ namespace LoTextExtractor
                     Console.Write($"Processing {asset.Name} ");
 
                     var koreanAsset = bundleAssets.FirstOrDefault(b => b.Name == asset.Name.Replace(".bin", "_ko.bin"));
+                    var koreanBytes = koreanAsset != null ? koreanAsset.GetScript() : Array.Empty<byte>();
 
-                    entries.AddRange(serializedTextExtractor.ExtractText(asset.GetScript(), koreanAsset?.GetScript()));
+                    entries.AddRange(serializedTextExtractor.ExtractText(asset.GetScript(), koreanBytes));
                 }
                 else
                 {
