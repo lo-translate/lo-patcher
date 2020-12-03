@@ -249,8 +249,6 @@ namespace LoPatcher
 
                 var commentText = translatorComment.Text;
 
-                commentText = Regex.Replace(commentText, "(; )?Korean Text: (.*)$", "");
-
                 if (string.IsNullOrEmpty(commentText))
                 {
                     continue;

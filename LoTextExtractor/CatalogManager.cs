@@ -102,7 +102,9 @@ namespace LoTextExtractor
 
             // If we have Korean text add it to the comment as well. This gives us multiple strings to throw at a
             // machine translator to hopefully get better context.
-            if (!string.IsNullOrEmpty(extractedEntry.Korean) && extractedEntry.Korean != extractedEntry.Japanese)
+            if (!string.IsNullOrEmpty(extractedEntry.Korean)
+                && extractedEntry.Korean != extractedEntry.Japanese
+                && !comment.Contains("Korean Text: ", StringComparison.Ordinal))
             {
                 if (comment.Length > 0)
                 {
