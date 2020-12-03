@@ -176,14 +176,18 @@ namespace LoPatcher
                         continue;
                     }
 
-                    if (WasPartial(singleItem))
-                    {
-                        continue;
-                    }
-
                     if (LoadComments)
                     {
                         ExtractComments(key.Key, singleItem);
+                    }
+                    
+                    // If we were a partial match we don't need to keep the translation since
+                    // the partials will be processed again later.  We extract the comments
+                    // above anyway so we maintain the Korean Text comments that may no longer
+                    // exist in the bin files.
+                    if (WasPartial(singleItem))
+                    {
+                        continue;
                     }
 
                     var translation = singleItem.Translation;
@@ -248,6 +252,13 @@ namespace LoPatcher
                 }
 
                 var commentText = translatorComment.Text;
+
+                if (string.IsNullOrEmpty(commentText))
+                {
+                    continue;
+                }
+
+                commentText = commentText.Replace(PartialMatchComment, "").Trim(new char[] { ';', ' ' });
 
                 if (string.IsNullOrEmpty(commentText))
                 {
