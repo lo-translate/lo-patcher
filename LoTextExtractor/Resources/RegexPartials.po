@@ -122,6 +122,9 @@ msgstr "$1 Column Protection $2"
 msgid "回避率減少"
 msgstr "$1 Evasion Reduction $2"
 
+msgid "回避減少"
+msgstr "$1 Evasion Reduction $2"
+
 msgid "回避率増加"
 msgstr "$1 Evasion Up $2"
 
@@ -129,6 +132,9 @@ msgid "自分の回避率増加"
 msgstr "$1 Self Evasion Up $2"
 
 msgid "回避率"
+msgstr "$1 Evasion $2"
+
+msgid "回避"
 msgstr "$1 Evasion $2"
 
 msgid "前に引き寄せ"
@@ -261,6 +267,9 @@ msgstr "$1 Action Speed $2{0}% $3"
 msgid "命中率(\\+)?\\{0\\}%"
 msgstr "$1 Accuracy $2{0}% $3"
 
+msgid "命中(\\+)?\\{0\\}%"
+msgstr "$1 Accuracy $2{0}% $3"
+
 msgid "攻撃力(\\+)?\\{0\\}%"
 msgstr "$1 Attack $2{0}% $3"
 
@@ -316,6 +325,9 @@ msgid "受けるダメージ\\{0\\}%ダウン"
 msgstr "$1 {0}% Damage Reduction $2"
 
 msgid "回避率(\\+)?\\{0\\}%"
+msgstr "$1 Evasion $2{0}% $3"
+
+msgid "回避(\\+)?\\{0\\}%"
 msgstr "$1 Evasion $2{0}% $3"
 
 msgid "浸水"

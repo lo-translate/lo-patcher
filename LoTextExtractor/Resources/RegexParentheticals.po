@@ -108,3 +108,6 @@ msgstr "Fenrir"
 
 msgid "1回 / 解除不可"
 msgstr "1 time / Cannot be removed"
+
+msgid "アニー"
+msgstr "Annie"
