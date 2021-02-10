@@ -34,7 +34,9 @@ namespace LoTextExtractor
                 foreach (var japaneseStage in stages)
                 {
                     var sourceName = $"PCStory_Client[{storyId}][{index}]";
-                    var koreanStage = koreanRoot?._Table_PCStory_Client[storyId][index];
+                    var koreanStage = (bool)(koreanRoot?._Table_PCStory_Client.ContainsKey(storyId))
+                        ? koreanRoot?._Table_PCStory_Client[storyId]?[index]
+                        : null;
 
                     extractedText.AddRange(FindTextInObject(japaneseStage, koreanStage, sourceName));
 
